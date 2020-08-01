@@ -2,7 +2,18 @@
 
 How to run
 Update the browser name in config.properties under src/test/resoureces/config
-Browser=firefox
+ Example :Browser=firefox
+
+If you are using Eclipse then go to  pakacge com.acdt.edu.action-->TestRunner.class and update the tag which you want to run it.
+Tag can be found in feature file.
+
+Then right click the TestRunner.class and click Run as -->Junit test
+
+Or
+ you can go to cmd/terminal 
+navigate to project
+
+type this: mvn clean install
 
 BrowserDriver:
 Drivers will download automatically.No need to download browser driver

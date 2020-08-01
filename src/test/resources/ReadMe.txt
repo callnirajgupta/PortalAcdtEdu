@@ -1,6 +1,9 @@
 BrowserDriver:
-Drivers will download automatically.No need to download browser driver 
+Drivers will download automatically.No need to download browser driver
 
+How to run
+Update the browser name in config.properties under src/test/resoureces/config
+Browser=firefox
 Reports:
 We are gererating three type of report1. Under Target folder 
 
