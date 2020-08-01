@@ -1,0 +1,47 @@
+2020-08-01 16:49:04 INFO  SeleniumUtil:51 - Inside static block
+2020-08-01 16:49:04 INFO  SeleniumUtil:227 - delete log from logs folder
+2020-08-01 16:49:04 DEBUG SeleniumUtil:232 - Logs deleted
+2020-08-01 16:49:04 DEBUG SeleniumUtil:232 - Logs deleted
+2020-08-01 16:49:16 INFO  SeleniumUtil:196 - ############################# Inside CloseBrowser #############################
+2020-08-01 16:49:17 DEBUG SeleniumUtil:199 - ###################   Closed Browser #############################
+2020-08-01 16:49:17 INFO  SeleniumUtil:137 - Inside setDriver Method
+2020-08-01 16:50:35 INFO  SeleniumUtil:51 - Inside static block
+2020-08-01 16:50:35 INFO  SeleniumUtil:227 - delete log from logs folder
+2020-08-01 16:50:35 DEBUG SeleniumUtil:232 - Logs deleted
+2020-08-01 16:50:35 INFO  GlobalStepDefinition:26 - Inside Setup method
+2020-08-01 16:50:35 INFO  GlobalStepDefinition:50 - user navigates to login page
+2020-08-01 16:50:39 INFO  SeleniumUtil:143 - Inside maximizeBrowser Method
+2020-08-01 16:50:42 INFO  SeleniumUtil:159 - Inside getConfigProperties Method
+2020-08-01 16:50:42 INFO  SeleniumUtil:154 - Inside launchApplication with url Method
+2020-08-01 16:50:49 INFO  SeleniumUtil:209 -  print the sysc time 60
+2020-08-01 16:50:49 INFO  SeleniumUtil:423 - inside PassTestStep method
+2020-08-01 16:50:49 INFO  SeleniumUtil:405 - inside takeScreenShotReturnPath method
+2020-08-01 16:50:49 INFO  GlobalStepDefinition:65 - Inside Teardown method
+2020-08-01 16:50:49 DEBUG cache:45 - Couldn't find template in cache for "Extent.ftl"("en_US", UTF-8, parsed); will try to load it.
+2020-08-01 16:50:49 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent_en_US.ftl"): Not found
+2020-08-01 16:50:49 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent_en.ftl"): Not found
+2020-08-01 16:50:49 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent.ftl"): Found
+2020-08-01 16:50:49 DEBUG cache:45 - Loading template for "Extent.ftl"("en_US", UTF-8, parsed) from "jar:file:/C:/Users/sai/.m2/repository/com/relevantcodes/extentreports/2.40.2/extentreports-2.40.2.jar!/com/relevantcodes/extentreports/view/Extent.ftl"
+2020-08-01 16:50:50 INFO  SeleniumUtil:196 - ############################# Inside CloseBrowser #############################
+2020-08-01 16:50:50 DEBUG SeleniumUtil:199 - ###################   Closed Browser #############################
+2020-08-01 16:50:50 INFO  SeleniumUtil:137 - Inside setDriver Method
+2020-08-01 16:52:26 INFO  SeleniumUtil:51 - Inside static block
+2020-08-01 16:52:26 INFO  SeleniumUtil:227 - delete log from logs folder
+2020-08-01 16:52:26 DEBUG SeleniumUtil:232 - Logs deleted
+2020-08-01 16:52:27 INFO  GlobalStepDefinition:26 - Inside Setup method
+2020-08-01 16:52:27 INFO  GlobalStepDefinition:50 - user navigates to login page
+2020-08-01 16:52:27 INFO  SeleniumUtil:82 - Inside Firefox browser initialization
+2020-08-01 16:52:53 DEBUG SeleniumUtil:95 - FireFox Browser launched successfully
+2020-08-01 16:52:53 INFO  SeleniumUtil:143 - Inside maximizeBrowser Method
+2020-08-01 16:52:53 INFO  SeleniumUtil:159 - Inside getConfigProperties Method
+2020-08-01 16:52:53 INFO  SeleniumUtil:154 - Inside launchApplication with url Method
+2020-08-01 16:53:00 INFO  SeleniumUtil:209 -  print the sysc time 60
+2020-08-01 16:53:01 INFO  SeleniumUtil:423 - inside PassTestStep method
+2020-08-01 16:53:01 INFO  SeleniumUtil:405 - inside takeScreenShotReturnPath method
+2020-08-01 16:53:01 INFO  GlobalStepDefinition:65 - Inside Teardown method
+2020-08-01 16:53:01 DEBUG cache:45 - Couldn't find template in cache for "Extent.ftl"("en_US", UTF-8, parsed); will try to load it.
+2020-08-01 16:53:01 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent_en_US.ftl"): Not found
+2020-08-01 16:53:01 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent_en.ftl"): Not found
+2020-08-01 16:53:01 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent.ftl"): Found
+2020-08-01 16:53:01 DEBUG cache:45 - Loading template for "Extent.ftl"("en_US", UTF-8, parsed) from "jar:file:/C:/Users/sai/.m2/repository/com/relevantcodes/extentreports/2.40.2/extentreports-2.40.2.jar!/com/relevantcodes/extentreports/view/Extent.ftl"
+2020-08-01 16:53:01 INFO  SeleniumUtil:196 - ############################# Inside CloseBrowser #############################
