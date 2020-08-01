@@ -43,7 +43,7 @@ public class SeleniumUtil {
 	private static Properties configProperties;
 	private static final String configFile = System.getProperty("user.dir")
 			+ "//src//test//resources//config//Config.properties";
-	private static String screenShotFolder = System.getProperty("user.dir") + "//src//test//resources//ExtendReportSnap";
+	private static String screenShotFolder = System.getProperty("user.dir") + "//src//test//resources//ExtendReportSnap//";
 	public static int waitBrowserSync;
 	public static int waitWebElementSync;
 

@@ -34,7 +34,7 @@ public class TestRunner {
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
 		System.setProperty("currentdate", dateFormat.format(new Date()));
-		SeleniumUtil.cleanFolder("Logs");// delete all logs files
+		
 		
 
 	}
