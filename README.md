@@ -1,5 +1,12 @@
 # PortalAcdtEdu
 
+How to run
+Update the browser name in config.properties under src/test/resoureces/config
+Browser=firefox
+
+BrowserDriver:
+Drivers will download automatically.No need to download browser driver
+
 Reports:
 We are gererating three type of report1. Under Target folder 
 
