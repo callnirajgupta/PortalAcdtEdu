@@ -4,6 +4,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 import com.acdt.edu.action.TestRunner;
 import com.acdt.edu.util.SeleniumUtil;
@@ -20,6 +21,7 @@ public class GlobalStepDefinition {
 	public static Scenario scenario;
 	private static String scenarioName;
 	public static ExtentTest extenttest;
+	public WebDriver driver=null;
 
 	@Before()
 	public void Setup(Scenario scenario) {
@@ -28,22 +30,12 @@ public class GlobalStepDefinition {
 		GlobalStepDefinition.scenario=scenario;
 		scenarioName=scenario.getName();
 		SeleniumUtil.getInstance();
+	
+		
 
 	}
 	
-	@Given("^user navigates to login page$")
-	public void user_navigates_to_login_page() throws Throwable {
-		LOGGER.info("user navigates to login page");
-		if (Boolean.FALSE.equals(SeleniumUtil.driverStatus)) {
-			SeleniumUtil.getDriver();
-			SeleniumUtil.maximizeBrowser();
-		}
-		SeleniumUtil.launchApplication(SeleniumUtil.getConfigProperties().getProperty("LoginPageUrl"));
-		SeleniumUtil.ImplicitWait();
-		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Login Page loaded successfully");
-		
-		
-	}
+	
 	
 	@Given("^user navigates to home page$")
 	public void user_navigates_to_Home_page() throws Throwable {
@@ -68,13 +60,14 @@ public class GlobalStepDefinition {
 			LOGGER.debug("###################  i am inside screen shot after fail ####################");
 			final byte[] screenshot = ((TakesScreenshot) SeleniumUtil.getDriver()).getScreenshotAs(OutputType.BYTES);
 			scenario.embed(screenshot, "image/png");
-			if (SeleniumUtil.getDriver() != null) {
-				
-				SeleniumUtil.closeBrowser();
-				SeleniumUtil.setDriver(null);
-				SeleniumUtil.driverStatus=false;
-			}
+			
 
+		}
+		if (SeleniumUtil.getDriver() != null) {
+			
+			SeleniumUtil.closeBrowser();
+			SeleniumUtil.setDriver(null);
+			SeleniumUtil.driverStatus=false;
 		}
 
 		

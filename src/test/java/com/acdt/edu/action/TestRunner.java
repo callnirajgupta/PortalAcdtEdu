@@ -15,7 +15,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/featurefile/", tags = {
-		"@home" }, plugin = { "pretty", "html:target/cucumber-html-report",
+		"@Signup2" }, plugin = { "pretty", "html:target/cucumber-html-report",
 				"json:target/cucumber.json", "junit:target/cucumber.xml",
 				"rerun:target/rerun.txt" }, glue = { "com.acdt.edu" })
 
@@ -42,12 +42,12 @@ public class TestRunner {
 	@AfterClass
 	public static void afterClass() {
 		report.flush();
-		if (SeleniumUtil.getDriver() != null) {
+		/*if (SeleniumUtil.getDriver() != null) {
 			
 			SeleniumUtil.closeBrowser();
 			SeleniumUtil.setDriver(null);
 			SeleniumUtil.driverStatus=false;
-		}
+		}*/
 
 	}
 	

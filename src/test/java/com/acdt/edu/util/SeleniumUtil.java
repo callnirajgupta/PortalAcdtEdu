@@ -211,10 +211,15 @@ public class SeleniumUtil {
 
 	}
 
-	public static void switchFrame(String frame, int wait) {
+	public static void switchFrameExplicitWait(String frame, int wait) {
 		LOGGER.info("inside switchFrame method");
 		objExplicitWait(wait)
 				.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(driver.findElement(By.xpath(frame))));
+
+	}
+	public static void switchFrame(WebElement frame) {
+		LOGGER.info("inside switchFrame method");
+		driver.switchTo().frame(frame);
 
 	}
 
