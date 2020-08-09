@@ -26,7 +26,7 @@ public class SignupPage {
 	public static final String CONFIRM_PASSWORD_NAME="confirmPassword";
 	public static final String CAPTCHA_XPATH="//span[@id='recaptcha-anchor']/div[1]";
 	public static final String START_APPLICATION_XPATH="//a[text()='Start Application']";
-	public static final String ERROR_MESSAGE_XPATH="//p[text()='errorMessage']";
+	public static final String ERROR_MESSAGE_XPATH="//p[@class='error-msg']";
 	public static void validateSignupTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(SIGNUP_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
@@ -91,21 +91,26 @@ public class SignupPage {
 			SeleniumUtil.getDriver().switchTo().frame(0);
 			SeleniumUtil.getWebElement(By.xpath(CAPTCHA_XPATH)).click();
 			SeleniumUtil.switchToDefaultContent();
+			SeleniumUtil.wait(2000);
 		}
 		
 		
 		SeleniumUtil.getWebElement(By.xpath(START_APPLICATION_XPATH)).click();
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
 	
 	public static void ValidateErrorMessage(String message){
-		SeleniumUtil.validateWebElementVisible(By.xpath(ERROR_MESSAGE_XPATH.replace("errorMessage", message)), SeleniumUtil.waitWebElementSync);
+		SeleniumUtil.wait(2000);
+		Assert.assertEquals("", message, SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim());
+	}
+	
+	public static void selectCountry(String country){
+		
+			SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_RESIDENCE_XPATH)).click();
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_LABEL_XPATH.replace("index", "3"))).sendKeys(country);
+			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
+			
 		
 	}
 }

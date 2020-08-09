@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 import com.acdt.edu.pageobjectmodel.HomePage;
 import com.acdt.edu.pageobjectmodel.SignupPage;
+import com.acdt.edu.util.SeleniumUtil;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -39,19 +40,19 @@ public class SignupStepDefinition {
 	   SignupPage.ValidateErrorMessage(message);
 	}
 	
-	@Then("^user select the all country and country code one by one successfully$")
+	@Then("^user select the all country one by one successfully$")
 	public void user_select_the_all_country_and_country_code_one_by_one_successfully() throws Throwable {
 	 LOGGER.info("user select the all country and country code one by one successfully");
 	
 
      Response response= RestAssured.given().contentType("application/json")
-                .get("https://portal.acdt.edu.gh/acdt-dev/countryCodes");
-     
-    
+                .get(SeleniumUtil.getConfigProperties().getProperty("API_Country_Ccode_Url"));
      
      JsonPath path= new JsonPath(response.asString());
-     
-     
+     System.out.println("list size"+path.getList("").size());
+     for(int i=1;i<path.getList("").size();i++){
+     SignupPage.selectCountry(path.getString("["+i+"].country"));
+     }
 	 
 	}
 
