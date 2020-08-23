@@ -1,4 +1,4 @@
-package com.acdt.edu.commonstep;
+package com.acdt.edu.cucumberstepdefinition;
 
 import java.util.List;
 import java.util.Map;
@@ -7,9 +7,11 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import com.acdt.edu.pageobjectmodel.HomePage;
+import com.acdt.edu.pageobjectmodel.PersonalDetailsPage;
 import com.acdt.edu.pageobjectmodel.SignupPage;
 import com.acdt.edu.util.SeleniumUtil;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
@@ -52,17 +54,24 @@ public class SignupStepDefinition {
      System.out.println("list size"+path.getList("").size());
      for(int i=1;i<path.getList("").size();i++){
      SignupPage.selectCountry(path.getString("["+i+"].country"));
+     SeleniumUtil.refreshPage();
      }
 	 
 	}
 
-
-
-
 	@Then("^User should navigate to personal details page$")
 	public void user_should_navigate_to_personal_details_page() throws Throwable {
+		PersonalDetailsPage.validatePersonalDetailsTitle();
 	   
-	   
+	}
+	
+	@When("^user enter mandatory data field in signup page$")
+	public void user_enter_mandatory_data_field_in_signup_page(Map<String,String> dataTable) throws Throwable {
+		LOGGER.info("user enter mandatory data field in signup page");
+		SignupPage.validateSignupTitle();
+		SignupPage.signup(dataTable.get("FirstName"), dataTable.get("MiddleName"), dataTable.get("LastName"), dataTable.get("ProgrammeType"),  dataTable.get("Gender"),dataTable.get("CountryOfResidence"),dataTable.get("MobileNumber"), dataTable.get("EmailAddress"),dataTable.get("Password"), dataTable.get("ConfirmPassword"), dataTable.get("Captcha"));
+		
+	    
 	}
 
 }

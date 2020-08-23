@@ -331,7 +331,7 @@ public class SeleniumUtil {
 		LOGGER.info("inside robotUploadFile method");
 		StringSelection stringSelection = new StringSelection(filePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-
+        
 		Robot robot = new Robot();
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_V);
@@ -435,6 +435,13 @@ public class SeleniumUtil {
 		String imagePath=takeScreenShotReturnPath();
 		String snapPath=test.addScreenCapture(imagePath);
 		test.log(LogStatus.FAIL, failureMessage,snapPath);
+		
+	}
+	
+	public static void refreshPage(){
+		LOGGER.info("inside refreshPage method");
+		driver.navigate().refresh();
+		
 		
 	}
 

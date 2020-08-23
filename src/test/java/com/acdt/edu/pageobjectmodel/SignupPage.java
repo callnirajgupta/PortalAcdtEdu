@@ -1,5 +1,7 @@
 package com.acdt.edu.pageobjectmodel;
 
+import java.util.Date;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -27,6 +29,7 @@ public class SignupPage {
 	public static final String CAPTCHA_XPATH="//span[@id='recaptcha-anchor']/div[1]";
 	public static final String START_APPLICATION_XPATH="//a[text()='Start Application']";
 	public static final String ERROR_MESSAGE_XPATH="//p[@class='error-msg']";
+	
 	public static void validateSignupTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(SIGNUP_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
@@ -77,7 +80,9 @@ public class SignupPage {
 		}
 		
 		if(!("".equals(email))){
-			SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).sendKeys(email);	
+			Date date= new Date();
+			String emailAuto="automation"+date.getTime()+"@gmail.com";
+			SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).sendKeys(emailAuto);	
 		}
 		
 		if(!("".equals(password))){
@@ -106,11 +111,12 @@ public class SignupPage {
 	}
 	
 	public static void selectCountry(String country){
-		
+		    SeleniumUtil.validateWebElementVisible(By.xpath(COUNTRY_OF_RESIDENCE_XPATH), SeleniumUtil.waitWebElementSync);
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_RESIDENCE_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_LABEL_XPATH.replace("index", "3"))).sendKeys(country);
-			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
-			
+			String xpathForLabel="//label[text()=\""+country+"\"]";
+			//SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
+			SeleniumUtil.getWebElement(By.xpath(xpathForLabel)).click();
 		
 	}
 }
