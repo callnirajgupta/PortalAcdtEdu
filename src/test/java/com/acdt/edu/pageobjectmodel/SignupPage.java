@@ -107,7 +107,7 @@ public class SignupPage {
 	
 	public static void ValidateErrorMessage(String message){
 		SeleniumUtil.wait(2000);
-		Assert.assertEquals("", message, SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim());
+		Assert.assertEquals("The signup page error message not matching", message, SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim());
 	}
 	
 	public static void selectCountry(String country){

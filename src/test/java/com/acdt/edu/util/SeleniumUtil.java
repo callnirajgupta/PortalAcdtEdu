@@ -24,6 +24,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.Logs;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -444,5 +447,11 @@ public class SeleniumUtil {
 		
 		
 	}
+	public static Logs getBrowserConsoleLogs()
+    {
+   Logs log= driver.manage().logs();
+    
+    return log;
+    }
 
 }

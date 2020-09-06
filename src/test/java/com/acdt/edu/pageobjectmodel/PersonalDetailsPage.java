@@ -2,11 +2,16 @@ package com.acdt.edu.pageobjectmodel;
 
 import java.io.File;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+
 import com.acdt.edu.util.SeleniumUtil;
 
 
@@ -36,7 +41,12 @@ public class PersonalDetailsPage {
     public static final String SELECT_IMAGE_XPATH="//button[contains(text(),'Select image')]";
     public static final String SEARCH_XPATH="(//input[@placeholder='Search'])[index]";
     public static final String SELECT_LABEL_XPATH="//label[text()='selectText']";
-    
+    public static final String NATIONALITY_SELECTED_TEXT_XPATH="//div[label[text()='Nationality']]//div/span/span";
+    public static final String SELECT_LABEL_NATIONALITY_XPATH="//div[label[text()='Nationality']]//label[text()='selectText']";
+    public static final String ERROR_MESSAGE_XPATH="//div[@class='error-msg']";
+    public static final String CALENDAR_MONTH_XPATH="//select[@title='Select month']";
+    public static final String CALENDAR_YEAR_XPATH="//select[@title='Select year']";
+    public static final String CALENDAR_DATE_XPATH="//div[@class='btn-light' and text()='date']";
     
     public static void validatePersonalDetailsTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
@@ -59,7 +69,7 @@ public class PersonalDetailsPage {
 			String otherName,String gender,String dob,String countryOfBirth ,String cityOfBirth,String nationality ,String religion,String homeTown ,String region ,String specialNeed,String comment) throws Throwable{
     	
     	if(!("".equals(image))){
-			
+    		System.out.println("Inside image selection");
 			SeleniumUtil.getWebElement(By.xpath(SELECT_IMAGE_XPATH)).click();
 			File file = new File("src/test/resources/Upload/"+image);
 			String path = file.getAbsolutePath();
@@ -69,12 +79,13 @@ public class PersonalDetailsPage {
 			SeleniumUtil.robotUploadFile(path);
 		
 		}
-    	if(!("".equals(title))){
-				
+    	if(!("".equals(title))){	
 			SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(title);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title))).click();
-		}
+			Thread.sleep(3000);
+		  
+    	}
 		if(!("".equals(firstName))){
 			SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).sendKeys(firstName);	
@@ -97,13 +108,26 @@ public class PersonalDetailsPage {
 		}
 		
 		if(!("".equals(gender))){
+			 if(!gender.equals(SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", gender))).click();
-			
+			 }
+			 
+			 
 		}
 		
 		if(!("".equals(dob))){
-			SeleniumUtil.getWebElement(By.name(DATE_OF_BIRTH_NAME)).sendKeys(dob);
+			 String[] dobsplit=dob.split("/");
+		    SeleniumUtil.getWebElement(By.name(DATE_OF_BIRTH_NAME)).click();
+		    Thread.sleep(1000);
+			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
+			Thread.sleep(1000);
+			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
+			Thread.sleep(1000);
+			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
+			Thread.sleep(2000);
+			
+			
 		}
 		
 		if(!("".equals(countryOfBirth))){
@@ -119,10 +143,11 @@ public class PersonalDetailsPage {
 		}
 		
 		if(!("".equals(nationality))){
-		
+		    if(!nationality.equals(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(NATIONALITY_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).sendKeys(nationality);
-			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", nationality))).click();
+			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_NATIONALITY_XPATH.replace("selectText", nationality))).click();
+		    }
 		}
 		
 		if(!("".equals(religion))){
@@ -131,9 +156,7 @@ public class PersonalDetailsPage {
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", religion))).click();	
 		}
 		if(!("".equals(homeTown))){
-			
 			SeleniumUtil.getWebElement(By.name(HOME_TOWN_NAME)).sendKeys(homeTown);
-			
 		}
 		if(!("".equals(region))){
 			SeleniumUtil.getWebElement(By.xpath(REGION_XPATH)).click();
@@ -147,8 +170,17 @@ public class PersonalDetailsPage {
 			SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).sendKeys(comment);	
 		}
 		
-		//SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
+		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 		
+		System.out.println("print log"+SeleniumUtil.getBrowserConsoleLogs().toString());
+		
+		
+	}
+    
+    public static String getErrorMessage(){
+		SeleniumUtil.wait(2000);
+		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
+		//Assert.assertEquals("The personal Details Error message is not matching", message, SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim());
 	}
 
 	

@@ -15,7 +15,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/featurefile/", tags = {
-		"@Personal3" }, plugin = { "pretty", "html:target/cucumber-html-report",
+		"@Personal4" }, plugin = { "pretty", "html:target/cucumber-html-report",
 				"json:target/cucumber.json", "junit:target/cucumber.xml",
 				"rerun:target/rerun.txt" }, glue = { "com.acdt.edu" })
 
@@ -35,8 +35,6 @@ public class TestRunner {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
 		System.setProperty("currentdate", dateFormat.format(new Date()));
 		
-		
-
 	}
 
 	@AfterClass
