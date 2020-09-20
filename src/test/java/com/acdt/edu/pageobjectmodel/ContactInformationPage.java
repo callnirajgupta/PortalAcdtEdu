@@ -19,6 +19,8 @@ public class ContactInformationPage {
 	public static final String POSTAL_COUNTRY_XPATH = "(//div[label[text()='Country']]//div[@class='c-btn'])[1]";
 	public static final String POSTAL_CODE_NAME = "postalPostcode";
 	public static final String POSTAL_TELEPHONE_NAME = "telephone";
+	public static final String TELEPHONE_COUNTRY_DROPDOWN_XPATH="(//div[@class='iti__selected-flag'])[index]";
+	public static final String TELEPHONE_COUNTRY_CODE_XPATH="(//span[text()='countryCode'])[index]";
 	public static final String SEARCH_XPATH = "(//input[@placeholder='Search'])[index]";
 	public static final String POSTAL_SAME_PERMANENT_XPATH = "//label[@class='form-check-label']";
 	public static final String PERMANENT_ADDRESS1_NAME = "permanentAddress1";
@@ -59,6 +61,7 @@ public class ContactInformationPage {
 		if (!("".equals(country))) {
 			SeleniumUtil.scrollToWebElement(By.xpath(POSTAL_COUNTRY_XPATH));
 			Thread.sleep(1000);
+			
 			SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
 			
@@ -71,11 +74,25 @@ public class ContactInformationPage {
 		}
 
 		if (!("".equals(phone))) {
+			String countryCode=phone.substring(0, 3);
 			SeleniumUtil.getWebElement(By.name(POSTAL_TELEPHONE_NAME)).clear();
-			SeleniumUtil.getWebElement(By.name(POSTAL_TELEPHONE_NAME)).sendKeys(phone);
+			SeleniumUtil.getWebElement(By.xpath(TELEPHONE_COUNTRY_DROPDOWN_XPATH.replace("index", "1"))).click();
+			
+			String CountryCodeXpath=TELEPHONE_COUNTRY_CODE_XPATH.replace("countryCode", countryCode);
+			SeleniumUtil.scrollToWebElement(By.xpath(CountryCodeXpath.replace("index", "1")));
+			SeleniumUtil.getWebElement(By.xpath(CountryCodeXpath.replace("index", "1"))).click();
+			
+			SeleniumUtil.getWebElement(By.name(POSTAL_TELEPHONE_NAME)).sendKeys(phone.substring(3,phone.length()));
+		
 		} else {
-			System.out.println("clear text field");
+			
 			SeleniumUtil.getWebElement(By.name(POSTAL_TELEPHONE_NAME)).clear();
+            SeleniumUtil.getWebElement(By.xpath(TELEPHONE_COUNTRY_DROPDOWN_XPATH.replace("index", "1"))).click();
+			
+			String CountryCodeXpath=TELEPHONE_COUNTRY_CODE_XPATH.replace("countryCode", "+91");
+			SeleniumUtil.scrollToWebElement(By.xpath(CountryCodeXpath.replace("index", "1")));
+			SeleniumUtil.getWebElement(By.xpath(CountryCodeXpath.replace("index", "1"))).click();
+			
 		}
 
 	}
@@ -121,24 +138,38 @@ public class ContactInformationPage {
 					.click();
 		}else{
 			
-		String getCountry = SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELCTED_TEXT_XPATH)).getText();
+		//String getCountry = SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELCTED_TEXT_XPATH)).getText();
 			SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_XPATH)).click();
-			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(getCountry);
-			SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", getCountry)))
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys("Please Select");
+			SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", "Please Select")))
 					.click();
 		}
 
 		if (!("".equals(postCode))) {
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CODE_NAME)).sendKeys(postCode);
 		}else{
+			
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CODE_NAME)).clear();
 		}
 
 		if (!("".equals(phone))) {
+			String countryCode=phone.substring(0, 3);
+			System.out.println("print country code"+countryCode);
 			SeleniumUtil.getWebElement(By.name(PERMANENT_TELEPHONE_NAME)).clear();
+			SeleniumUtil.getWebElement(By.xpath(TELEPHONE_COUNTRY_DROPDOWN_XPATH.replace("index", "2"))).click();
+			
+			String CountryCodeXpath=TELEPHONE_COUNTRY_CODE_XPATH.replace("countryCode", countryCode);
+			SeleniumUtil.scrollToWebElement(By.xpath(CountryCodeXpath.replace("index", "2")));
+			SeleniumUtil.getWebElement(By.xpath(CountryCodeXpath.replace("index", "2"))).click();
+			
 			SeleniumUtil.getWebElement(By.name(PERMANENT_TELEPHONE_NAME)).sendKeys(phone);
 		} else {
 			SeleniumUtil.getWebElement(By.name(PERMANENT_TELEPHONE_NAME)).clear();
+            SeleniumUtil.getWebElement(By.xpath(TELEPHONE_COUNTRY_DROPDOWN_XPATH.replace("index", "2"))).click();
+            
+			String CountryCodeXpath=TELEPHONE_COUNTRY_CODE_XPATH.replace("countryCode", "+91");
+			SeleniumUtil.scrollToWebElement(By.xpath(CountryCodeXpath.replace("index", "2")));
+			SeleniumUtil.getWebElement(By.xpath(CountryCodeXpath.replace("index", "2"))).click();
 		}
 
 	}

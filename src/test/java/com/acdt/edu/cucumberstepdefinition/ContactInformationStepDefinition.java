@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 
 import com.acdt.edu.pageobjectmodel.ContactInformationPage;
+import com.acdt.edu.pageobjectmodel.ParticularsOfParentsPage;
 import com.acdt.edu.pageobjectmodel.PersonalDetailsPage;
 import com.acdt.edu.util.SeleniumUtil;
 
@@ -48,7 +49,33 @@ public class ContactInformationStepDefinition {
 	    boolean flag=true;
 	    for(int i=0;i<dataTable.size();i++){
 		ContactInformationPage.postalAddressFilling(dataTable.get(i).get("Address1"),dataTable.get(i).get("Address2"), dataTable.get(i).get("City"), dataTable.get(i).get("State"),dataTable.get(i).get("Country") , dataTable.get(i).get("PostalCode"),dataTable.get(i).get("Phone"));
-		ContactInformationPage.permanentAddressFilling("Address1","Address2", "City", "State","Afghanistan" , "1313124","123456789");
+		
+		ContactInformationPage.permanentAddressFilling("Address1","Address2", "City", "State","Afghanistan" , "1313124","+9133456789");
+		ContactInformationPage.clickNextButton();
+		
+		 String appError=ContactInformationPage.getErrorMessage();
+		    
+		    if(!appError.equals(dataTable.get(i).get("Message"))){
+		    	list.add(appError);
+		    	flag=false;
+		    }
+		    SeleniumUtil.refreshPage();
+		    }
+		    
+		    Assert.assertTrue("The error message is not matching for postal address"+list, flag);
+		
+	}
+	
+	@When("^user enter  mandatory fields data in contact information page for permanent address and validate error message$")
+	public void mandatoryFieldsdataToPermanentAndPermanentAddress(List<Map<String,String>> dataTable) throws Throwable{
+		LOGGER.info("user enter  mandatory fields data in contact information page for permanent address and permanent address and validate error message");
+		List<String> list = new ArrayList<String>();
+	    boolean flag=true;
+	    for(int i=0;i<dataTable.size();i++){
+		
+		ContactInformationPage.postalAddressFilling("Address1","Address2", "City", "State","Afghanistan" , "1313124","+919241521992");
+		ContactInformationPage.permanentAddressFilling(dataTable.get(i).get("Address1"),dataTable.get(i).get("Address2"), dataTable.get(i).get("City"), dataTable.get(i).get("State"),dataTable.get(i).get("Country") , dataTable.get(i).get("PostalCode"),dataTable.get(i).get("Phone"));
+		Thread.sleep(5000);
 		ContactInformationPage.clickNextButton();
 		 String appError=ContactInformationPage.getErrorMessage();
 		    
@@ -59,8 +86,21 @@ public class ContactInformationStepDefinition {
 		    SeleniumUtil.refreshPage();
 		    }
 		    
-		    Assert.assertTrue("The error message is not matching"+list, flag);
+		    Assert.assertTrue("The error message is not matching for permanent address"+list, flag);
 		
 	}
+	
+	@When("^user click next button$")
+	public void clicknextbutton(){
+		ContactInformationPage.clickNextButton();
+		
+	}
+	
+	@When("^verify that user navigate to particular of parent page$")
+	public void navigateToParticularToParent(){
+		ParticularsOfParentsPage.validateParticularsOfParentsTitle();	
+	}
+		
+	
 
 }
