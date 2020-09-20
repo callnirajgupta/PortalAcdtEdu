@@ -2,7 +2,7 @@
 Feature: personal details page fields validation
 
   @Personal2
-  Scenario Outline: personal details page fields validation
+  Scenario Outline: Pre filled fields in personal details page  from signup page validation
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data for field "<First Name>" and "<Middle Name>" and "<Last Name>" and "<Programme Type>" and "<Gender>" and "<Country of Residence>" and "<Mobile Number>" and "<Email address>" and "<Password>" and "<Confirm Password>" and "<Captcha>"
@@ -47,7 +47,7 @@ Feature: personal details page fields validation
       
 
    @Personal4
-  Scenario: personal details page fields validation
+  Scenario: personal details page navigation to contact information navigation
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page
