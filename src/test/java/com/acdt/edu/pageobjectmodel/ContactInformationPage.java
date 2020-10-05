@@ -1,7 +1,5 @@
 package com.acdt.edu.pageobjectmodel;
 
-import java.io.File;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -44,7 +42,7 @@ public class ContactInformationPage {
 
 	public static void postalAddressFilling(String address1, String address2, String city, String state, String country,
 			String postCode, String phone) throws Throwable {
-         Thread.sleep(2000);
+         Thread.sleep(3000);
 		if (!("".equals(address1))) {
 
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);

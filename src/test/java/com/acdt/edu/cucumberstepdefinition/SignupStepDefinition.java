@@ -1,17 +1,13 @@
 package com.acdt.edu.cucumberstepdefinition;
 
-import java.util.List;
-import java.util.Map;
 
+import java.util.Map;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
 import com.acdt.edu.pageobjectmodel.HomePage;
 import com.acdt.edu.pageobjectmodel.PersonalDetailsPage;
 import com.acdt.edu.pageobjectmodel.SignupPage;
 import com.acdt.edu.util.SeleniumUtil;
-
-import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
