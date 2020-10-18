@@ -29,7 +29,7 @@ public class ParentDetailsPage {
 	public static final String EMAIL_NAME = "email";
 	public static final String POSTALCODE_NAME = "postalcode";
 	public static final String NEXT_BUTTON_XPATH = "//a[text()='Next']";
-	public static final String ERROR_MESSAGE_XPATH = "//div[@class='error-msg']";
+	public static final String ERROR_MESSAGE_XPATH = "//div[@class='section form-content']/div[3]";
 
 	public static void validateParentDetailsTitle() {
 		LOGGER.info("Inside validateParentDetailsTitle Method");
@@ -42,6 +42,7 @@ public class ParentDetailsPage {
 			throws Throwable {
 
 		if (!("".equals(title))) {
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(title);

@@ -28,7 +28,7 @@ public class SignupPage {
 	public static final String CONFIRM_PASSWORD_NAME="confirmPassword";
 	public static final String CAPTCHA_XPATH="//span[@id='recaptcha-anchor']/div[1]";
 	public static final String START_APPLICATION_XPATH="//a[text()='Start Application']";
-	public static final String ERROR_MESSAGE_XPATH="//p[@class='error-msg']";
+	public static final String ERROR_MESSAGE_XPATH="//div[@class='errorMessage']";
 	
 	public static void validateSignupTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");

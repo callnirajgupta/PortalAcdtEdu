@@ -33,7 +33,7 @@ public class ContactInformationPage {
 	public static final String POSTAL_COUNTRY_SELECT_LABEL_XPATH = "(//div[label[text()='Country']]//label[text()='selectText'])[1]";
 	public static final String PERMANENT_COUNTRY_SELECT_LABEL_XPATH = "(//div[label[text()='Country']]//label[text()='selectText'])[2]";
 	public static final String ERROR_MESSAGE_XPATH = "//div[@class='error-msg']";
-
+	
 	public static void validatePersonalDetailsTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(CONTACT_INORMATION_TITLE_XPATH),

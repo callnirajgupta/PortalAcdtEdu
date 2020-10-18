@@ -38,6 +38,7 @@ public class PersonalDetailsPage {
     public static final String NATIONALITY_SELECTED_TEXT_XPATH="//div[label[text()='Nationality']]//div/span/span";
     public static final String SELECT_LABEL_NATIONALITY_XPATH="//div[label[text()='Nationality']]//label[text()='selectText']";
     public static final String ERROR_MESSAGE_XPATH="//div[@class='error-msg']";
+    //public static final String ERROR_MESSAGE_XPATH = "//div[@class='section form-content']/div[3]";
     public static final String CALENDAR_MONTH_XPATH="//select[@title='Select month']";
     public static final String CALENDAR_YEAR_XPATH="//select[@title='Select year']";
     public static final String CALENDAR_DATE_XPATH="//div[@class='btn-light' and text()='date']";
@@ -73,11 +74,14 @@ public class PersonalDetailsPage {
 			SeleniumUtil.robotUploadFile(path);
 		
 		}
-    	if(!("".equals(title))){	
+    	if(!("".equals(title))){
+    		Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(title);
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title))).click();
-			Thread.sleep(3000);
+			
 		  
     	}
 		if(!("".equals(firstName))){
@@ -94,6 +98,7 @@ public class PersonalDetailsPage {
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).sendKeys(lastName);	
 		}else{
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
+			Thread.sleep(5000);
 		}
 		if(!("".equals(otherName))){
 			SeleniumUtil.getWebElement(By.name(OTHERNAMES_NAME)).click();
@@ -166,7 +171,6 @@ public class PersonalDetailsPage {
 		
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 		
-		System.out.println("print log"+SeleniumUtil.getBrowserConsoleLogs().toString());
 		
 		
 	}

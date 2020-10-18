@@ -30,6 +30,7 @@ public class PersonalDetailsStepDefinition {
 	    List<String> list = new ArrayList<String>();
 	    boolean flag=true;
 	    for(int i=0;i<dataTable.size();i++){
+	    	
 	    PersonalDetailsPage.PersonalDetailFilling(dataTable.get(i).get("Image"), dataTable.get(i).get("Title"),dataTable.get(i).get("FirstName") , dataTable.get(i).get("MiddleName"), dataTable.get(i).get("LastName"),dataTable.get(i).get("OtherName") ,dataTable.get(i).get("Gender") ,dataTable.get(i).get("DOB") ,dataTable.get(i).get("CountryOfBirth") ,dataTable.get(i).get("CityOfBirth") ,dataTable.get(i).get("Nationality") ,dataTable.get(i).get("Religion") ,dataTable.get(i).get("HomeTown") ,dataTable.get(i).get("Region") ,dataTable.get(i).get("SpecialNeed") ,dataTable.get(i).get("Comment") );
 	    
 	    String appError=PersonalDetailsPage.getErrorMessage();
@@ -39,6 +40,7 @@ public class PersonalDetailsStepDefinition {
 	    	flag=false;
 	    }
 	    SeleniumUtil.refreshPage();
+	    Thread.sleep(2000);
 	    }
 	    
 	    Assert.assertTrue("The error message is not matching"+list, flag);

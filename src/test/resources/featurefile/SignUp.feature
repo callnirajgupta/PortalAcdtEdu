@@ -12,16 +12,16 @@ Feature: Signup page functionality
       | First Name | Middle Name | Last Name | Programme Type | Gender | Country of Residence | Mobile Number | Email address            | Password | Confirm Password | Captcha | Message |
       |            | test        | tester    | Diploma        | M      | India                | +919241521992    | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): First Name|
       | niraj      | test        |           | Diploma        | M      | India                | +919241521992    | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): Last Name |
-      | niraj      | test        | tester    |                | M      | India                | +919241521992    | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): programme type   |
-      | niraj      | test        | tester    | Diploma        |        | India                | +919241521992    | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): gender    |
-      | niraj      | test        | tester    | Diploma        | M      |                      | +919241521992    | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): country of residence   |
-      | niraj      | test        | tester    | Diploma        | M      | India                |                  | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): Mobile number    |
+      | niraj      | test        | tester    |                | M      | India                | +919241521992    | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): Programme type|
+      | niraj      | test        | tester    | Diploma        |        | India                | +919241521992    | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): Gender    |
+      | niraj      | test        | tester    | Diploma        | M      |                      | +919241521992    | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): Country of Residence   |
+      | niraj      | test        | tester    | Diploma        | M      | India                |                  | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): Mobile number, Invalid Mobile Number    |
       | niraj      | test        | tester    | Diploma        | M      | India                | +919241521992    |                          | password | password         | yes     | Please fill in the required field(s): Email address   |
-      | niraj      | test        | tester    | Diploma        | M      | India                | +919241521992    | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): Email address already exist  |
+      #| niraj      | test        | tester    | Diploma        | M      | India                | +919241521992    | callnirajgupta@gmail.com | password | password         | yes     | Please fill in the required field(s): Email address already exist  |
       | niraj      | test        | tester    | Diploma        | M      | India                | +919241521992    | callnirajgupta@gmail.com |          | password         | yes     | Please fill in the required field(s): Password, Reconfirm your password   |
       | niraj      | test        | tester    | Diploma        | M      | India                | +919241521992    | callnirajgupta@gmail.com | password |                  | yes     | Please fill in the required field(s): Reconfirm your password   |
       | niraj      | test        | tester    | Diploma        | M      | India                | +919241521992    | callnirajgupta@gmail.com |          |                  | yes     | Please fill in the required field(s): Password   |
-      | niraj      | test        | tester    | Diploma        | M      | India                | +919241521992    | callnirajgupta@gmail.com | password | password         |         | Please confirm if you are not a Robot|
+      | niraj      | test        | tester    | Diploma        | M      | India                | +919241521992    | callnirajgupta@gmail.com | password | password         |         | Please confirm you are not a robot.|
   
   @Signup2
   Scenario: Validate selection of country
@@ -43,6 +43,6 @@ Feature: Signup page functionality
       |   Niraj     | test        | tester    | Diploma        | M      | India                | +919241521992    | test123459@gmail.com | password | password         | yes     | 
       |   Niraj     | test        | tester    | Diploma        | F      | India                | +919241521992    | test123456@gmail.com | password | password         | yes     | 
       |   Niraj     | test        | tester    | Degree        | M      | India                | +919241521992    | test12348@gmail.com | password | password         | yes     | 
-      #|   Niraj     | test        | tester    | Degree        | F      | India                | +919241521992    | abc@gmail.com | password | password         | yes     | 
-      #|   Niraj     | test        | tester    | Certificate        | M      | India                | +919241521992    | abc@gmail.com | password | password         | yes     | 
-      #|   Niraj     | test        | tester    | Certificate        | F      | India                | +919241521992    | abc@gmail.com | password | password         | yes     | 
+      |   Niraj     | test        | tester    | Degree        | F      | India                | +919241521992    | abc@gmail.com | password | password         | yes     | 
+      |   Niraj     | test        | tester    | Certificate        | M      | India                | +919241521992    | abc@gmail.com | password | password         | yes     | 
+      |   Niraj     | test        | tester    | Certificate        | F      | India                | +919241521992    | abc@gmail.com | password | password         | yes     | 
