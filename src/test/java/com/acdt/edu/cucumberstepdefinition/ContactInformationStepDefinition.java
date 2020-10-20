@@ -48,13 +48,21 @@ public class ContactInformationStepDefinition {
 		
 		ContactInformationPage.permanentAddressFilling("Address1","Address2", "City", "State","Afghanistan" , "1313124","+9133456789");
 		ContactInformationPage.clickNextButton();
-		
+		try{
 		 String appError=ContactInformationPage.getErrorMessage();
 		    
 		    if(!appError.equals(dataTable.get(i).get("Message"))){
-		    	list.add(appError);
+		    	list.add(dataTable.get(i).get("Message"));
 		    	flag=false;
+		    	LOGGER.info("Error message is matching as "+dataTable.get(i).get("Message"));
+		    }else{
+		    	LOGGER.error("Error message is Not matching as "+dataTable.get(i).get("Message"));	
 		    }
+		}catch(Exception e){
+			list.add(dataTable.get(i).get("Message"));
+	    	flag=false;
+	    	LOGGER.error("Error message is Not displayed as "+dataTable.get(i).get("Message"));
+		}
 		    SeleniumUtil.refreshPage();
 		    }
 		    

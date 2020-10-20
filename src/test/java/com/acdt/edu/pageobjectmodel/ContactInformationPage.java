@@ -61,8 +61,9 @@ public class ContactInformationPage {
 			Thread.sleep(1000);
 			
 			SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_XPATH)).click();
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
-			
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)))
 					.click();
 		}

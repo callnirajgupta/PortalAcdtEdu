@@ -32,12 +32,20 @@ public class PersonalDetailsStepDefinition {
 	    for(int i=0;i<dataTable.size();i++){
 	    	
 	    PersonalDetailsPage.PersonalDetailFilling(dataTable.get(i).get("Image"), dataTable.get(i).get("Title"),dataTable.get(i).get("FirstName") , dataTable.get(i).get("MiddleName"), dataTable.get(i).get("LastName"),dataTable.get(i).get("OtherName") ,dataTable.get(i).get("Gender") ,dataTable.get(i).get("DOB") ,dataTable.get(i).get("CountryOfBirth") ,dataTable.get(i).get("CityOfBirth") ,dataTable.get(i).get("Nationality") ,dataTable.get(i).get("Religion") ,dataTable.get(i).get("HomeTown") ,dataTable.get(i).get("Region") ,dataTable.get(i).get("SpecialNeed") ,dataTable.get(i).get("Comment") );
-	    
+	    try{
 	    String appError=PersonalDetailsPage.getErrorMessage();
 	    
 	    if(!appError.equals(dataTable.get(i).get("Message"))){
-	    	list.add(appError);
+	    	list.add(dataTable.get(i).get("Message"));
 	    	flag=false;
+	    	LOGGER.info("The Error message is matching as "+dataTable.get(i).get("Message"));
+	    }else{
+	    	LOGGER.error("The Error message is Not matching as "+dataTable.get(i).get("Message"));
+	    }
+	    }catch(Exception e){
+	    	list.add(dataTable.get(i).get("Message"));
+	    	flag=false;
+	    	LOGGER.error("The Error message is Not displaying  as "+dataTable.get(i).get("Message"));
 	    }
 	    SeleniumUtil.refreshPage();
 	    Thread.sleep(2000);
