@@ -8,22 +8,24 @@ import org.openqa.selenium.By;
 
 import com.acdt.edu.util.SeleniumUtil;
 
+import cucumber.api.java.en.Then;
+
 
 public class PersonalDetailsPage {
 	
 	
 	private static final Logger LOGGER = LogManager.getLogger(SignupPage.class);
 	public static final String PERSONAL_DETAILS_TITLE_XPATH = "//h3[text()='Personal Details']";
-    public static final String TITLE_XPATH="//span[text()='Select title']";
+    public static final String TITLE_XPATH="//div[label[text()='Title']]//div/span";
     public static final String SURNAME_NAME="surname";
     public static final String FIRSTNAME_NAME="firstName";
     public static final String MIDDLENAME_NAME= "middleName";
     public static final String OTHERNAMES_NAME ="otherNames";
-    public static final String GENDER_XPATH="//div[label[text()='Gender']]//div[@class='c-btn']/span/span";
+    public static final String GENDER_XPATH="//div[label[text()='Gender']]//div[@class='selected-list']/div/span[1]";
     public static final String DATE_OF_BIRTH_NAME="dob";
     public static final String COUNTRY_OF_BIRTH_XPATH="//div[label[text()='Country of Birth']]//div[@class='c-btn']";
     public static final String PLACE_OF_BIRTH_NAME="placeOfBirth";
-    public static final String NATIONALITY_XPATH="//div[label[text()='Nationality']]//div[@class='c-btn']/span/span";
+    public static final String NATIONALITY_XPATH="//div[label[text()='Nationality']]//div[@class='c-btn']/span[1]";
     public static final String RELIGION_XPATH="//div[label[text()='Religion']]//div[@class='c-btn']";
     public static final String HOME_TOWN_NAME="homeTown";
     public static final String REGION_XPATH="//div[label[text()='Region']]//div[@class='c-btn']";
@@ -35,7 +37,7 @@ public class PersonalDetailsPage {
     public static final String SELECT_IMAGE_XPATH="//button[contains(text(),'Select image')]";
     public static final String SEARCH_XPATH="(//input[@placeholder='Search'])[index]";
     public static final String SELECT_LABEL_XPATH="//label[text()='selectText']";
-    public static final String NATIONALITY_SELECTED_TEXT_XPATH="//div[label[text()='Nationality']]//div/span/span";
+    public static final String NATIONALITY_SELECTED_TEXT_XPATH="//div[label[text()='Nationality']]//div[@class='c-btn']/span[1]";
     public static final String SELECT_LABEL_NATIONALITY_XPATH="//div[label[text()='Nationality']]//label[text()='selectText']";
     public static final String ERROR_MESSAGE_XPATH="//div[@class='error-msg']";
     //public static final String ERROR_MESSAGE_XPATH = "//div[@class='section form-content']/div[3]";
@@ -60,7 +62,7 @@ public class PersonalDetailsPage {
     	Assert.assertEquals("The country name prefilled data is not matching", country, SeleniumUtil.getWebElement(By.xpath(NATIONALITY_XPATH)).getText().trim());
     }
     
-    public static void PersonalDetailFilling(String image,String title,String firstName,String middleName,String lastName,
+    public static void personalDetailFilling(String image,String title,String firstName,String middleName,String lastName,
 			String otherName,String gender,String dob,String countryOfBirth ,String cityOfBirth,String nationality ,String religion,String homeTown ,String region ,String specialNeed,String comment) throws Throwable{
     	
     	if(!("".equals(image))){
@@ -174,12 +176,15 @@ public class PersonalDetailsPage {
 		
 		
 	}
+   
     
     public static String getErrorMessage(){
 		SeleniumUtil.wait(2000);
 		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 		//Assert.assertEquals("The personal Details Error message is not matching", message, SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim());
 	}
+    
+   
 
 	
 }

@@ -33,11 +33,12 @@ public class SignupPage {
 	public static void validateSignupTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(SIGNUP_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
+	    
 	}
 	
 	public static void signup(String firstName,String middleName,String lastName,
 			String programme,String gender,String country,String mobile,String email,String password,String confirmPassword,String captcha){
-		
+		LOGGER.info("Inside Singup Method");
 		if(!("".equals(firstName))){
 			SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).sendKeys(firstName);	
 		}
@@ -80,10 +81,15 @@ public class SignupPage {
 		}
 		
 		if(!("".equals(email))){
-			Date date= new Date();
-			String emailAuto="automation"+date.getTime()+"@gmail.com";
-			SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).sendKeys(emailAuto);	
-		}
+			if("auto".equalsIgnoreCase(email)){
+				Date date= new Date();
+				String emailAuto="automation"+date.getTime()+"@gmail.com";
+				SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).sendKeys(emailAuto);	
+			
+			}else{
+				SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).sendKeys(email);
+			}
+			}
 		
 		if(!("".equals(password))){
 			SeleniumUtil.getWebElement(By.name(PASSWORD_NAME)).sendKeys(password);	
@@ -98,12 +104,14 @@ public class SignupPage {
 			SeleniumUtil.switchToDefaultContent();
 			SeleniumUtil.wait(2000);
 		}
-		
-		
-		SeleniumUtil.getWebElement(By.xpath(START_APPLICATION_XPATH)).click();
-		
+			
 	}
-
+    
+	
+	public static void clickStartApplicationButton(){
+		LOGGER.info("Inside clickStartApplicationButton Method");
+		SeleniumUtil.getWebElement(By.xpath(START_APPLICATION_XPATH)).click();
+	}
 	
 	public static void ValidateErrorMessage(String message){
 		SeleniumUtil.wait(2000);

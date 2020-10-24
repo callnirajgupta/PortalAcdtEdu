@@ -30,8 +30,9 @@ public class ParentDetailsPage {
 	public static final String POSTALCODE_NAME = "postalcode";
 	public static final String NEXT_BUTTON_XPATH = "//a[text()='Next']";
 	public static final String ERROR_MESSAGE_XPATH = "//div[@class='section form-content']/div[3]";
-
-	public static void validateParentDetailsTitle() {
+    public static final String EMAIL_MOBILE_PHONE_ERROR_XPATH="//div[@class='errorMessage']";
+    
+    public static void validateParentDetailsTitle() {
 		LOGGER.info("Inside validateParentDetailsTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(PARENT_DETAILS_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 	}
@@ -130,6 +131,12 @@ public class ParentDetailsPage {
 		SeleniumUtil.wait(2000);
 		return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 
+	}
+	
+	public static String getFieldValidationErrorMessage(){
+		
+		SeleniumUtil.wait(1000);
+		return SeleniumUtil.getWebElement(By.xpath(EMAIL_MOBILE_PHONE_ERROR_XPATH)).getText().trim();
 	}
 
 }

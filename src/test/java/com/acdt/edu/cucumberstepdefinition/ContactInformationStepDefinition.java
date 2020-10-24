@@ -104,6 +104,8 @@ public class ContactInformationStepDefinition {
 	public void navigateToParticularToParent(){
 		ParentDetailsPage.validateParentDetailsTitle();	
 	}
+	
+	
 		
 	
 

@@ -34,7 +34,7 @@ public class ContactInformationPage {
 	public static final String PERMANENT_COUNTRY_SELECT_LABEL_XPATH = "(//div[label[text()='Country']]//label[text()='selectText'])[2]";
 	public static final String ERROR_MESSAGE_XPATH = "//div[@class='error-msg']";
 	
-	public static void validatePersonalDetailsTitle() {
+	public static void validateContactInformationTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(CONTACT_INORMATION_TITLE_XPATH),
 				SeleniumUtil.waitWebElementSync);
@@ -44,7 +44,7 @@ public class ContactInformationPage {
 			String postCode, String phone) throws Throwable {
          Thread.sleep(3000);
 		if (!("".equals(address1))) {
-
+			
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
 		}
 		if (!("".equals(address2))) {
