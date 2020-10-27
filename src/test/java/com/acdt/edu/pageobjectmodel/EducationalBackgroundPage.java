@@ -3,6 +3,8 @@ package com.acdt.edu.pageobjectmodel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 import com.acdt.edu.util.SeleniumUtil;
 
@@ -44,7 +46,8 @@ public class EducationalBackgroundPage {
     public static final String CALENDAR_YEAR_XPATH="//select[@title='Select year']";
     public static final String CALENDAR_DATE_XPATH="//div[@class='btn-light' and text()='date']";
     public static final String NEXT_BUTTON_XPATH="//a[text()='Next']";
-	
+    public static final String PREVIOUS_ENROLLED_UNIVERSITY_RADIO_YES_XPATH="//label[input[@id='exampleRadios1']]";
+    public static final String PREVIOUS_ENROLLED_UNIVERSITY_RADIO_NO_XPATH="//label[input[@id='exampleRadios2']]";
 	public static void validateEducationalBackgroundTitle() {
 		LOGGER.info("Inside validateEducationalBackgroundTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(EDUCATIONAl_BACKGROUND_HEADER_XPATH),
@@ -240,29 +243,45 @@ public class EducationalBackgroundPage {
 	public static void clickNextButtonInEducationalBackGround(){
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 	}
-	public static void clickOtherEducationalBackGroundButton(){
-		SeleniumUtil.getWebElement(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH)).click();
-		SeleniumUtil.getWebElement(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH)).click();
+	public static void clickOtherEducationalBackGroundButton() throws InterruptedException{
+		Thread.sleep(2000);
+		SeleniumUtil.scrollToWebElement(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH));
+		SeleniumUtil.waitWebElementClickable(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH), 20);
+		Thread.sleep(2000);
+		//SeleniumUtil.doubleClick(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH));
+		SeleniumUtil.javascriptClickElement(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH));
+		
+		Thread.sleep(2000);
+		SeleniumUtil.javascriptClickElement(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH));
+		Thread.sleep(2000);
+		
 	}
-	public static void clickDeleteSectionOtherEducationalBackGroundButton(){
-		SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_DELETE_BUTTON_XPATH)).click();
+	public static void clickDeleteSectionOtherEducationalBackGroundButton() throws InterruptedException{
+		SeleniumUtil.waitWebElementClickable(By.xpath(OLD_INSTITUTION_DELETE_BUTTON_XPATH), 20);
+		Thread.sleep(2000);
+		SeleniumUtil.javascriptClickElement(By.xpath(OLD_INSTITUTION_DELETE_BUTTON_XPATH));
+		//SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_DELETE_BUTTON_XPATH)).click();
 	}
 	
 	public static void clickYesNoRadioButton(String yesNo){
 		if("yes".equalsIgnoreCase(yesNo)){
-		SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_DELETE_BUTTON_XPATH)).click();
+			SeleniumUtil.waitWebElementClickable(By.xpath(PREVIOUS_ENROLLED_UNIVERSITY_RADIO_YES_XPATH), 20);
+		    SeleniumUtil.getWebElement(By.xpath(PREVIOUS_ENROLLED_UNIVERSITY_RADIO_YES_XPATH)).click();
 		}else{
-			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_DELETE_BUTTON_XPATH)).click();
+			SeleniumUtil.waitWebElementClickable(By.xpath(PREVIOUS_ENROLLED_UNIVERSITY_RADIO_NO_XPATH), 20);
+			SeleniumUtil.getWebElement(By.xpath(PREVIOUS_ENROLLED_UNIVERSITY_RADIO_NO_XPATH)).click();
 		}
 	}
 	
 	
-	public static void clickYesNoDeleteOtherEducationalConfirmation(String yesNo){
+	public static void clickYesNoDeleteOtherEducationalConfirmation(String yesNo) throws InterruptedException{
 		
 		if("yes".equalsIgnoreCase(yesNo)){
+			Thread.sleep(2000);
 			SeleniumUtil.waitWebElementClickable(By.xpath(OLD_INSTITUTION_DELETE_YES_XPATH), 30);
 			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_DELETE_YES_XPATH)).click();	
 		}else {
+			Thread.sleep(2000);
 			SeleniumUtil.waitWebElementClickable(By.xpath(OLD_INSTITUTION_DELETE_NO_XPATH), 30);
 			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_DELETE_NO_XPATH)).click();
 		}

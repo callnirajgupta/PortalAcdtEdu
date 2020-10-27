@@ -32,8 +32,9 @@ public class ProgrammeSelectionPage {
 		LOGGER.info("Inside programmeSelectionDetailsFilling method");
 		
 		if(!("".equals(programmeType))){
-			SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_XPATH)).click();
 			Thread.sleep(1000);
+			SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_XPATH)).click();
+			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(programmeType);
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", programmeType))).click();

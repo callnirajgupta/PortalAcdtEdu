@@ -24,6 +24,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.Logs;
@@ -454,4 +455,16 @@ public class SeleniumUtil {
     return log;
     }
 
+	public static void doubleClick(By locator){
+		Actions actions = new Actions(driver);
+		WebElement elementLocator = driver.findElement(locator);
+		actions.doubleClick(elementLocator).perform();
+		
+	}
+	
+	public static void javascriptClickElement(By locator){
+		WebElement element=SeleniumUtil.getWebElement(locator);
+		JavascriptExecutor executor = (JavascriptExecutor)SeleniumUtil.getDriver();
+		executor.executeScript("arguments[0].click();", element);
+	}
 }

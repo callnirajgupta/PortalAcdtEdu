@@ -70,10 +70,11 @@ Feature: Verify the Educational Background page functionality
     When user click on delete section button
     And user click on "no" on confirmation popup
     Then verify that Other Educational Background section should display
+    When user click on delete section button
     And user click on "yes" on confirmation popup
     Then verify that Other Educational Background section should not display
     When user click on "yes" radio button for Have you ever enrolled in a university
     Then verify that Previous Attendance at a University section should display
-    When user click on "yes" radio button for Have you ever enrolled in a university
+    When user click on "No" radio button for Have you ever enrolled in a university
     Then verify that Previous Attendance at a University section should not display  
       
