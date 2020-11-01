@@ -24,10 +24,10 @@ public class EducationalBackgroundPage {
 	public static final String EVER_ENROLLED_UNIVERSITY_XPATH = "//label[@class='form-check-label' and contains(text(),'Yes')]";
 	public static final String OLD_INSTITUTION_NAME = "oldInstitutionName";
 	public static final String OLD_INSTITUTION_CITY_NAME = "oldInstitutionCity";
-	public static final String OLD_INSTITUTION_COUNTRY_XPATH = "(//div[label[text()='Country']]//div[@class='c-btn']/span)[4]";
+	public static final String OLD_INSTITUTION_COUNTRY_XPATH = "(//div[label[text()='Country']]//div[@class='c-btn']/span)[3]";
 	public static final String OLD_INSTITUTION_DATE_OF_ENTRY_NAME = "selectedItemsOtherStartDateModel";
 	public static final String OLD_INSTITUTION_DATE_OF_COMPLETION_NAME = "selectedItemsOtherEndDateModel";
-	public static final String OLD_INSTITUTION_QUALIFICATION_XPATH = "(//div[label[text()='Qualification']]//div[@class='c-btn']/span)[4]";
+	public static final String OLD_INSTITUTION_QUALIFICATION_XPATH = "(//div[label[text()='Qualification']]//div[@class='c-btn']/span)[3]";
 	public static final String OLD_INSTITUTION_OTHER_QUALIFICATION_NAME = "oldOtherQualification";
 	public static final String OLD_INSTITUTION_DELETE_BUTTON_XPATH = "//span[text()='Delete Section']";
 	public static final String OLD_INSTITUTION_DELETE_NO_XPATH = "//button[text()='No']";
@@ -77,7 +77,7 @@ public class EducationalBackgroundPage {
 	}
 	
 	
-	public static void enterCurrentEducationalBackGroundDetails(String recentInstitution, String city, String country, String yearOfEntry, String yearOfCompletion, String qualification ) throws InterruptedException{
+	public static void enterCurrentEducationalBackGroundDetails(String recentInstitution, String city, String country, String yearOfEntry, String yearOfCompletion, String qualification ,String otherQualification) throws InterruptedException{
 		LOGGER.info("Inside enterCurrentEducationalBackGroundDetails Method");
 		
 		if(!("".equals(recentInstitution))){
@@ -129,14 +129,19 @@ public class EducationalBackgroundPage {
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", qualification))).click();
 				
 		}
+		
+		if(!("".equals(otherQualification))){
+			SeleniumUtil.getWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME)).clear();
+			SeleniumUtil.getWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME)).sendKeys(otherQualification);	
+		}
 	}
 	
-	public static void enterPreviousEducationalBackGroundDetails(String recentInstitution, String city, String country, String yearOfEntry, String yearOfCompletion, String qualification ) throws InterruptedException{
+	public static void enterOtherEducationalBackGroundDetails(String otherInstitution, String city, String country, String yearOfEntry, String yearOfCompletion, String qualification, String otherQualification  ) throws InterruptedException{
 		LOGGER.info("Inside enterOtherEducationalBackGroundDetails Method");
 		
-		if(!("".equals(recentInstitution))){
+		if(!("".equals(otherInstitution))){
 			SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_NAME)).clear();
-			SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_NAME)).sendKeys(recentInstitution);	
+			SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_NAME)).sendKeys(otherInstitution);	
 		}
 		
 		if(!("".equals(city))){
@@ -145,9 +150,10 @@ public class EducationalBackgroundPage {
 		}
 		
 		if(!("".equals(country))){
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_COUNTRY_XPATH )).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "3"))).sendKeys(country);
-			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
+			SeleniumUtil.getWebElements(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).get(1).click();
 				
 		}
 		
@@ -180,34 +186,61 @@ public class EducationalBackgroundPage {
 		if(!("".equals(qualification))){
 			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_QUALIFICATION_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).sendKeys(qualification);
-			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", qualification))).click();
+			SeleniumUtil.getWebElements(By.xpath(SELECT_LABEL_XPATH.replace("selectText", qualification))).get(1).click();
 				
 		}
+		
+		if(!("".equals(otherQualification))){
+			SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_OTHER_QUALIFICATION_NAME)).clear();
+			SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_OTHER_QUALIFICATION_NAME)).sendKeys(otherQualification);	
+		}
+		
 	}
 	
-	public static void enterOtherEducationalBackGroundDetails(String recentInstitution, String city, String country, String yearOfEntry, String yearOfCompletion, String qualification ) throws InterruptedException{
+	public static void enterPreviousEducationalBackGroundDetails(String previousUniversity, String nameUsed, String dateOfAdmission, String hostel,String programmeOfStudy, String yearOfStudy, String reasonOfLeavingUniversity ) throws InterruptedException{
 		LOGGER.info("Inside enterOtherEducationalBackGroundDetails Method");
 		
-		if(!("".equals(recentInstitution))){
-			SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_NAME)).clear();
-			SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_NAME)).sendKeys(recentInstitution);	
+		if(!("".equals(previousUniversity))){
+			SeleniumUtil.getWebElement(By.name(PREVIOUS_UNIVERSITY_NAME)).clear();
+			SeleniumUtil.getWebElement(By.name(PREVIOUS_UNIVERSITY_NAME)).sendKeys(previousUniversity);	
 		}
 		
-		if(!("".equals(city))){
-			SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_CITY_NAME)).clear();
-			SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_CITY_NAME)).sendKeys(city);	
+		if(!("".equals(nameUsed))){
+			SeleniumUtil.getWebElement(By.name(PREVIOUS_NAMEUSED_NAME)).clear();
+			SeleniumUtil.getWebElement(By.name(PREVIOUS_NAMEUSED_NAME)).sendKeys(nameUsed);	
 		}
 		
-		if(!("".equals(country))){
-			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_COUNTRY_XPATH )).click();
-			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "3"))).sendKeys(country);
-			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
+		
+		
+		if(!("".equals(dateOfAdmission))){
+			 String[] dobsplit=dateOfAdmission.split("/");
+		    SeleniumUtil.getWebElement(By.name(PREVIOUS_DATE_OF_ADMISSION_NAME)).click();
+		    Thread.sleep(1000);
+			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
+			Thread.sleep(1000);
+			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
+			Thread.sleep(1000);
+			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
+			Thread.sleep(2000);	
+			
+		}
+		if(!("".equals(hostel))){
+			SeleniumUtil.getWebElement(By.name(PREVIOUS_HOSTEL_OF_RESIDENCE_NAME )).clear();
+			
+			SeleniumUtil.getWebElement(By.name(PREVIOUS_HOSTEL_OF_RESIDENCE_NAME)).sendKeys(hostel);
+				
+		}
+		if(!("".equals(programmeOfStudy))){
+			SeleniumUtil.getWebElement(By.name(PREVIOUS_PROGRAMME_OF_STUDY_NAME )).clear();
+			
+			SeleniumUtil.getWebElement(By.name(PREVIOUS_PROGRAMME_OF_STUDY_NAME)).sendKeys(programmeOfStudy);
 				
 		}
 		
-		if(!("".equals(yearOfEntry))){
-			 String[] dobsplit=yearOfEntry.split("/");
-		    SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_DATE_OF_ENTRY_NAME)).click();
+		
+		if(!("".equals(yearOfStudy))){
+			 String[] dobsplit=yearOfStudy.split("/");
+		    SeleniumUtil.getWebElement(By.name(PREVIOUS_LAST_YEAR_OF_STUDY_NAME)).click();
 		    Thread.sleep(1000);
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
 			Thread.sleep(1000);
@@ -218,25 +251,14 @@ public class EducationalBackgroundPage {
 			
 		}
 		
-		if(!("".equals(yearOfCompletion))){
-			 String[] dobsplit=yearOfCompletion.split("/");
-		    SeleniumUtil.getWebElement(By.name(OLD_INSTITUTION_DATE_OF_COMPLETION_NAME)).click();
-		    Thread.sleep(1000);
-			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
-			Thread.sleep(1000);
-			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
-			Thread.sleep(1000);
-			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
-			Thread.sleep(2000);	
+		if(!("".equals(reasonOfLeavingUniversity))){
+			SeleniumUtil.getWebElement(By.name(PREVIOUS_REASON_FOR_LEAVING_NAME )).clear();
 			
-		}
-		
-		if(!("".equals(qualification))){
-			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_QUALIFICATION_XPATH)).click();
-			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).sendKeys(qualification);
-			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", qualification))).click();
+			SeleniumUtil.getWebElement(By.name(PREVIOUS_REASON_FOR_LEAVING_NAME)).sendKeys(reasonOfLeavingUniversity);
 				
 		}
+		
+		
 	}
 	
 	
@@ -263,8 +285,10 @@ public class EducationalBackgroundPage {
 		//SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_DELETE_BUTTON_XPATH)).click();
 	}
 	
-	public static void clickYesNoRadioButton(String yesNo){
+	public static void clickYesNoRadioButton(String yesNo) throws InterruptedException{
 		if("yes".equalsIgnoreCase(yesNo)){
+			SeleniumUtil.scrollToWebElement(By.xpath(PREVIOUS_ENROLLED_UNIVERSITY_RADIO_YES_XPATH));
+			Thread.sleep(1000);
 			SeleniumUtil.waitWebElementClickable(By.xpath(PREVIOUS_ENROLLED_UNIVERSITY_RADIO_YES_XPATH), 20);
 		    SeleniumUtil.getWebElement(By.xpath(PREVIOUS_ENROLLED_UNIVERSITY_RADIO_YES_XPATH)).click();
 		}else{

@@ -22,7 +22,7 @@ public class EducationalBackGround {
 	public void user_enter_mandatory_fields_data_in_Educational_Background_page_and_validate_error_message(
 			List<Map<String, String>> dataTable) throws Throwable {
 		LOGGER.info(
-				"user enter  mandatory fields data in contact information page for postal address and permanent address and validate error message");
+				"user enter mandatory fields data in Educational Background page and validate error message");
 		List<String> list = new ArrayList<String>();
 		boolean flag = true;
 		for (int i = 0; i < dataTable.size(); i++) {
@@ -32,7 +32,7 @@ public class EducationalBackGround {
 			EducationalBackgroundPage.enterCurrentEducationalBackGroundDetails(
 					dataTable.get(i).get("RecentInstitution"), dataTable.get(i).get("City"),
 					dataTable.get(i).get("Country"), dataTable.get(i).get("YearOfEntry"),
-					dataTable.get(i).get("YearOfCompletion"), dataTable.get(i).get("Qualification"));
+					dataTable.get(i).get("YearOfCompletion"), dataTable.get(i).get("Qualification"),dataTable.get(i).get("OtherQualification"));
 
 			EducationalBackgroundPage.clickNextButtonInEducationalBackGround();
 			try {
@@ -109,6 +109,100 @@ public class EducationalBackGround {
 		LOGGER.info("verify that Previous Attendance at a Universit section should display");
 		EducationalBackgroundPage.validatePreviousAttendanceUniversityNotDisplayTitle();
 	}
+	
+	@When("^user enter mandatory fields data for current Education Background in Educational Background page$")
+		public void mandatoryFieldsForCurrentEducationBackGround(List<Map<String, String>> dataTable) throws InterruptedException{
+		EducationalBackgroundPage.enterCurrentEducationalBackGroundDetails(
+				dataTable.get(0).get("RecentInstitution"), dataTable.get(0).get("City"),
+				dataTable.get(0).get("Country"), dataTable.get(0).get("YearOfEntry"),
+				dataTable.get(0).get("YearOfCompletion"), dataTable.get(0).get("Qualification"),dataTable.get(0).get("OtherQualification"));
 
+	}
 
+   @When("^user enter mandatory fields data for Other Education Background in Educational Background page and validate error message$")
+   public void mandatoryFieldsForOtherEducationBackGround(List<Map<String, String>> dataTable) throws InterruptedException{
+	   LOGGER.info(
+				"user enter mandatory fields data for Other Education Background in Educational Background page and validate error message");
+		List<String> list = new ArrayList<String>();
+		boolean flag = true;
+		for (int i = 0; i < dataTable.size(); i++) {
+			if(i!=0){
+				SeleniumUtil.refreshPage();
+			}
+			EducationalBackgroundPage.enterCurrentEducationalBackGroundDetails(
+					"TestCurrentInstitution", "TestCurrentCity",
+					"Afghanistan","10/6/1999",
+					"10/6/1999", "WASSCE","TestCurrentQualification");
+			EducationalBackgroundPage.clickOtherEducationalBackGroundButton();
+			EducationalBackgroundPage.validateOtherEducationalBackgroundTitle();
+			EducationalBackgroundPage.enterOtherEducationalBackGroundDetails(
+					dataTable.get(i).get("OtherInstitution"), dataTable.get(i).get("City"),
+					dataTable.get(i).get("Country"), dataTable.get(i).get("YearOfEntry"),
+					dataTable.get(i).get("YearOfCompletion"), dataTable.get(i).get("Qualification"),dataTable.get(i).get("OtherQualification"));
+
+			EducationalBackgroundPage.clickNextButtonInEducationalBackGround();
+			try {
+				String appError = EducationalBackgroundPage.getErrorMessage();
+                System.out.println("print messaeg**************"+appError);
+				if (!appError.equals(dataTable.get(i).get("Message"))) {
+					list.add(dataTable.get(i).get("Message"));
+					flag = false;
+					LOGGER.info("Error message is matching as " + dataTable.get(i).get("Message"));
+				} else {
+					LOGGER.error("Error message is Not matching as " + dataTable.get(i).get("Message"));
+				}
+			} catch (Exception e) {
+				list.add(dataTable.get(i).get("Message"));
+				flag = false;
+				LOGGER.error("Error message is Not displayed as " + dataTable.get(i).get("Message"));
+			}
+			
+		}
+
+		Assert.assertTrue("The error message is not matching for Current Educational Background" + list, flag);
+		
+   }
+   
+   @When("^user enter mandatory fields data for Previous Education Background in Educational Background page and validate error message$")
+   public void mandatoryFieldsForPreviousEducationBackGround(List<Map<String, String>> dataTable) throws InterruptedException{
+	   LOGGER.info("user enter mandatory fields data for Previous Education Background in Educational Background page and validate error message");
+		List<String> list = new ArrayList<String>();
+		boolean flag = true;
+		for (int i = 0; i < dataTable.size(); i++) {
+			if(i!=0){
+				SeleniumUtil.refreshPage();
+			}
+			EducationalBackgroundPage.enterCurrentEducationalBackGroundDetails(
+					"TestCurrentInstitution", "TestCurrentCity",
+					"Afghanistan","10/6/1999",
+					"10/6/1999", "WASSCE","TestCurrentQualification");
+			EducationalBackgroundPage.clickYesNoRadioButton("Yes");
+			EducationalBackgroundPage.validatePreviousAttendanceUniversityTitle();
+			EducationalBackgroundPage.enterPreviousEducationalBackGroundDetails(
+					dataTable.get(i).get("PreviousInstitute"), dataTable.get(i).get("NameUsed"),
+					dataTable.get(i).get("DateOfAddmission"), dataTable.get(i).get("Hostel"),
+					dataTable.get(i).get("ProgrammeOfStudy"), dataTable.get(i).get("LastYearStudy"),dataTable.get(i).get("ReasonOfLeaving"));
+			
+			EducationalBackgroundPage.clickNextButtonInEducationalBackGround();
+			try {
+				String appError = EducationalBackgroundPage.getErrorMessage();
+               System.out.println("print messaeg**************"+appError);
+				if (!appError.equals(dataTable.get(i).get("Message"))) {
+					list.add(dataTable.get(i).get("Message"));
+					flag = false;
+					LOGGER.info("Error message is matching as " + dataTable.get(i).get("Message"));
+				} else {
+					LOGGER.error("Error message is Not matching as " + dataTable.get(i).get("Message"));
+				}
+			} catch (Exception e) {
+				list.add(dataTable.get(i).get("Message"));
+				flag = false;
+				LOGGER.error("Error message is Not displayed as " + dataTable.get(i).get("Message"));
+			}
+			
+		}
+
+		Assert.assertTrue("The error message is not matching for Current Educational Background" + list, flag);
+		 
+   }
 }
