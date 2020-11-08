@@ -10,6 +10,7 @@ import org.junit.Assert;
 
 import com.acdt.edu.pageobjectmodel.ContactInformationPage;
 import com.acdt.edu.pageobjectmodel.EducationalBackgroundPage;
+import com.acdt.edu.pageobjectmodel.ExaminationPage;
 import com.acdt.edu.util.SeleniumUtil;
 
 import cucumber.api.java.en.Then;
@@ -204,5 +205,35 @@ public class EducationalBackGround {
 
 		Assert.assertTrue("The error message is not matching for Current Educational Background" + list, flag);
 		 
+   }
+   
+   @When("^user enter fields data in Educational Background page$")
+   public void EnterFieldsDataInEducationalBackGround(List<Map<String, String>> dataTable) throws InterruptedException{
+		EducationalBackgroundPage.enterCurrentEducationalBackGroundDetails(
+				dataTable.get(0).get("RecentInstitution"), dataTable.get(0).get("City"),
+				dataTable.get(0).get("Country"), dataTable.get(0).get("YearOfEntry"),
+				dataTable.get(0).get("YearOfCompletion"), dataTable.get(0).get("Qualification"),dataTable.get(0).get("OtherQualification"));
+   }
+   
+   @Then("^verify that user navigation to Examination page$")
+   public void NavigateToExaminationPage(){
+	   ExaminationPage.validateExaminationTitle();
+   }
+   
+   @When("^user enter fields data for other Educational background$")
+   public void EnterFieldsDataInOtherEducationalBackGround(List<Map<String, String>> dataTable) throws InterruptedException{
+	   EducationalBackgroundPage.enterOtherEducationalBackGroundDetails(
+				dataTable.get(0).get("OtherInstitution"), dataTable.get(0).get("City"),
+				dataTable.get(0).get("Country"), dataTable.get(0).get("YearOfEntry"),
+				dataTable.get(0).get("YearOfCompletion"), dataTable.get(0).get("Qualification"),dataTable.get(0).get("OtherQualification"));
+   }
+   
+   @When("^user enter fields data for previous Educational background$")
+   public void EnterFieldsDataInPreviousEducationalBackGround(List<Map<String, String>> dataTable) throws InterruptedException{
+	   EducationalBackgroundPage.enterPreviousEducationalBackGroundDetails(
+				dataTable.get(0).get("PreviousInstitute"), dataTable.get(0).get("NameUsed"),
+				dataTable.get(0).get("DateOfAddmission"), dataTable.get(0).get("Hostel"),
+				dataTable.get(0).get("ProgrammeOfStudy"), dataTable.get(0).get("LastYearStudy"),dataTable.get(0).get("ReasonOfLeaving"));
+		
    }
 }

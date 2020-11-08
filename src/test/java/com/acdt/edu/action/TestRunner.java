@@ -15,7 +15,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/featurefile/", tags = {
-		"@EducationalBackground4" }, plugin = { "pretty", "html:target/cucumber-html-report",
+		"@AddSubjectExamination1" }, plugin = { "pretty", "html:target/cucumber-html-report",
 				"json:target/cucumber.json", "junit:target/cucumber.xml",
 				"rerun:target/rerun.txt" }, glue = { "com.acdt.edu" })
 

@@ -42,9 +42,10 @@ public class ContactInformationPage {
 
 	public static void postalAddressFilling(String address1, String address2, String city, String state, String country,
 			String postCode, String phone) throws Throwable {
-         Thread.sleep(3000);
+         
 		if (!("".equals(address1))) {
-			
+			SeleniumUtil.validateWebElementVisible(By.name(POSTAL_ADDRESS1_NAME), 20);
+			Thread.sleep(3000);
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
 		}
 		if (!("".equals(address2))) {

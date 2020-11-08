@@ -373,6 +373,11 @@ public class SeleniumUtil {
 
 	}
 
+	public static void scrollToWebElement(WebElement element) {
+		LOGGER.info("inside scrollToWebElement method");
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
+	}
 	public static void setValue(By by, int wait, String value) {
 		LOGGER.info("inside setValue method");
 		validateWebElementPresence(by, wait);

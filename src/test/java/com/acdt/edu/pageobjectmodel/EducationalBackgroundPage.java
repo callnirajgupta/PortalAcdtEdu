@@ -48,7 +48,8 @@ public class EducationalBackgroundPage {
     public static final String NEXT_BUTTON_XPATH="//a[text()='Next']";
     public static final String PREVIOUS_ENROLLED_UNIVERSITY_RADIO_YES_XPATH="//label[input[@id='exampleRadios1']]";
     public static final String PREVIOUS_ENROLLED_UNIVERSITY_RADIO_NO_XPATH="//label[input[@id='exampleRadios2']]";
-	public static void validateEducationalBackgroundTitle() {
+	
+    public static void validateEducationalBackgroundTitle() {
 		LOGGER.info("Inside validateEducationalBackgroundTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(EDUCATIONAl_BACKGROUND_HEADER_XPATH),
 				SeleniumUtil.waitWebElementSync);

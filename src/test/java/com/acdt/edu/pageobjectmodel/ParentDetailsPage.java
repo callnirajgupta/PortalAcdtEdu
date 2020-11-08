@@ -7,7 +7,8 @@ import com.acdt.edu.util.SeleniumUtil;
 
 public class ParentDetailsPage {
 	private static final Logger LOGGER = LogManager.getLogger(ParentDetailsPage.class);
-	public static final String PARENT_DETAILS_TITLE_XPATH = "//h3[text()='Particulars of Parent/Guardian/Sponsor']";
+	//public static final String PARENT_DETAILS_TITLE_XPATH = "//h3[text()='Particulars of Parent/Guardian/Sponsor']";
+	public static final String PARENT_DETAILS_TITLE_XPATH = "//h3[text()='Particulars']";
 	public static final String TITLE_XPATH = "//span[text()='Select title']";
 	public static final String SEARCH_XPATH = "(//input[@placeholder='Search'])[index]";
 	public static final String SELECT_LABEL_XPATH = "//label[text()='selectText']";
