@@ -190,9 +190,7 @@ public class ContactInformationPage {
 	public static String getErrorMessage() {
 		SeleniumUtil.wait(2000);
 		return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
-		// Assert.assertEquals("The personal Details Error message is not
-		// matching", message,
-		// SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim());
+		
 	}
 
 }

@@ -1,6 +1,6 @@
 @AddSubjectExamination @Regression
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature: Add Subject for The Examination Page functionality checking
+ 
 
   @AddSubjectExamination1
   Scenario: Add Subject and delete

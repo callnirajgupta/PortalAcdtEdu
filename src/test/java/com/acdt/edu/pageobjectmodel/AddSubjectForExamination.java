@@ -105,7 +105,7 @@ public class AddSubjectForExamination {
 		
 	}
 	
-	public static void clickNextButtonInEducationalBackGround(){
+	public static void clickNextButton(){
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 	}
 }

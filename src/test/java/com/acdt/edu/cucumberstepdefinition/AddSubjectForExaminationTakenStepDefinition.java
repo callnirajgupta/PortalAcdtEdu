@@ -10,7 +10,7 @@ import org.junit.Assert;
 
 import com.acdt.edu.pageobjectmodel.AddSubjectForExamination;
 import com.acdt.edu.pageobjectmodel.ExaminationPage;
-import com.acdt.edu.pageobjectmodel.FinancingYourStudy;
+import com.acdt.edu.pageobjectmodel.FinancingYourStudyPage;
 import com.acdt.edu.util.SeleniumUtil;
 
 import cucumber.api.java.en.And;
@@ -18,7 +18,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class AddSubjectForExaminationTakenStepDefinition {
-	private static final Logger LOGGER = LogManager.getLogger(ContactInformationStepDefinition.class);
+	private static final Logger LOGGER = LogManager.getLogger(AddSubjectForExaminationTakenStepDefinition.class);
 	
 	@When("^user add new subject$")
 	public void userAddSubject(){
@@ -48,7 +48,7 @@ public class AddSubjectForExaminationTakenStepDefinition {
 					dataTable.get(i).get("Subject1"), dataTable.get(i).get("Grade1"),
 					dataTable.get(i).get("Subject2"),dataTable.get(i).get("Grade2"));
 
-			AddSubjectForExamination.clickNextButtonInEducationalBackGround();
+			AddSubjectForExamination.clickNextButton();
 			try {
 				String appError = AddSubjectForExamination.getErrorMessage();
                  System.out.println("print messaeg**************"+appError);
@@ -87,7 +87,7 @@ public class AddSubjectForExaminationTakenStepDefinition {
 					dataTable.get(i).get("Grade1"), dataTable.get(i).get("Grade2"),
 					dataTable.get(i).get("Subject3"),dataTable.get(i).get("Grade3"));
 
-			AddSubjectForExamination.clickNextButtonInEducationalBackGround();
+			AddSubjectForExamination.clickNextButton();
 			try {
 				String appError = AddSubjectForExamination.getErrorMessage();
                  System.out.println("print messaeg**************"+appError);
@@ -120,7 +120,7 @@ public class AddSubjectForExaminationTakenStepDefinition {
     @Then("^verify that user navigation to Financing Your Study page$")
     public void navigatetoFinancingYourStudyPage(){
     	
-    	FinancingYourStudy.validateFinancingYourStudyTitle();
+    	FinancingYourStudyPage.validateFinancingYourStudyTitle();
     	
     }
 }
