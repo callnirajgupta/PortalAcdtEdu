@@ -10,13 +10,14 @@ import org.junit.Assert;
 
 import com.acdt.edu.pageobjectmodel.AddSubjectForExamination;
 import com.acdt.edu.pageobjectmodel.FinancingYourStudyPage;
+import com.acdt.edu.pageobjectmodel.RefereePage;
 import com.acdt.edu.util.SeleniumUtil;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class FinancingYourStudy {
-	private static final Logger LOGGER = LogManager.getLogger(FinancingYourStudy.class);
+public class FinancingYourStudyStepDefinition {
+	private static final Logger LOGGER = LogManager.getLogger(FinancingYourStudyStepDefinition.class);
 	
   @When("^user enter mandatory fields data in Financing Your Study page and validate error message$")
   public void user_enter_mandatory_fields_data_Financing_Your_Study_page_and_validate_error_message(List<Map<String, String>> dataTable){
@@ -65,6 +66,7 @@ public class FinancingYourStudy {
   
   @Then("^verify that user navigation to Referee page$") 
   public void verify_that_user_navigation_to_Referee_page(){
+	  RefereePage.validateRefereeTitle();
 	  
   }
 }
