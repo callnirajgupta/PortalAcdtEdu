@@ -30,7 +30,7 @@ public class RefereeStepDefinition {
 			if(i!=0){
 				SeleniumUtil.refreshPage();
 			}
-			RefereePage.fillingDataInRefereePage(dataTable.get(i).get("Title"),dataTable.get(i).get("Position"),dataTable.get(i).get("FullName") ,dataTable.get(i).get("Email") ,dataTable.get(i).get("Occupation") ,dataTable.get(i).get("Date") );
+			RefereePage.fillingDataInRefereePage(dataTable.get(i).get("Title"),dataTable.get(i).get("Position"),dataTable.get(i).get("FullName") ,dataTable.get(i).get("Email") ,dataTable.get(i).get("Occupation") ,dataTable.get(i).get("Date"),dataTable.get(i).get("Signature") );
 			RefereePage.clickPreviewButton();
 			try {
 				String appError = RefereePage.getErrorMessage();
@@ -58,7 +58,7 @@ public class RefereeStepDefinition {
 	public void userEnterMandatoryFields_DataInRefereePage(List<Map<String, String>> dataTable){
 		LOGGER.info("user enter mandatory fields data in Referee page");
 		
-		RefereePage.fillingDataInRefereePage(dataTable.get(0).get("Title"),dataTable.get(0).get("Position"),dataTable.get(0).get("FullName") ,dataTable.get(0).get("Email") ,dataTable.get(0).get("Occupation") ,dataTable.get(0).get("Date") );
+		RefereePage.fillingDataInRefereePage(dataTable.get(0).get("Title"),dataTable.get(0).get("Position"),dataTable.get(0).get("FullName") ,dataTable.get(0).get("Email") ,dataTable.get(0).get("Occupation") ,dataTable.get(0).get("Date"),dataTable.get(0).get("Signature") );
 	}
 	
 	@When("^user click Preview button$")

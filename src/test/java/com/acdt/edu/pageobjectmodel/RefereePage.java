@@ -26,14 +26,15 @@ public class RefereePage {
 	public static final String CALENDAR_YEAR_XPATH = "//select[@title='Select year']";
 	public static final String CALENDAR_DATE_XPATH = "//div[@class='btn-light' and text()='date']";
 	public static final String ERROR_MESSAGE_XPATH = "//div[@class='errorMessage']";
-
-	public static void validateRefereeTitle() {
+	public static final String SIGNATURE_NAME = "applicantSignature";
+	
+			public static void validateRefereeTitle() {
 		LOGGER.info("Inside validateRefereeTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(REFEREE_HEADER_XPATH), SeleniumUtil.waitWebElementSync);
 	}
 
 	public static void fillingDataInRefereePage(String title, String position, String fullName, String email,
-			String occupation, String date) {
+			String occupation, String date,String signature) {
 		LOGGER.info("Inside fillingDataInReferencePage Method");
 		if (!("".equals(title))) {
 
@@ -82,6 +83,10 @@ public class RefereePage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
+		}
+		
+		if (!("".equals(signature))) {
+			SeleniumUtil.getWebElement(By.name(SIGNATURE_NAME)).sendKeys(signature);
 		}
 	}
 

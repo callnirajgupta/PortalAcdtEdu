@@ -72,4 +72,91 @@ public class ApplicationSummaryPage {
 				SeleniumUtil.waitWebElementSync);
 	}
 	
+	public static String getPersonalTitleFilledText(){
+		LOGGER.info("Inside getPersonalTitleFilledText Method");
+		SeleniumUtil.validateWebElementVisible(PERSONAL_TITLE, SeleniumUtil.waitWebElementSync);
+		SeleniumUtil.wait(5000);
+		return SeleniumUtil.getWebElement(PERSONAL_TITLE).getText();
+	}
+	
+	public static String getPersonalSurNameFilledText(){
+		LOGGER.info("Inside getPersonalSurNameFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_SURNAME).getText();
+	}
+	
+	public static String getPersonalFirstNameFilledText(){
+		LOGGER.info("Inside getPersonalFirstNameFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_FIRST_NAME).getText();
+	}
+	
+	public static String getPersonalMiddleNameFilledText(){
+		LOGGER.info("Inside getPersonalMiddleNameFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_MIDDLE_NAME).getText();
+	}
+	
+	public static String getPersonalOtherNameFilledText(){
+		LOGGER.info("Inside getPersonalOtherNameFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_OTHER_NAMES).getText();
+	}
+	
+	public static String getPersonalGenderFilledText(){
+		LOGGER.info("Inside getPersonalGenderFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_GENDER).getText();
+	}
+	
+	public static String getPersonalDateOfBirthFilledText(){
+		LOGGER.info("Inside getPersonalDateOfBirthFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_DATE_OF_BIRTH).getText();
+	}
+	
+	public static String getPersonalCountryFilledText(){
+		LOGGER.info("Inside getPersonalCountryFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_COUNTRY).getText();
+	}
+	
+	public static String getPersonalCityOfBirthFilledText(){
+		LOGGER.info("Inside getPersonalCityOfBirthFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_CITY_OF_BIRTH).getText();
+	}
+	
+	public static String getPersonalNationalityFilledText(){
+		LOGGER.info("Inside getPersonalNationalityFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_NATIONALITY).getText();
+	}
+	
+	public static String getPersonalReligionFilledText(){
+		LOGGER.info("Inside getPersonalReligionFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_RELIGION).getText();
+	}
+	
+	public static String getPersonalHomeTownFilledText(){
+		LOGGER.info("Inside getPersonalHomeTownFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_HOMETOWN).getText();
+	}
+	
+	public static String getPersonalRegionFilledText(){
+		LOGGER.info("Inside getPersonalRegionFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_REGION).getText();
+	}
+	
+	public static String getPersonalEmailFilledText(){
+		LOGGER.info("Inside getPersonalRegionFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_EMAIL).getText();
+	}
+	
+	public static String getPersonalSpecialNeedYesFilledText(){
+		LOGGER.info("Inside getPersonalSpecialNeedYesFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_SPECIAL_NEED_YES_TEXTAREA).getText();
+	}
+	
+	public static String getPersonalSpecialNeedYesRadioFilledText(){
+		LOGGER.info("Inside getPersonalSpecialNeedYesRadioFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_SPECIAL_NEED_YES_RADIO).getAttribute("checked");
+	}
+	
+	public static String getPersonalSpecialNeedNoRadioFilledText(){
+		LOGGER.info("Inside getPersonalSpecialNeedNoRadioFilledText Method");
+		return SeleniumUtil.getWebElement(PERSONAL_SPECIAL_NEED_NO_RADIO).getAttribute("checked");
+	}
+	
 }

@@ -8,7 +8,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 
-import com.acdt.edu.pageobjectmodel.AddSubjectForExamination;
+import com.acdt.edu.pageobjectmodel.ExaminationSubject;
 import com.acdt.edu.pageobjectmodel.FinancingYourStudyPage;
 import com.acdt.edu.pageobjectmodel.RefereePage;
 import com.acdt.edu.util.SeleniumUtil;

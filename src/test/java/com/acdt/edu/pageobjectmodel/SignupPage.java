@@ -29,7 +29,7 @@ public class SignupPage {
 	public static final String CAPTCHA_XPATH="//span[@id='recaptcha-anchor']/div[1]";
 	public static final String START_APPLICATION_XPATH="//a[text()='Start Application']";
 	public static final String ERROR_MESSAGE_XPATH="//div[@class='errorMessage']";
-	
+	public static String emailAuto;
 	public static void validateSignupTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(SIGNUP_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
@@ -83,7 +83,7 @@ public class SignupPage {
 		if(!("".equals(email))){
 			if("auto".equalsIgnoreCase(email)){
 				Date date= new Date();
-				String emailAuto="automation"+date.getTime()+"@acdt.edu.gh";
+				 emailAuto="automation"+date.getTime()+"@acdt.edu.gh";
 				SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).sendKeys(emailAuto);	
 			
 			}else{

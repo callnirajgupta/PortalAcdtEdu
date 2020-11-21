@@ -36,10 +36,10 @@ Feature: Add Subject for The Examination Page functionality checking
     When user enter mandatory fields data in examination page
       | ExaminationType | IndexNumber | DateOfExamination | UploadResultSlip |
       | WASSCE          |           8 | 10/6/1999         | Passport.jpg     |
-    Then verify that user navigation to Add Subject for Examination taken page
-    When user enter mandatory fields data in Add Subject for Examination Taken Page
-      | Subject1 | Grade1 | Subject2 | Grade2 |
-      | English  | A1     | Math     | A1     |
+    Then verify that user navigation to Examination Subject page
+    When user enter mandatory fields data in Examination Subject Page
+      | Grade1 | Grade2 | Subject3    | Grade3 | Subject4 | Grade4 | Subject5 | Grade5 | Subject6 | Grade6 | 
+      |      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 | Social   |      6 |
     And user click next button
     Then verify that user navigation to Financing Your Study page
     When user enter mandatory fields data in Financing Your Study page
@@ -48,13 +48,14 @@ Feature: Add Subject for The Examination Page functionality checking
     And user click next button
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page and validate error message
-      | Title | Position     | FullName     | Email                   | Occupation  | Date      | Message                                                   |
-      |       | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 | Please fill in the required field(s): Title               |
-      | Miss  |              | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 | Please fill in the required field(s): Position            |
-      | Miss  | TestPosition |              | TestAutomation@acdt.edu | Testservice | 10/6/2015 | Please fill in the required field(s): Name                |
-      | Miss  | TestPosition | TestFullName |                         | Testservice | 10/6/2015 | Please fill in the required field(s): Email Address       |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu |             | 10/6/2015 | Please fill in the required field(s): Occupation          |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice |           | Please fill in the required field(s): , Date is in future |
+      | Title | Position     | FullName     | Email                   | Occupation  | Date      | Signature     | Message                                                   |
+      |       | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 | testSignature | Please fill in the required field(s): Title               |
+      | Miss  |              | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 | testSignature | Please fill in the required field(s): Position            |
+      | Miss  | TestPosition |              | TestAutomation@acdt.edu | Testservice | 10/6/2015 | testSignature | Please fill in the required field(s): Name                |
+      | Miss  | TestPosition | TestFullName |                         | Testservice | 10/6/2015 | testSignature | Please fill in the required field(s): Email Address       |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu |             | 10/6/2015 | testSignature | Please fill in the required field(s): Occupation          |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice |           | testSignature | Please fill in the required field(s): , Date is in future |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 |               | Please fill in the required field(s): Applicant Signature |
 
   @Reference2
   Scenario: Verify that user navigate to Application Summary page after filling all mandatory fields.
@@ -91,10 +92,10 @@ Feature: Add Subject for The Examination Page functionality checking
     When user enter mandatory fields data in examination page
       | ExaminationType | IndexNumber | DateOfExamination | UploadResultSlip |
       | WASSCE          |           8 | 10/6/1999         | Passport.jpg     |
-    Then verify that user navigation to Add Subject for Examination taken page
-    When user enter mandatory fields data in Add Subject for Examination Taken Page
-      | Subject1 | Grade1 | Subject2 | Grade2 |
-      | English  | A1     | Math     | A1     |
+    Then verify that user navigation to Examination Subject page
+    When user enter mandatory fields data in Examination Subject Page
+      | Grade1 | Grade2 | Subject3    | Grade3 | Subject4 | Grade4 | Subject5 | Grade5 | Subject6 | Grade6 | 
+      |      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 | Social   |      6 |
     And user click next button
     Then verify that user navigation to Financing Your Study page
     When user enter mandatory fields data in Financing Your Study page
@@ -103,7 +104,7 @@ Feature: Add Subject for The Examination Page functionality checking
     And user click next button
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
-      | Title | Position     | FullName     | Email                   | Occupation  | Date      |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 |
+      | Title | Position     | FullName     | Email                   | Occupation  | Date      | Signature     |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 | TestSignature |
     And user click Preview button
     Then verify that user navigation to Application Summary page

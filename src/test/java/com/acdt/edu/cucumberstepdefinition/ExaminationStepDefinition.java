@@ -7,8 +7,10 @@ import java.util.Map;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.acdt.edu.pageobjectmodel.AddSubjectForExamination;
+import com.acdt.edu.pageobjectmodel.ExaminationSubject;
 import com.acdt.edu.pageobjectmodel.EducationalBackgroundPage;
 import com.acdt.edu.pageobjectmodel.ExaminationPage;
 import com.acdt.edu.util.SeleniumUtil;
@@ -97,8 +99,8 @@ public class ExaminationStepDefinition {
 			ExaminationPage.clickNextButtonInEducationalBackGround();   
 	   }
 	   
-	  @Then("^verify that user navigation to Add Subject for Examination taken page$")
+	  @Then("^verify that user navigation to Examination Subject page$")
 	  public void UserNavigationToAddSubjectExaminationTaken(){
-		  AddSubjectForExamination.validateAddSubjectForExaminationTitle();  
+		  ExaminationSubject.validateExaminationSubjectTitle();  
 	  }
 }

@@ -115,5 +115,5 @@ Feature: Title of your feature
     When user enter mandatory fields data in examination page
       | ExaminationType | IndexNumber | DateOfExamination | UploadResultSlip                                    |
       |   WASSCE        |           8 | 10/6/1999         | Passport.jpg            |
-    Then verify that user navigation to Add Subject for Examination taken page 
+    Then verify that user navigation to Examination Subject page 
       

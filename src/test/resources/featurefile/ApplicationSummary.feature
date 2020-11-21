@@ -37,10 +37,10 @@ Feature: Application Summary page field verification
     When user enter mandatory fields data in examination page
       | ExaminationType | IndexNumber | DateOfExamination | UploadResultSlip |
       | WASSCE          |           8 | 10/6/1999         | Passport.jpg     |
-    Then verify that user navigation to Add Subject for Examination taken page
-    When user enter mandatory fields data in Add Subject for Examination Taken Page
-      | Subject1 | Grade1 | Subject2 | Grade2 |
-      | English  | A1     | Math     | A1     |
+    Then verify that user navigation to Examination Subject page
+    When user enter mandatory fields data in Examination Subject Page
+      | Grade1 | Grade2 | Subject3    | Grade3 | Subject4 | Grade4 | Subject5 | Grade5 | Subject6 | Grade6 | 
+      |      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 | Social   |      6 |
     And user click next button
     Then verify that user navigation to Financing Your Study page
     When user enter mandatory fields data in Financing Your Study page
@@ -49,7 +49,8 @@ Feature: Application Summary page field verification
     And user click next button
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
-      | Title | Position     | FullName     | Email                   | Occupation  | Date      |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 |
+      | Title | Position     | FullName     | Email                   | Occupation  | Date      | Signature     |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 | TestSignature |
     And user click Preview button
     Then verify that user navigation to Application Summary page
+    And verify the filled data in signup page is display correctly in application summary page 

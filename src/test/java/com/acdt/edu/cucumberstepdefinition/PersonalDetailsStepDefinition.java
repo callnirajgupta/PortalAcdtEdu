@@ -17,7 +17,7 @@ import cucumber.api.java.en.When;
 
 public class PersonalDetailsStepDefinition {
 	private static final Logger LOGGER = LogManager.getLogger(PersonalDetailsStepDefinition.class);
-
+	 public static List<Map<String,String>> PersonalDataTable= new ArrayList<Map<String,String>>();
 	@Then("^verify that fields \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" are prefilled from Signup page$")
 	public void verify_that_fields_and_and_and_are_prefilled_from_previous(String firstName, String surname,
 			String gender, String country) throws Throwable {
@@ -65,6 +65,7 @@ public class PersonalDetailsStepDefinition {
 
 	@When("^user enter mandatory data in personal details page for following fields$")
 	public void PersonalDetailsMandatory(List<Map<String, String>> dataTable) throws Throwable {
+		PersonalDataTable=dataTable;
 		PersonalDetailsPage.personalDetailFilling(dataTable.get(0).get("Image"), dataTable.get(0).get("Title"),
 				dataTable.get(0).get("FirstName"), dataTable.get(0).get("MiddleName"), dataTable.get(0).get("LastName"),
 				dataTable.get(0).get("OtherName"), dataTable.get(0).get("Gender"), dataTable.get(0).get("DOB"),
