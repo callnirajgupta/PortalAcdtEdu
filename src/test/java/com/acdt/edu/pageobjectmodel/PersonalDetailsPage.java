@@ -29,8 +29,8 @@ public class PersonalDetailsPage {
     public static final String RELIGION_XPATH="//div[label[text()='Religion']]//div[@class='c-btn']";
     public static final String HOME_TOWN_NAME="homeTown";
     public static final String REGION_XPATH="//div[label[text()='Region']]//div[@class='c-btn']";
-    public static final String SPECIAL_NEED_YES_ID="exampleRadios1";
-    public static final String SPECIAL_NEED_NO_ID="exampleRadios2";
+    public static final String SPECIAL_NEED_YES_XPATH="//label[input[@id='specialNeedsRadio1']]";
+    public static final String SPECIAL_NEED_NO_XPATH="//label[input[@id='specialNeedsRadio2']]";
     public static final String SPECIAL_NEED_TEXT_NAME="specialNeedsStatusText";
     public static final String NEXT_BUTTON_XPATH="//a[text()='Next']";
     public static final String LOGOUT_XPATH="//a[text()='Logout']";
@@ -164,16 +164,12 @@ public class PersonalDetailsPage {
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "6"))).sendKeys(region);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", region))).click();	
 		}
-		if("yes".equals(specialNeed )){
-			SeleniumUtil.getWebElement(By.id(SPECIAL_NEED_YES_ID)).click();		
+		if("yes".equalsIgnoreCase(specialNeed )){
+			SeleniumUtil.getWebElement(By.xpath(SPECIAL_NEED_YES_XPATH)).click();		
+			SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).sendKeys(comment);
 		}
-		if("yes".equals(comment)){
-			SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).sendKeys(comment);	
-		}
-		
+				
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
-		
-		
 		
 	}
    
@@ -181,7 +177,7 @@ public class PersonalDetailsPage {
     public static String getErrorMessage(){
 		SeleniumUtil.wait(2000);
 		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
-		//Assert.assertEquals("The personal Details Error message is not matching", message, SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim());
+		
 	}
     
    

@@ -23,10 +23,10 @@ public class HomePage {
 	}
     
 	public static void clickStartApplication() throws IOException{
-		LOGGER.info("Inside validateHomePageTitle Method");
-		SeleniumUtil.validateWebElementVisible(By.xpath(INSTRUCTION_TAB_XPATH), SeleniumUtil.waitWebElementSync);
-		SeleniumUtil.waitWebElementClickable(By.xpath(INSTRUCTION_TAB_XPATH), SeleniumUtil.waitWebElementSync);
-		SeleniumUtil.clickWebElement(By.xpath(INSTRUCTION_TAB_XPATH), SeleniumUtil.waitWebElementSync);
+		LOGGER.info("Inside clickStartApplication Method");
+		SeleniumUtil.validateWebElementVisible(By.xpath(START_APPLICATION_BUTTON), SeleniumUtil.waitWebElementSync);
+		SeleniumUtil.waitWebElementClickable(By.xpath(START_APPLICATION_BUTTON), SeleniumUtil.waitWebElementSync);
+		SeleniumUtil.clickWebElement(By.xpath(START_APPLICATION_BUTTON), SeleniumUtil.waitWebElementSync);
 		
 	}
 	

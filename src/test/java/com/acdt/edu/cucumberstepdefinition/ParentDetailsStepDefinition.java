@@ -18,7 +18,8 @@ import cucumber.api.java.en.When;
 
 public class ParentDetailsStepDefinition {
 	private static final Logger LOGGER = LogManager.getLogger(ParentDetailsStepDefinition.class);
-
+	public static List<Map<String,String>> parentDetailsDataTable = new ArrayList<Map<String,String>>() ;
+	
 	@When("^user enter mandatory fields data in parent details page and validate error message$")
 	public void parentDetailsMandatoryFieldsAndError(List<Map<String, String>> dataTable) throws Throwable {
 		LOGGER.info("user enter mandatory fields data in parent details page and validate error message");
@@ -107,7 +108,7 @@ public class ParentDetailsStepDefinition {
 	public void enterMandatoryFieldsAndNavigateToProgrameSelectionPage(List<Map<String, String>> dataTable) throws Throwable{
 		LOGGER.info("user enter mandatory fields data in parent details page");
 		List<String> list = new ArrayList<String>();
-		
+		parentDetailsDataTable=dataTable;
 		for (int i = 0; i < dataTable.size(); i++) {
 			
 			ParentDetailsPage.parentDetailFilling(dataTable.get(i).get("Title"), dataTable.get(i).get("FirstName"),

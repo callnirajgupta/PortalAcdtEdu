@@ -15,12 +15,14 @@ import cucumber.api.java.en.When;
 public class ContactInformationStepDefinition {
 	
 	private static final Logger LOGGER = LogManager.getLogger(ContactInformationStepDefinition.class);
-	List<Map<String,String>> postalAddress = new ArrayList<Map<String,String>>() ;
+	public static List<Map<String,String>> contactInformationPostalAddressDataTable = new ArrayList<Map<String,String>>() ;
+	 
 	
-	@When("^user enter data in contact information page for postal address$")
+	 @When("^user enter data in contact information page for postal address$")
 	public void user_enter_data_in_contact_information_page_for_postal_address(List<Map<String,String>> dataTable) throws Throwable {
 		LOGGER.info("user enter data in contact information page for postal address");
-		postalAddress=dataTable;
+		contactInformationPostalAddressDataTable=dataTable;
+		
 		ContactInformationPage.postalAddressFilling(dataTable.get(0).get("Address1"),dataTable.get(0).get("Address2"), dataTable.get(0).get("City"), dataTable.get(0).get("State"),dataTable.get(0).get("Country") , dataTable.get(0).get("PostalCode"),dataTable.get(0).get("Phone"));
 	
 	}
@@ -34,7 +36,7 @@ public class ContactInformationStepDefinition {
 	@Then("^verify that postal address is matching permanent address$")
 	public void verify_that_postal_address_is_matching_permanent_address() throws Throwable {
 		LOGGER.info("verify that postal address is matching permanent address");
-		ContactInformationPage.validatePostalAddressSamePermanentAddress(postalAddress.get(0).get("Address1"),postalAddress.get(0).get("Address2"), postalAddress.get(0).get("City"), postalAddress.get(0).get("State"),postalAddress.get(0).get("Country") , postalAddress.get(0).get("PostalCode"),postalAddress.get(0).get("Phone"));
+		ContactInformationPage.validatePostalAddressSamePermanentAddress(contactInformationPostalAddressDataTable.get(0).get("Address1"),contactInformationPostalAddressDataTable.get(0).get("Address2"), contactInformationPostalAddressDataTable.get(0).get("City"), contactInformationPostalAddressDataTable.get(0).get("State"),contactInformationPostalAddressDataTable.get(0).get("Country") , contactInformationPostalAddressDataTable.get(0).get("PostalCode"),contactInformationPostalAddressDataTable.get(0).get("Phone"));
 	    
 	}
     
@@ -73,6 +75,7 @@ public class ContactInformationStepDefinition {
 	@When("^user enter  mandatory fields data in contact information page for permanent address and validate error message$")
 	public void mandatoryFieldsdataToPermanentAndPermanentAddress(List<Map<String,String>> dataTable) throws Throwable{
 		LOGGER.info("user enter  mandatory fields data in contact information page for permanent address and permanent address and validate error message");
+		
 		List<String> list = new ArrayList<String>();
 	    boolean flag=true;
 	    for(int i=0;i<dataTable.size();i++){
