@@ -93,6 +93,7 @@ public class PersonalDetailsPage {
 			SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).clear();
 		}
 		if(!("".equals(middleName))){
+			SeleniumUtil.getWebElement(By.name(MIDDLENAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(MIDDLENAME_NAME)).sendKeys(middleName);	
 		}
 		if(!("".equals(lastName))){
@@ -103,7 +104,8 @@ public class PersonalDetailsPage {
 			Thread.sleep(5000);
 		}
 		if(!("".equals(otherName))){
-			SeleniumUtil.getWebElement(By.name(OTHERNAMES_NAME)).click();
+			SeleniumUtil.getWebElement(By.name(OTHERNAMES_NAME)).clear();
+			SeleniumUtil.getWebElement(By.name(OTHERNAMES_NAME)).sendKeys(otherName);
 			
 			
 		}

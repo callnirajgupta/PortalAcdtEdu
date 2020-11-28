@@ -21,7 +21,7 @@ import cucumber.api.java.en.When;
 
 public class ExaminationStepDefinition {
 	private static final Logger LOGGER = LogManager.getLogger(ExaminationStepDefinition.class);
-	
+	public static List<Map<String,String>> examinationTakenDataTable = new ArrayList<Map<String,String>>() ;
 	  @When("^user add new examination type$")
 	  public void addNewExaminationType(){
 		  ExaminationPage.clickaddNewExaminationType();
@@ -92,6 +92,7 @@ public class ExaminationStepDefinition {
 	   
 	   @When("^user enter mandatory fields data in examination page$")
 	   public void EnterMandatoryfieldExaminationPage(List<Map<String, String>> dataTable) throws Throwable{
+		   examinationTakenDataTable=dataTable;
 		   ExaminationPage.enterExaminationDetails(
 					dataTable.get(0).get("ExaminationType"), dataTable.get(0).get("IndexNumber"),
 					dataTable.get(0).get("DateOfExamination"));

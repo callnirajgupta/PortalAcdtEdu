@@ -36,7 +36,7 @@ Feature: Signup page functionality
     When user click on start application button in home page
     And user enter mandatory data for field "<First Name>" and "<Middle Name>" and "<Last Name>" and "<Programme Type>" and "<Gender>" and "<Country of Residence>" and "<Mobile Number>" and "<Email address>" and "<Password>" and "<Confirm Password>" and "<Captcha>"
     And user click start application button
-    Then User should navigate to personal details page
+    Then user should navigate to personal details page
 
     Examples: 
       | First Name    | Middle Name    | Last Name    | Programme Type | Gender | Country of Residence | Mobile Number | Email address | Password | Confirm Password | Captcha |

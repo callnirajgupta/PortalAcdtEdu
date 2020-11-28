@@ -23,7 +23,7 @@ import cucumber.api.java.en.When;
 
 public class ExaminationSubjectStepDefinition {
 	private static final Logger LOGGER = LogManager.getLogger(ExaminationSubjectStepDefinition.class);
-	
+	public static List<Map<String,String>> examinationSubjectDataTable = new ArrayList<Map<String,String>>() ;
 	
     @Then("^verify that default subject is displayed as \"([^\"]*)\" and \"([^\"]*)\"$")
     public void verifyDefaultSubjectNotDeleted(String subject1, String subject2){
@@ -74,6 +74,7 @@ public class ExaminationSubjectStepDefinition {
     
     @When("^user enter mandatory fields data in Examination Subject Page$")
     public void enterfieldsdataExaminationSubjectTakenPage(List<Map<String, String>> dataTable){
+    	examinationSubjectDataTable = dataTable;
     	ExaminationSubject.enterMandatoryFieldForExaminationSubjectTaken(
 				 dataTable.get(0).get("Grade1"),
 				dataTable.get(0).get("Grade2"),dataTable.get(0).get("Subject3"),dataTable.get(0).get("Grade3"),dataTable.get(0).get("Subject4"),dataTable.get(0).get("Grade4"),dataTable.get(0).get("Subject5"),dataTable.get(0).get("Grade5"),dataTable.get(0).get("Subject6"),dataTable.get(0).get("Grade6"));

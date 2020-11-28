@@ -18,7 +18,7 @@ import cucumber.api.java.en.When;
 
 public class FinancingYourStudyStepDefinition {
 	private static final Logger LOGGER = LogManager.getLogger(FinancingYourStudyStepDefinition.class);
-	
+	public static List<Map<String,String>> financingYourStudyDataTable = new ArrayList<Map<String,String>>() ;
   @When("^user enter mandatory fields data in Financing Your Study page and validate error message$")
   public void user_enter_mandatory_fields_data_Financing_Your_Study_page_and_validate_error_message(List<Map<String, String>> dataTable){
 	  LOGGER.info("user enter mandatory fields data in Financing Your Study page and validate error message");
@@ -58,6 +58,7 @@ public class FinancingYourStudyStepDefinition {
   @When("^user enter mandatory fields data in Financing Your Study page$")
   public void user_enter_mandatory_fields_data_in_Financing_Your_Study_page(List<Map<String, String>> dataTable){
 	  LOGGER.info("user enter mandatory fields data in Financing Your Study page");
+	  financingYourStudyDataTable=dataTable;
 	  FinancingYourStudyPage.enterDataInFinancingYourStudyDetails(
 				dataTable.get(0).get("IntendToFinance"), dataTable.get(0).get("Other"));
 

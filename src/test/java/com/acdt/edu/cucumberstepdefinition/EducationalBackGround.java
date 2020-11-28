@@ -18,7 +18,8 @@ import cucumber.api.java.en.When;
 
 public class EducationalBackGround {
 	private static final Logger LOGGER = LogManager.getLogger(EducationalBackGround.class);
-
+	public static List<Map<String,String>> educationalBackGroundDataTable = new ArrayList<Map<String,String>>() ;
+	
 	@When("^user enter mandatory fields data in Educational Background page and validate error message$")
 	public void user_enter_mandatory_fields_data_in_Educational_Background_page_and_validate_error_message(
 			List<Map<String, String>> dataTable) throws Throwable {
@@ -113,6 +114,7 @@ public class EducationalBackGround {
 	
 	@When("^user enter mandatory fields data for current Education Background in Educational Background page$")
 		public void mandatoryFieldsForCurrentEducationBackGround(List<Map<String, String>> dataTable) throws InterruptedException{
+		
 		EducationalBackgroundPage.enterCurrentEducationalBackGroundDetails(
 				dataTable.get(0).get("RecentInstitution"), dataTable.get(0).get("City"),
 				dataTable.get(0).get("Country"), dataTable.get(0).get("YearOfEntry"),
@@ -209,7 +211,9 @@ public class EducationalBackGround {
    
    @When("^user enter fields data in Educational Background page$")
    public void EnterFieldsDataInEducationalBackGround(List<Map<String, String>> dataTable) throws InterruptedException{
-		EducationalBackgroundPage.enterCurrentEducationalBackGroundDetails(
+		
+	   educationalBackGroundDataTable=dataTable;
+	   EducationalBackgroundPage.enterCurrentEducationalBackGroundDetails(
 				dataTable.get(0).get("RecentInstitution"), dataTable.get(0).get("City"),
 				dataTable.get(0).get("Country"), dataTable.get(0).get("YearOfEntry"),
 				dataTable.get(0).get("YearOfCompletion"), dataTable.get(0).get("Qualification"),dataTable.get(0).get("OtherQualification"));

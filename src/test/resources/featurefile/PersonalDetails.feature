@@ -7,7 +7,7 @@ Feature: personal details page fields validation
     When user click on start application button in home page
     And user enter mandatory data for field "<First Name>" and "<Middle Name>" and "<Last Name>" and "<Programme Type>" and "<Gender>" and "<Country of Residence>" and "<Mobile Number>" and "<Email address>" and "<Password>" and "<Confirm Password>" and "<Captcha>"
     And user click start application button
-    Then User should navigate to personal details page
+    Then user should navigate to personal details page
     And verify that fields "<First Name>" and "<Last Name>" and "<Gender>" and "<Country of Residence>" are prefilled from Signup page
 
     Examples: 
@@ -21,7 +21,7 @@ Feature: personal details page fields validation
     And user enter mandatory data field in signup page
       | FirstName | LastName| MiddleName| ProgrammeType | Gender|CountryOfResidence |MobileNumber | EmailAddress|Password| ConfirmPassword| Captcha | 
       | TestFirstName| TestLastName| TestMiddleName | Diploma| M | India| +919241521992|auto |password|password |yes| 
-    Then User should navigate to personal details page
+    Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields and validate error message
       | Image        | Title | FirstName     | MiddleName     | LastName     | OtherName     | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment | Message                                                          |
       #||  Miss    | TestFirstName | Middle     | tester   | asd       | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment | Please fill in the required field(s): Photo |
@@ -44,7 +44,7 @@ Feature: personal details page fields validation
     And user enter mandatory data field in signup page
       | FirstName | LastName| MiddleName| ProgrammeType | Gender|CountryOfResidence |MobileNumber | EmailAddress|Password| ConfirmPassword| Captcha | 
       | TestFirstName| TestLastName| TestMiddleName | Diploma| M | India| +919241521992|auto |password|password |yes| 
-    Then User should navigate to personal details page
+    Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
       | Image        | Title | FirstName  | MiddleName | LastName | OtherName | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment |
       | Passport.jpg | Miss  | TestFirstName| TestMiddleName     |          | asd       | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment |

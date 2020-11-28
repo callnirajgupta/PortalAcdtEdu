@@ -64,14 +64,61 @@ public class ApplicationSummaryPage {
     public static final By PARTICULAR_OF_PARENT_POSTAL_CODE = By.xpath("(//div[label[text()='Postal Code']]//p)[3]");
     public static final By PROGRAMME_SELECTION_PROGRAMME_TYPE = By.xpath("//div[label[text()='Programme Type']]//p");
     public static final By PROGRAMME_SELECTION_PROGRAMME_TITLE = By.xpath("//div[label[text()='Programme Title']]//p");
+    public static final By EDUCATIONAL_BACKGROUND_CURRENT_INSTITUTE = By.xpath("//div[label[text()='Current or most recent SHS/Institution']]//p");
+    public static final By EDUCATIONAL_BACKGROUND_CITY = By.xpath("(//div[label[text()='City/Town']]//div/p)[4]");
+    public static final By EDUCATIONAL_BACKGROUND_COUNTRY = By.xpath("(//div[label[text()='Country']]//div/p)[4]");
+    public static final By EDUCATIONAL_BACKGROUND_YEAR_OF_ENTRY = By.xpath("//div[label[text()='Year of Entry']]//div/p");
+    public static final By EDUCATIONAL_BACKGROUND_YEAR_OF_COMPLETION = By.xpath("//div[label[text()='Year of Completion']]//div/p");
+    public static final By EDUCATIONAL_BACKGROUND_QUALIFICATION = By.xpath("//div[label[text()='Qualification']]//div/p");
+    public static final By EDUCATIONAL_BACKGROUND_OTHER_QUALIFICATION = By.xpath("//div[label[text()='If Others, enter Qualification here']]//div/p");
+    public static final By EXAMINATION_TAKEN_EXAM_TYPE = By.xpath("//div[label[text()='Exam Type']]//div/p");
+    public static final By EXAMINATION_TAKEN_INDEX_NUMBER = By.xpath("//div[label[text()='Index Number']]//div/p");
+    public static final By EXAMINATION_TAKEN_DATE_OF_EXAMINATION = By.xpath("//div[label[text()='Date of Examination']]//div/p");
+    public static final By EXAMINATION_TAKEN_RESULT_SLIP = By.xpath("//div[label[text()='Result Slip']]//div/p");
+    public static final By EXAMINATION_SUBJECT1 = By.xpath("(//div[label[text()='Subject']]//div/p)[1]");
+    public static final By EXAMINATION_GRADE1 = By.xpath("(//div[label[text()='Grade']]//div/p)[1]");
+    public static final By EXAMINATION_SUBJECT2 = By.xpath("(//div[label[text()='Subject']]//div/p)[2]");
+    public static final By EXAMINATION_GRADE2 = By.xpath("(//div[label[text()='Grade']]//div/p)[2]");
+    public static final By EXAMINATION_SUBJECT3 = By.xpath("(//div[label[text()='Subject']]//div/p)[3]");
+    public static final By EXAMINATION_GRADE3 = By.xpath("(//div[label[text()='Grade']]//div/p)[3]");
+    public static final By EXAMINATION_SUBJECT4 = By.xpath("(//div[label[text()='Subject']]//div/p)[4]");
+    public static final By EXAMINATION_GRADE4 = By.xpath("(//div[label[text()='Grade']]//div/p)[4]");
+    public static final By EXAMINATION_SUBJECT5 = By.xpath("(//div[label[text()='Subject']]//div/p)[5]");
+    public static final By EXAMINATION_GRADE5 = By.xpath("(//div[label[text()='Grade']]//div/p)[5]");
+    public static final By EXAMINATION_SUBJECT6 = By.xpath("(//div[label[text()='Subject']]//div/p)[6]");
+    public static final By EXAMINATION_GRADE6 = By.xpath("(//div[label[text()='Grade']]//div/p)[6]");
+    public static final By FINANCING_STUDY_HOW = By.xpath("//div[label[text()='How do you intend to finance your study in ACDT?']]//div/p");
+    public static final By FINANCING_STUDY_OTHER = By.name("others");
+    public static final By REFEREE_TITLE = By.xpath("(//div[label[text()='Title']]//div/p)[2]");
+    public static final By REFEREE_POSITION = By.xpath("//div[label[text()='Position']]//div/p");
+    public static final By REFEREE_FULLNAME = By.xpath("//div[label[text()='Full Name']]//div/p");
+    public static final By REFEREE_EMAIl_ADDRESS = By.xpath("//div[label[text()='Email address']]//div/p");
+    public static final By REFEREE_OCCUPATION = By.xpath("//div[label[text()='Occupation']]//div/p");
+    public static final By REFEREE_DATE = By.xpath("//div[label[text()='Date']]//div/p");
+    public static final By REFEREE_APPLICATION_SIGNATURE = By.name("applicantSignature");
+    public static final By APPLICATION_CONGRATULATION = By.xpath("//h2[text()='Congratulations!']");
+    public static final By APPLICATION_NO = By.xpath("//p[contains(text(),'Application No:')]");
+    public static final By APPLICATION_LOGIN_MENU = By.xpath("//span/a[contains(text(),'Login')]");
     
+  
     
-	public static void validateApplicationSummaryTitle() {
+    public static void validateApplicationSummaryTitle() {
 		LOGGER.info("Inside validateFinancingYourStudyTitle Method");
 		SeleniumUtil.validateWebElementVisible(APPLICATION_SUMMARY_HEADER_XPATH,
 				SeleniumUtil.waitWebElementSync);
 	}
-	
+    
+    public static void validateApplicationCongratulationTitle() {
+		LOGGER.info("Inside validateApplicationCongratulationTitle Method");
+		SeleniumUtil.validateWebElementVisible(APPLICATION_CONGRATULATION,
+				SeleniumUtil.waitWebElementSync);
+	}
+    
+    public static void validateApplicationNo() {
+		LOGGER.info("Inside validateApplicationNo Method");
+		SeleniumUtil.validateWebElementVisible(APPLICATION_NO,SeleniumUtil.waitWebElementSync);
+	}
+    
 	public static String getPersonalTitleFilledText(){
 		LOGGER.info("Inside getPersonalTitleFilledText Method");
 		SeleniumUtil.validateWebElementVisible(PERSONAL_TITLE, SeleniumUtil.waitWebElementSync);
@@ -341,8 +388,162 @@ public class ApplicationSummaryPage {
 		LOGGER.info("Inside getProgrammeTitleFilledText Method");
 		return SeleniumUtil.getWebElement(PROGRAMME_SELECTION_PROGRAMME_TITLE ).getText();
 	}
-
+    
+	public static String getEducationBackGroundCurrentInstituteFilledText(){
+		LOGGER.info("Inside getEducationBackGroundCurrentInstituteFilledText Method");
+		return SeleniumUtil.getWebElement(EDUCATIONAL_BACKGROUND_CURRENT_INSTITUTE).getText();
+	}
 	
+	public static String getEducationBackGroundCityFilledText(){
+		LOGGER.info("Inside getEducationBackGroundCityFilledText Method");
+		return SeleniumUtil.getWebElement(EDUCATIONAL_BACKGROUND_CITY ).getText();
+	}
 	
+	public static String getEducationBackGroundCountryFilledText(){
+		LOGGER.info("Inside getEducationBackGroundCountryFilledText Method");
+		return SeleniumUtil.getWebElement(EDUCATIONAL_BACKGROUND_COUNTRY).getText();
+	}
+	
+	public static String getEducationBackGroundYearOfEntryFilledText(){
+		LOGGER.info("Inside getEducationBackGroundYearOfEntryFilledText Method");
+		return SeleniumUtil.getWebElement(EDUCATIONAL_BACKGROUND_YEAR_OF_ENTRY ).getText();
+	}
+	
+	public static String getEducationBackGroundYearOfCompletionFilledText(){
+		LOGGER.info("Inside getEducationBackGroundYearOfCompletionFilledText Method");
+		return SeleniumUtil.getWebElement(EDUCATIONAL_BACKGROUND_YEAR_OF_COMPLETION).getText();
+	}
+	
+	public static String getEducationBackGroundQualificationFilledText(){
+		LOGGER.info("Inside getEducationBackGroundQualificationFilledText Method");
+		return SeleniumUtil.getWebElement(EDUCATIONAL_BACKGROUND_QUALIFICATION ).getText();
+	}
+	public static String getEducationBackGroundOtherQualificationFilledText(){
+		LOGGER.info("Inside getEducationBackGroundOtherQualificationFilledText Method");
+		return SeleniumUtil.getWebElement(EDUCATIONAL_BACKGROUND_OTHER_QUALIFICATION  ).getText();
+	}
+	
+	public static String getExaminationTakenExamTypeFilledText(){
+		LOGGER.info("Inside getExaminationTakenExamTypeFilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_TAKEN_EXAM_TYPE).getText();
+	}
+	
+	public static String getExaminationTakenIndexNumberFilledText(){
+		LOGGER.info("Inside getExaminationTakenIndexNumberFilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_TAKEN_INDEX_NUMBER ).getText();
+	}
+	
+	public static String getExaminationTakenDateOfExaminationFilledText(){
+		LOGGER.info("Inside getExaminationTakenDateOfExaminationFilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_TAKEN_DATE_OF_EXAMINATION  ).getText();
+	}
+	
+	public static String getExaminationTakenResultSlipFilledText(){
+		LOGGER.info("Inside getExaminationTakenResultSlipFilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_TAKEN_RESULT_SLIP).getText();
+	}
+	
+	public static String getExaminationSubject1FilledText(){
+		LOGGER.info("Inside getExaminationSubject1FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_SUBJECT1).getText();
+	}
+	
+	public static String getExaminationSubject2FilledText(){
+		LOGGER.info("Inside getExaminationSubject2FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_SUBJECT2).getText();
+	}
+	public static String getExaminationSubject3FilledText(){
+		LOGGER.info("Inside getExaminationSubject3FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_SUBJECT3).getText();
+	}
+	public static String getExaminationSubject4FilledText(){
+		LOGGER.info("Inside getExaminationSubject4FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_SUBJECT4).getText();
+	}
+	public static String getExaminationSubject5FilledText(){
+		LOGGER.info("Inside getExaminationSubject5FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_SUBJECT5).getText();
+	}
+	
+	public static String getExaminationSubject6FilledText(){
+		LOGGER.info("Inside getExaminationSubject6FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_SUBJECT6).getText();
+	}
+	
+	public static String getExaminationGrade1FilledText(){
+		LOGGER.info("Inside getExaminationGrade1FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_GRADE1).getText();
+	}
+	public static String getExaminationGrade2FilledText(){
+		LOGGER.info("Inside getExaminationGrade2FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_GRADE2).getText();
+	}
+	public static String getExaminationGrade3FilledText(){
+		LOGGER.info("Inside getExaminationGrade3FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_GRADE3).getText();
+	}
+	public static String getExaminationGrade4FilledText(){
+		LOGGER.info("Inside getExaminationGrade4FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_GRADE4).getText();
+	}
+	public static String getExaminationGrade5FilledText(){
+		LOGGER.info("Inside getExaminationGrade5FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_GRADE5).getText();
+	}
+	public static String getExaminationGrade6FilledText(){
+		LOGGER.info("Inside getExaminationGrade6FilledText Method");
+		return SeleniumUtil.getWebElement(EXAMINATION_GRADE6).getText();
+	}
+	
+	public static String getFinancingStudyHowFilledText(){
+		LOGGER.info("Inside getFinancingStudyHowFilledText Method");
+		return SeleniumUtil.getWebElement(FINANCING_STUDY_HOW).getText();
+	}
+	
+	public static String getFinancingStudyOtherFilledText(){
+		LOGGER.info("Inside getFinancingStudyOtherFilledText Method");
+		return SeleniumUtil.getWebElement(FINANCING_STUDY_OTHER).getText();
+	}
+	public static String getRefereeTitleFilledText(){
+		LOGGER.info("Inside getRefereeTitleFilledText Method");
+		return SeleniumUtil.getWebElement(REFEREE_TITLE).getText();
+	}
+	public static String getRefereePositionFilledText(){
+		LOGGER.info("Inside getRefereePositionFilledText Method");
+		return SeleniumUtil.getWebElement(REFEREE_POSITION).getText();
+	}
+	
+	public static String getRefereeFullNameFilledText(){
+		LOGGER.info("Inside getRefereeFullNameFilledText Method");
+		return SeleniumUtil.getWebElement(REFEREE_FULLNAME).getText();
+	}
+	
+	public static String getRefereeEmailAddressFilledText(){
+		LOGGER.info("Inside getRefereeEmailAddressFilledText Method");
+		return SeleniumUtil.getWebElement(REFEREE_EMAIl_ADDRESS).getText();
+	}
+	
+	public static String getRefereeOccupationFilledText(){
+		LOGGER.info("Inside getRefereeOccupationFilledText Method");
+		return SeleniumUtil.getWebElement(REFEREE_OCCUPATION).getText();
+	}
+	
+	public static String getRefereeDateFilledText(){
+		LOGGER.info("Inside getRefereeDateFilledText Method");
+		return SeleniumUtil.getWebElement(REFEREE_DATE).getText();
+	}
+	
+	public static String getRefereeApplicationSignatureFilledText(){
+		LOGGER.info("Inside getRefereeApplicationSignatureFilledText Method");
+		return SeleniumUtil.getWebElement(REFEREE_APPLICATION_SIGNATURE ).getText();
+	}
+	
+	public static void clickSubmitButton(){
+		SeleniumUtil.getWebElement(SUBMIT_XPATH).click();
+	}
+	
+	public static void clickLoginMenu(){
+		SeleniumUtil.getWebElement(APPLICATION_LOGIN_MENU).click();
+	}
 	
 }

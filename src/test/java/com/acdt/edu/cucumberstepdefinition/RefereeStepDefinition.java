@@ -20,7 +20,7 @@ import cucumber.api.java.en.When;
 
 public class RefereeStepDefinition {
 	private static final Logger LOGGER = LogManager.getLogger(RefereeStepDefinition.class);
-   
+	public static List<Map<String,String>> refereeDataTable = new ArrayList<Map<String,String>>() ;
 	@When("user enter mandatory fields data in Referee page and validate error message$")
 	public void enterMandatoyFieldDataRefereePageAndValidationMessage(List<Map<String, String>> dataTable){
 		LOGGER.info("user enter mandatory fields data in Financing Your Study page and validate error message");
@@ -57,7 +57,7 @@ public class RefereeStepDefinition {
 	@When("^user enter mandatory fields data in Referee page$")
 	public void userEnterMandatoryFields_DataInRefereePage(List<Map<String, String>> dataTable){
 		LOGGER.info("user enter mandatory fields data in Referee page");
-		
+		refereeDataTable = dataTable;
 		RefereePage.fillingDataInRefereePage(dataTable.get(0).get("Title"),dataTable.get(0).get("Position"),dataTable.get(0).get("FullName") ,dataTable.get(0).get("Email") ,dataTable.get(0).get("Occupation") ,dataTable.get(0).get("Date"),dataTable.get(0).get("Signature") );
 	}
 	
