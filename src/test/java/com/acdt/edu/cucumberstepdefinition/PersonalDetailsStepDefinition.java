@@ -7,11 +7,9 @@ import java.util.Map;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-
 import com.acdt.edu.pageobjectmodel.ContactInformationPage;
 import com.acdt.edu.pageobjectmodel.PersonalDetailsPage;
 import com.acdt.edu.util.SeleniumUtil;
-
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -40,6 +38,7 @@ public class PersonalDetailsStepDefinition {
 					dataTable.get(i).get("CityOfBirth"), dataTable.get(i).get("Nationality"),
 					dataTable.get(i).get("Religion"), dataTable.get(i).get("HomeTown"), dataTable.get(i).get("Region"),
 					dataTable.get(i).get("SpecialNeed"), dataTable.get(i).get("Comment"));
+			PersonalDetailsPage.clickNextButton();
 			try {
 				String appError = PersonalDetailsPage.getErrorMessage();
 
@@ -72,11 +71,156 @@ public class PersonalDetailsStepDefinition {
 				dataTable.get(0).get("CountryOfBirth"), dataTable.get(0).get("CityOfBirth"),
 				dataTable.get(0).get("Nationality"), dataTable.get(0).get("Religion"), dataTable.get(0).get("HomeTown"),
 				dataTable.get(0).get("Region"), dataTable.get(0).get("SpecialNeed"), dataTable.get(0).get("Comment"));
-
+		PersonalDetailsPage.clickNextButton();
+		
+	}
+	
+	@When("^user enter fields data in personal details page for following fields$")
+	public void EnterfieldsDataInPersonalDetailsPage(List<Map<String, String>> dataTable) throws Throwable{
+		
+		PersonalDetailsPage.personalDetailFilling(dataTable.get(0).get("Image"), dataTable.get(0).get("Title"),
+				dataTable.get(0).get("FirstName"), dataTable.get(0).get("MiddleName"), dataTable.get(0).get("LastName"),
+				dataTable.get(0).get("OtherName"), dataTable.get(0).get("Gender"), dataTable.get(0).get("DOB"),
+				dataTable.get(0).get("CountryOfBirth"), dataTable.get(0).get("CityOfBirth"),
+				dataTable.get(0).get("Nationality"), dataTable.get(0).get("Religion"), dataTable.get(0).get("HomeTown"),
+				dataTable.get(0).get("Region"), dataTable.get(0).get("SpecialNeed"), dataTable.get(0).get("Comment"));
 	}
 
 	@Then("^User should navigate to contact information page$")
 	public void userNavigatetoContactInformationPage() {
 		ContactInformationPage.validateContactInformationTitle();
+	}
+	
+	@When("^user click on logout buttton$")
+	public void clickLogoutButton(){
+		PersonalDetailsPage.ClickLogoutInPersonalDetailPage();
+	}
+	
+	@Then("^validate that personal details filled data persist$")
+	public void validateThatPersonalDetailsFilledDataPersist(){
+		LOGGER.info("validate that personal details filled data persist");
+		SeleniumUtil.wait(3000);
+		boolean flag=false;
+		try {
+			Assert.assertEquals("The Title is not matching", PersonalDetailsPage.getFilledTitleText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Title").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The FirstName is not matching", PersonalDetailsPage.getFilledFirstNameText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("FirstName"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		try {
+			Assert.assertEquals("The MiddleName is not matching", PersonalDetailsPage.getFilledMiddleNameText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("MiddleName"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The LastName is not matching", PersonalDetailsPage.getFilledSurNameText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("LastName"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The OtherName is not matching", PersonalDetailsPage.getFilledOtherNameText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("OtherName"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The Gender is not matching", PersonalDetailsPage.getFilledGenderText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Gender"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		try {
+			//String[] DOB = PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("DOB").split("/");
+			Assert.assertEquals("The DOB is not matching", PersonalDetailsPage.getFilledDOBText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("DOB"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The CountryOfBirth is not matching", PersonalDetailsPage.getFilledCountryOfBirthText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("CountryOfBirth").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The CityOfBirth is not matching", PersonalDetailsPage.getFilledPlaceOfBirthText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("CityOfBirth"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The Nationality is not matching", PersonalDetailsPage.getFilledNationalityText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Nationality").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		try {
+			Assert.assertEquals("The Religion is not matching", PersonalDetailsPage.getFilledReligionText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Religion").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The HomeTown is not matching", PersonalDetailsPage.getFilledHomeTownText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("HomeTown"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The Region is not matching", PersonalDetailsPage.getFilledRegionText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Region").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		
+		try {
+			Assert.assertEquals("The SpecialNeed is not matching", PersonalDetailsPage.getFilledSpecialNeedYesText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("SpecialNeed"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		
+		try {
+			Assert.assertEquals("The Comment is not matching", PersonalDetailsPage.getFilledSpecialNeedCommentText(),
+					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Comment"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		Assert.assertFalse("The fields data is not matching in Application Summary page", flag);
 	}
 }

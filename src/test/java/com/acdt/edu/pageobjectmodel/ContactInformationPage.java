@@ -15,6 +15,7 @@ public class ContactInformationPage {
 	public static final String POSTAL_CITY_NAME = "postalCityTown";
 	public static final String POSTAL_STATE_NAME = "postalState";
 	public static final String POSTAL_COUNTRY_XPATH = "(//div[label[text()='Country']]//div[@class='c-btn'])[1]";
+	public static final String POSTAL_COUNTRY_GETTEXT_XPATH = "(//div[label[text()='Country']]//div[@class='c-btn']/span/span)[1]";
 	public static final String POSTAL_CODE_NAME = "postalPostcode";
 	public static final String POSTAL_TELEPHONE_NAME = "telephone";
 	public static final String TELEPHONE_COUNTRY_DROPDOWN_XPATH="(//div[@class='iti__selected-flag'])[index]";
@@ -27,12 +28,14 @@ public class ContactInformationPage {
 	public static final String PERMANENT_STATE_NAME = "permanentState";
 	public static final String PERMANENT_CODE_NAME = "permanentPostcode";
 	public static final String PERMANENT_TELEPHONE_NAME = "mobile";
+	public static final String PERMANENT_COUNTRY_GETTEXT_XPATH = "(//div[label[text()='Country']]//div[@class='c-btn']/span/span)[2]";
 	public static final String PERMANENT_COUNTRY_XPATH = "(//div[label[text()='Country']]//div[@class='c-btn'])[2]";
 	public static final String PERMANENT_COUNTRY_SELCTED_TEXT_XPATH="//div[label[text()='Country']]//div/span/span";
 	public static final String NEXT_BUTTON_XPATH = "//a[text()='Next']";
 	public static final String POSTAL_COUNTRY_SELECT_LABEL_XPATH = "(//div[label[text()='Country']]//label[text()='selectText'])[1]";
 	public static final String PERMANENT_COUNTRY_SELECT_LABEL_XPATH = "(//div[label[text()='Country']]//label[text()='selectText'])[2]";
 	public static final String ERROR_MESSAGE_XPATH = "//div[@class='error-msg']";
+	public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
 	
 	public static void validateContactInformationTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
@@ -192,5 +195,76 @@ public class ContactInformationPage {
 		return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 		
 	}
+	
+	public static void clickPreviousButton(){
+		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
+		
+	}
+	
+	public static String getPostalAddress1FilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).getAttribute("value");
+	}
+	
+   public static String getPostalAddress2FilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS2_NAME)).getAttribute("value");
+	}
 
+   public static String getPostalCityFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).getAttribute("value");
+	}
+
+   public static String getPostalStateFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(POSTAL_STATE_NAME)).getAttribute("value");
+	}
+   
+   public static String getPostalCountryFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_GETTEXT_XPATH)).getText();
+	}
+   public static String getPostalCodeFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(POSTAL_CODE_NAME)).getAttribute("value");
+	}
+   public static String getPostalPhoneFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(POSTAL_TELEPHONE_NAME)).getAttribute("value");
+	}
+   
+   public static String getPermanentAddress1FilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).getAttribute("value");
+	}
+	
+  public static String getPermanentAddress2FilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS2_NAME)).getAttribute("value");
+	}
+
+  public static String getPermanentCityFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).getAttribute("value");
+	}
+
+  public static String getPermanentStateFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(PERMANENT_STATE_NAME)).getAttribute("value");
+	}
+  
+  public static String getPermanentCountryFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_GETTEXT_XPATH)).getText();
+	}
+  public static String getPermanentCodeFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(PERMANENT_CODE_NAME)).getAttribute("value");
+	}
+  public static String getPermanentPhoneFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(PERMANENT_TELEPHONE_NAME)).getAttribute("value");
+	}
+  
 }

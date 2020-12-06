@@ -10,6 +10,7 @@ public class ParentDetailsPage {
 	//public static final String PARENT_DETAILS_TITLE_XPATH = "//h3[text()='Particulars of Parent/Guardian/Sponsor']";
 	public static final String PARENT_DETAILS_TITLE_XPATH = "//h3[text()='Particulars']";
 	public static final String TITLE_XPATH = "//span[text()='Select title']";
+	public static final String TITLE_GETTEXT_XPATH="//div[label[text()='Title']]//div/span/span";
 	public static final String SEARCH_XPATH = "(//input[@placeholder='Search'])[index]";
 	public static final String SELECT_LABEL_XPATH = "//label[text()='selectText']";
 	public static final String SURNAME_NAME = "surname";
@@ -23,6 +24,7 @@ public class ParentDetailsPage {
 	public static final String ADDRESS1_NAME = "address1";
 	public static final String ADDRESS2_NAME = "address2";
 	public static final String COUNTRY_XPATH = "//div[label[text()='Country']]//div[@class='c-btn']";
+	public static final String COUNTRY_GETTEXT_XPATH = "//div[label[text()='Country']]//div[@class='c-btn']/span/span";
 	public static final String CITY_NAME = "city";
 	public static final String STATE_NAME = "state";
 	public static final String MOBILE_NAME = "mobileno";
@@ -32,6 +34,7 @@ public class ParentDetailsPage {
 	public static final String NEXT_BUTTON_XPATH = "//a[text()='Next']";
 	public static final String ERROR_MESSAGE_XPATH = "//div[@class='section form-content']/div[3]";
     public static final String EMAIL_MOBILE_PHONE_ERROR_XPATH="//div[@class='errorMessage']";
+    public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
     
     public static void validateParentDetailsTitle() {
 		LOGGER.info("Inside validateParentDetailsTitle Method");
@@ -135,9 +138,103 @@ public class ParentDetailsPage {
 	}
 	
 	public static String getFieldValidationErrorMessage(){
-		
 		SeleniumUtil.wait(1000);
 		return SeleniumUtil.getWebElement(By.xpath(EMAIL_MOBILE_PHONE_ERROR_XPATH)).getText().trim();
 	}
 
+	public static void clickPreviousButton(){
+		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
+		
+	}
+	
+	public static String getTitleFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(TITLE_GETTEXT_XPATH)).getText();
+		
+	}
+	
+	public static String getSurNameFilledText(){
+		return SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).getAttribute("value");
+		
+	}
+	public static String getFirstNameFilledText(){
+		return SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).getAttribute("value");
+		
+	}
+	
+	public static String getMiddleNameFilledText(){
+		return SeleniumUtil.getWebElement(By.name(MIDDLENAME_NAME)).getAttribute("value");
+		
+	}
+	
+	public static String getRelationshipFilledText(String relationship){
+		if("Parent".equalsIgnoreCase(relationship)){
+			return SeleniumUtil.getWebElement(By.xpath(PARENT_RADIO_BUTTON_XPATH)).getText();
+		}else if("Guardian".equalsIgnoreCase(relationship)){
+			return SeleniumUtil.getWebElement(By.xpath(GUARDIAN_RADIO_BUTTON_XPATH)).getText();	
+		}else{
+			return SeleniumUtil.getWebElement(By.xpath(SPONSOR_RADIO_BUTTON_XPATH)).getText();
+		}
+	}
+	
+	public static String getCompanyFilledText(){
+		
+			return SeleniumUtil.getWebElement(By.name(COMPANY_NAME)).getAttribute("value");
+		
+	}
+	public static String getOccupationFilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(OCCUPATION_NAME)).getAttribute("value");
+	
+}
+public static String getAddress1FilledText(){
+		
+		return SeleniumUtil.getWebElement(By.name(ADDRESS1_NAME)).getAttribute("value");
+	
+}
+public static String getAddress2FilledText(){
+	
+	return SeleniumUtil.getWebElement(By.name(ADDRESS2_NAME)).getAttribute("value");
+
+}
+
+public static String getCountryFilledText(){
+	
+	return SeleniumUtil.getWebElement(By.xpath(COUNTRY_GETTEXT_XPATH)).getText();
+
+}
+public static String getCityFilledText(){
+	
+	return SeleniumUtil.getWebElement(By.name(CITY_NAME)).getAttribute("value");
+
+}
+
+public static String getStateFilledText(){
+	
+	return SeleniumUtil.getWebElement(By.name(STATE_NAME)).getAttribute("value");
+
+}
+
+public static String getMobileFilledText(){
+	
+	return SeleniumUtil.getWebElement(By.name(MOBILE_NAME)).getAttribute("value");
+
+}
+
+public static String getTelephoneFilledText(){
+	
+	return SeleniumUtil.getWebElement(By.name(TELEPHONE_NAME)).getAttribute("value");
+
+}
+
+public static String getEmailFilledText(){
+	
+	return SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).getAttribute("value");
+
+}
+
+public static String getPostalCodeFilledText(){
+	
+	return SeleniumUtil.getWebElement(By.name(POSTALCODE_NAME)).getAttribute("value");
+
+}
 }

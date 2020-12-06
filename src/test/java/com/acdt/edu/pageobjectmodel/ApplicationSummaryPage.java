@@ -546,4 +546,9 @@ public class ApplicationSummaryPage {
 		SeleniumUtil.getWebElement(APPLICATION_LOGIN_MENU).click();
 	}
 	
+	public static void ClickPreviousButton(){
+		SeleniumUtil.getWebElement(PREVIOUS_XPATH).click();
+		
+	}
+	
 }

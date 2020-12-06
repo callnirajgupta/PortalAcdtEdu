@@ -1,7 +1,7 @@
 @ExaminationSubject @Regression
 Feature: Add Subject for The Examination Page functionality checking
 
-   @ExaminationSubject1
+  @ExaminationSubject1
   Scenario: validate That click on follow this link For more information on admission requirements navigate to Instruction page
     Given user navigates to home page
     When user click on start application button in home page
@@ -40,7 +40,6 @@ Feature: Add Subject for The Examination Page functionality checking
     When user click on follow this link For more information on admission requirements
     Then verify that user navigate to Instruction page in new tab
 
-
   @ExaminationSubject2
   Scenario: validate default subject is displayed
     Given user navigates to home page
@@ -77,6 +76,7 @@ Feature: Add Subject for The Examination Page functionality checking
       | ExaminationType | IndexNumber | DateOfExamination | UploadResultSlip |
       | WASSCE          |           8 | 10/6/1999         | Passport.jpg     |
     Then verify that user navigation to Examination Subject page
+    #Defect
     And verify that default subject is displayed as "English Language" and "Mathematics"
 
   @ExaminationSubject3
@@ -117,13 +117,19 @@ Feature: Add Subject for The Examination Page functionality checking
     Then verify that user navigation to Examination Subject page
     When user enter mandatory fields data in Examination Subject Page and validate error message
       | Grade1 | Grade2 | Subject3    | Grade3 | Subject4 | Grade4 | Subject5 | Grade5 | Subject6 | Grade6 | Message                                                                    |
-      |      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Grade for English Language in WASSCE |
-      #|      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Grade for Mathematics in WASSCE      |
-
- 
+      |        |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Grade for English Language in WASSCE |
+      |      1 |        | lifeScience |      3 | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Grade for Mathematics in WASSCE      |
+      |      1 |      2 |             |      3 | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Subject in examination WASSCE        |
+      |      1 |      2 | lifeScience |        | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Grade for lifeScience in WASSCE      |
+      |      1 |      2 | lifeScience |      3 |          |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Subject in examination WASSCE        |
+      |      1 |      2 | lifeScience |      3 | French   |        | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Grade for French in WASSCE      |
+      |      1 |      2 | lifeScience |      3 | French   |      4 |          |      5 | Social   |      6 | Please fill in the required field(s): Subject in examination WASSCE        |
+      |      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |        | Social   |      6 | Please fill in the required field(s): Grade for Physic in WASSCE      |
+      |      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 |    |      6 | Please fill in the required field(s): Subject in examination WASSCE        |
+      |      1 |      2 | lifeScience |      3  | French   |      4 | Physic   |      5 | Social   |       | Please fill in the required field(s): Grade for Social in WASSCE      |
 
   @ExaminationSubject4
-  Scenario:  Examination Subject page field data filling and navigation to Financing Your Study page
+  Scenario: Examination Subject page field data filling and navigation to Financing Your Study page
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page
@@ -158,8 +164,8 @@ Feature: Add Subject for The Examination Page functionality checking
       | ExaminationType | IndexNumber | DateOfExamination | UploadResultSlip |
       | WASSCE          |           8 | 10/6/1999         | Passport.jpg     |
     Then verify that user navigation to Examination Subject page
-     When user enter mandatory fields data in Examination Subject Page
-      | Grade1 | Grade2 | Subject3    | Grade3 | Subject4 | Grade4 | Subject5 | Grade5 | Subject6 | Grade6 | 
+    When user enter mandatory fields data in Examination Subject Page
+      | Grade1 | Grade2 | Subject3    | Grade3 | Subject4 | Grade4 | Subject5 | Grade5 | Subject6 | Grade6 |
       |      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 | Social   |      6 |
     And user click next button
     Then verify that user navigation to Financing Your Study page

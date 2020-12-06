@@ -10,11 +10,14 @@ public class ProgrammeSelectionPage {
 	private static final Logger LOGGER = LogManager.getLogger(ProgrammeSelectionPage.class);
 	public static final String PROGRAMME_SELECTION_HEADER_XPATH = "//h3[text()='Programme Selection']";
 	public static final String PROGRAMME_TYPE_XPATH = "//div[label[text()='Programme Type']]//div[@class='c-btn']/span[1]";
+	public static final String PROGRAMME_TYPE_GETTEXT_XPATH = "//div[label[text()='Programme Type']]//div[@class='c-btn']/span/span";
 	public static final String SEARCH_XPATH="(//input[@placeholder='Search'])[index]";
 	public static final String SELECT_LABEL_XPATH="//label[text()='selectText']";
 	public static final String PROGRAMME_TITLE_XPATH = "//div[label[text()='Programme Title']]//div[@class='c-btn']/span[1]";
+	public static final String PROGRAMME_TITLE_GETTEXT_XPATH = "//div[label[text()='Programme Title']]//div[@class='c-btn']/span/span";
 	public static final String ERROR_MESSAGE_XPATH="//div[@class='error-msg']";
 	public static final String NEXT_BUTTON_XPATH="//a[text()='Next']";
+	public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
 	
 	public static void validateProgrammeSelectionTitle() {
 		LOGGER.info("Inside validateProgrammeSelectionTitle Method");
@@ -54,5 +57,19 @@ public class ProgrammeSelectionPage {
 	
 	public static void clickNextButton() {
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
+	}
+	
+	public static void clickPreviousButton(){
+		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
+		
+	}
+	
+	public static String  getProgrammeTypeFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_GETTEXT_XPATH)).getText();
+		
+	}
+	public static String  getProgrammeTitleFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TITLE_GETTEXT_XPATH)).getText();
+		
 	}
 }

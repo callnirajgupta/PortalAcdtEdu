@@ -50,14 +50,14 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                   | Occupation  | Date      | Signature     |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 | TestSignature |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     And verify the filled data in signup page is display correctly in application summary page 
     
     
     @ApplicationSummary2
-  Scenario: Verify that user submit application successfully
+  Scenario: Verify that user navigate to all previous page from application summary page
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page
@@ -104,14 +104,13 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                   | Occupation  | Date      | Signature     |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 | TestSignature |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
     And user click Preview button
     Then verify that user navigation to Application Summary page
-    When user click on submit button
-    Then verify that application submit successfully
+    When user click on previous button in Application Summary page
+    Then verify that user navigation to Referee page
     
-    
-     @ApplicationSummary3
+  @ApplicationSummary3
   Scenario: Verify that user submit application and able to login successfully
     Given user navigates to home page
     When user click on start application button in home page
@@ -159,7 +158,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                   | Occupation  | Date      | Signature     |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu | Testservice | 10/6/2015 | TestSignature |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on submit button

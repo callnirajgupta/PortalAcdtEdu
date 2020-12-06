@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import com.acdt.edu.pageobjectmodel.ContactInformationPage;
 import com.acdt.edu.pageobjectmodel.ParentDetailsPage;
+import com.acdt.edu.pageobjectmodel.PersonalDetailsPage;
 import com.acdt.edu.util.SeleniumUtil;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -108,8 +109,119 @@ public class ContactInformationStepDefinition {
 		ParentDetailsPage.validateParentDetailsTitle();	
 	}
 	
-	
+	@When("^user click on previous button in Contact Information page$")
+	public void clickPreviousButtonInContactInformationPage(){
+		ContactInformationPage.clickPreviousButton();
+	}
 		
-	
+	@Then("^validate that contact information filled data persist$")
+	public void validate_that_contact_information_filled_data_persist(){
+		LOGGER.info("validate that contact information filled data persist");
+		boolean flag=false;
+		try {
+			SeleniumUtil.wait(5000);
+			Assert.assertEquals("The Address1 is not matching",ContactInformationPage.getPostalAddress1FilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("Address1"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The Address2 is not matching",ContactInformationPage.getPostalAddress2FilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("Address2"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		try {
+			Assert.assertEquals("The City is not matching",ContactInformationPage.getPostalCityFilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("City"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The State is not matching",ContactInformationPage.getPostalStateFilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("State"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The Country is not matching",ContactInformationPage.getPostalCountryFilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("Country").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The PostalCode is not matching",ContactInformationPage.getPostalCodeFilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("PostalCode"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		/*try {
+			Assert.assertEquals("The Phone is not matching",ContactInformationPage.getPostalPhoneFilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("Phone"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}*/
+		
+		try {
+			SeleniumUtil.wait(5000);
+			Assert.assertEquals("The Permanent Address1 is not matching",ContactInformationPage.getPermanentAddress1FilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("Address1"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The Permanent Address2 is not matching",ContactInformationPage.getPermanentAddress2FilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("Address2"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		try {
+			Assert.assertEquals("The Permanent City is not matching",ContactInformationPage.getPermanentCityFilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("City"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The  Permanent State is not matching",ContactInformationPage.getPermanentStateFilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("State"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The Permanent Country is not matching",ContactInformationPage.getPermanentCountryFilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("Country").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The Permanent PostalCode is not matching",ContactInformationPage.getPermanentCodeFilledText(),
+					contactInformationPostalAddressDataTable.get(0).get("PostalCode"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		Assert.assertFalse("The Contact information filled data is not Matching",flag);
+	}
 
 }

@@ -55,4 +55,33 @@ public class ProgrameSelectionStepDefinition {
 		EducationalBackgroundPage.validateEducationalBackgroundTitle();
 	}
 	
+	@When("^user click on previous button in programme selection page$")
+	public void click_on_previous_button_in_programme_selection_page(){
+		ProgrammeSelectionPage.clickPreviousButton();
+		
+	}
+	
+	@When("^validate that programme selection filled data persist$")
+	public void validate_that_programme_selection_filled_data_persist(){
+		boolean flag=false;
+		try {
+			SeleniumUtil.wait(5000);
+			Assert.assertEquals("The Address1 is not matching",ProgrammeSelectionPage.getProgrammeTypeFilledText(),
+					programeSelectionDataTable.get(0).get("ProgrammeType").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The ProgrammeTitle PostalCode is not matching",ProgrammeSelectionPage.getProgrammeTitleFilledText(),
+					programeSelectionDataTable.get(0).get("ProgrammeTitle").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		Assert.assertFalse("The Programme Selection Page filled data is not Matching",flag);
+	}
+	
 }

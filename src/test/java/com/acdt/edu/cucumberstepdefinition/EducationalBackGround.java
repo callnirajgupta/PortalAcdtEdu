@@ -240,4 +240,9 @@ public class EducationalBackGround {
 				dataTable.get(0).get("ProgrammeOfStudy"), dataTable.get(0).get("LastYearStudy"),dataTable.get(0).get("ReasonOfLeaving"));
 		
    }
+   
+   @When("^user click on previous button in Educational Background page$")
+   public void userclickOnPreviousButtonInEducationalBackgroundPage(){
+	   EducationalBackgroundPage.clickPreviousButton();
+   }
 }

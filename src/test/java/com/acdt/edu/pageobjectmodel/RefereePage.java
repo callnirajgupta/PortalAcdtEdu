@@ -28,7 +28,7 @@ public class RefereePage {
 	public static final String ERROR_MESSAGE_XPATH = "//div[@class='errorMessage']";
 	public static final String SIGNATURE_NAME = "applicantSignature";
 	
-			public static void validateRefereeTitle() {
+	public static void validateRefereeTitle() {
 		LOGGER.info("Inside validateRefereeTitle Method");
 		SeleniumUtil.validateWebElementVisible(By.xpath(REFEREE_HEADER_XPATH), SeleniumUtil.waitWebElementSync);
 	}
@@ -56,7 +56,11 @@ public class RefereePage {
 		}
 
 		if (!("".equals(email))) {
+			
 			SeleniumUtil.getWebElement(By.xpath(EMAIL_ADDRESS_XPATH)).sendKeys(email);
+			SeleniumUtil.wait(3000);
+			SeleniumUtil.getWebElement(By.xpath(EMAIL_ADDRESS_XPATH)).click();
+			
 		}
 
 		if (!("".equals(occupation))) {
@@ -81,7 +85,7 @@ public class RefereePage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
-			SeleniumUtil.wait(1000);
+			SeleniumUtil.wait(2000);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
 		}
 		

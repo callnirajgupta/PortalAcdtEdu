@@ -761,7 +761,7 @@ public class ApplicationSummaryStepDefinition {
 			errorList.add(e.getStackTrace().toString());
 		}
 		 LOGGER.error("Error List"+errorList);
-		Assert.assertFalse("The fields data is not mathcing in Application Summary page", errorList.size()>0);
+		Assert.assertFalse("The fields data is not matching in Application Summary page", errorList.size()>0);
     
 	}
 
@@ -783,11 +783,9 @@ public class ApplicationSummaryStepDefinition {
 		 
 	 }
 	 
-	 @Then("^verify user navigate to login page$")
-	 public void navigateToLoginPage(){
-		 LoginPage.validateLoginTitle();
+	 @When("^user click on previous button in Application Summary page$")
+	 public void clickPreviousButtonInApplicationSummaryPage(){
+		 ApplicationSummaryPage.ClickPreviousButton();
 	 }
-	
-	
 	
 }

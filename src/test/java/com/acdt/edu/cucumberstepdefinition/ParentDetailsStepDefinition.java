@@ -8,6 +8,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 
+import com.acdt.edu.pageobjectmodel.ContactInformationPage;
 import com.acdt.edu.pageobjectmodel.ParentDetailsPage;
 import com.acdt.edu.pageobjectmodel.PersonalDetailsPage;
 import com.acdt.edu.pageobjectmodel.ProgrammeSelectionPage;
@@ -124,6 +125,159 @@ public class ParentDetailsStepDefinition {
 	
 	@Then("^verify that user navigation to programme selection page$")
 	public void navigateToProgrameSelectionPage(){
+		LOGGER.info("verify that user navigation to programme selection page");
 		ProgrammeSelectionPage.validateProgrammeSelectionTitle();
 	}
+	
+	@When("^user click on previous button in parent details page$")
+	public void clickOnPreviousButtonInParentDetails(){
+		LOGGER.info("user click on previous button in parent details page");
+		ParentDetailsPage.clickPreviousButton();
+		
+	}
+	
+	@Then("^validate that particular of parent filled data persist$")
+	public void validate_that_particular_of_parent_filled_data_persist(){
+		boolean flag=false;
+		try {
+			SeleniumUtil.wait(5000);
+			Assert.assertEquals("The Title is not matching",ParentDetailsPage.getTitleFilledText(),
+					parentDetailsDataTable.get(0).get("Title").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The SurName is not matching",ParentDetailsPage.getSurNameFilledText(),
+					parentDetailsDataTable.get(0).get("SurName"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+		
+			Assert.assertEquals("The FirstName is not matching",ParentDetailsPage.getFirstNameFilledText(),
+					parentDetailsDataTable.get(0).get("FirstName"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The MiddleName is not matching",ParentDetailsPage.getMiddleNameFilledText(),
+					parentDetailsDataTable.get(0).get("MiddleName"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The Relationship is not matching",ParentDetailsPage.getRelationshipFilledText(parentDetailsDataTable.get(0).get("Relationship")),
+					parentDetailsDataTable.get(0).get("Relationship"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The Company is not matching",ParentDetailsPage.getCompanyFilledText(),
+					parentDetailsDataTable.get(0).get("Company"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The Occupation is not matching",ParentDetailsPage.getOccupationFilledText(),
+					parentDetailsDataTable.get(0).get("Occupation"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The Address1 is not matching",ParentDetailsPage.getAddress1FilledText(),
+					parentDetailsDataTable.get(0).get("Address1"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The Address2 is not matching",ParentDetailsPage.getAddress2FilledText(),
+					parentDetailsDataTable.get(0).get("Address2"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The Country is not matching",ParentDetailsPage.getCountryFilledText(),
+					parentDetailsDataTable.get(0).get("Country").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The CityTown is not matching",ParentDetailsPage.getCityFilledText(),
+					parentDetailsDataTable.get(0).get("CityTown"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+        try {
+			Assert.assertEquals("The State is not matching",ParentDetailsPage.getStateFilledText(),
+					parentDetailsDataTable.get(0).get("State"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+        
+        /*try {
+			Assert.assertEquals("The Mobile is not matching",ParentDetailsPage.getMobileFilledText(),
+					parentDetailsDataTable.get(0).get("Mobile"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+        
+        try {
+			Assert.assertEquals("The Telephone is not matching",ParentDetailsPage.getTelephoneFilledText(),
+					parentDetailsDataTable.get(0).get("Telephone"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}*/
+        
+        try {
+			Assert.assertEquals("The Email is not matching",ParentDetailsPage.getEmailFilledText(),
+					parentDetailsDataTable.get(0).get("Email"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+        
+        try {
+			Assert.assertEquals("The PostalCode is not matching",ParentDetailsPage.getPostalCodeFilledText(),
+					parentDetailsDataTable.get(0).get("PostalCode"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		Assert.assertFalse("particular of parent filled data is not persist", flag);
+	}
+	
+	
 }
