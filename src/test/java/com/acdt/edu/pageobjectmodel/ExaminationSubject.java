@@ -24,6 +24,7 @@ public class ExaminationSubject {
 	public static final String NEXT_BUTTON_XPATH="//a[text()='Next']";
 	public static final String PREVIOUS_BUTTON_XPATH="//a[text()='Previous']";
     public static final String INSTRUCTION_LINK_XPATH="//a[text()='link']";
+    public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
 	
 	//public static final String ADD_SUBJECT_BUTTON_XPATH = "//a[contains(text(),'Add Subject')]";
 	   
@@ -125,6 +126,9 @@ public class ExaminationSubject {
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 	}
 	
+	public static void clickPreviousButton(){
+		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
+	}
 	public static void clickInstructionLink(){
 		SeleniumUtil.getWebElement(By.xpath(INSTRUCTION_LINK_XPATH)).click();
 	}

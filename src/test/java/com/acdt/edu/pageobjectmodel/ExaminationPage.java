@@ -17,6 +17,7 @@ public class ExaminationPage {
 	private static final Logger LOGGER = LogManager.getLogger(ExaminationPage.class);
 	public static final String EXAMINATION_HEADER_XPATH = "//h3[text()='Examinations']";
 	public static final String EXAMINATION_TYPE_XPATH = "//div[label[text()='Examination Type']]//div[@class='c-btn']/span[1]";
+	public static final String EXAMINATION_TYPE_GETTEXT_XPATH = "//div[label[text()='Examination Type']]//div[@class='c-btn']/span/span";
 	public static final String INDEX_NUMBER_XPATH = "//div[label[text()='Index Number']]//input";
 	public static final String DATE_OF_EXAMINATION_XPATH = "//div[label[text()='Date of Examination']]//input";
 	public static final String UPLOAD_RESULT_SLIP_BUTTON_XPATH ="//span[text()='Upload Result slip']";
@@ -31,6 +32,7 @@ public class ExaminationPage {
     public static final String CALENDAR_DATE_XPATH="//div[@class='btn-light' and text()='date']";
     public static final String ERROR_MESSAGE_XPATH ="//div[@class='errorMessage']/p";
     public static final String NEXT_BUTTON_XPATH="//a[text()='Next']";
+    public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
     
     public static void validateExaminationTitle() {
 		LOGGER.info("Inside validateExaminationTitle Method");
@@ -118,5 +120,25 @@ public class ExaminationPage {
 		
 		public static void clickNextButtonInEducationalBackGround(){
 			SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
+		}
+		
+		public static void clickPreviousButton(){
+			SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
+			
+		}
+		
+		public static String  getExaminationTypeFilledText(){
+			return SeleniumUtil.getWebElement(By.xpath(EXAMINATION_TYPE_GETTEXT_XPATH)).getText();	
+		}
+		
+		public static String  getIndexNumberFilledText(){
+			return SeleniumUtil.getWebElement(By.xpath(INDEX_NUMBER_XPATH)).getAttribute("value");	
+		}
+		
+		public static String  getDateOfExaminationFilledText(){
+			return SeleniumUtil.getWebElement(By.xpath(DATE_OF_EXAMINATION_XPATH)).getAttribute("value");	
+		}
+		public static String  getUploadResultSlipFilledText(){
+			return SeleniumUtil.getWebElement(By.xpath(UPLOAD_RESULT_SLIP_DETAILS_XPATH)).getText();	
 		}
 }

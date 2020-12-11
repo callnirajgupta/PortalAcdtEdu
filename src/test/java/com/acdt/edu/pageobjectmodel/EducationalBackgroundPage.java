@@ -16,9 +16,11 @@ public class EducationalBackgroundPage {
 	public static final String CURRENT_RECENT_SHS_INSTITUTE_NAME = "recentInstitutionName";
 	public static final String CITY_TOWN_NAME = "recentInstitutionCity";
 	public static final String COUNTRY_XPATH = "//div[label[text()='Country']]//div[@class='c-btn']/span[1]";
+	public static final String COUNTRY_GETTEXT_XPATH="//div[label[text()='Country']]//div[@class='c-btn']/span/span";
 	public static final String DATE_OF_ENTRY_NAME = "selectedItemsYearEntryModel";
 	public static final String DATE_OF_COMPLETION_NAME = "selectedItemsEndDateModel";
-	public static final String QUALIFICATION_NAME = "//div[label[text()='Qualification']]//div[@class='c-btn']/span[1]";
+	public static final String QUALIFICATION_XPATH = "//div[label[text()='Qualification']]//div[@class='c-btn']/span[1]";
+	public static final String QUALIFICATION_GETTEXT_XPATH = "//div[label[text()='Qualification']]//div[@class='c-btn']/span/span";
 	public static final String RECENT_OTHER_QUALIFICATION_NAME = "recentOtherQualification";
 	public static final String ADD_OTHER_QUALIFICATION_BUTTON_XPATH = "//a[text()=' Add Other Educational Background']";
 	public static final String EVER_ENROLLED_UNIVERSITY_XPATH = "//label[@class='form-check-label' and contains(text(),'Yes')]";
@@ -125,7 +127,7 @@ public class EducationalBackgroundPage {
 		}
 		
 		if(!("".equals(qualification))){
-			SeleniumUtil.getWebElement(By.xpath(QUALIFICATION_NAME)).click();
+			SeleniumUtil.getWebElement(By.xpath(QUALIFICATION_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(qualification);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", qualification))).click();
 				
@@ -321,5 +323,31 @@ public class EducationalBackgroundPage {
 	public static void clickPreviousButton(){
 		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
 		
+	}
+	public static String  getRecentInstitutionFilledText(){
+		return SeleniumUtil.getWebElement(By.name(CURRENT_RECENT_SHS_INSTITUTE_NAME)).getAttribute("value");	
+	}
+	
+	public static String  getCityFilledText(){
+		return SeleniumUtil.getWebElement(By.name(CITY_TOWN_NAME)).getAttribute("value");	
+	}
+	
+	public static String  getCountryFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(COUNTRY_GETTEXT_XPATH)).getText();	
+	}
+	
+	public static String  getYearOfEntryFilledText(){
+		return SeleniumUtil.getWebElement(By.name(DATE_OF_ENTRY_NAME)).getAttribute("value");	
+	}
+	
+	public static String  getYearOfCompletionFilledText(){
+		return SeleniumUtil.getWebElement(By.name(DATE_OF_COMPLETION_NAME)).getAttribute("value");	
+	}
+	
+	public static String  getQualificationFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(QUALIFICATION_GETTEXT_XPATH)).getText();	
+	}
+	public static String  getOtherQualificationFilledText(){
+		return SeleniumUtil.getWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME)).getAttribute("value");	
 	}
 }

@@ -100,8 +100,65 @@ public class ExaminationStepDefinition {
 			ExaminationPage.clickNextButtonInEducationalBackGround();   
 	   }
 	   
+	   @When("^user enter fields data in examination page$")
+	   public void EnterfieldExaminationPage(List<Map<String, String>> dataTable) throws Throwable{
+		   examinationTakenDataTable=dataTable;
+		   ExaminationPage.enterExaminationDetails(
+					dataTable.get(0).get("ExaminationType"), dataTable.get(0).get("IndexNumber"),
+					dataTable.get(0).get("DateOfExamination"));
+		   ExaminationPage.uploadResultSlip(dataTable.get(0).get("UploadResultSlip"));
+			  
+	   }
 	  @Then("^verify that user navigation to Examination Subject page$")
 	  public void UserNavigationToAddSubjectExaminationTaken(){
 		  ExaminationSubject.validateExaminationSubjectTitle();  
+	  }
+	  
+	  @When("^user click on previous button in Examination page$")
+	  public void clickOnPreviousButtonInExaminationPage(){
+		  ExaminationPage.clickPreviousButton();
+		  
+	  }
+	  
+	  @Then("^validate that Examination page filled data persist$")
+	  public void validateThatExaminationPageFilledDataPersist(){
+		  boolean flag=false;
+			try {
+				SeleniumUtil.wait(5000);
+				Assert.assertEquals("The ExaminationType is not matching",ExaminationPage.getExaminationTypeFilledText(),
+						examinationTakenDataTable.get(0).get("ExaminationType").toUpperCase());
+			} catch (AssertionError e) {
+				e.printStackTrace();
+				flag=true;
+			}
+			
+			try {
+				SeleniumUtil.wait(5000);
+				Assert.assertEquals("The IndexNumber is not matching",ExaminationPage.getIndexNumberFilledText(),
+						examinationTakenDataTable.get(0).get("IndexNumber").toUpperCase());
+			} catch (AssertionError e) {
+				e.printStackTrace();
+				flag=true;
+			}
+			
+			try {
+				SeleniumUtil.wait(5000);
+				Assert.assertEquals("The DateOfExamination is not matching",ExaminationPage.getDateOfExaminationFilledText(),
+						examinationTakenDataTable.get(0).get("DateOfExamination").toUpperCase());
+			} catch (AssertionError e) {
+				e.printStackTrace();
+				flag=true;
+			}
+			
+			try {
+				SeleniumUtil.wait(5000);
+				Assert.assertEquals("The UploadResultSlip is not matching",ExaminationPage.getUploadResultSlipFilledText(),
+						examinationTakenDataTable.get(0).get("UploadResultSlip"));
+			} catch (AssertionError e) {
+				e.printStackTrace();
+				flag=true;
+			}
+			Assert.assertFalse("The Examination Page filled data is not Matching",flag);
+		  
 	  }
 }

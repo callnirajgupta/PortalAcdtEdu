@@ -11,6 +11,7 @@ import org.junit.Assert;
 import com.acdt.edu.pageobjectmodel.ContactInformationPage;
 import com.acdt.edu.pageobjectmodel.EducationalBackgroundPage;
 import com.acdt.edu.pageobjectmodel.ExaminationPage;
+import com.acdt.edu.pageobjectmodel.ProgrammeSelectionPage;
 import com.acdt.edu.util.SeleniumUtil;
 
 import cucumber.api.java.en.Then;
@@ -244,5 +245,65 @@ public class EducationalBackGround {
    @When("^user click on previous button in Educational Background page$")
    public void userclickOnPreviousButtonInEducationalBackgroundPage(){
 	   EducationalBackgroundPage.clickPreviousButton();
+   }
+   
+   @Then("^validate that Educational Background page filled data persist$")
+   public void validateThatEducationalBackgroundPageFilledDataPersist(){
+	   boolean flag=false;
+		try {
+			SeleniumUtil.wait(5000);
+			Assert.assertEquals("The RecentInstitution is not matching",EducationalBackgroundPage.getRecentInstitutionFilledText(),
+					educationalBackGroundDataTable.get(0).get("RecentInstitution"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The City is not matching",EducationalBackgroundPage.getCityFilledText(),
+					educationalBackGroundDataTable.get(0).get("City"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		try {
+			Assert.assertEquals("The Country is not matching",EducationalBackgroundPage.getCountryFilledText(),
+					educationalBackGroundDataTable.get(0).get("Country").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		try {
+			Assert.assertEquals("The YearOfEntry is not matching",EducationalBackgroundPage.getYearOfEntryFilledText(),
+					educationalBackGroundDataTable.get(0).get("YearOfEntry"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		try {
+			Assert.assertEquals("The YearOfCompletion is not matching",EducationalBackgroundPage.getYearOfCompletionFilledText(),
+					educationalBackGroundDataTable.get(0).get("YearOfCompletion"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		try {
+			Assert.assertEquals("The Qualification is not matching",EducationalBackgroundPage.getQualificationFilledText(),
+					educationalBackGroundDataTable.get(0).get("Qualification"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The OtherQualification is not matching",EducationalBackgroundPage.getOtherQualificationFilledText(),
+					educationalBackGroundDataTable.get(0).get("OtherQualification"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		Assert.assertFalse("The Education BackGround Page filled data is not Matching",flag);
+	   
    }
 }

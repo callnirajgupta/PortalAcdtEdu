@@ -106,4 +106,10 @@ public class ExaminationSubjectStepDefinition {
     	}
     	
     }
+    
+    @When("^user click on previous button in Examination Subject page$")
+    public void userClickOnPreviousButtonInExaminationSubjectPage(){
+    	ExaminationSubject.clickPreviousButton();
+    	
+    }
 }
