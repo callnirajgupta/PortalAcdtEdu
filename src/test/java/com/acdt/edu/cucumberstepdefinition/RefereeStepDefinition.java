@@ -72,4 +72,74 @@ public class RefereeStepDefinition {
     	LOGGER.info("verify that user navigation to Application Summary page");
     	ApplicationSummaryPage.validateApplicationSummaryTitle();
     }
+    
+    @When("^user click on previous button in Referee page$")
+    public void userClickOnPreviousButtonInRefereePage(){
+    	LOGGER.info("user click on previous button in Referee page");
+    	RefereePage.clickPreviousButton();
+    }
+    
+    @Then("validate that Referee page filled data persist")
+    public void validateThatRefereePageFilledDataPersist(){
+    	boolean flag=false;
+		try {
+			SeleniumUtil.wait(5000);
+			Assert.assertEquals("The Title is not matching",RefereePage.getTitleFilledText(),
+					refereeDataTable.get(0).get("Title").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The Position is not matching",RefereePage.getPositionFilledText(),
+					refereeDataTable.get(0).get("Position"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+      try {
+			Assert.assertEquals("The FullName is not matching",RefereePage.getFullNameFilledText(),
+					refereeDataTable.get(0).get("FullName"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+      
+      try {
+			Assert.assertEquals("The Email is not matching",RefereePage.getEmailFilledText(),
+					refereeDataTable.get(0).get("Email"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+      
+      try {
+			Assert.assertEquals("The Occupation  is not matching",RefereePage.getOccupationFilledText(),
+					refereeDataTable.get(0).get("Occupation"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+	  
+      try {
+			Assert.assertEquals("The Date  is not matching",RefereePage.getDateFilledText(),
+					refereeDataTable.get(0).get("Date"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+      
+      try {
+			Assert.assertEquals("The Signature  is not matching",RefereePage.getSignatureFilledText(),
+					refereeDataTable.get(0).get("Signature"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		Assert.assertFalse("The Referee Page filled data is not Matching",flag);
+    	
+    }
 }

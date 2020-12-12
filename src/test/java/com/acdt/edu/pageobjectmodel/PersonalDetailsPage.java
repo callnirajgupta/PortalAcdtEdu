@@ -46,6 +46,7 @@ public class PersonalDetailsPage {
     
     public static void validatePersonalDetailsTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
+		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(PERSONAL_DETAILS_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 	}
     

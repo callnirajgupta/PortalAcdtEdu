@@ -38,6 +38,7 @@ public class ParentDetailsPage {
     
     public static void validateParentDetailsTitle() {
 		LOGGER.info("Inside validateParentDetailsTitle Method");
+		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(PARENT_DETAILS_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 	}
 

@@ -39,6 +39,7 @@ public class ContactInformationPage {
 	
 	public static void validateContactInformationTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
+		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(CONTACT_INORMATION_TITLE_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}

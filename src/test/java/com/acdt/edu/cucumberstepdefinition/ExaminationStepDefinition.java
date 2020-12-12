@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.acdt.edu.pageobjectmodel.ExaminationSubject;
+import com.acdt.edu.pageobjectmodel.ExaminationSubjectPage;
 import com.acdt.edu.pageobjectmodel.EducationalBackgroundPage;
 import com.acdt.edu.pageobjectmodel.ExaminationPage;
 import com.acdt.edu.util.SeleniumUtil;
@@ -111,7 +111,7 @@ public class ExaminationStepDefinition {
 	   }
 	  @Then("^verify that user navigation to Examination Subject page$")
 	  public void UserNavigationToAddSubjectExaminationTaken(){
-		  ExaminationSubject.validateExaminationSubjectTitle();  
+		  ExaminationSubjectPage.validateExaminationSubjectTitle();  
 	  }
 	  
 	  @When("^user click on previous button in Examination page$")

@@ -9,8 +9,8 @@ import com.acdt.edu.util.SeleniumUtil;
 
 
 
-public class ExaminationSubject {
-	private static final Logger LOGGER = LogManager.getLogger(ExaminationSubject.class);
+public class ExaminationSubjectPage {
+	private static final Logger LOGGER = LogManager.getLogger(ExaminationSubjectPage.class);
 	public static final String EXAMINATION_HEADER_XPATH = "//h3[text()='Examination Subjects']";
 	public static final String SUBJECT1_XPATH = "//div[label[text()='Subject 1']]//input";
 	public static final String SUBJECT2_XPATH = "//div[label[text()='Subject 2']]//input";
@@ -31,6 +31,7 @@ public class ExaminationSubject {
 	
 	public static void validateExaminationSubjectTitle() {
 		LOGGER.info("Inside validateAddSubjectForExaminationTitle Method");
+		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(EXAMINATION_HEADER_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}
@@ -133,6 +134,43 @@ public class ExaminationSubject {
 		SeleniumUtil.getWebElement(By.xpath(INSTRUCTION_LINK_XPATH)).click();
 	}
 	
+	public static String  getSubject1FilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(SUBJECT1_XPATH)).getAttribute("value");	
+	}
+	
+	public static String  getSubject2FilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(SUBJECT2_XPATH)).getAttribute("value");	
+	}
+	public static String  getSubject3FilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(SUBJECT3_XPATH)).getAttribute("value");	
+	}
+	public static String  getSubject4FilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(SUBJECT4_XPATH)).getAttribute("value");	
+	}
+	public static String  getSubject5FilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(SUBJECT5_XPATH)).getAttribute("value");	
+	}
+	public static String  getSubject6FilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(SUBJECT6_XPATH)).getAttribute("value");	
+	}
+	public static String  getGrade1FilledText(){
+		return SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(0).getAttribute("value");	
+	}
+	public static String  getGrade2FilledText(){
+		return SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(1).getAttribute("value");	
+	}
+	public static String  getGrade3FilledText(){
+		return SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(2).getAttribute("value");	
+	}
+	public static String  getGrade4FilledText(){
+		return SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(3).getAttribute("value");	
+	}
+	public static String  getGrade5FilledText(){
+		return SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(4).getAttribute("value");	
+	}
+	public static String  getGrade6FilledText(){
+		return SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(5).getAttribute("value");	
+	}
 	
 	
 }

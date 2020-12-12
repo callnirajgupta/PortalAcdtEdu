@@ -11,7 +11,7 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.acdt.edu.pageobjectmodel.ExaminationSubject;
+import com.acdt.edu.pageobjectmodel.ExaminationSubjectPage;
 import com.acdt.edu.pageobjectmodel.ExaminationPage;
 import com.acdt.edu.pageobjectmodel.FinancingYourStudyPage;
 import com.acdt.edu.pageobjectmodel.InstructionPage;
@@ -27,7 +27,7 @@ public class ExaminationSubjectStepDefinition {
 	
     @Then("^verify that default subject is displayed as \"([^\"]*)\" and \"([^\"]*)\"$")
     public void verifyDefaultSubjectNotDeleted(String subject1, String subject2){
-    	ExaminationSubject.validateDefaultSubjectDisplay(subject1,subject2);
+    	ExaminationSubjectPage.validateDefaultSubjectDisplay(subject1,subject2);
     }
     
     
@@ -42,13 +42,13 @@ public class ExaminationSubjectStepDefinition {
 			if(i!=0){
 				SeleniumUtil.refreshPage();
 			}
-			ExaminationSubject.enterMandatoryFieldForExaminationSubjectTaken(
+			ExaminationSubjectPage.enterMandatoryFieldForExaminationSubjectTaken(
 					 dataTable.get(i).get("Grade1"),
 					dataTable.get(i).get("Grade2"),dataTable.get(i).get("Subject3"),dataTable.get(i).get("Grade3"),dataTable.get(i).get("Subject4"),dataTable.get(i).get("Grade4"),dataTable.get(i).get("Subject5"),dataTable.get(i).get("Grade5"),dataTable.get(i).get("Subject6"),dataTable.get(i).get("Grade6"));
 
-			ExaminationSubject.clickNextButton();
+			ExaminationSubjectPage.clickNextButton();
 			try {
-				String appError = ExaminationSubject.getErrorMessage();
+				String appError = ExaminationSubjectPage.getErrorMessage();
                  System.out.println("print messaeg**************"+appError);
 				if (!appError.equals(dataTable.get(i).get("Message"))) {
 					list.add(dataTable.get(i).get("Message"));
@@ -75,7 +75,7 @@ public class ExaminationSubjectStepDefinition {
     @When("^user enter mandatory fields data in Examination Subject Page$")
     public void enterfieldsdataExaminationSubjectTakenPage(List<Map<String, String>> dataTable){
     	examinationSubjectDataTable = dataTable;
-    	ExaminationSubject.enterMandatoryFieldForExaminationSubjectTaken(
+    	ExaminationSubjectPage.enterMandatoryFieldForExaminationSubjectTaken(
 				 dataTable.get(0).get("Grade1"),
 				dataTable.get(0).get("Grade2"),dataTable.get(0).get("Subject3"),dataTable.get(0).get("Grade3"),dataTable.get(0).get("Subject4"),dataTable.get(0).get("Grade4"),dataTable.get(0).get("Subject5"),dataTable.get(0).get("Grade5"),dataTable.get(0).get("Subject6"),dataTable.get(0).get("Grade6"));
 
@@ -89,7 +89,7 @@ public class ExaminationSubjectStepDefinition {
     
     @When("^user click on follow this link For more information on admission requirements$")
     public void userClickOnFollowThisLink(){
-    	ExaminationSubject.clickInstructionLink();
+    	ExaminationSubjectPage.clickInstructionLink();
     }
     @When("^verify that user navigate to Instruction page in new tab$")
     public void Then_verify_that_user_navigate_to_Instruction_page(){
@@ -109,7 +109,96 @@ public class ExaminationSubjectStepDefinition {
     
     @When("^user click on previous button in Examination Subject page$")
     public void userClickOnPreviousButtonInExaminationSubjectPage(){
-    	ExaminationSubject.clickPreviousButton();
+    	ExaminationSubjectPage.clickPreviousButton();
     	
+    }
+    
+    @Then("^validate that Examination Subject page filled data persist$")
+    public void validateThatExaminationSubjectPageFilledDataPersist(){
+    	boolean flag=false;
+		try {
+			SeleniumUtil.wait(5000);
+			Assert.assertEquals("The Grade1 is not matching",ExaminationSubjectPage.getGrade1FilledText(),
+					examinationSubjectDataTable.get(0).get("Grade1"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		
+		try {
+		
+			Assert.assertEquals("The Grade2 is not matching",ExaminationSubjectPage.getGrade2FilledText(),
+					examinationSubjectDataTable.get(0).get("Grade2"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The Subject3 is not matching",ExaminationSubjectPage.getSubject3FilledText(),
+					examinationSubjectDataTable.get(0).get("Subject3"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			Assert.assertEquals("The Grade3 is not matching",ExaminationSubjectPage.getGrade3FilledText(),
+					examinationSubjectDataTable.get(0).get("Grade3"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+       try {	
+			Assert.assertEquals("The Subject4 is not matching",ExaminationSubjectPage.getSubject4FilledText(),
+					examinationSubjectDataTable.get(0).get("Subject4"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+       
+       try {
+			Assert.assertEquals("The Grade4 is not matching",ExaminationSubjectPage.getGrade4FilledText(),
+					examinationSubjectDataTable.get(0).get("Grade4"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+       
+       try {	
+			Assert.assertEquals("The Subject5 is not matching",ExaminationSubjectPage.getSubject5FilledText(),
+					examinationSubjectDataTable.get(0).get("Subject5"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+      
+      try {
+			Assert.assertEquals("The Grade5 is not matching",ExaminationSubjectPage.getGrade5FilledText(),
+					examinationSubjectDataTable.get(0).get("Grade5"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+      
+      try {	
+			Assert.assertEquals("The Subject6 is not matching",ExaminationSubjectPage.getSubject6FilledText(),
+					examinationSubjectDataTable.get(0).get("Subject6"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+     
+     try {
+			Assert.assertEquals("The Grade6 is not matching",ExaminationSubjectPage.getGrade6FilledText(),
+					examinationSubjectDataTable.get(0).get("Grade6"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+       
+		Assert.assertFalse("The Examination Subject Page filled data is not Matching",flag);
     }
 }

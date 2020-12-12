@@ -36,6 +36,7 @@ public class ExaminationPage {
     
     public static void validateExaminationTitle() {
 		LOGGER.info("Inside validateExaminationTitle Method");
+		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(EXAMINATION_HEADER_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}

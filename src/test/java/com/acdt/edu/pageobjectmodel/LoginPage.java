@@ -21,6 +21,7 @@ public class LoginPage {
 	
 	public static void validateLoginTitle() {
 		LOGGER.info("Inside validateLoginTitle Method");
+		SeleniumUtil.wait(2000);
 		SeleniumUtil.validateWebElementVisible(LOGIN_TITLE,
 				SeleniumUtil.waitWebElementSync);
 	}

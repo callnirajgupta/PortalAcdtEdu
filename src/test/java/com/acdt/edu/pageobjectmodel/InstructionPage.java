@@ -14,6 +14,7 @@ public class InstructionPage {
 	
 	public static void validateInstructionTitle() {
 		LOGGER.info("Inside validateInstrictionTitle Method");
+		SeleniumUtil.wait(3000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(INSTRUCTION_TITLE_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}

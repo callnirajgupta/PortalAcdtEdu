@@ -21,6 +21,7 @@ public class ProgrammeSelectionPage {
 	
 	public static void validateProgrammeSelectionTitle() {
 		LOGGER.info("Inside validateProgrammeSelectionTitle Method");
+		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(PROGRAMME_SELECTION_HEADER_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}

@@ -104,11 +104,13 @@ public class ApplicationSummaryPage {
     
     public static void validateApplicationSummaryTitle() {
 		LOGGER.info("Inside validateFinancingYourStudyTitle Method");
+		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(APPLICATION_SUMMARY_HEADER_XPATH,
 				SeleniumUtil.waitWebElementSync);
 	}
     
     public static void validateApplicationCongratulationTitle() {
+    	SeleniumUtil.wait(5000);
 		LOGGER.info("Inside validateApplicationCongratulationTitle Method");
 		SeleniumUtil.validateWebElementVisible(APPLICATION_CONGRATULATION,
 				SeleniumUtil.waitWebElementSync);

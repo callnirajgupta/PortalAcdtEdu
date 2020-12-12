@@ -14,6 +14,7 @@ public class FaqsPage {
 	
 	public static void validateFaqsTitle() {
 		LOGGER.info("Inside validateFaqsTitle Method");
+		SeleniumUtil.wait(3000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(FAQS_TITLE_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}

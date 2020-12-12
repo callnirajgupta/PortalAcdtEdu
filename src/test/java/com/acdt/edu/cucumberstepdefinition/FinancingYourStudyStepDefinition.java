@@ -8,7 +8,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 
-import com.acdt.edu.pageobjectmodel.ExaminationSubject;
+import com.acdt.edu.pageobjectmodel.ExaminationSubjectPage;
 import com.acdt.edu.pageobjectmodel.FinancingYourStudyPage;
 import com.acdt.edu.pageobjectmodel.RefereePage;
 import com.acdt.edu.util.SeleniumUtil;
@@ -70,4 +70,35 @@ public class FinancingYourStudyStepDefinition {
 	  RefereePage.validateRefereeTitle();
 	  
   }
+  
+  @When("^user click on previous button in Financing Your Study page$")
+  public void userClickOnPreviousButtonInFinancingYourStudyPage(){
+	  FinancingYourStudyPage.clickPreviousButton();
+	  
+  }
+  
+  @Then("^validate that Financing Your Study page filled data persist$")
+  public void validateThatFinancingYourStudyPageFilledDatapersist(){
+	  boolean flag=false;
+		try {
+			SeleniumUtil.wait(5000);
+			Assert.assertEquals("The IntendToFinance is not matching",FinancingYourStudyPage.getIntendToFinanceFilledText(),
+					financingYourStudyDataTable.get(0).get("IntendToFinance").toUpperCase());
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
+			
+			Assert.assertEquals("The IntendToFinance Other is not matching",FinancingYourStudyPage.getIntendToFinanceOtherFilledText(),
+					financingYourStudyDataTable.get(0).get("Other"));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+	  
+		Assert.assertFalse("The Financing Your Study Page filled data is not Matching",flag);
+  }
+  
 }

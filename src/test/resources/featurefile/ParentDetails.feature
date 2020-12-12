@@ -102,6 +102,6 @@ Feature: Particular of parner page fields validation
       | Title | SurName  | FirstName | MiddleName | Relationship | Company     | Occupation | Address1 | Address2 | Country | CityTown | State | Mobile       | Telephone  | Email                | PostalCode | Message                                     |
       | Mr.   | Testsurename | Testfirstname | TestMiddleName     | Parent       | Test company | service    | Testaddress1 | address2 | Albania | cityTown | state | 235434587687 | 3535348788 | TestAutomation@gmail.com |     464656 | Please fill in the required field(s): Title |
     And user click on previous button in parent details page
-    Then verify that user navigate to particular of parent page
+    Then User should navigate to contact information page
     And validate that contact information filled data persist
       

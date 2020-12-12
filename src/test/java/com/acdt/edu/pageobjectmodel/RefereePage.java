@@ -14,6 +14,7 @@ public class RefereePage {
 	private static final Logger LOGGER = LogManager.getLogger(RefereePage.class);
 	public static final String REFEREE_HEADER_XPATH = "//h4[text()='Referee']";
 	public static final String TITLE_XPATH = "//div[label[text()='Title']]//div[@class='c-btn']/span[1]";
+	public static final String TITLE_GETTEXT_XPATH = "//div[label[text()='Title']]//div[@class='c-btn']/span/span";
 	public static final String POSITION_XPATH = "//div[label[text()='Position']]//input";
 	public static final String FULL_NAME_XPATH = "//div[label[text()='Full Name']]//input";
 	public static final String EMAIL_ADDRESS_XPATH = "//div[label[text()='Email address']]//input";
@@ -27,9 +28,11 @@ public class RefereePage {
 	public static final String CALENDAR_DATE_XPATH = "//div[@class='btn-light' and text()='date']";
 	public static final String ERROR_MESSAGE_XPATH = "//div[@class='errorMessage']";
 	public static final String SIGNATURE_NAME = "applicantSignature";
+	public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
 	
 	public static void validateRefereeTitle() {
 		LOGGER.info("Inside validateRefereeTitle Method");
+		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(REFEREE_HEADER_XPATH), SeleniumUtil.waitWebElementSync);
 	}
 
@@ -102,6 +105,38 @@ public class RefereePage {
 
 	public static void clickPreviewButton() {
 		SeleniumUtil.getWebElement(By.xpath(PREVIEW_BUTTON_XPATH)).click();
+	}
+	
+	public static void clickPreviousButton() {
+		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
+	}
+	
+	public static String  getTitleFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(TITLE_GETTEXT_XPATH)).getText();	
+	}
+	
+	public static String  getPositionFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(POSITION_XPATH)).getAttribute("value");	
+	}
+	
+	public static String  getFullNameFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(FULL_NAME_XPATH)).getAttribute("value");	
+	}
+	
+	public static String  getEmailFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(EMAIL_ADDRESS_XPATH)).getAttribute("value");	
+	}
+	
+	public static String  getOccupationFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(OCCUPATION_XPATH)).getAttribute("value");	
+	}
+	
+	public static String  getDateFilledText(){
+		return SeleniumUtil.getWebElement(By.xpath(DATE_XPATH)).getAttribute("value");	
+	}
+	
+	public static String  getSignatureFilledText(){
+		return SeleniumUtil.getWebElement(By.name(SIGNATURE_NAME)).getAttribute("value");	
 	}
 
 }

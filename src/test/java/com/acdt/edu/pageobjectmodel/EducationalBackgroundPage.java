@@ -53,6 +53,7 @@ public class EducationalBackgroundPage {
     public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
     public static void validateEducationalBackgroundTitle() {
 		LOGGER.info("Inside validateEducationalBackgroundTitle Method");
+		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(EDUCATIONAl_BACKGROUND_HEADER_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}

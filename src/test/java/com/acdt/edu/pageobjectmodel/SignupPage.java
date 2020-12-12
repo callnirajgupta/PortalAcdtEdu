@@ -32,6 +32,7 @@ public class SignupPage {
 	public static String emailAuto;
 	public static void validateSignupTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
+		SeleniumUtil.wait(3000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(SIGNUP_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 	    
 	}
