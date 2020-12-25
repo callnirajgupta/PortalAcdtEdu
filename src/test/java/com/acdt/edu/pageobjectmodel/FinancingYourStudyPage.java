@@ -30,15 +30,18 @@ public class FinancingYourStudyPage {
 			
 			SeleniumUtil.validateWebElementVisible(By.xpath(FINANCING_YOUR_STUDY_XPATH), SeleniumUtil.waitWebElementSync);
 			SeleniumUtil.wait(1000);
+			if(!intendToFinance.equals(SeleniumUtil.getWebElement(By.xpath(FINANCING_YOUR_STUDY_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(FINANCING_YOUR_STUDY_XPATH)).click();
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(intendToFinance);
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_OPTION_XPATH.replace("selectText", intendToFinance)))
 					.click();
+			}
 		}
 
 		if (!("".equals(other))) {
+			SeleniumUtil.getWebElement(By.xpath(FINANCING_YOUR_STUDY_OTHER_XPATH)).clear();
 			SeleniumUtil.getWebElement(By.xpath(FINANCING_YOUR_STUDY_OTHER_XPATH)).sendKeys(other);
 		}
 	}

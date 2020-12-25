@@ -95,10 +95,11 @@ public class EducationalBackgroundPage {
 		}
 		
 		if(!("".equals(country))){
+			if(!country.equals(SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
-				
+			}	
 		}
 		
 		if(!("".equals(yearOfEntry))){
@@ -128,10 +129,11 @@ public class EducationalBackgroundPage {
 		}
 		
 		if(!("".equals(qualification))){
+			if(!qualification.equals(SeleniumUtil.getWebElement(By.xpath(QUALIFICATION_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(QUALIFICATION_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(qualification);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", qualification))).click();
-				
+			}	
 		}
 		
 		if(!("".equals(otherQualification))){

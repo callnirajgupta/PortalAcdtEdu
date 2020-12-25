@@ -60,14 +60,14 @@ public class GlobalStepDefinition {
 			LOGGER.debug("###################  i am inside screen shot after fail ####################");
 			final byte[] screenshot = ((TakesScreenshot) SeleniumUtil.getDriver()).getScreenshotAs(OutputType.BYTES);
 			scenario.embed(screenshot, "image/png");
-			
+			SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "The Step is failed");
 
 		}
 		if (SeleniumUtil.getDriver() != null) {
 			
-			SeleniumUtil.closeBrowser();
-			SeleniumUtil.setDriver(null);
-			SeleniumUtil.driverStatus=false;
+			//SeleniumUtil.closeBrowser();
+			//SeleniumUtil.setDriver(null);
+			//SeleniumUtil.driverStatus=false;
 		}
 
 		

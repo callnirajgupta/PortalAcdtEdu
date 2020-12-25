@@ -50,15 +50,21 @@ public class ContactInformationPage {
 		if (!("".equals(address1))) {
 			SeleniumUtil.validateWebElementVisible(By.name(POSTAL_ADDRESS1_NAME), 20);
 			Thread.sleep(3000);
+			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
 		}
 		if (!("".equals(address2))) {
+			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS2_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS2_NAME)).sendKeys(address2);
 		}
 		if (!("".equals(city))) {
+			Thread.sleep(2000);
+			SeleniumUtil.scrollToWebElement(By.name(POSTAL_CITY_NAME));
+			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
 		}
 		if (!("".equals(state))) {
+			SeleniumUtil.getWebElement(By.name(POSTAL_STATE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_STATE_NAME)).sendKeys(state);
 		}
 		if (!("".equals(country))) {
@@ -71,6 +77,7 @@ public class ContactInformationPage {
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)))
 					.click();
+			
 		}
 
 		if (!("".equals(postCode))) {
@@ -115,22 +122,27 @@ public class ContactInformationPage {
 			String country, String postCode, String phone) throws Throwable {
 
 		if (!("".equals(address1))) {
-
+			SeleniumUtil.wait(2000);
+			SeleniumUtil.scrollToWebElement(By.name(PERMANENT_ADDRESS1_NAME));
+			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).sendKeys(address1);
 		}else{
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).clear();
 		}
 		if (!("".equals(address2))) {
+			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS2_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS2_NAME)).sendKeys(address2);
 		}else{
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS2_NAME)).clear();
 		}
 		if (!("".equals(city))) {
+			SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).sendKeys(city);
 		}else{
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).clear();
 		}
 		if (!("".equals(state))) {
+			SeleniumUtil.getWebElement(By.name(PERMANENT_STATE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_STATE_NAME)).sendKeys(state);
 		}else{
 			SeleniumUtil.getWebElement(By.name(PERMANENT_STATE_NAME)).clear();
@@ -150,6 +162,7 @@ public class ContactInformationPage {
 		}
 
 		if (!("".equals(postCode))) {
+			SeleniumUtil.getWebElement(By.name(PERMANENT_CODE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CODE_NAME)).sendKeys(postCode);
 		}else{
 			

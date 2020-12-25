@@ -87,10 +87,11 @@ public class ExaminationPage {
 			
 			if(!("".equals(examinationType))){
 				SeleniumUtil.validateWebElementVisible(By.xpath(EXAMINATION_TYPE_XPATH), SeleniumUtil.waitWebElementSync);
+				if(!examinationType.equals(SeleniumUtil.getWebElement(By.xpath(EXAMINATION_TYPE_XPATH)).getText().trim())){
 				SeleniumUtil.getWebElement(By.xpath(EXAMINATION_TYPE_XPATH)).click();
 				//SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
 				SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", examinationType))).click();
-					
+				}	
 			}
 			if(!("".equals(indexNumber))){
 				SeleniumUtil.validateWebElementVisible(By.xpath(INDEX_NUMBER_XPATH), SeleniumUtil.waitWebElementSync);

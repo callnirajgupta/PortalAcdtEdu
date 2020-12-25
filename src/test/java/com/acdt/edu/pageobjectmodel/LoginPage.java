@@ -17,6 +17,7 @@ public class LoginPage {
 	public static final By LOGIN_PASSWORD = By.name("password");
 	public static final By LOGIN_CAPTCHA = By.xpath("//span[@id='recaptcha-anchor']/div[1]");
 	public static final By LOGIN_BUTTON = By.xpath("//a[text()='Login']");
+	public static final  By ERROR_MESSAGE_XPATH=By.xpath("//div[@class='errorMessage']");
 	
 	
 	public static void validateLoginTitle() {
@@ -24,11 +25,13 @@ public class LoginPage {
 		SeleniumUtil.wait(2000);
 		SeleniumUtil.validateWebElementVisible(LOGIN_TITLE,
 				SeleniumUtil.waitWebElementSync);
+		
 	}
 
 	
 	public static void enterEmailAndPassword(String email,String password){
 		LOGGER.info("Inside enterEmailAndPassword Method");
+		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Login page Loaded successfully");
 		if (!("".equals(email))) {
 			SeleniumUtil.getWebElement(LOGIN_EMAIL).clear();
 			SeleniumUtil.getWebElement(LOGIN_EMAIL).sendKeys(email);
@@ -43,17 +46,28 @@ public class LoginPage {
 	}
 	
 	public static void clickCaptchaCheckBox(){
-		SeleniumUtil.wait(2000);
+		LOGGER.info("Inside clickCaptchaCheckBox method");
+		SeleniumUtil.wait(3000);
 		SeleniumUtil.getDriver().switchTo().frame(0);
-		SeleniumUtil.getWebElement(LOGIN_CAPTCHA).click();
+		SeleniumUtil.javascriptClickElement(LOGIN_CAPTCHA);
+		//SeleniumUtil.getWebElement(LOGIN_CAPTCHA).click();
 		SeleniumUtil.switchToDefaultContent();
 		SeleniumUtil.wait(2000);
+		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Login page Enter data successfully");
 	}
 	
 	public static void clickLoginButton(){
-		
+		LOGGER.info("Inside clickLoginButton method");
 		SeleniumUtil.getWebElement(LOGIN_BUTTON).click();
 	
 	}
 	
+	
+	public static String getErrorMessage() {
+		LOGGER.info("Inside getErrorMessage method");
+		SeleniumUtil.wait(2000);
+		
+		return SeleniumUtil.getWebElement(ERROR_MESSAGE_XPATH).getText().trim();
+
+	}
 }

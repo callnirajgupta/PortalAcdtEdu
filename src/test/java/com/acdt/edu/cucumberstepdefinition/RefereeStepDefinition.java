@@ -7,7 +7,9 @@ import java.util.Map;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
+import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.pageobjectmodel.ApplicationSummaryPage;
 import com.acdt.edu.pageobjectmodel.FinancingYourStudyPage;
 import com.acdt.edu.pageobjectmodel.RefereePage;
@@ -32,20 +34,23 @@ public class RefereeStepDefinition {
 			}
 			RefereePage.fillingDataInRefereePage(dataTable.get(i).get("Title"),dataTable.get(i).get("Position"),dataTable.get(i).get("FullName") ,dataTable.get(i).get("Email") ,dataTable.get(i).get("Occupation") ,dataTable.get(i).get("Date"),dataTable.get(i).get("Signature") );
 			RefereePage.clickPreviewButton();
+			
 			try {
-				String appError = RefereePage.getErrorMessage();
-               System.out.println("print messaeg**************"+appError);
-				if (!appError.equals(dataTable.get(i).get("Message"))) {
-					list.add(dataTable.get(i).get("Message"));
-					flag = false;
-					LOGGER.info("Error message is matching as " + dataTable.get(i).get("Message"));
-				} else {
-					LOGGER.error("Error message is Not matching as " + dataTable.get(i).get("Message"));
-				}
-			} catch (Exception e) {
+				SeleniumUtil.wait(2000);
+				
+	            Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), RefereePage.getErrorMessage());
+				
+			} catch (AssertionError e) {
 				list.add(dataTable.get(i).get("Message"));
 				flag = false;
-				LOGGER.error("Error message is Not displayed as " + dataTable.get(i).get("Message"));
+				LOGGER.error("The Error message is Not displaying  as " + dataTable.get(i).get("Message"));
+				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+			    if(SeleniumUtil.getWebElements(ApplicationSummaryPage.APPLICATION_SUMMARY_HEADER_XPATH).size()>0){
+			    	SeleniumUtil.getDriver().navigate().back();
+			    }
+			}catch(Exception e){
+				flag = false;
+				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
 			}
 			
 		}

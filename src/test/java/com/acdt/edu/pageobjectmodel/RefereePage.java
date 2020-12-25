@@ -40,7 +40,7 @@ public class RefereePage {
 			String occupation, String date,String signature) {
 		LOGGER.info("Inside fillingDataInReferencePage Method");
 		if (!("".equals(title))) {
-
+			if(!title.equals(SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).getText().trim())){
 			SeleniumUtil.validateWebElementVisible(By.xpath(TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
@@ -48,18 +48,22 @@ public class RefereePage {
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(title);
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_OPTION_XPATH.replace("selectText", title))).click();
-		}
+			}
+			}
 
 		if (!("".equals(position))) {
+			SeleniumUtil.getWebElement(By.xpath(POSITION_XPATH)).clear();
 			SeleniumUtil.getWebElement(By.xpath(POSITION_XPATH)).sendKeys(position);
 		}
 
 		if (!("".equals(fullName))) {
+			SeleniumUtil.getWebElement(By.xpath(FULL_NAME_XPATH)).clear();
 			SeleniumUtil.getWebElement(By.xpath(FULL_NAME_XPATH)).sendKeys(fullName);
 		}
 
 		if (!("".equals(email))) {
-			
+			SeleniumUtil.wait(2000);
+			SeleniumUtil.getWebElement(By.xpath(EMAIL_ADDRESS_XPATH)).clear();
 			SeleniumUtil.getWebElement(By.xpath(EMAIL_ADDRESS_XPATH)).sendKeys(email);
 			SeleniumUtil.wait(3000);
 			SeleniumUtil.getWebElement(By.xpath(EMAIL_ADDRESS_XPATH)).click();
@@ -67,6 +71,7 @@ public class RefereePage {
 		}
 
 		if (!("".equals(occupation))) {
+			SeleniumUtil.getWebElement(By.xpath(OCCUPATION_XPATH)).clear();
 			SeleniumUtil.getWebElement(By.xpath(OCCUPATION_XPATH)).sendKeys(occupation);
 		}
 
@@ -93,6 +98,7 @@ public class RefereePage {
 		}
 		
 		if (!("".equals(signature))) {
+			SeleniumUtil.getWebElement(By.name(SIGNATURE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(SIGNATURE_NAME)).sendKeys(signature);
 		}
 	}

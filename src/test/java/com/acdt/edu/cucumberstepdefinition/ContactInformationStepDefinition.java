@@ -6,6 +6,9 @@ import java.util.Map;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+
+import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.pageobjectmodel.ContactInformationPage;
 import com.acdt.edu.pageobjectmodel.ParentDetailsPage;
 import com.acdt.edu.pageobjectmodel.PersonalDetailsPage;
@@ -48,25 +51,33 @@ public class ContactInformationStepDefinition {
 	    boolean flag=true;
 	    for(int i=0;i<dataTable.size();i++){
 		ContactInformationPage.postalAddressFilling(dataTable.get(i).get("Address1"),dataTable.get(i).get("Address2"), dataTable.get(i).get("City"), dataTable.get(i).get("State"),dataTable.get(i).get("Country") , dataTable.get(i).get("PostalCode"),dataTable.get(i).get("Phone"));
-		
+		SeleniumUtil.wait(2000);
 		ContactInformationPage.permanentAddressFilling("Address1","Address2", "City", "State","Afghanistan" , "1313124","+9133456789");
 		ContactInformationPage.clickNextButton();
-		try{
-		 String appError=ContactInformationPage.getErrorMessage();
-		    
-		    if(!appError.equals(dataTable.get(i).get("Message"))){
-		    	list.add(dataTable.get(i).get("Message"));
-		    	flag=false;
-		    	LOGGER.info("Error message is matching as "+dataTable.get(i).get("Message"));
-		    }else{
-		    	LOGGER.error("Error message is Not matching as "+dataTable.get(i).get("Message"));	
+	
+		//////////////////////////
+		try {
+			SeleniumUtil.wait(2000);
+			
+            Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), ContactInformationPage.getErrorMessage());
+			
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			list.add(dataTable.get(i).get("Message"));
+			flag = false;
+			LOGGER.error("The Error message is Not displaying  as " + dataTable.get(i).get("Message"));
+			SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+		    if(SeleniumUtil.getWebElements(By.xpath(ParentDetailsPage.PARENT_DETAILS_TITLE_XPATH)).size()>0){
+		    	SeleniumUtil.getDriver().navigate().back();
 		    }
 		}catch(Exception e){
-			list.add(dataTable.get(i).get("Message"));
-	    	flag=false;
-	    	LOGGER.error("Error message is Not displayed as "+dataTable.get(i).get("Message"));
+			flag = false;
+			SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
 		}
+		
+		
 		    SeleniumUtil.refreshPage();
+		    SeleniumUtil.wait(5000);
 		    }
 		    
 		    Assert.assertTrue("The error message is not matching for postal address"+list, flag);

@@ -7,10 +7,13 @@ import java.util.Map;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
+import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.pageobjectmodel.ContactInformationPage;
 import com.acdt.edu.pageobjectmodel.EducationalBackgroundPage;
 import com.acdt.edu.pageobjectmodel.ExaminationPage;
+import com.acdt.edu.pageobjectmodel.ParentDetailsPage;
 import com.acdt.edu.pageobjectmodel.ProgrammeSelectionPage;
 import com.acdt.edu.util.SeleniumUtil;
 
@@ -38,21 +41,28 @@ public class EducationalBackGround {
 					dataTable.get(i).get("YearOfCompletion"), dataTable.get(i).get("Qualification"),dataTable.get(i).get("OtherQualification"));
 
 			EducationalBackgroundPage.clickNextButtonInEducationalBackGround();
+			
+			
+			////
+			
 			try {
-				String appError = EducationalBackgroundPage.getErrorMessage();
-                 System.out.println("print messaeg**************"+appError);
-				if (!appError.equals(dataTable.get(i).get("Message"))) {
-					list.add(dataTable.get(i).get("Message"));
-					flag = false;
-					LOGGER.info("Error message is matching as " + dataTable.get(i).get("Message"));
-				} else {
-					LOGGER.error("Error message is Not matching as " + dataTable.get(i).get("Message"));
-				}
-			} catch (Exception e) {
+				SeleniumUtil.wait(2000);
+				
+	            Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), EducationalBackgroundPage.getErrorMessage());
+				
+			} catch (AssertionError e) {
 				list.add(dataTable.get(i).get("Message"));
 				flag = false;
-				LOGGER.error("Error message is Not displayed as " + dataTable.get(i).get("Message"));
+				LOGGER.error("The Error message is Not displaying  as " + dataTable.get(i).get("Message"));
+				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+			    if(SeleniumUtil.getWebElements(By.xpath(ExaminationPage.EXAMINATION_HEADER_XPATH)).size()>0){
+			    	SeleniumUtil.getDriver().navigate().back();
+			    }
+			}catch(Exception e){
+				flag = false;
+				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
 			}
+			
 			
 		}
 

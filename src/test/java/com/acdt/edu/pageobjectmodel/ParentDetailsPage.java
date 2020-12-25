@@ -49,12 +49,13 @@ public class ParentDetailsPage {
 
 		if (!("".equals(title))) {
 			Thread.sleep(1000);
+			if(!title.equals(SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(title);
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title))).click();
-		
+			}
 
 		}
 		if (!("".equals(firstName))) {
@@ -62,6 +63,7 @@ public class ParentDetailsPage {
 			SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).sendKeys(firstName);
 		}
 		if (!("".equals(middleName))) {
+			SeleniumUtil.getWebElement(By.name(MIDDLENAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(MIDDLENAME_NAME)).sendKeys(middleName);
 		}
 		if (!("".equals(surname))) {
@@ -84,45 +86,55 @@ public class ParentDetailsPage {
 		}
 
 		if (!("".equals(company))) {
-
+			SeleniumUtil.getWebElement(By.name(COMPANY_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(COMPANY_NAME)).sendKeys(company);
 		}
 
 		if (!("".equals(occupation))) {
+			SeleniumUtil.getWebElement(By.name(OCCUPATION_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(OCCUPATION_NAME)).sendKeys(occupation);
 			
 		}
 		
 		if (!("".equals(address1))) {
+			SeleniumUtil.getWebElement(By.name(ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(ADDRESS1_NAME)).sendKeys(address1);
 		}
 		
 		if (!("".equals(address2))) {
+			SeleniumUtil.getWebElement(By.name(ADDRESS2_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(ADDRESS2_NAME)).sendKeys(address2);
 		}
 		
 		if(!("".equals(country))){
+			if(!country.equals(SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(country);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
-				
+			}	
 		}
 		if (!("".equals(city))) {
+			SeleniumUtil.getWebElement(By.name(CITY_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(CITY_NAME)).sendKeys(city);
 		}
 		if (!("".equals(state))) {
+			SeleniumUtil.getWebElement(By.name(STATE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(STATE_NAME)).sendKeys(state);
 		}
 		if (!("".equals(mobile))) {
+			SeleniumUtil.getWebElement(By.name(MOBILE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(MOBILE_NAME)).sendKeys(mobile);
 		}
 		if (!("".equals(telephone))) {
+			SeleniumUtil.getWebElement(By.name(TELEPHONE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(TELEPHONE_NAME)).sendKeys(telephone);
 		}
 		if (!("".equals(email))) {
+			SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).sendKeys(email);
 		}
 		if (!("".equals(postalCode))) {
+			SeleniumUtil.getWebElement(By.name(POSTALCODE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTALCODE_NAME)).sendKeys(postalCode);
 		}
 

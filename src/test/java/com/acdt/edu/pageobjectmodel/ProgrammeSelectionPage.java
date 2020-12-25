@@ -37,20 +37,22 @@ public class ProgrammeSelectionPage {
 		
 		if(!("".equals(programmeType))){
 			Thread.sleep(1000);
+			if(!programmeType.equals(SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_XPATH)).click();
 			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(programmeType);
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", programmeType))).click();
-				
+			}	
 		}
 		if(!("".equals(programmeTitle))){
+			if(!programmeTitle.equals(SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TITLE_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TITLE_XPATH)).click();
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(programmeTitle);
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", programmeTitle))).click();
-				
+			}	
 		}
 		
 		

@@ -8,10 +8,12 @@ import java.util.Set;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.acdt.edu.pageobjectmodel.ExaminationSubjectPage;
+import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.pageobjectmodel.ExaminationPage;
 import com.acdt.edu.pageobjectmodel.FinancingYourStudyPage;
 import com.acdt.edu.pageobjectmodel.InstructionPage;
@@ -47,20 +49,25 @@ public class ExaminationSubjectStepDefinition {
 					dataTable.get(i).get("Grade2"),dataTable.get(i).get("Subject3"),dataTable.get(i).get("Grade3"),dataTable.get(i).get("Subject4"),dataTable.get(i).get("Grade4"),dataTable.get(i).get("Subject5"),dataTable.get(i).get("Grade5"),dataTable.get(i).get("Subject6"),dataTable.get(i).get("Grade6"));
 
 			ExaminationSubjectPage.clickNextButton();
+			
+			//
+			
 			try {
-				String appError = ExaminationSubjectPage.getErrorMessage();
-                 System.out.println("print messaeg**************"+appError);
-				if (!appError.equals(dataTable.get(i).get("Message"))) {
-					list.add(dataTable.get(i).get("Message"));
-					flag = false;
-					LOGGER.info("Error message is matching as " + dataTable.get(i).get("Message"));
-				} else {
-					LOGGER.error("Error message is Not matching as " + dataTable.get(i).get("Message"));
-				}
-			} catch (Exception e) {
+				SeleniumUtil.wait(2000);
+				
+	            Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), ExaminationSubjectPage.getErrorMessage());
+				
+			} catch (AssertionError e) {
 				list.add(dataTable.get(i).get("Message"));
 				flag = false;
-				LOGGER.error("Error message is Not displayed as " + dataTable.get(i).get("Message"));
+				LOGGER.error("The Error message is Not displaying  as " + dataTable.get(i).get("Message"));
+				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+			    if(SeleniumUtil.getWebElements(By.xpath(FinancingYourStudyPage.FINANCING_YOUR_STUDY_HEADER_XPATH)).size()>0){
+			    	SeleniumUtil.getDriver().navigate().back();
+			    }
+			}catch(Exception e){
+				flag = false;
+				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
 			}
 			
 		}

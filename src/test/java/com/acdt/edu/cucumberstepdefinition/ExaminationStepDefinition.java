@@ -7,10 +7,12 @@ import java.util.Map;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.acdt.edu.pageobjectmodel.ExaminationSubjectPage;
+import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.pageobjectmodel.EducationalBackgroundPage;
 import com.acdt.edu.pageobjectmodel.ExaminationPage;
 import com.acdt.edu.util.SeleniumUtil;
@@ -81,6 +83,26 @@ public class ExaminationStepDefinition {
 					list.add(dataTable.get(i).get("Message"));
 					flag = false;
 					LOGGER.error("Error message is Not displayed as " + dataTable.get(i).get("Message"));
+				}
+				
+				///
+				
+				try {
+					SeleniumUtil.wait(2000);
+					
+		            Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), ExaminationPage.getErrorMessage());
+					
+				} catch (AssertionError e) {
+					list.add(dataTable.get(i).get("Message"));
+					flag = false;
+					LOGGER.error("The Error message is Not displaying  as " + dataTable.get(i).get("Message"));
+					SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+				    if(SeleniumUtil.getWebElements(By.xpath(ExaminationSubjectPage.EXAMINATION_SUBJECT_HEADER_XPATH)).size()>0){
+				    	SeleniumUtil.getDriver().navigate().back();
+				    }
+				}catch(Exception e){
+					flag = false;
+					SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
 				}
 				
 			}

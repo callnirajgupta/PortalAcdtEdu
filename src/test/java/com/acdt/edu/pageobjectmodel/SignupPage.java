@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.util.SeleniumUtil;
 
 public class SignupPage {
@@ -34,7 +35,7 @@ public class SignupPage {
 		LOGGER.info("Inside validateHomePageTitle Method");
 		SeleniumUtil.wait(3000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(SIGNUP_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
-	    
+		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Signup Loaded successfully");
 	}
 	
 	public static void signup(String firstName,String middleName,String lastName,
@@ -105,6 +106,7 @@ public class SignupPage {
 			SeleniumUtil.switchToDefaultContent();
 			SeleniumUtil.wait(2000);
 		}
+		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Signup enter data successfully");
 			
 	}
     
@@ -117,6 +119,7 @@ public class SignupPage {
 	public static void ValidateErrorMessage(String message){
 		SeleniumUtil.wait(2000);
 		Assert.assertEquals("The signup page error message not matching", message, SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim());
+		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Signup message validation successfully");
 	}
 	
 	public static void selectCountry(String country){
@@ -126,6 +129,6 @@ public class SignupPage {
 			String xpathForLabel="//label[text()=\""+country+"\"]";
 			//SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
 			SeleniumUtil.getWebElement(By.xpath(xpathForLabel)).click();
-		
+			SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Signup select country successfully");
 	}
 }

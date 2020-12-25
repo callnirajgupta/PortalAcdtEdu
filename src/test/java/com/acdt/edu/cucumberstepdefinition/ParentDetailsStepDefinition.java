@@ -7,7 +7,9 @@ import java.util.Map;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
+import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.pageobjectmodel.ContactInformationPage;
 import com.acdt.edu.pageobjectmodel.ParentDetailsPage;
 import com.acdt.edu.pageobjectmodel.PersonalDetailsPage;
@@ -38,21 +40,23 @@ public class ParentDetailsStepDefinition {
 					dataTable.get(i).get("State"), dataTable.get(i).get("Mobile"), dataTable.get(i).get("Telephone"),
 					dataTable.get(i).get("Email"), dataTable.get(i).get("PostalCode"));
 			ParentDetailsPage.clickNextButton();
-
+			//
 			try {
-				String appError = ParentDetailsPage.getErrorMessage();
-
-				if (!appError.equals(dataTable.get(i).get("Message"))) {
-					list.add(dataTable.get(i).get("Message"));
-					flag = false;
-					LOGGER.error("The error message is not matching" + dataTable.get(i).get("Message"));
-				} else {
-					LOGGER.info("The error message is matching" + dataTable.get(i).get("Message"));
-				}
-			} catch (Exception e) {
-				LOGGER.error("The error message is not displayed as " + dataTable.get(i).get("Message"));
+				SeleniumUtil.wait(2000);
+				
+	            Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), ParentDetailsPage.getErrorMessage());
+				
+			} catch (AssertionError e) {
 				list.add(dataTable.get(i).get("Message"));
 				flag = false;
+				LOGGER.error("The Error message is Not displaying  as " + dataTable.get(i).get("Message"));
+				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+			    if(SeleniumUtil.getWebElements(By.xpath(ProgrammeSelectionPage.PROGRAMME_SELECTION_HEADER_XPATH)).size()>0){
+			    	SeleniumUtil.getDriver().navigate().back();
+			    }
+			}catch(Exception e){
+				flag = false;
+				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
 			}
 			
 		}

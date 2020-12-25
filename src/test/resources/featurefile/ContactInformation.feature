@@ -31,10 +31,10 @@ Feature: Contact Infomation page fields validation
       | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment |
     When user enter  mandatory fields data in contact information page for postal address and validate error message
       | Address1     | Address2     | City     | State     | Country     | PostalCode | Phone         | Message                                                       |
-      |              | TestAddress2 | Testcity | TestState | Afghanistan |    1313124 | +919241521992 | Please fill the required field(s): Postal Address Address 1   |
-      | TestAddress1 | TestAddress2 |          | TestState | Afghanistan |    1313124 | +919241521992 | Please fill the required field(s): Postal Address City/Town   |
-      | TestAddress1 | TestAddress2 | Testcity | TestState |             |    1313124 | +919241521992 | Please fill the required field(s): Postal Address Country     |
-      | TestAddress1 | TestAddress2 | Testcity | TestState | Afghanistan |            | +919241521992 | Please fill the required field(s): Postal Address Postal Code |
+      |              | TestAddress2 | Testcity | TestState | Afghanistan |    1313124 | +919241521992 | Please fill in the required field(s): Postal Address Address 1   |
+      | TestAddress1 | TestAddress2 |          | TestState | Afghanistan |    1313124 | +919241521992 |Please fill in the required field(s): Postal Address City/Town   |
+      | TestAddress1 | TestAddress2 | Testcity | TestState |             |    1313124 | +919241521992 |Please fill in the required field(s): Postal Address Country     |
+      | TestAddress1 | TestAddress2 | Testcity | TestState | Afghanistan |            | +919241521992 |Please fill in the required field(s): Postal Address Postal Code |
 
   #| TestAddress1 | TestAddress2| Testcity | TestState      | Afghanistan |    1313124 |           | Please fill the required field(s): Invalid Postal Address Telephone |
   @Contactinformation2

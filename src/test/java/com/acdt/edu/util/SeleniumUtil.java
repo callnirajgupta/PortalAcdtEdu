@@ -372,6 +372,11 @@ public class SeleniumUtil {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", getWebElement(by));
 
 	}
+	
+	public static void scrollUp(){
+		LOGGER.info("inside scrollUp method");
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, -document.body.scrollHeight);");
+	}
 
 	public static void scrollToWebElement(WebElement element) {
 		LOGGER.info("inside scrollToWebElement method");
@@ -433,17 +438,28 @@ public class SeleniumUtil {
 	}
 	
 	
-	public static void PassTestStep(WebDriver driver,ExtentTest test,String passMessage) throws IOException{
+	public static void PassTestStep(WebDriver driver,ExtentTest test,String passMessage) {
 		LOGGER.info("inside PassTestStep method");
+		try{
 		String imagePath=takeScreenShotReturnPath(); 
 		String snapPath=test.addScreenCapture(imagePath);
 		test.log(LogStatus.PASS, passMessage,snapPath);
+	   }catch(Exception e){
+			
+		}
+				
+				
+				
 	}
-	public static  void failTestStep(WebDriver driver,ExtentTest test,String failureMessage) throws IOException{
+	public static  void failTestStep(WebDriver driver,ExtentTest test,String failureMessage) {
 		LOGGER.info("inside failTestStep method");
+		try{
 		String imagePath=takeScreenShotReturnPath();
 		String snapPath=test.addScreenCapture(imagePath);
 		test.log(LogStatus.FAIL, failureMessage,snapPath);
+		}catch(Exception e){
+			
+		}
 		
 	}
 	

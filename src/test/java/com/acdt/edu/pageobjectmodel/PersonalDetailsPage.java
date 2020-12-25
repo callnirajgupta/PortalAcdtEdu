@@ -5,12 +5,15 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+
+import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.util.SeleniumUtil;
 
 public class PersonalDetailsPage {
 	private static final Logger LOGGER = LogManager.getLogger(SignupPage.class);
 	public static final String PERSONAL_DETAILS_TITLE_XPATH = "//h3[text()='Personal Details']";
     public static final String TITLE_XPATH="//div[label[text()='Title']]//div/span";
+    public static final String TITLE_GETTEXT_XPATH="//div[label[text()='Title']]//div/span/span";
     public static final String SURNAME_NAME="surname";
     public static final String FIRSTNAME_NAME="firstName";
     public static final String MIDDLENAME_NAME= "middleName";
@@ -48,7 +51,8 @@ public class PersonalDetailsPage {
 		LOGGER.info("Inside validateHomePageTitle Method");
 		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(PERSONAL_DETAILS_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
-	}
+		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Personal details page loaded successfully");
+    }
     
     
     public static void validatePrefilledFieldsFromSignUpPage(String firstName,String surname,String gender,String country){
@@ -59,7 +63,8 @@ public class PersonalDetailsPage {
     	Assert.assertEquals("The first name prefilled data is not matching", firstName, SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).getAttribute("value"));
     	Assert.assertEquals("The surname prefilled data is not matching", surname, SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).getAttribute("value"));
     	Assert.assertEquals("The gender prefilled data is not matching", gender, SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).getText().trim());
-    	Assert.assertEquals("The country name prefilled data is not matching", country, SeleniumUtil.getWebElement(By.xpath(NATIONALITY_XPATH)).getText().trim());
+    	Assert.assertEquals("The country name prefilled data is not matching", country.toUpperCase(), SeleniumUtil.getWebElement(By.xpath(NATIONALITY_XPATH)).getText().trim());
+    	SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Prefilled data from Signup page loaded successfully");
     }
     
     public static void personalDetailFilling(String image,String title,String firstName,String middleName,String lastName,
@@ -78,12 +83,14 @@ public class PersonalDetailsPage {
 		}
     	if(!("".equals(title))){
     		Thread.sleep(1000);
+    		
+    		if("Select title".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(title);
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title))).click();
-			
+    		}
 		  
     	}
 		if(!("".equals(firstName))){
@@ -100,8 +107,10 @@ public class PersonalDetailsPage {
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).sendKeys(lastName);	
 		}else{
+			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
-			Thread.sleep(5000);
+			Thread.sleep(1000);
+			
 		}
 		if(!("".equals(otherName))){
 			SeleniumUtil.getWebElement(By.name(OTHERNAMES_NAME)).clear();
@@ -111,7 +120,7 @@ public class PersonalDetailsPage {
 		}
 		
 		if(!("".equals(gender))){
-			 if(!gender.equals(SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).getText().trim())){
+			 if("Select gender".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", gender))).click();
 			 }
@@ -126,7 +135,7 @@ public class PersonalDetailsPage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
 			Thread.sleep(1000);
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
 			Thread.sleep(2000);
 			
@@ -134,19 +143,20 @@ public class PersonalDetailsPage {
 		}
 		
 		if(!("".equals(countryOfBirth))){
+			 if("SELECT COUNTRY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_BIRTH_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_BIRTH_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "3"))).sendKeys(countryOfBirth);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", countryOfBirth))).click();
-				
+			 }	
 		}
 		
 		if(!("".equals(cityOfBirth))){
-			
+			SeleniumUtil.getWebElement(By.name(PLACE_OF_BIRTH_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PLACE_OF_BIRTH_NAME)).sendKeys(cityOfBirth);	
 		}
 		
 		if(!("".equals(nationality))){
-		    if(!nationality.equals(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim())){
+		    if("SELECT NATIONALITY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(NATIONALITY_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).sendKeys(nationality);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_NATIONALITY_XPATH.replace("selectText", nationality))).click();
@@ -154,40 +164,49 @@ public class PersonalDetailsPage {
 		}
 		
 		if(!("".equals(religion))){
+			if("Select religion".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(RELIGION_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(RELIGION_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "5"))).sendKeys(religion);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", religion))).click();	
+			}
 		}
 		if(!("".equals(homeTown))){
+			SeleniumUtil.getWebElement(By.name(HOME_TOWN_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(HOME_TOWN_NAME)).sendKeys(homeTown);
 		}
 		if(!("".equals(region))){
+			if("Select region".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(REGION_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(REGION_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "6"))).sendKeys(region);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", region))).click();	
+			}
 		}
 		if("yes".equalsIgnoreCase(specialNeed )){
-			SeleniumUtil.getWebElement(By.xpath(SPECIAL_NEED_YES_XPATH)).click();		
+			SeleniumUtil.getWebElement(By.xpath(SPECIAL_NEED_YES_XPATH)).click();
+			SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).sendKeys(comment);
 		}
 				
-		
+		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Personal details fill form successfully");
 		
 	}
    
     
     public static String getErrorMessage(){
 		SeleniumUtil.wait(2000);
+		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Personal details error loaded successfully");
 		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 		
 	}
     
     public static void ClickLogoutInPersonalDetailPage(){
     	SeleniumUtil.getWebElement(By.xpath(LOGOUT_XPATH)).click();
+    	SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "ClickLogoutInPersonalDetailPage successfully");
     }
     
     public static void clickNextButton(){
     	SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
+    	SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "clickNextButton successfully");
     }
     
     public static String getFilledTitleText(){

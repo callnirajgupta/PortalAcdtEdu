@@ -11,7 +11,7 @@ import com.acdt.edu.util.SeleniumUtil;
 
 public class ExaminationSubjectPage {
 	private static final Logger LOGGER = LogManager.getLogger(ExaminationSubjectPage.class);
-	public static final String EXAMINATION_HEADER_XPATH = "//h3[text()='Examination Subjects']";
+	public static final String EXAMINATION_SUBJECT_HEADER_XPATH = "//h3[text()='Examination Subjects']";
 	public static final String SUBJECT1_XPATH = "//div[label[text()='Subject 1']]//input";
 	public static final String SUBJECT2_XPATH = "//div[label[text()='Subject 2']]//input";
 	public static final String SUBJECT3_XPATH = "//div[label[text()='Subject 3']]//input";
@@ -32,7 +32,7 @@ public class ExaminationSubjectPage {
 	public static void validateExaminationSubjectTitle() {
 		LOGGER.info("Inside validateAddSubjectForExaminationTitle Method");
 		SeleniumUtil.wait(5000);
-		SeleniumUtil.validateWebElementVisible(By.xpath(EXAMINATION_HEADER_XPATH),
+		SeleniumUtil.validateWebElementVisible(By.xpath(EXAMINATION_SUBJECT_HEADER_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}
     
@@ -48,10 +48,12 @@ public class ExaminationSubjectPage {
 	public static void enterMandatoryFieldForExaminationSubjectTaken(String grade1,String grade2,String subject3,String grade3,String subject4,String grade4,String subject5,String grade5 ,String subject6,String grade6){
 		
 		if(!("".equals(grade1))){
+			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(0).clear();
 			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(0).sendKeys(grade1);	
 		}
 		
 		if(!("".equals(grade2))){
+			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(1).clear();
 			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(1).sendKeys(grade2);	
 		}
 		
@@ -62,6 +64,7 @@ public class ExaminationSubjectPage {
 		}
 		
 		if(!("".equals(grade3))){
+			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(2).clear();
 			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(2).sendKeys(grade3);	
 		}
 		
@@ -71,6 +74,7 @@ public class ExaminationSubjectPage {
 			SeleniumUtil.getWebElement(By.xpath(SUBJECT4_XPATH)).sendKeys(subject4);	
 		}
 		if(!("".equals(grade4))){
+			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(3).clear();
 			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(3).sendKeys(grade4);	
 		}
 		
@@ -88,6 +92,7 @@ public class ExaminationSubjectPage {
 			SeleniumUtil.getWebElement(By.xpath(SUBJECT6_XPATH)).sendKeys(subject6);	
 		}
 		if(!("".equals(grade6))){
+			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(5).clear();
 			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(5).sendKeys(grade6);	
 		}
 	
