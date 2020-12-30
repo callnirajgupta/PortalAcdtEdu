@@ -87,11 +87,15 @@ public class EducationalBackgroundPage {
 		if(!("".equals(recentInstitution))){
 			SeleniumUtil.getWebElement(By.name(CURRENT_RECENT_SHS_INSTITUTE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(CURRENT_RECENT_SHS_INSTITUTE_NAME)).sendKeys(recentInstitution);	
+		}else{
+			SeleniumUtil.getWebElement(By.name(CURRENT_RECENT_SHS_INSTITUTE_NAME)).clear();
 		}
 		
 		if(!("".equals(city))){
 			SeleniumUtil.getWebElement(By.name(CITY_TOWN_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(CITY_TOWN_NAME)).sendKeys(city);	
+		}else{
+			SeleniumUtil.getWebElement(By.name(CITY_TOWN_NAME)).clear();	
 		}
 		
 		if(!("".equals(country))){
@@ -100,6 +104,10 @@ public class EducationalBackgroundPage {
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
 			}	
+		}else{
+			SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).click();
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys("Please Select");
+			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", "Please Select"))).click();
 		}
 		
 		if(!("".equals(yearOfEntry))){
@@ -134,11 +142,17 @@ public class EducationalBackgroundPage {
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(qualification);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", qualification))).click();
 			}	
-		}
+		}/*else{
+			SeleniumUtil.getWebElement(By.xpath(QUALIFICATION_XPATH)).click();
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys("Please Select");
+			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", "Please Select"))).click();
+		}*/
 		
 		if(!("".equals(otherQualification))){
 			SeleniumUtil.getWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME)).sendKeys(otherQualification);	
+		}else{
+			SeleniumUtil.getWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME)).clear();
 		}
 	}
 	

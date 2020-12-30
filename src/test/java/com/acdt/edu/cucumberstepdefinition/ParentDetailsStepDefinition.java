@@ -8,6 +8,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
 import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.pageobjectmodel.ContactInformationPage;
@@ -31,6 +32,7 @@ public class ParentDetailsStepDefinition {
 		for (int i = 0; i < dataTable.size(); i++) {
 			if(i!=0){
 				SeleniumUtil.refreshPage();
+				SeleniumUtil.wait(3000);
 			}
 			ParentDetailsPage.parentDetailFilling(dataTable.get(i).get("Title"), dataTable.get(i).get("FirstName"),
 					dataTable.get(i).get("MiddleName"), dataTable.get(i).get("SurName"),
@@ -43,9 +45,9 @@ public class ParentDetailsStepDefinition {
 			//
 			try {
 				SeleniumUtil.wait(2000);
-				
+				LOGGER.info("Validating error message as "+ dataTable.get(i).get("Message"));
 	            Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), ParentDetailsPage.getErrorMessage());
-				
+				 
 			} catch (AssertionError e) {
 				list.add(dataTable.get(i).get("Message"));
 				flag = false;
@@ -56,8 +58,14 @@ public class ParentDetailsStepDefinition {
 			    }
 			}catch(Exception e){
 				flag = false;
+				list.add(dataTable.get(i).get("Message"));
 				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
-			}
+				LOGGER.error("The Error message is Not displaying  as " + dataTable.get(i).get("Message"));
+				if(SeleniumUtil.getWebElements(By.xpath(ProgrammeSelectionPage.PROGRAMME_SELECTION_HEADER_XPATH)).size()>0){
+			    	SeleniumUtil.getDriver().navigate().back();
+			    }
+			} 
+			
 			
 		}
 

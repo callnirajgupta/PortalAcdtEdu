@@ -35,8 +35,8 @@ Feature: Title of your feature
     And user click next button
     Then verify that user navigation to Examination page
     When user upload result slip
-    #And user delete uploaded result slip
-    # Defect Then verify that uploaded result slip is deleted
+    And user delete uploaded result slip
+    Then verify that uploaded result slip is deleted
     When user add new examination type
     And user delete added new examination type
 

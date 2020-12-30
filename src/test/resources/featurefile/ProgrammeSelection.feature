@@ -26,7 +26,7 @@ Feature: Verify the Programme Selection page functionality
     When user enter mandatory fields data in programme selection page and validate error message
       | ProgrammeType | ProgrammeTitle               | Message |
       |               |                             |Please select a Programme Type.         |
-      | Diploma       |                             | Please select a course.        |
+      | Diploma       |                             |Please select a Programme Title.        |
       |               | Jewellery Design Technology |Please select a Programme Type.         |
 
       

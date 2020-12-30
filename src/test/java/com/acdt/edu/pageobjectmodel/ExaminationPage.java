@@ -24,7 +24,7 @@ public class ExaminationPage {
 	public static final String DELETE_EXAM_TYPE_XPATH = "//span[text()='Delete Exam Type']";
 	public static final String CLEAR_RESULT_SLIP_XPATH="//span[text()='Clear Result slip']";
 	public static final String ADD_NEW_EXAMINATION_TYPE_XPATH = "//a[text()=' Add New Examination Type']";
-	public static final String UPLOAD_RESULT_SLIP_DETAILS_XPATH="//div[@class='text-left']/p";
+	public static final String UPLOAD_RESULT_SLIP_DETAILS_XPATH="//div[@class='text-left']/p[contains(text(),'.jpg')]";
 	public static final String SEARCH_XPATH="(//input[@placeholder='Search'])[index]";
     public static final String SELECT_LABEL_XPATH="//label[text()='selectText']";
     public static final String CALENDAR_MONTH_XPATH="//select[@title='Select month']";

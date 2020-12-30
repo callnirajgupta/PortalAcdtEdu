@@ -56,6 +56,6 @@ Feature: Signup page functionality
 
     Examples: 
       | First Name    | Middle Name    | Last Name    | Programme Type | Gender | Nationality | Mobile Number | Email address        | Password | Confirm Password | Captcha | Message                   |
-      | TestFirstName | TestMiddleName | TestLastName | Diploma        | M      | India                | +919241521992 | callnirajgupta       | password | password         | yes     | Email format is not valid |
-      | TestFirstName | TestMiddleName | TestLastName | Diploma        | M      | India                | +919241521992 | callnirajgupta@gmail | password | password         | yes     | Email format is not valid |
-      | TestFirstName | TestMiddleName | TestLastName | Diploma        | M      | India                | +919241521992 | callnirajgupta.com   | password | password         | yes     | Email format is not valid |
+      | TestFirstName | TestMiddleName | TestLastName | Diploma        | M      | India       | +919241521992 | callnirajgupta       | password | password         | yes     | Email format is not valid |
+      | TestFirstName | TestMiddleName | TestLastName | Diploma        | M      | India       | +919241521992 | callnirajgupta@gmail | password | password         | yes     | Email format is not valid |
+      | TestFirstName | TestMiddleName | TestLastName | Diploma        | M      | India       | +919241521992 | callnirajgupta.com   | password | password         | yes     | Email format is not valid |

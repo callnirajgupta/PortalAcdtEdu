@@ -34,6 +34,7 @@ public class EducationalBackGround {
 		for (int i = 0; i < dataTable.size(); i++) {
 			if(i!=0){
 				SeleniumUtil.refreshPage();
+				SeleniumUtil.wait(2000);
 			}
 			EducationalBackgroundPage.enterCurrentEducationalBackGroundDetails(
 					dataTable.get(i).get("RecentInstitution"), dataTable.get(i).get("City"),
@@ -43,13 +44,11 @@ public class EducationalBackGround {
 			EducationalBackgroundPage.clickNextButtonInEducationalBackGround();
 			
 			
-			////
-			
 			try {
 				SeleniumUtil.wait(2000);
-				
+				LOGGER.info("Validating error message as "+ dataTable.get(i).get("Message"));
 	            Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), EducationalBackgroundPage.getErrorMessage());
-				
+				 
 			} catch (AssertionError e) {
 				list.add(dataTable.get(i).get("Message"));
 				flag = false;
@@ -60,8 +59,14 @@ public class EducationalBackGround {
 			    }
 			}catch(Exception e){
 				flag = false;
+				list.add(dataTable.get(i).get("Message"));
 				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+				LOGGER.error("The Error message is Not displaying  as " + dataTable.get(i).get("Message"));
+				if(SeleniumUtil.getWebElements(By.xpath(ExaminationPage.EXAMINATION_HEADER_XPATH)).size()>0){
+			    	SeleniumUtil.getDriver().navigate().back();
+			    }
 			}
+			
 			
 			
 		}

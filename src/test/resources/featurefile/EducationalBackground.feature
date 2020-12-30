@@ -1,4 +1,4 @@
-@EducationalBackground
+@EducationalBackground @Regression
 Feature: Verify the Educational Background page functionality
 
   @EducationalBackground1
@@ -30,12 +30,12 @@ Feature: Verify the Educational Background page functionality
     Then verify that user navigation to Educational Background page
     When user enter mandatory fields data in Educational Background page and validate error message
       | RecentInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | Message                                                                       |
-      |                       | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill the required field(s): Current or most recent SHS/Institution     |
-      | TestRecentInstitution |          | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill the required field(s): Educational Background City/Town           |
-      | TestRecentInstitution | TestCity |             | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill the required field(s): Educational Background Country             |
-      | TestRecentInstitution | TestCity | Afghanistan |             | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill the required field(s): Educational Background Year of Entry       |
-      | TestRecentInstitution | TestCity | Afghanistan | 10/6/1999   |                  | WASSCE        | TestOtherQualification | Please fill the required field(s): Educational Background Year of Completion  |
-      | TestRecentInstitution | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        |               | TestOtherQualification | Please fill the required field(s): Educational Background Other Qualification |
+      |                       | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Current or most recent SHS/Institution     |
+      | TestRecentInstitution |          | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Educational Background City/Town           |
+      | TestRecentInstitution | TestCity |             | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Educational Background Country             |
+      | TestRecentInstitution | TestCity | Afghanistan |             | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Educational Background Year of Entry       |
+      | TestRecentInstitution | TestCity | Afghanistan | 10/6/1999   |                  | WASSCE        | TestOtherQualification | Please fill in the required field(s): Educational Background Year of Completion  |
+      | TestRecentInstitution | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        |               | TestOtherQualification | Please fill in the required field(s): Educational Background Other Qualification |
 
   @EducationalBackground2
   Scenario: Verify that appliction display Other Educational background when user click Add Other Educational Background
@@ -106,13 +106,13 @@ Feature: Verify the Educational Background page functionality
     Then verify that user navigation to Educational Background page
     When user enter mandatory fields data for Other Education Background in Educational Background page and validate error message
       | OtherInstitution | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | Message                                                                   |
-      |                  | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill the required field(s): Name of other SHS/Institution attended |
+      #Defect|                  | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Name of other SHS/Institution attended |
 
-  #| TestotherInstitution |          | Afghanistan | 10/6/1999   | 10/6/1999         | WASSCE        | TestOtherQualification|Please fill the required field(s): Other Educational Background City/Town|
-  #| TestotherInstitution | TestCity |             | 10/6/1999   | 10/6/1999         | WASSCE        | TestOtherQualification|Please fill the required field(s): Other Educational Background Country|
-  #| TestotherInstitution | TestCity | Afghanistan |             | 10/6/1999         | WASSCE        | TestOtherQualification|Please fill the required field(s): Other Educational Background Year of Entry|
-  #| TestotherInstitution | TestCity | Afghanistan | 10/6/1999   |                   | WASSCE        | TestOtherQualification|Please fill the required field(s): Other Educational Background Year of Completion|
-  #| TestotherInstitution | TestCity | Afghanistan | 10/6/1999   | 10/6/1999         |               | TestOtherQualification|Please fill the required field(s): Other Educational Background Country|
+  | TestotherInstitution |          | Afghanistan | 10/6/1999   | 10/6/1999         | WASSCE        | TestOtherQualification|Please fill in the required field(s): Other Educational Background City/Town|
+  | TestotherInstitution | TestCity |             | 10/6/1999   | 10/6/1999         | WASSCE        | TestOtherQualification|Please fill in the required field(s): Other Educational Background Country|
+  | TestotherInstitution | TestCity | Afghanistan |             | 10/6/1999         | WASSCE        | TestOtherQualification|Please fill in the required field(s): Other Educational Background Year of Entry|
+  | TestotherInstitution | TestCity | Afghanistan | 10/6/1999   |                   | WASSCE        | TestOtherQualification|Please fill in the required field(s): Other Educational Background Year of Completion|
+  | TestotherInstitution | TestCity | Afghanistan | 10/6/1999   | 10/6/1999         |               | TestOtherQualification|Please fill in the required field(s): Other Educational Background Country|
   
   
   @EducationalBackground4
