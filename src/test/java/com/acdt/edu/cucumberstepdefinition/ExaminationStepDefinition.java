@@ -55,7 +55,7 @@ public class ExaminationStepDefinition {
 	   }
 	   
 	   @When("^user enter mandatory fields data in examination page and validate error message$")
-	   public void EnterMandatoryfieldExaminationPageValidateErrorMessage(List<Map<String, String>> dataTable) throws InterruptedException{
+	   public void EnterMandatoryfieldExaminationPageValidateErrorMessage(List<Map<String, String>> dataTable) throws Throwable{
 		   LOGGER.info(
 					"user enter mandatory fields data in Educational Background page and validate error message");
 			List<String> list = new ArrayList<String>();
@@ -67,25 +67,10 @@ public class ExaminationStepDefinition {
 				ExaminationPage.enterExaminationDetails(
 						dataTable.get(i).get("ExaminationType"), dataTable.get(i).get("IndexNumber"),
 						dataTable.get(i).get("DateOfExamination"));
-
+				 ExaminationPage.uploadResultSlip(dataTable.get(0).get("UploadResultSlip"));
 				ExaminationPage.clickNextButtonInEducationalBackGround();
-				try {
-					String appError = ExaminationPage.getErrorMessage();
-	                 System.out.println("print messaeg**************"+appError);
-					if (!appError.equals(dataTable.get(i).get("Message"))) {
-						list.add(dataTable.get(i).get("Message"));
-						flag = false;
-						LOGGER.info("Error message is matching as " + dataTable.get(i).get("Message"));
-					} else {
-						LOGGER.error("Error message is Not matching as " + dataTable.get(i).get("Message"));
-					}
-				} catch (Exception e) {
-					list.add(dataTable.get(i).get("Message"));
-					flag = false;
-					LOGGER.error("Error message is Not displayed as " + dataTable.get(i).get("Message"));
-				}
 				
-				///
+			
 				
 				try {
 					SeleniumUtil.wait(2000);
@@ -103,6 +88,9 @@ public class ExaminationStepDefinition {
 				}catch(Exception e){
 					flag = false;
 					SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+					 if(SeleniumUtil.getWebElements(By.xpath(ExaminationSubjectPage.EXAMINATION_SUBJECT_HEADER_XPATH)).size()>0){
+					    	SeleniumUtil.getDriver().navigate().back();
+					    }
 				}
 				
 			}

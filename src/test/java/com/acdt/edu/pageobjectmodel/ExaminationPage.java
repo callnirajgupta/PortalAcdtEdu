@@ -81,7 +81,7 @@ public class ExaminationPage {
 			Assert.assertTrue("The Result slip is not deleted", listElement.size()==0);
 		}
 		
-		public static void enterExaminationDetails(String examinationType,String indexNumber,String dateOfExamination) throws InterruptedException{
+		public static void enterExaminationDetails(String examinationType,String indexNumber,String dateOfExamination) throws Throwable{
 			LOGGER.info("Inside enterExaminationDetails Method");
 			
 			
@@ -111,6 +111,8 @@ public class ExaminationPage {
 				Thread.sleep(2000);	
 				
 			}
+			
+			
 					
 		}
 		
