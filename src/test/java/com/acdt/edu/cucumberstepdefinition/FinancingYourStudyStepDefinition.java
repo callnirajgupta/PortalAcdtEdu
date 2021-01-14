@@ -53,6 +53,9 @@ public class FinancingYourStudyStepDefinition {
 			}catch(Exception e){
 				flag = false;
 				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+				if(SeleniumUtil.getWebElements(By.xpath(RefereePage.REFEREE_HEADER_XPATH)).size()>0){
+			    	SeleniumUtil.getDriver().navigate().back();
+			    }
 			}
 			
 		}

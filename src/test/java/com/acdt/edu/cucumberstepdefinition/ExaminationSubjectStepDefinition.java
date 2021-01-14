@@ -68,6 +68,9 @@ public class ExaminationSubjectStepDefinition {
 			}catch(Exception e){
 				flag = false;
 				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+				if(SeleniumUtil.getWebElements(By.xpath(FinancingYourStudyPage.FINANCING_YOUR_STUDY_HEADER_XPATH)).size()>0){
+			    	SeleniumUtil.getDriver().navigate().back();
+			    }
 			}
 			
 		}

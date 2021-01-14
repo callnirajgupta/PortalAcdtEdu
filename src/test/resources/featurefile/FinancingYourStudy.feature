@@ -1,4 +1,3 @@
-
 @FinancingYourStudy @Regression
 Feature: Add Subject for The Examination Page functionality checking
 
@@ -45,8 +44,8 @@ Feature: Add Subject for The Examination Page functionality checking
     Then verify that user navigation to Financing Your Study page
     When user enter mandatory fields data in Financing Your Study page and validate error message
     |IntendToFinance|Other|Message|
-    |               |     |       | 
-    #| Other        |     |       |    
+    |               |     | Please specify Other source of financing for your study      | 
+    | Other        |     | Please specify Other source of financing for your study      |    
     
     
     @FinancingYourStudy2

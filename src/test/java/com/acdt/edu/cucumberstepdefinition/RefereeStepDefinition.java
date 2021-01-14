@@ -52,6 +52,9 @@ public class RefereeStepDefinition {
 			}catch(Exception e){
 				flag = false;
 				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
+				 if(SeleniumUtil.getWebElements(ApplicationSummaryPage.APPLICATION_SUMMARY_HEADER_XPATH).size()>0){
+				    	SeleniumUtil.getDriver().navigate().back();
+				    }
 			}
 			
 		}

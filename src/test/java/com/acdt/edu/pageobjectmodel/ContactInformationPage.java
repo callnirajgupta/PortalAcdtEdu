@@ -49,7 +49,7 @@ public class ContactInformationPage {
          
 		if (!("".equals(address1))) {
 			SeleniumUtil.validateWebElementVisible(By.name(POSTAL_ADDRESS1_NAME), 20);
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
 		}

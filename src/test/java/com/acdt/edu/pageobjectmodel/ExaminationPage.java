@@ -63,7 +63,7 @@ public class ExaminationPage {
 			System.out.println("path of file "+path);
 			Thread.sleep(2000);
 			SeleniumUtil.robotUploadFile(path);
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 		}
 		
 		public static void clickClearUploadedSlip(){

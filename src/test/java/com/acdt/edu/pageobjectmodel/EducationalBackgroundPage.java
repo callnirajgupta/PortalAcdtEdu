@@ -99,6 +99,7 @@ public class EducationalBackgroundPage {
 		}
 		
 		if(!("".equals(country))){
+			SeleniumUtil.wait(5000);
 			if(!country.equals(SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
