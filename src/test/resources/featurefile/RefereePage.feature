@@ -49,12 +49,12 @@ Feature: Add Subject for The Examination Page functionality checking
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page and validate error message
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature     | Message                                                   |
-      |       | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | testSignature | Please fill in the required field(s): Title               |
-      | Miss  |              | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | testSignature | Please fill in the required field(s): Position            |
-      | Miss  | TestPosition |              | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | testSignature | Please fill in the required field(s): Name                |
-      | Miss  | TestPosition | TestFullName |                            | Testservice | 10/6/2015 | testSignature | Please fill in the required field(s): Email Address       |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh |             | 10/6/2015 | testSignature | Please fill in the required field(s): Occupation          |
-      #Defect| Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice |           | testSignature | Please fill in the required field(s): , Date is in future |
+      |       | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Title               |
+      | Miss  |              | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Position            |
+      | Miss  | TestPosition |              | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Name                |
+      | Miss  | TestPosition | TestFullName |                            | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Email Address       |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh |             | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Occupation          |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice |           | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Date is in future |
       | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 |               | Please fill in the required field(s): Applicant Signature |
 
   @Referee2

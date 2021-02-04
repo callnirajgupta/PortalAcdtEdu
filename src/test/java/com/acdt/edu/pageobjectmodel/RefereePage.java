@@ -26,6 +26,7 @@ public class RefereePage {
 	public static final String CALENDAR_MONTH_XPATH = "//select[@title='Select month']";
 	public static final String CALENDAR_YEAR_XPATH = "//select[@title='Select year']";
 	public static final String CALENDAR_DATE_XPATH = "//div[@class='btn-light' and text()='date']";
+	public static final String CALENDAR_CURRENT_DATE_XPATH = "(//div[text()='date'])[1]";
 	public static final String ERROR_MESSAGE_XPATH = "//div[@class='errorMessage']";
 	public static final String SIGNATURE_NAME = "applicantSignature";
 	public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
@@ -92,9 +93,10 @@ public class RefereePage {
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
 			SeleniumUtil.wait(1000);
-			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
+			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1].substring(1), "SelectByvalue");
 			SeleniumUtil.wait(2000);
-			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
+			String futureDate=String.valueOf(Integer.parseInt(dobsplit[0].substring(1))+1);
+			SeleniumUtil.getWebElement(By.xpath(CALENDAR_CURRENT_DATE_XPATH.replace("date", futureDate))).click();
 		}
 		
 		if (!("".equals(signature))) {
