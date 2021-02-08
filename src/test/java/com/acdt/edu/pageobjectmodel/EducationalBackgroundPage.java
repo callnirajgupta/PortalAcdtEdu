@@ -46,7 +46,7 @@ public class EducationalBackgroundPage {
     public static final String SELECT_LABEL_XPATH="//label[text()='selectText']";
     public static final String CALENDAR_MONTH_XPATH="//select[@title='Select month']";
     public static final String CALENDAR_YEAR_XPATH="//select[@title='Select year']";
-    public static final String CALENDAR_DATE_XPATH="//div[@class='btn-light' and text()='date']";
+    public static final String CALENDAR_DATE_XPATH="(//div[text()='date'])[1]";
     public static final String NEXT_BUTTON_XPATH="//a[text()='Next']";
     public static final String PREVIOUS_ENROLLED_UNIVERSITY_RADIO_YES_XPATH="//label[input[@id='exampleRadios1']]";
     public static final String PREVIOUS_ENROLLED_UNIVERSITY_RADIO_NO_XPATH="//label[input[@id='exampleRadios2']]";

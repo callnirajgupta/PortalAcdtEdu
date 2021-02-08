@@ -60,4 +60,9 @@ public class LoginStepDefinition {
 	   SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Login page Error message successfully");
 	   
 	}
+	
+	@When("^user click on logout menu$")
+	public void ClickLogoutInapplicationSubmition(){
+		LoginPage.clickLogoutButton();
+	}
 }

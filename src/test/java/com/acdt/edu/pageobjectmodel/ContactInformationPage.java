@@ -122,7 +122,7 @@ public class ContactInformationPage {
 			String country, String postCode, String phone) throws Throwable {
 
 		if (!("".equals(address1))) {
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(4000);
 			SeleniumUtil.scrollToWebElement(By.name(PERMANENT_ADDRESS1_NAME));
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).sendKeys(address1);
@@ -198,9 +198,9 @@ public class ContactInformationPage {
 		  Assert.assertEquals("", address2, SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS2_NAME)).getAttribute("value"));
 		  Assert.assertEquals("", city, SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).getAttribute("value"));
 		  Assert.assertEquals("", state, SeleniumUtil.getWebElement(By.name(PERMANENT_STATE_NAME)).getAttribute("value"));
-		  Assert.assertEquals("", country, SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELCTED_TEXT_XPATH)).getText());
+		  Assert.assertEquals("", country.toUpperCase(), SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELCTED_TEXT_XPATH)).getText());
 		  Assert.assertEquals("", postCode, SeleniumUtil.getWebElement(By.name(PERMANENT_CODE_NAME)).getAttribute("value"));
-		  Assert.assertEquals("", phone, SeleniumUtil.getWebElement(By.name(PERMANENT_TELEPHONE_NAME)).getAttribute("value"));
+		  Assert.assertEquals("", phone.substring(3), SeleniumUtil.getWebElement(By.name(PERMANENT_TELEPHONE_NAME)).getAttribute("value"));
 				
 	}
 

@@ -50,13 +50,13 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                   | Occupation  | Date      | Signature     |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     And verify the filled data in signup page is display correctly in application summary page 
     
     
-    @ApplicationSummary2
+    @ApplicationSummary2 
   Scenario: Verify that user navigate to previous page from application summary page and validate Referee page data persist
     Given user navigates to home page
     When user click on start application button in home page
@@ -104,14 +104,14 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                   | Occupation  | Date      | Signature     |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on previous button in Application Summary page
     Then verify that user navigation to Referee page
     And validate that Referee page filled data persist 
     
-  @ApplicationSummary3
+  @ApplicationSummary3 
   Scenario: Verify that user submit application and able to login successfully
     Given user navigates to home page
     When user click on start application button in home page
@@ -159,17 +159,17 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                   | Occupation  | Date      | Signature     |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on submit button
     Then verify that application submit successfully
-    When user click on login menu
+    When user click on logout menu
     Then verify user navigate to login page
     When user enter email and password and click login button
     Then user should navigate to personal details page
     
-    @ApplicationSummary4
+    @ApplicationSummary4 
   Scenario: Verify that user navigate to all previous page from application summary page and validate Referee page data persist
     Given user navigates to home page
     When user click on start application button in home page
@@ -217,7 +217,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                   | Occupation  | Date      | Signature     |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on previous button in Application Summary page

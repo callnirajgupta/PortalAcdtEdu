@@ -18,7 +18,7 @@ public class LoginPage {
 	public static final By LOGIN_CAPTCHA = By.xpath("//span[@id='recaptcha-anchor']/div[1]");
 	public static final By LOGIN_BUTTON = By.xpath("//a[text()='Login']");
 	public static final  By ERROR_MESSAGE_XPATH=By.xpath("//div[@class='errorMessage']");
-	
+	public static final By LOGOUT_BUTTON=By.xpath("//a[text()='Logout']");
 	
 	public static void validateLoginTitle() {
 		LOGGER.info("Inside validateLoginTitle Method");
@@ -61,6 +61,12 @@ public class LoginPage {
 		SeleniumUtil.getWebElement(LOGIN_BUTTON).click();
 	
 	}
+	public static void clickLogoutButton(){
+		LOGGER.info("Inside clickLogoutButton method");
+		SeleniumUtil.getWebElement(LOGOUT_BUTTON).click();
+	
+	}
+	
 	
 	
 	public static String getErrorMessage() {

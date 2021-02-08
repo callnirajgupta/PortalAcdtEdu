@@ -229,6 +229,6 @@ public class PersonalDetailsStepDefinition {
 			flag=true;
 		}
 		
-		Assert.assertFalse("The fields data is not matching in Application Summary page", flag);
+		Assert.assertFalse("The fields data is not matching in personal details page", flag);
 	}
 }

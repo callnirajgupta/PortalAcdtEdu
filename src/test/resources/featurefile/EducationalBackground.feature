@@ -29,7 +29,7 @@ Feature: Verify the Educational Background page functionality
     And user click next button
     Then verify that user navigation to Educational Background page
     When user enter mandatory fields data in Educational Background page and validate error message
-      | RecentInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | Message                                                                       |
+      | RecentInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | Message                                                                          |
       |                       | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Current or most recent SHS/Institution     |
       | TestRecentInstitution |          | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Educational Background City/Town           |
       | TestRecentInstitution | TestCity |             | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Educational Background Country             |
@@ -105,17 +105,15 @@ Feature: Verify the Educational Background page functionality
     And user click next button
     Then verify that user navigation to Educational Background page
     When user enter mandatory fields data for Other Education Background in Educational Background page and validate error message
-      | OtherInstitution | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | Message                                                                   |
-      #Defect|                  | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Name of other SHS/Institution attended |
+      | OtherInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | Message                                                                               |
+      |                      | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Name of other SHS/Institution attended          |
+      | TestotherInstitution |          | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Other Educational Background City/Town          |
+      | TestotherInstitution | TestCity |             | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Other Educational Background Country            |
+      | TestotherInstitution | TestCity | Afghanistan |             | 10/6/1999        | WASSCE        | TestOtherQualification | Please fill in the required field(s): Other Educational Background Year of Entry      |
+      | TestotherInstitution | TestCity | Afghanistan | 10/6/1999   |                  | WASSCE        | TestOtherQualification | Please fill in the required field(s): Other Educational Background Year of Completion |
+      | TestotherInstitution | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        |               | TestOtherQualification | Please fill in the required field(s): Other Educational Background Country            |
 
-  | TestotherInstitution |          | Afghanistan | 10/6/1999   | 10/6/1999         | WASSCE        | TestOtherQualification|Please fill in the required field(s): Other Educational Background City/Town|
-  | TestotherInstitution | TestCity |             | 10/6/1999   | 10/6/1999         | WASSCE        | TestOtherQualification|Please fill in the required field(s): Other Educational Background Country|
-  | TestotherInstitution | TestCity | Afghanistan |             | 10/6/1999         | WASSCE        | TestOtherQualification|Please fill in the required field(s): Other Educational Background Year of Entry|
-  | TestotherInstitution | TestCity | Afghanistan | 10/6/1999   |                   | WASSCE        | TestOtherQualification|Please fill in the required field(s): Other Educational Background Year of Completion|
-  | TestotherInstitution | TestCity | Afghanistan | 10/6/1999   | 10/6/1999         |               | TestOtherQualification|Please fill in the required field(s): Other Educational Background Country|
-  
-  
-  @EducationalBackground4
+  @EducationalBackground4 
   Scenario: Educational Background page mandatory field validation for previous Educational background
     Given user navigates to home page
     When user click on start application button in home page
@@ -124,8 +122,8 @@ Feature: Verify the Educational Background page functionality
       | TestFirstName | TestLastName | TestMiddleName | Diploma       | M      | India              | +919241521992 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
-      | Image        | Title | FirstName     | MiddleName     | LastName    | OtherName     | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment |
-      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | testSurName | TestOtherName | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment |
+      | Image        | Title | FirstName     | MiddleName     | LastName     | OtherName     | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment |
+      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment |
     When user enter data in contact information page for postal address
       | Address1     | Address2     | City | State | Country     | PostalCode | Phone         |
       | Testaddress1 | TestAddress2 | City | State | Afghanistan |    1313124 | +919241521992 |
@@ -143,17 +141,17 @@ Feature: Verify the Educational Background page functionality
     And user click next button
     Then verify that user navigation to Educational Background page
     When user enter mandatory fields data for Previous Education Background in Educational Background page and validate error message
-      | PreviousInstitute    | NameUsed     | DateOfAddmission | Hostel     | ProgrammeOfStudy     | LastYearStudy | ReasonOfLeaving     | Message                                                                            |
-      | TestPreviousInstitut | TestNameUsed | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill the required field(s): Name of other SHS/Institution attended          |
-      #| TestPreviousInstitut | TestNameUsed             | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill the required field(s): Other Educational Background City/Town          |
-      #| TestPreviousInstitut | TestNameUsed    | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill the required field(s): Other Educational Background Country            |
-      #| TestPreviousInstitut | TestNameUsed    | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill the required field(s): Other Educational Background Year of Entry      |
-      #| TestPreviousInstitut | TestNameUsed     | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill the required field(s): Other Educational Background Year of Completion |
-      #| TestPreviousInstitut | TestNameUsed     | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill the required field(s): Other Educational Background Country            |
+      | PreviousInstitute    | NameUsed                                  | DateOfAddmission | Hostel     | ProgrammeOfStudy     | LastYearStudy | ReasonOfLeaving     | Message                                                                                |
+      |                      | TestFirstName TestMiddleName TestLastName | 10/6/1998        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill in the required field(s): Name of University|
+      | TestPreviousInstitut |  | 10/6/1998        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving |  The two full names provided on personal-details and previous attendance are different. Name verification will be required when admission is successful.            |
+      | TestPreviousInstitut | TestFirstName TestMiddleName TestLastName | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill in the required field(s): Previous Attendance Date of Admission and Last Year of Study cannot be the same.             |
+      | TestPreviousInstitut | TestFirstName TestMiddleName TestLastName | 10/6/1998        | TestHostel |  | 10/6/1999     | TestReasonOfLeaving | Please fill in the required field(s): Programme of Study      |
+      | TestPreviousInstitut | TestFirstName TestMiddleName TestLastName | 10/6/1998        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | | Please fill in the required field(s): Reason(s) for leaving |
+      | TestPreviousInstitut | TestFirstName TestMiddleName TestLastName |        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill in the required field(s): Admission Date             |
+      | TestPreviousInstitut | TestFirstName TestMiddleName TestLastName | 10/6/1999       | TestHostel | TestProgrammeOfStudy |     | TestReasonOfLeaving | Please fill in the required field(s): Last Year of Study             |
 
-
-@EducationalBackground5
-  Scenario: Educational Background filling data and navigating to Examination page 
+  @EducationalBackground5 
+  Scenario: Educational Background filling data and navigating to Examination page
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page
@@ -180,12 +178,12 @@ Feature: Verify the Educational Background page functionality
     And user click next button
     Then verify that user navigation to Educational Background page
     When user enter fields data in Educational Background page
-      | RecentInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | 
-      |   TestRecentInstinute | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | 
-   And user click next button
-   Then verify that user navigation to Examination page
+      | RecentInstitution   | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     |
+      | TestRecentInstinute | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
+    And user click next button
+    Then verify that user navigation to Examination page
 
-   @EducationalBackground6
+  @EducationalBackground6 
   Scenario: Educational Background page field filling with other educational background and Navigate to Examination page
     Given user navigates to home page
     When user click on start application button in home page
@@ -213,18 +211,17 @@ Feature: Verify the Educational Background page functionality
     And user click next button
     Then verify that user navigation to Educational Background page
     When user enter fields data in Educational Background page
-      | RecentInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | 
-      |   TestRecentInstinute | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
+      | RecentInstitution   | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     |
+      | TestRecentInstinute | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
     When user click Add Other Educational Background button
     Then verify that Other Educational Background section should display
-    And user enter fields data for other Educational background  
-      | OtherInstitution | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | 
-      | TestOtherInstitution| TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | 
+    And user enter fields data for other Educational background
+      | OtherInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     |
+      | TestOtherInstitution | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
     And user click next button
     Then verify that user navigation to Examination page
-    
-    
-    @EducationalBackground7
+
+  @EducationalBackground7 
   Scenario: Educational Background page field filling with previous educational background and Navigate to Examination page
     Given user navigates to home page
     When user click on start application button in home page
@@ -252,17 +249,17 @@ Feature: Verify the Educational Background page functionality
     And user click next button
     Then verify that user navigation to Educational Background page
     When user enter fields data in Educational Background page
-      | RecentInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | 
-      |   TestRecentInstinute | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
+      | RecentInstitution   | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     |
+      | TestRecentInstinute | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
     When user click on "yes" radio button for Have you ever enrolled in a university
     Then verify that Previous Attendance at a University section should display
     When user enter fields data for previous Educational background
-      | PreviousInstitute    | NameUsed     | DateOfAddmission | Hostel     | ProgrammeOfStudy     | LastYearStudy | ReasonOfLeaving     | Message                                                                            |
-      | TestPreviousInstitut | TestNameUsed | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill the required field(s): Name of other SHS/Institution attended          |  
-     And user click next button
-    Then verify that user navigation to Examination page 
-    
-     @EducationalBackground8
+      | PreviousInstitute    | NameUsed     | DateOfAddmission | Hostel     | ProgrammeOfStudy     | LastYearStudy | ReasonOfLeaving     | Message                                                                   |
+      | TestPreviousInstitut | TestNameUsed | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill the required field(s): Name of other SHS/Institution attended |
+    And user click next button
+    Then verify that user navigation to Examination page
+
+  @EducationalBackground8 @execute11
   Scenario: Educational Background page field filling with  other and previous educational background and Navigate to Examination page
     Given user navigates to home page
     When user click on start application button in home page
@@ -290,24 +287,23 @@ Feature: Verify the Educational Background page functionality
     And user click next button
     Then verify that user navigation to Educational Background page
     When user enter fields data in Educational Background page
-      | RecentInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | 
-      |   TestRecentInstinute | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
+      | RecentInstitution   | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     |
+      | TestRecentInstinute | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
     When user click Add Other Educational Background button
     Then verify that Other Educational Background section should display
-    And user enter fields data for other Educational background  
-      | OtherInstitution | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | 
-      | TestOtherInstitution| TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
+    And user enter fields data for other Educational background
+      | OtherInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     |
+      | TestOtherInstitution | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
     When user click on "yes" radio button for Have you ever enrolled in a university
     Then verify that Previous Attendance at a University section should display
     When user enter fields data for previous Educational background
-      | PreviousInstitute    | NameUsed     | DateOfAddmission | Hostel     | ProgrammeOfStudy     | LastYearStudy | ReasonOfLeaving     | Message                                                                            |
-      | TestPreviousInstitut | TestNameUsed | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill the required field(s): Name of other SHS/Institution attended          |  
-     And user click next button
-    Then verify that user navigation to Examination page 
-    
-    
-    @EducationalBackground9
-  Scenario: Validate Programme Selection filled data persist when user click on previous button in Educational Background page 
+      | PreviousInstitute    | NameUsed     | DateOfAddmission | Hostel     | ProgrammeOfStudy     | LastYearStudy | ReasonOfLeaving     | Message                                                                   |
+      | TestPreviousInstitut | TestNameUsed | 10/6/1999        | TestHostel | TestProgrammeOfStudy | 10/6/1999     | TestReasonOfLeaving | Please fill the required field(s): Name of other SHS/Institution attended |
+    And user click next button
+    Then verify that user navigation to Examination page
+
+  @EducationalBackground9 @execute11
+  Scenario: Validate Programme Selection filled data persist when user click on previous button in Educational Background page
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page
@@ -334,8 +330,8 @@ Feature: Verify the Educational Background page functionality
     And user click next button
     Then verify that user navigation to Educational Background page
     When user enter fields data in Educational Background page
-      | RecentInstitution     | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     | 
-      |   TestRecentInstinute | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification | 
-   And user click on previous button in Educational Background page
+      | RecentInstitution   | City     | Country     | YearOfEntry | YearOfCompletion | Qualification | OtherQualification     |
+      | TestRecentInstinute | TestCity | Afghanistan | 10/6/1999   | 10/6/1999        | WASSCE        | TestOtherQualification |
+    And user click on previous button in Educational Background page
     Then verify that user navigation to programme selection page
     And validate that programme selection filled data persist
