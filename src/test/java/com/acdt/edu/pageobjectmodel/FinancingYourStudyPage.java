@@ -27,7 +27,7 @@ public class FinancingYourStudyPage {
 	
 	public static void enterDataInFinancingYourStudyDetails(String intendToFinance,String other){
 		if (!("".equals(intendToFinance))) {
-			
+			SeleniumUtil.wait(3000);
 			SeleniumUtil.validateWebElementVisible(By.xpath(FINANCING_YOUR_STUDY_XPATH), SeleniumUtil.waitWebElementSync);
 			SeleniumUtil.wait(1000);
 			if(!intendToFinance.equals(SeleniumUtil.getWebElement(By.xpath(FINANCING_YOUR_STUDY_XPATH)).getText().trim())){

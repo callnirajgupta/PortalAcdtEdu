@@ -36,7 +36,7 @@ public class ProgrammeSelectionPage {
 		LOGGER.info("Inside programmeSelectionDetailsFilling method");
 		
 		if(!("".equals(programmeType))){
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			if(!programmeType.equals(SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_XPATH)).click();
 			Thread.sleep(2000);

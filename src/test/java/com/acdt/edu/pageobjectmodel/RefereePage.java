@@ -41,6 +41,7 @@ public class RefereePage {
 			String occupation, String date,String signature) {
 		LOGGER.info("Inside fillingDataInReferencePage Method");
 		if (!("".equals(title))) {
+			SeleniumUtil.wait(3000);
 			if(!title.equals(SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).getText().trim())){
 			SeleniumUtil.validateWebElementVisible(By.xpath(TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 			SeleniumUtil.wait(1000);
