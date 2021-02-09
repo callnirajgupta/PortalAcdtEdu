@@ -76,7 +76,6 @@ Feature: Add Subject for The Examination Page functionality checking
       | ExaminationType | IndexNumber | DateOfExamination | UploadResultSlip |
       | WASSCE          |           8 | 10/6/1999         | Passport.jpg     |
     Then verify that user navigation to Examination Subject page
-    #Defect
     And verify that default subject is displayed as "English Language" and "Mathematics"
 
   @ExaminationSubject3

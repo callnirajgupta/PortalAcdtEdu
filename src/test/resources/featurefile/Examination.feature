@@ -74,10 +74,10 @@ Feature: Title of your feature
     Then verify that user navigation to Examination page
     When user enter mandatory fields data in examination page and validate error message
       | ExaminationType | IndexNumber | DateOfExamination |UploadResultSlip| Message                                    |
-      |                 |           8 | 10/6/1999        |Passport.jpg    |Examination Type is required.              |
-      | WASSCE          |             | 10/6/1999         |Passport.jpg    |Index Number for WASSCE is required        |
-      | WASSCE          |           8 |                 |Passport.jpg    | Date of Examination for WASSCE is required |
-      | WASSCE          |           8 | 10/6/1999      |                | Result slip is required for WASSCE. |
+      |                 |           8 | 10/6/1999        |Passport.jpg    |Please enter the required field(s):Examination Type for undefined             |
+      | WASSCE          |             | 10/6/1999         |Passport.jpg    |Please enter the required field(s):Index Number for WASSCE        |
+      | WASSCE          |           8 |                 |Passport.jpg    | Please enter the required field(s):Date of Examination for WASSCE |
+      | WASSCE          |           8 | 10/6/1999      |                | Please enter the required field(s):Result slip for WASSCE. |
       
       
   @Examination3

@@ -30,7 +30,8 @@ public class ExaminationPage {
     public static final String CALENDAR_MONTH_XPATH="//select[@title='Select month']";
     public static final String CALENDAR_YEAR_XPATH="//select[@title='Select year']";
     public static final String CALENDAR_DATE_XPATH="//div[@class='btn-light' and text()='date']";
-    public static final String ERROR_MESSAGE_XPATH ="//div[@class='errorMessage']/p";
+    public static final String ERROR_MESSAGE1_XPATH ="(//div[@class='errorMessage']/p)[1]";
+    public static final String ERROR_MESSAGE2_XPATH ="(//div[@class='errorMessage']/p)[2]";
     public static final String NEXT_BUTTON_XPATH="//a[text()='Next']";
     public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
     
@@ -56,6 +57,7 @@ public class ExaminationPage {
 		}
 		
 		public static void uploadResultSlip(String resultSlip) throws Throwable{
+			if(!("".equals(resultSlip))){
 			SeleniumUtil.getWebElement(By.xpath(UPLOAD_RESULT_SLIP_BUTTON_XPATH)).click();
 			File file = new File("src/test/resources/Upload/"+resultSlip);
 			String path = file.getAbsolutePath();
@@ -64,6 +66,7 @@ public class ExaminationPage {
 			Thread.sleep(2000);
 			SeleniumUtil.robotUploadFile(path);
 			Thread.sleep(5000);
+			}
 		}
 		
 		public static void clickClearUploadedSlip(){
@@ -118,8 +121,10 @@ public class ExaminationPage {
 		
 		public static String getErrorMessage(){
 			SeleniumUtil.wait(2000);
-			 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
-			
+			String errorMessage1=SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE1_XPATH)).getText().trim();
+			 String errorMessage2=SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE2_XPATH)).getText().trim();
+			System.out.println("print the message"+errorMessage1+errorMessage2);
+			 return errorMessage1+errorMessage2;
 		}
 		
 		public static void clickNextButtonInEducationalBackGround(){

@@ -41,8 +41,8 @@ public class ExaminationSubjectPage {
 		
 		SeleniumUtil.validateWebElementVisible(By.xpath(SUBJECT1_XPATH),
 				SeleniumUtil.waitWebElementSync);
-		Assert.assertEquals("Default subject "+subject1 +" is not  displaying", subject1,SeleniumUtil.getWebElement(By.xpath(SUBJECT1_XPATH)).getAttribute("placeholder"));
-		Assert.assertEquals("Default subject "+subject2 +" is not  displaying", subject2,SeleniumUtil.getWebElement(By.xpath(SUBJECT2_XPATH)).getAttribute("placeholder"));
+		Assert.assertEquals("Default subject "+subject1 +" is not  displaying", subject1,SeleniumUtil.getWebElement(By.xpath(SUBJECT1_XPATH)).getAttribute("value"));
+		Assert.assertEquals("Default subject "+subject2 +" is not  displaying", subject2,SeleniumUtil.getWebElement(By.xpath(SUBJECT2_XPATH)).getAttribute("value"));
 	}
 	
 	public static void enterMandatoryFieldForExaminationSubjectTaken(String grade1,String grade2,String subject3,String grade3,String subject4,String grade4,String subject5,String grade5 ,String subject6,String grade6){
