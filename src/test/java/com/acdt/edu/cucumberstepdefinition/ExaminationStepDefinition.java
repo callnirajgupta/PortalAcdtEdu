@@ -67,7 +67,7 @@ public class ExaminationStepDefinition {
 				ExaminationPage.enterExaminationDetails(
 						dataTable.get(i).get("ExaminationType"), dataTable.get(i).get("IndexNumber"),
 						dataTable.get(i).get("DateOfExamination"));
-				 ExaminationPage.uploadResultSlip(dataTable.get(0).get("UploadResultSlip"));
+				 ExaminationPage.uploadResultSlip(dataTable.get(i).get("UploadResultSlip"));
 				ExaminationPage.clickNextButtonInEducationalBackGround();
 				
 			
@@ -95,7 +95,7 @@ public class ExaminationStepDefinition {
 				
 			}
 
-			Assert.assertTrue("The error message is not matching for Current Educational Background" + list, flag);
+			Assert.assertTrue("The error message is not matching for Examination Taken" + list, flag);
 
 	   }
 

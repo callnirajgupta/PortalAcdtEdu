@@ -14,7 +14,8 @@ public class FinancingYourStudyPage {
 	public static final String FINANCING_YOUR_STUDY_OTHER_XPATH = "//div[label[text()='If others, please specify']]//textarea";
 	public static final String SEARCH_XPATH = "(//input[@placeholder='Search'])[1]";
 	public static final String SELECT_OPTION_XPATH = "//label[text()='selectText']";
-	public static final String ERROR_MESSAGE_XPATH ="//div[@class='errorMessage']";
+	public static final String ERROR_MESSAGE1_XPATH ="//div[@class='errorMessage']";
+	public static final String ERROR_MESSAGE2_XPATH ="//div[@class='errorMessage']/p";
 	public static final String NEXT_BUTTON_XPATH="//a[text()='Next']";
 	public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
 	
@@ -46,9 +47,14 @@ public class FinancingYourStudyPage {
 		}
 	}
 	
-	public static String getErrorMessage(){
+	public static String getErrorMessage1(){
 		SeleniumUtil.wait(2000);
-		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
+		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE1_XPATH)).getText().trim();
+		
+	}
+	public static String getErrorMessage2(){
+		SeleniumUtil.wait(2000);
+		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE2_XPATH)).getText().trim();
 		
 	}
 	

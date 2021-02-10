@@ -39,8 +39,12 @@ public class FinancingYourStudyStepDefinition {
 			//
 			try {
 				SeleniumUtil.wait(2000);
-				
-	            Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), FinancingYourStudyPage.getErrorMessage());
+				if(i==0){
+					Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), FinancingYourStudyPage.getErrorMessage1());	
+				}else{
+					Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), FinancingYourStudyPage.getErrorMessage2());
+				}
+	            
 				
 			} catch (AssertionError e) {
 				list.add(dataTable.get(i).get("Message"));
