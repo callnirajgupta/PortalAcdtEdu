@@ -34,7 +34,9 @@ public class PersonalDetailsStepDefinition {
 		List<String> list = new ArrayList<String>();
 		boolean flag = true;
 		for (int i = 0; i < dataTable.size(); i++) {
-
+			SeleniumUtil.refreshPage();
+			Thread.sleep(5000);
+			SeleniumUtil.scrollUp();
 			PersonalDetailsPage.personalDetailFilling(dataTable.get(i).get("Image"), dataTable.get(i).get("Title"),
 					dataTable.get(i).get("FirstName"), dataTable.get(i).get("MiddleName"),
 					dataTable.get(i).get("LastName"), dataTable.get(i).get("OtherName"), dataTable.get(i).get("Gender"),
@@ -60,9 +62,7 @@ public class PersonalDetailsStepDefinition {
 				flag = false;
 				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
 			}
-			SeleniumUtil.refreshPage();
-			Thread.sleep(5000);
-			SeleniumUtil.scrollUp();
+			
 			
 		}
 

@@ -96,7 +96,9 @@ public class RefereePage {
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1].substring(1), "SelectByvalue");
 			SeleniumUtil.wait(2000);
-			String futureDate=String.valueOf(Integer.parseInt(dobsplit[0].substring(1))+1);
+			System.out.println("today date"+dobsplit[0]);
+			String futureDate=String.valueOf(Integer.parseInt(dobsplit[0])+1);
+			System.out.println("print Future date"+futureDate);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_CURRENT_DATE_XPATH.replace("date", futureDate))).click();
 		}
 		

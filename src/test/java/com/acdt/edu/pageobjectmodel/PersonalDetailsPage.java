@@ -107,7 +107,10 @@ public class PersonalDetailsPage {
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).sendKeys(lastName);	
 		}else{
+			System.out.println("print I am in else of surname");
 			Thread.sleep(2000);
+			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
+			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).click();
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
 			Thread.sleep(1000);
 			

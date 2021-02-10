@@ -15,7 +15,7 @@ public class ProgrammeSelectionPage {
 	public static final String SELECT_LABEL_XPATH="//label[text()='selectText']";
 	public static final String PROGRAMME_TITLE_XPATH = "//div[label[text()='Programme Title']]//div[@class='c-btn']/span[1]";
 	public static final String PROGRAMME_TITLE_GETTEXT_XPATH = "//div[label[text()='Programme Title']]//div[@class='c-btn']/span/span";
-	public static final String ERROR_MESSAGE_XPATH="//div[@class='error-msg']";
+	public static final String ERROR_MESSAGE_XPATH="//div[@class='errorMessage']";
 	public static final String NEXT_BUTTON_XPATH="//a[text()='Next']";
 	public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
 	
@@ -28,8 +28,10 @@ public class ProgrammeSelectionPage {
 	public static String getErrorMessage(){
 		LOGGER.info("Inside getErrorMessage method");
 		SeleniumUtil.wait(2000);
-		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
-		
+		String message = SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
+		  
+		System.out.println("print message"+message);
+		return message;
 	}
 	
 	public static void programmeSelectionDetailsFilling(String programmeType,String programmeTitle) throws InterruptedException{
