@@ -45,7 +45,7 @@ public class PersonalDetailsPage {
     //public static final String ERROR_MESSAGE_XPATH = "//div[@class='section form-content']/div[3]";
     public static final String CALENDAR_MONTH_XPATH="//select[@title='Select month']";
     public static final String CALENDAR_YEAR_XPATH="//select[@title='Select year']";
-    public static final String CALENDAR_DATE_XPATH="//div[@class='btn-light' and text()='date']";
+    public static final String CALENDAR_DATE_XPATH="(//div[text()='date'])[1]";
     
     public static void validatePersonalDetailsTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
@@ -107,10 +107,9 @@ public class PersonalDetailsPage {
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).sendKeys(lastName);	
 		}else{
-			System.out.println("print I am in else of surname");
 			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
-			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).click();
+			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).sendKeys("");
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
 			Thread.sleep(1000);
 			
@@ -129,6 +128,11 @@ public class PersonalDetailsPage {
 			 }
 			 
 			 
+		}else{
+			 if(!("Select gender".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).getText().trim()))){
+					SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).click();
+					SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", "M"))).click();
+					 }
 		}
 		
 		if(!("".equals(dob))){
@@ -159,10 +163,12 @@ public class PersonalDetailsPage {
 		}
 		
 		if(!("".equals(nationality))){
-		    if(!"SELECT NATIONALITY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim())){
-			SeleniumUtil.getWebElement(By.xpath(NATIONALITY_XPATH)).click();
+		    if(!("SELECT NATIONALITY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim()))){
+			
+		    SeleniumUtil.getWebElement(By.xpath(NATIONALITY_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).sendKeys(nationality);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_NATIONALITY_XPATH.replace("selectText", nationality))).click();
+			SeleniumUtil.wait(5000);
 		    }
 		}
 		
@@ -185,12 +191,62 @@ public class PersonalDetailsPage {
 			}
 		}
 		if("yes".equalsIgnoreCase(specialNeed )){
+			if(!("".equals(comment))){
 			SeleniumUtil.getWebElement(By.xpath(SPECIAL_NEED_YES_XPATH)).click();
 			SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).sendKeys(comment);
+			}else{
+				SeleniumUtil.getWebElement(By.xpath(SPECIAL_NEED_YES_XPATH)).click();
+				SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).clear();
+			}
 		}
 				
 		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Personal details fill form successfully");
+		
+	}
+    
+    public static void personalDetailClear(String image,String title,String firstName,String middleName,String lastName,
+			String otherName,String gender,String dob,String countryOfBirth ,String cityOfBirth,String nationality ,String religion,String homeTown ,String region ,String specialNeed,String comment) throws Throwable{
+    	
+			
+		
+			SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).clear();
+
+		
+			SeleniumUtil.getWebElement(By.name(MIDDLENAME_NAME)).clear();
+		
+		
+			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
+			
+	
+			SeleniumUtil.getWebElement(By.name(OTHERNAMES_NAME)).clear();
+		
+		
+		
+			
+			
+	
+		
+		
+		    SeleniumUtil.getWebElement(By.name(DATE_OF_BIRTH_NAME)).clear();
+	
+		
+			
+		
+			SeleniumUtil.getWebElement(By.name(PLACE_OF_BIRTH_NAME)).clear();
+		
+			SeleniumUtil.getWebElement(By.xpath(RELIGION_XPATH)).click();
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "5"))).sendKeys(religion);
+			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", religion))).click();	
+	
+		
+			SeleniumUtil.getWebElement(By.name(HOME_TOWN_NAME)).clear();
+			SeleniumUtil.getWebElement(By.name(HOME_TOWN_NAME)).sendKeys(homeTown);
+	
+			SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).clear();
+		
+				
+		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Personal details clear form successfully");
 		
 	}
    

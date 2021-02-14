@@ -33,10 +33,24 @@ public class PersonalDetailsStepDefinition {
 		LOGGER.info("user enter mandatory data in personal details page for following fields");
 		List<String> list = new ArrayList<String>();
 		boolean flag = true;
+		SeleniumUtil.getDriver().manage().deleteAllCookies();
+		Thread.sleep(5000);
+		SeleniumUtil.refreshPage();
+		Thread.sleep(5000);
+		PersonalDetailsPage.personalDetailClear(dataTable.get(0).get("Image"), dataTable.get(0).get("Title"),
+				dataTable.get(0).get("FirstName"), dataTable.get(0).get("MiddleName"),
+				dataTable.get(0).get("LastName"), dataTable.get(0).get("OtherName"), dataTable.get(0).get("Gender"),
+				dataTable.get(0).get("DOB"), dataTable.get(0).get("CountryOfBirth"),
+				dataTable.get(0).get("CityOfBirth"), dataTable.get(0).get("Nationality"),
+				dataTable.get(0).get("Religion"), dataTable.get(0).get("HomeTown"), dataTable.get(0).get("Region"),
+				dataTable.get(0).get("SpecialNeed"), dataTable.get(0).get("Comment"));
 		for (int i = 0; i < dataTable.size(); i++) {
+			SeleniumUtil.getDriver().manage().deleteAllCookies();
+			Thread.sleep(5000);
 			SeleniumUtil.refreshPage();
 			Thread.sleep(5000);
 			SeleniumUtil.scrollUp();
+			
 			PersonalDetailsPage.personalDetailFilling(dataTable.get(i).get("Image"), dataTable.get(i).get("Title"),
 					dataTable.get(i).get("FirstName"), dataTable.get(i).get("MiddleName"),
 					dataTable.get(i).get("LastName"), dataTable.get(i).get("OtherName"), dataTable.get(i).get("Gender"),
@@ -58,6 +72,9 @@ public class PersonalDetailsStepDefinition {
 			    if(SeleniumUtil.getWebElements(By.xpath(ContactInformationPage.CONTACT_INORMATION_TITLE_XPATH)).size()>0){
 			    	SeleniumUtil.getDriver().navigate().back();
 			    }
+			    
+
+			    
 			}catch(Exception e){
 				flag = false;
 				SeleniumUtil.failTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), " Error message is not matching");
