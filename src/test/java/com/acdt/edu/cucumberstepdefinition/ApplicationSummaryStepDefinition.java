@@ -28,14 +28,14 @@ public class ApplicationSummaryStepDefinition {
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Title").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add("The field is not Mathcing:"+PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Title"));
 		}
 		try {
 			Assert.assertEquals("The LastName is not matching", ApplicationSummaryPage.getPersonalSurNameFilledText(),
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("LastName").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("LastName"));
 		}
 		try {
 			Assert.assertEquals("The FirstName is not matching",
@@ -43,7 +43,7 @@ public class ApplicationSummaryStepDefinition {
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("FirstName").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("FirstName"));
 		}
 		try {
 			Assert.assertEquals("The MiddleName is not matching",
@@ -51,7 +51,7 @@ public class ApplicationSummaryStepDefinition {
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("MiddleName").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("MiddleName"));
 		}
 		try {
 			Assert.assertEquals("The OtherName is not matching",
@@ -59,14 +59,14 @@ public class ApplicationSummaryStepDefinition {
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("OtherName").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("OtherName"));
 		}
 		try {
 			Assert.assertEquals("The Gender is not matching", ApplicationSummaryPage.getPersonalGenderFilledText(),
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Gender").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Gender"));
 		}
 		try {
 
@@ -76,7 +76,7 @@ public class ApplicationSummaryStepDefinition {
 					DOB[2] + "-0" + DOB[1] + "-" + DOB[0]);
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("DOB"));
 		}
 		try {
 			Assert.assertEquals("The CountryOfBirth is not matching",
@@ -84,7 +84,7 @@ public class ApplicationSummaryStepDefinition {
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("CountryOfBirth").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("CountryOfBirth"));
 		}
 		try {
 			Assert.assertEquals("The CityOfBirth is not matching",
@@ -92,7 +92,7 @@ public class ApplicationSummaryStepDefinition {
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("CityOfBirth").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("CityOfBirth"));
 		}
 		try {
 			Assert.assertEquals("The Nationality is not matching",
@@ -100,14 +100,14 @@ public class ApplicationSummaryStepDefinition {
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Nationality").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Nationality"));
 		}
 		try {
 			Assert.assertEquals("The Religion is not matching", ApplicationSummaryPage.getPersonalReligionFilledText(),
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Religion").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Religion"));
 		}
 		try {
 			Assert.assertEquals("The HomeTown is not matching", ApplicationSummaryPage.getPersonalHomeTownFilledText(),
@@ -115,21 +115,21 @@ public class ApplicationSummaryStepDefinition {
 
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("HomeTown"));
 		}
 		try {
 			Assert.assertEquals("The Region is not matching", ApplicationSummaryPage.getPersonalRegionFilledText(),
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Region").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Region"));
 		}
 		try {
 			Assert.assertEquals("The Email is not matching", ApplicationSummaryPage.getPersonalEmailFilledText(),
 					SignupPage.emailAuto);
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(SignupPage.emailAuto);
 		}
 		try {
 			Assert.assertEquals("The Special Comment is not matching",
@@ -137,7 +137,7 @@ public class ApplicationSummaryStepDefinition {
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Comment"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Comment"));
 		}
 
 		try {
@@ -146,7 +146,7 @@ public class ApplicationSummaryStepDefinition {
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("SpecialNeed"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("SpecialNeed"));
 		}
 		
 		try {
@@ -155,7 +155,7 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Address1").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Address1"));
 		}
 		
 		try {
@@ -164,7 +164,7 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Address2").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Address2"));
 		}
 		
 		try {
@@ -173,7 +173,7 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("City").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("City"));
 		}
 		
 		try {
@@ -182,7 +182,7 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("State").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("State"));
 		}
 		
 		try {
@@ -191,16 +191,9 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Country").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Country"));
 		}
-		try {
-			Assert.assertEquals("The Contact information country is not matching",
-					ApplicationSummaryPage.getContactInformationPostalPostalCodeFilledText(),
-					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("PostalCode"));
-		} catch (AssertionError e) {
-			e.printStackTrace();
-			errorList.add(e.getMessage());
-		}
+		
 		
 		try {
 			Assert.assertEquals("The Contact information postalcode is not matching",
@@ -208,7 +201,7 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("PostalCode"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("PostalCode"));
 		}
 		
 		try {
@@ -218,7 +211,7 @@ public class ApplicationSummaryStepDefinition {
 					telephone.substring(3,telephone.length()));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Phone"));
 		}
 		
 		//***************
@@ -229,7 +222,7 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Address1").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Address1"));
 		}
 		
 		try {
@@ -238,7 +231,7 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Address2").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Address2"));
 		}
 		
 		try {
@@ -247,7 +240,7 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("City").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("City"));
 		}
 		
 		try {
@@ -256,7 +249,7 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("State").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("State"));
 		}
 		
 		try {
@@ -265,16 +258,9 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Country").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Country"));
 		}
-		try {
-			Assert.assertEquals("The Permanent country is not matching",
-					ApplicationSummaryPage.getContactInformationPermanentPostalCodeFilledText(),
-					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("PostalCode"));
-		} catch (AssertionError e) {
-			e.printStackTrace();
-			errorList.add(e.getMessage());
-		}
+		
 		
 		try {
 			Assert.assertEquals("The Permanent postalcode is not matching",
@@ -282,7 +268,7 @@ public class ApplicationSummaryStepDefinition {
 					ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("PostalCode"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("PostalCode"));
 		}
 		
 		try {
@@ -292,7 +278,7 @@ public class ApplicationSummaryStepDefinition {
 					telephone.substring(3,telephone.length()));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ContactInformationStepDefinition.contactInformationPostalAddressDataTable.get(0).get("Phone"));
 		}
 		
 		try {
@@ -301,7 +287,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Title").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Title"));
 		}
 		
 		try {
@@ -310,7 +296,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("SurName").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("SurName"));
 		}
 		
 		try {
@@ -319,7 +305,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("FirstName").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("FirstName"));
 		}
 		
 		try {
@@ -328,7 +314,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("MiddleName").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("MiddleName"));
 		}
 		
 		try {
@@ -346,7 +332,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Relationship"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Relationship"));
 		}
 		
 		try {
@@ -355,7 +341,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Company").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Company"));
 		}
 		try {
 			Assert.assertEquals("The Particular of Parent Occupation is not matching",
@@ -363,7 +349,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Occupation").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Occupation"));
 		}
 		
 		try {
@@ -372,7 +358,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Address1").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Address1"));
 		}
 		
 		try {
@@ -381,7 +367,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Address2").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Address2"));
 		}
 		
 		try {
@@ -390,7 +376,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Country").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Country"));
 		}
 		try {
 			Assert.assertEquals("The Particular of Parent CityTown is not matching",
@@ -398,7 +384,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("CityTown").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("CityTown"));
 		}
 		
 		try {
@@ -407,7 +393,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("State").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("State"));
 		}
 		
 		try {
@@ -416,7 +402,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Mobile"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Mobile"));
 		}
 		
 		try {
@@ -425,7 +411,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Telephone"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Telephone"));
 		}
 		
 		
@@ -436,7 +422,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Email"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("Email"));
 		}
 		
 		try {
@@ -445,7 +431,7 @@ public class ApplicationSummaryStepDefinition {
 					ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("PostalCode"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ParentDetailsStepDefinition.parentDetailsDataTable.get(0).get("PostalCode"));
 		}
 		
 		try {
@@ -454,7 +440,7 @@ public class ApplicationSummaryStepDefinition {
 					ProgrameSelectionStepDefinition.programeSelectionDataTable.get(0).get("ProgrammeType").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getMessage());
+			errorList.add(ProgrameSelectionStepDefinition.programeSelectionDataTable.get(0).get("ProgrammeType"));
 		}
 		
 		try {
@@ -463,7 +449,7 @@ public class ApplicationSummaryStepDefinition {
 					ProgrameSelectionStepDefinition.programeSelectionDataTable.get(0).get("ProgrammeTitle").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ProgrameSelectionStepDefinition.programeSelectionDataTable.get(0).get("ProgrammeTitle"));
 		}
 		
 		try {
@@ -472,7 +458,7 @@ public class ApplicationSummaryStepDefinition {
 					EducationalBackGround.educationalBackGroundDataTable.get(0).get("RecentInstitution").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(EducationalBackGround.educationalBackGroundDataTable.get(0).get("RecentInstitution"));
 		}
 		
 		try {
@@ -481,7 +467,7 @@ public class ApplicationSummaryStepDefinition {
 					EducationalBackGround.educationalBackGroundDataTable.get(0).get("City").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(EducationalBackGround.educationalBackGroundDataTable.get(0).get("City"));
 		}
 		
 		try {
@@ -490,7 +476,7 @@ public class ApplicationSummaryStepDefinition {
 					EducationalBackGround.educationalBackGroundDataTable.get(0).get("Country").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(EducationalBackGround.educationalBackGroundDataTable.get(0).get("Country"));
 		}
 		
 		try {
@@ -500,7 +486,7 @@ public class ApplicationSummaryStepDefinition {
 					yearOfEntry[2] + "-0" + yearOfEntry[1] + "-" + yearOfEntry[0]);
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(EducationalBackGround.educationalBackGroundDataTable.get(0).get("YearOfEntry"));
 		}
 		
 		
@@ -511,7 +497,7 @@ public class ApplicationSummaryStepDefinition {
 					yearOfCompletion[2] + "-0" + yearOfCompletion[1] + "-" + yearOfCompletion[0]);
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(EducationalBackGround.educationalBackGroundDataTable.get(0).get("YearOfCompletion"));
 		}
 		
 		try {
@@ -520,7 +506,7 @@ public class ApplicationSummaryStepDefinition {
 					EducationalBackGround.educationalBackGroundDataTable.get(0).get("Qualification").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(EducationalBackGround.educationalBackGroundDataTable.get(0).get("Qualification"));
 		}
 		
 		try {
@@ -529,7 +515,7 @@ public class ApplicationSummaryStepDefinition {
 					EducationalBackGround.educationalBackGroundDataTable.get(0).get("OtherQualification").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(EducationalBackGround.educationalBackGroundDataTable.get(0).get("OtherQualification"));
 		}
 		
 		try {
@@ -538,7 +524,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationStepDefinition.examinationTakenDataTable.get(0).get("ExaminationType").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationStepDefinition.examinationTakenDataTable.get(0).get("ExaminationType"));
 		}
 		
 		try {
@@ -547,7 +533,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationStepDefinition.examinationTakenDataTable.get(0).get("IndexNumber"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationStepDefinition.examinationTakenDataTable.get(0).get("IndexNumber"));
 		}
 		
 		try {
@@ -557,7 +543,7 @@ public class ApplicationSummaryStepDefinition {
 					dateOfExamination[2] + "-0" + dateOfExamination[1] + "-" + dateOfExamination[0]);
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationStepDefinition.examinationTakenDataTable.get(0).get("DateOfExamination"));
 		}
 		
 		try {
@@ -566,7 +552,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationStepDefinition.examinationTakenDataTable.get(0).get("UploadResultSlip"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationStepDefinition.examinationTakenDataTable.get(0).get("UploadResultSlip"));
 		}
 		
 		try {
@@ -575,7 +561,7 @@ public class ApplicationSummaryStepDefinition {
 					"English Language".toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add("English Language");
 		}
 		
 		
@@ -585,7 +571,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade1"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade1"));
 		}
 		try {
 			Assert.assertEquals("The Examination Subject Subject2 is not matching",
@@ -593,7 +579,7 @@ public class ApplicationSummaryStepDefinition {
 					"Mathematics".toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add("Mathematics");
 		}
 		
 		try {
@@ -602,7 +588,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade2"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade2"));
 		}
 		
 		try {
@@ -611,7 +597,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Subject3").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Subject3"));
 		}
 		
 		try {
@@ -620,7 +606,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade3"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade3"));
 		}
 		
 		try {
@@ -629,7 +615,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Subject4").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Subject4"));
 		}
 		
 		try {
@@ -638,7 +624,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade4"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade4"));
 		}
 		try {
 			Assert.assertEquals("The Examination Subject Subject5 is not matching",
@@ -646,7 +632,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Subject5").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Subject5"));
 		}
 		
 		try {
@@ -655,7 +641,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade5"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade5"));
 		}
 		
 		try {
@@ -664,7 +650,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Subject6").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Subject6"));
 		}
 		
 		try {
@@ -673,7 +659,7 @@ public class ApplicationSummaryStepDefinition {
 					ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade6"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(ExaminationSubjectStepDefinition.examinationSubjectDataTable.get(0).get("Grade6"));
 		}
 		
 		
@@ -683,7 +669,7 @@ public class ApplicationSummaryStepDefinition {
 					FinancingYourStudyStepDefinition.financingYourStudyDataTable.get(0).get("IntendToFinance").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(FinancingYourStudyStepDefinition.financingYourStudyDataTable.get(0).get("IntendToFinance"));
 		}
 		
 		try {
@@ -692,7 +678,7 @@ public class ApplicationSummaryStepDefinition {
 					FinancingYourStudyStepDefinition.financingYourStudyDataTable.get(0).get("Other"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(FinancingYourStudyStepDefinition.financingYourStudyDataTable.get(0).get("Other"));
 		}
 		
 		try {
@@ -701,7 +687,7 @@ public class ApplicationSummaryStepDefinition {
 					RefereeStepDefinition.refereeDataTable.get(0).get("Title").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(RefereeStepDefinition.refereeDataTable.get(0).get("Title"));
 		}
 		
 		try {
@@ -710,7 +696,7 @@ public class ApplicationSummaryStepDefinition {
 					RefereeStepDefinition.refereeDataTable.get(0).get("Position").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(RefereeStepDefinition.refereeDataTable.get(0).get("Position"));
 		}
 		
 		try {
@@ -719,7 +705,7 @@ public class ApplicationSummaryStepDefinition {
 					RefereeStepDefinition.refereeDataTable.get(0).get("FullName").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(RefereeStepDefinition.refereeDataTable.get(0).get("FullName"));
 		}
 		
 		try {
@@ -728,7 +714,7 @@ public class ApplicationSummaryStepDefinition {
 					RefereeStepDefinition.refereeDataTable.get(0).get("Email").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(RefereeStepDefinition.refereeDataTable.get(0).get("Email"));
 		}
 		
 		try {
@@ -737,7 +723,7 @@ public class ApplicationSummaryStepDefinition {
 					RefereeStepDefinition.refereeDataTable.get(0).get("Occupation").toUpperCase());
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(RefereeStepDefinition.refereeDataTable.get(0).get("Occupation"));
 		}
 		
 		try {
@@ -749,7 +735,7 @@ public class ApplicationSummaryStepDefinition {
 					date[2] + "-0" + date[1] + "-" + date[0]);
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(RefereeStepDefinition.refereeDataTable.get(0).get("Date"));
 		}
 		
 		try {
@@ -758,11 +744,11 @@ public class ApplicationSummaryStepDefinition {
 					RefereeStepDefinition.refereeDataTable.get(0).get("Signature"));
 		} catch (AssertionError e) {
 			e.printStackTrace();
-			errorList.add(e.getStackTrace().toString());
+			errorList.add(RefereeStepDefinition.refereeDataTable.get(0).get("Signature"));
 		}
 		 LOGGER.error("Error List"+errorList);
-		Assert.assertFalse("The fields data is not matching in Application Summary page", errorList.size()>0);
-    
+		Assert.assertFalse("The fields data is not matching in Application Summary page"+errorList, errorList.size()>0);
+     
 	}
 
 	 @When("^user click on submit button$")

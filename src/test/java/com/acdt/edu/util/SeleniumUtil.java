@@ -84,42 +84,21 @@ public class SeleniumUtil {
 
 			if ("firefox".equalsIgnoreCase(System.getProperty("Browser"))) {
 				LOGGER.info("Inside Firefox browser initialization");
-				if (System.getProperty("os.name").contains("Windows")) {
-					//System.setProperty("webdriver.gecko.driver",
-					//		System.getProperty("user.dir") + "//src//test//resources//geckodriver_window.exe");
-					WebDriverManager.firefoxdriver().setup();
-				} else {
-					WebDriverManager.firefoxdriver().setup();
-					//System.setProperty("webdriver.gecko.driver",
-					//		System.getProperty("user.dir") + "//src//test//resources//geckodriver.exe");
-				}
-
+			    WebDriverManager.firefoxdriver().setup();
+			    
 				driver = new FirefoxDriver();
 				driverStatus = true;
 				LOGGER.debug("FireFox Browser launched successfully");
-			}
-
-			else if ("IE".equalsIgnoreCase(System.getProperty("Browser"))) {
+			}else if ("IE".equalsIgnoreCase(System.getProperty("Browser"))) {
 				LOGGER.info("Inside IE browser initialization");
 				WebDriverManager.iedriver().setup();
-				//System.setProperty("webdriver.ie.driver",
-						//System.getProperty("user.dir") + "//src//test//resources//IEDriverServer_32.exe");
+
 				driver = new InternetExplorerDriver();
 				driverStatus = true;
 				LOGGER.debug("IE Browser launched successfully");
-			}
-
-			else if ("Chrome".equalsIgnoreCase(System.getProperty("Browser"))) {
-				if (System.getProperty("os.name").contains("Windows")) {
-					WebDriverManager.chromedriver().setup();
-					//System.setProperty("webdriver.chrome.driver",
-							//System.getProperty("user.dir") + "//src//test//resources//chromedriver_window.exe");
-				} else {
-					WebDriverManager.chromedriver().setup();
-					//System.setProperty("webdriver.chrome.driver",
-					//		System.getProperty("user.dir") + "//src//test//resources//chromedriver");
-				}
-
+			}else if ("Chrome".equalsIgnoreCase(System.getProperty("Browser"))) {
+				WebDriverManager.chromedriver().setup();
+			
 				driver = new ChromeDriver();
 				driverStatus = true;
 			}else if ("Edge".equalsIgnoreCase(System.getProperty("Browser"))){
