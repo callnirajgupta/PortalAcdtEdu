@@ -83,7 +83,7 @@ public class PersonalDetailsPage {
 		
 		}
     	if(!("".equals(title))){
-    		Thread.sleep(1000);
+    		Thread.sleep(3000);
     		
     		if("Select title".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();

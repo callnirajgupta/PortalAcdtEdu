@@ -54,7 +54,7 @@ public class ParentDetailsPage {
 		    SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(title);
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title))).click();
 			}
 

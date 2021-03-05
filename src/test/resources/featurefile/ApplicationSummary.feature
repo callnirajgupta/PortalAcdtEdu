@@ -21,7 +21,7 @@ Feature: Application Summary page field verification
     Then verify that user navigate to particular of parent page
     When user enter mandatory fields data in parent details page
       | Title | SurName      | FirstName     | MiddleName     | Relationship | Company      | Occupation | Address1     | Address2 | Country | CityTown | State | Mobile       | Telephone  | Email                    | PostalCode | 
-      | Mr.   | Testsurename | Testfirstname | TestMiddleName | Parent       | Test company | service    | Testaddress1 | address2 | Albania | cityTown | state | 235434587687 | 3535348788 | testAutomation@gmail.com |     464656 |
+      | Miss   | Testsurename | Testfirstname | TestMiddleName | Parent       | Test company | service    | Testaddress1 | address2 | Albania | cityTown | state | 235434587687 | 3535348788 | testAutomation@gmail.com |     464656 |
     And user click next button
     Then verify that user navigation to programme selection page
     When user enter mandatory fields data in programme selection page
@@ -75,7 +75,7 @@ Feature: Application Summary page field verification
     Then verify that user navigate to particular of parent page
     When user enter mandatory fields data in parent details page
       | Title | SurName      | FirstName     | MiddleName     | Relationship | Company      | Occupation | Address1     | Address2 | Country | CityTown | State | Mobile       | Telephone  | Email                    | PostalCode | 
-      | Mr.   | Testsurename | Testfirstname | TestMiddleName | Parent       | Test company | service    | Testaddress1 | address2 | Albania | cityTown | state | 235434587687 | 3535348788 | testAutomation@gmail.com |     464656 |
+      | Miss   | Testsurename | Testfirstname | TestMiddleName | Parent       | Test company | service    | Testaddress1 | address2 | Albania | cityTown | state | 235434587687 | 3535348788 | testAutomation@gmail.com |     464656 |
     And user click next button
     Then verify that user navigation to programme selection page
     When user enter mandatory fields data in programme selection page
@@ -188,7 +188,7 @@ Feature: Application Summary page field verification
     Then verify that user navigate to particular of parent page
     When user enter mandatory fields data in parent details page
       | Title | SurName      | FirstName     | MiddleName     | Relationship | Company      | Occupation | Address1     | Address2 | Country | CityTown | State | Mobile       | Telephone  | Email                    | PostalCode | 
-      | Mr.   | Testsurename | Testfirstname | TestMiddleName | Parent       | Test company | service    | Testaddress1 | address2 | Albania | cityTown | state | 235434587687 | 3535348788 | testAutomation@gmail.com |     464656 |
+      | Miss   | Testsurename | Testfirstname | TestMiddleName | Parent       | Test company | service    | Testaddress1 | address2 | Albania | cityTown | state | 235434587687 | 3535348788 | testAutomation@gmail.com |     464656 |
     And user click next button
     Then verify that user navigation to programme selection page
     When user enter mandatory fields data in programme selection page
