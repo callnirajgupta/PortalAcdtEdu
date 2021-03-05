@@ -48,7 +48,7 @@ public class ContactInformationPage {
 			String postCode, String phone) throws Throwable {
          
 		if (!("".equals(address1))) {
-			SeleniumUtil.validateWebElementVisible(By.name(POSTAL_ADDRESS1_NAME), 20);
+			SeleniumUtil.validateWebElementDisplay(By.name(POSTAL_ADDRESS1_NAME));
 			Thread.sleep(5000);
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
@@ -58,7 +58,7 @@ public class ContactInformationPage {
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS2_NAME)).sendKeys(address2);
 		}
 		if (!("".equals(city))) {
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			SeleniumUtil.scrollToWebElement(By.name(POSTAL_CITY_NAME));
 			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
