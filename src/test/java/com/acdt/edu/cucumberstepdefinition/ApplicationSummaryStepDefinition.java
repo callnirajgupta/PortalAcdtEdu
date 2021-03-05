@@ -747,7 +747,7 @@ public class ApplicationSummaryStepDefinition {
 			errorList.add(RefereeStepDefinition.refereeDataTable.get(0).get("Signature"));
 		}
 		 LOGGER.error("Error List"+errorList);
-		Assert.assertFalse("The fields data is not matching in Application Summary page"+errorList, errorList.size()>0);
+		Assert.assertFalse("The fields data is not matching in Application Summary page for following fields"+errorList, errorList.size()>0);
      
 	}
 

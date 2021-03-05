@@ -48,7 +48,7 @@ public class ParentDetailsPage {
 			throws Throwable {
 
 		if (!("".equals(title))) {
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			
 		    if(SeleniumUtil.getWebElements(By.xpath(TITLE_XPATH)).size()>0){
 		    SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();

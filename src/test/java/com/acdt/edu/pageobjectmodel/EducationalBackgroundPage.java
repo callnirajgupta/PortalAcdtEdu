@@ -85,6 +85,7 @@ public class EducationalBackgroundPage {
 		LOGGER.info("Inside enterCurrentEducationalBackGroundDetails Method");
 		
 		if(!("".equals(recentInstitution))){
+			SeleniumUtil.wait(5000);
 			SeleniumUtil.getWebElement(By.name(CURRENT_RECENT_SHS_INSTITUTE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(CURRENT_RECENT_SHS_INSTITUTE_NAME)).sendKeys(recentInstitution);	
 		}else{

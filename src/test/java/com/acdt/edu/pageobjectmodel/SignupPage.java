@@ -33,7 +33,7 @@ public class SignupPage {
 	public static String emailAuto;
 	public static void validateSignupTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
-		SeleniumUtil.wait(3000);
+		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(SIGNUP_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Signup Loaded successfully");
 	}
@@ -42,6 +42,7 @@ public class SignupPage {
 			String programme,String gender,String country,String mobile,String email,String password,String confirmPassword,String captcha){
 		LOGGER.info("Inside Singup Method");
 		if(!("".equals(firstName))){
+			SeleniumUtil.wait(5000);
 			SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).sendKeys(firstName);	
 		}
 		if(!("".equals(middleName))){

@@ -71,6 +71,7 @@ public class PersonalDetailsPage {
 			String otherName,String gender,String dob,String countryOfBirth ,String cityOfBirth,String nationality ,String religion,String homeTown ,String region ,String specialNeed,String comment) throws Throwable{
     	
     	if(!("".equals(image))){
+    		SeleniumUtil.wait(5000);
     		System.out.println("Inside image selection");
 			SeleniumUtil.getWebElement(By.xpath(SELECT_IMAGE_XPATH)).click();
 			File file = new File("src/test/resources/Upload/"+image);
