@@ -18,6 +18,10 @@ navigate to project
 
 type this: mvn clean install
 
+IF youwant to override the Testrunner tag then pass from terminal 
+Runing from Terminal/cmd with updated tag
+mvn clean install -DCucumber.options="-t @Certificate"
+
 BrowserDriver:
 
 Drivers will download automatically.No need to download browser driver
@@ -34,3 +38,5 @@ details report with pass and fail count and screen shot for failed step
 Screen shot for each step
 
 3.--->test-report.html 
+
+
