@@ -48,8 +48,9 @@ public class ContactInformationPage {
 			String postCode, String phone) throws Throwable {
          
 		if (!("".equals(address1))) {
-			SeleniumUtil.validateWebElementDisplay(By.name(POSTAL_ADDRESS1_NAME));
 			Thread.sleep(5000);
+			SeleniumUtil.validateWebElementDisplay(By.name(POSTAL_ADDRESS1_NAME));
+			
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
 		}
