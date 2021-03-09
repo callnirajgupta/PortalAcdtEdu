@@ -63,9 +63,9 @@ public class ExaminationPage {
 			String path = file.getAbsolutePath();
 			
 			System.out.println("path of file "+path);
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			SeleniumUtil.robotUploadFile(path);
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			}
 		}
 		
