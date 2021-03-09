@@ -175,7 +175,7 @@ Feature: Application Summary page field verification
     When user click on start application button in home page
     And user enter mandatory data field in signup page
       | FirstName     | LastName     | MiddleName     | ProgrammeType | Gender | CountryOfResidence | MobileNumber  | EmailAddress | Password | ConfirmPassword | Captcha |
-      | TestFirstName | TestLastName | TestMiddleName | Diploma       | M      | India              | +919241521992 | auto         | password | password        | yes     |
+      | TestFirstName | TestLastName | TestMiddleName | Degree      | M      | India              | +919241521992 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
       | Image        | Title | FirstName     | MiddleName     | LastName    | OtherName     | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment |
@@ -233,7 +233,7 @@ Feature: Application Summary page field verification
     When user click on start application button in home page
     And user enter mandatory data field in signup page
       | FirstName     | LastName     | MiddleName     | ProgrammeType | Gender | CountryOfResidence | MobileNumber  | EmailAddress | Password | ConfirmPassword | Captcha |
-      | TestFirstName | TestLastName | TestMiddleName | Diploma       | M      | India              | +919241521992 | auto         | password | password        | yes     |
+      | TestFirstName | TestLastName | TestMiddleName | Certificate       | M      | India              | +919241521992 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
       | Image        | Title | FirstName     | MiddleName     | LastName    | OtherName     | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment |
