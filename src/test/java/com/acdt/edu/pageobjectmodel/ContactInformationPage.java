@@ -51,8 +51,11 @@ public class ContactInformationPage {
 			Thread.sleep(5000);
 			SeleniumUtil.validateWebElementDisplay(By.name(POSTAL_ADDRESS1_NAME));
 			
-			//SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
+			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
+			if("".equals(SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).getAttribute("value"))){
+				SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);	
+			}
 		}
 		if (!("".equals(address2))) {
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS2_NAME)).clear();
