@@ -153,7 +153,9 @@ public class PersonalDetailsPage {
 		if(!("".equals(countryOfBirth))){
 			 if("SELECT COUNTRY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_BIRTH_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_BIRTH_XPATH)).click();
+			SeleniumUtil.wait(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "3"))).sendKeys(countryOfBirth);
+			SeleniumUtil.wait(2000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", countryOfBirth))).click();
 			 }	
 		}
@@ -164,11 +166,13 @@ public class PersonalDetailsPage {
 		}
 		
 		if(!("".equals(nationality))){
-		    if(!("SELECT NATIONALITY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim()))){
+		    if(!("SELECT NATIONALITY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim())) && !(nationality.equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim()))){
 			
 		    SeleniumUtil.getWebElement(By.xpath(NATIONALITY_XPATH)).click();
-			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).sendKeys(nationality);
-			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_NATIONALITY_XPATH.replace("selectText", nationality))).click();
+		    SeleniumUtil.wait(2000);
+		    SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).sendKeys(nationality);
+		    SeleniumUtil.wait(2000);
+		    SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_NATIONALITY_XPATH.replace("selectText", nationality))).click();
 			SeleniumUtil.wait(5000);
 		    }
 		}

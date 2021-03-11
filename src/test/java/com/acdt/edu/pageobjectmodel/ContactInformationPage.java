@@ -73,14 +73,17 @@ public class ContactInformationPage {
 		}
 		if (!("".equals(country))) {
 			SeleniumUtil.scrollToWebElement(By.xpath(POSTAL_COUNTRY_XPATH));
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			
 			SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_XPATH)).click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
-			Thread.sleep(1000);
+			Thread.sleep(6000);
+			
 			SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)))
 					.click();
+			
+			Thread.sleep(2000);
 			
 		}
 
@@ -153,9 +156,12 @@ public class ContactInformationPage {
 		}
 		if (!("".equals(country))) {
 			SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_XPATH)).click();
+			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(country);
+			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)))
 					.click();
+			Thread.sleep(2000);
 		}else{
 			
 		//String getCountry = SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELCTED_TEXT_XPATH)).getText();
