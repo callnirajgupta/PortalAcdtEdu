@@ -50,7 +50,7 @@ public class ContactInformationPage {
 		if (!("".equals(address1))) {
 			Thread.sleep(5000);
 			SeleniumUtil.validateWebElementDisplay(By.name(POSTAL_ADDRESS1_NAME));
-			
+			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).click();
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
 			if("".equals(SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).getAttribute("value"))){
@@ -64,8 +64,12 @@ public class ContactInformationPage {
 		if (!("".equals(city))) {
 			Thread.sleep(3000);
 			SeleniumUtil.scrollToWebElement(By.name(POSTAL_CITY_NAME));
+			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).click();
 			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
+			if("".equals(SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).getAttribute("value"))){
+				SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
+			}
 		}
 		if (!("".equals(state))) {
 			SeleniumUtil.getWebElement(By.name(POSTAL_STATE_NAME)).clear();
@@ -133,6 +137,7 @@ public class ContactInformationPage {
 			SeleniumUtil.scrollToWebElement(By.name(PERMANENT_ADDRESS1_NAME));
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).sendKeys(address1);
+		
 		}else{
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).clear();
 		}
@@ -145,6 +150,9 @@ public class ContactInformationPage {
 		if (!("".equals(city))) {
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).sendKeys(city);
+			if("".equals(SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).getAttribute("value"))){
+				SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).sendKeys(city);
+			}
 		}else{
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).clear();
 		}
@@ -158,7 +166,7 @@ public class ContactInformationPage {
 			SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_XPATH)).click();
 			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(country);
-			Thread.sleep(2000);
+			Thread.sleep(6000);
 			SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)))
 					.click();
 			Thread.sleep(2000);
