@@ -104,7 +104,8 @@ public class SignupPage {
 		}
 		if(!("".equals(captcha))){
 			SeleniumUtil.getDriver().switchTo().frame(0);
-			SeleniumUtil.getWebElement(By.xpath(CAPTCHA_XPATH)).click();
+			//SeleniumUtil.getWebElement(By.xpath(CAPTCHA_XPATH)).click();
+			SeleniumUtil.javascriptClickElement(By.xpath(CAPTCHA_XPATH));
 			SeleniumUtil.switchToDefaultContent();
 			SeleniumUtil.wait(2000);
 		}
