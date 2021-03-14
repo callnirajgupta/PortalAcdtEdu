@@ -135,7 +135,8 @@ public class ParentDetailsPage {
 			SeleniumUtil.wait(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(country);
 			SeleniumUtil.wait(6000);
-			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
+			//SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
+			SeleniumUtil.javascriptClickElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country)));
 			}	
 		}else{
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).click();

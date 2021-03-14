@@ -4,6 +4,8 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import com.acdt.edu.util.SeleniumUtil;
 
 
@@ -50,9 +52,10 @@ public class ContactInformationPage {
 		if (!("".equals(address1))) {
 			Thread.sleep(5000);
 			SeleniumUtil.validateWebElementDisplay(By.name(POSTAL_ADDRESS1_NAME));
-			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).click();
+			
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
-			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
+			//SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
+			SeleniumUtil.javaScriptSendKey(SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)), address1);
 			if("".equals(SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).getAttribute("value"))){
 				SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);	
 			}
@@ -64,9 +67,10 @@ public class ContactInformationPage {
 		if (!("".equals(city))) {
 			Thread.sleep(3000);
 			SeleniumUtil.scrollToWebElement(By.name(POSTAL_CITY_NAME));
-			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).click();
+			//SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).click();
 			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).clear();
-			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
+			//SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
+			SeleniumUtil.javaScriptSendKey(SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)), city);
 			if("".equals(SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).getAttribute("value"))){
 				SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
 			}
@@ -84,9 +88,9 @@ public class ContactInformationPage {
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
 			Thread.sleep(6000);
 			
-			SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)))
-					.click();
-			
+			//SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country))).click();
+			//WebElement element= SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)));
+			SeleniumUtil.javascriptClickElement(By.xpath(POSTAL_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)));
 			Thread.sleep(2000);
 			
 		}
@@ -98,6 +102,7 @@ public class ContactInformationPage {
 		if (!("".equals(phone))) {
 			String countryCode=phone.substring(0, 3);
 			SeleniumUtil.getWebElement(By.name(POSTAL_TELEPHONE_NAME)).clear();
+			SeleniumUtil.wait(2000);
 			SeleniumUtil.getWebElement(By.xpath(TELEPHONE_COUNTRY_DROPDOWN_XPATH.replace("index", "1"))).click();
 			
 			String CountryCodeXpath=TELEPHONE_COUNTRY_CODE_XPATH.replace("countryCode", countryCode);
@@ -167,8 +172,8 @@ public class ContactInformationPage {
 			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(country);
 			Thread.sleep(6000);
-			SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)))
-					.click();
+			//SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country))).click();
+			SeleniumUtil.javascriptClickElement(By.xpath(PERMANENT_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)));
 			Thread.sleep(2000);
 		}else{
 			

@@ -467,4 +467,12 @@ public class SeleniumUtil {
 		JavascriptExecutor executor = (JavascriptExecutor)SeleniumUtil.getDriver();
 		executor.executeScript("arguments[0].click();", element);
 	}
+	
+	public static void javaScriptSendKey(WebElement element,String value) {
+		//JavascriptExecutor jse = (JavascriptExecutor)driver;
+		//jse.executeScript("document.getElementById('elementID').setAttribute('value', 'new value for element')");
+		
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].value='"+ value +"';", element);
+	}
 }
