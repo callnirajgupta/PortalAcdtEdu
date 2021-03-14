@@ -468,11 +468,10 @@ public class SeleniumUtil {
 		executor.executeScript("arguments[0].click();", element);
 	}
 	
-	public static void javaScriptSendKey(WebElement element,String value) {
-		//JavascriptExecutor jse = (JavascriptExecutor)driver;
-		//jse.executeScript("document.getElementById('elementID').setAttribute('value', 'new value for element')");
-		
+	public static void javaScriptSendKey(String name,String value) {
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("arguments[0].value='"+ value +"';", element);
+		jse.executeScript("document.getElementByName(name).setAttribute('value', value)");
+		
+		
 	}
 }

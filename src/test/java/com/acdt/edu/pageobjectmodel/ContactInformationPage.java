@@ -54,8 +54,9 @@ public class ContactInformationPage {
 			SeleniumUtil.validateWebElementDisplay(By.name(POSTAL_ADDRESS1_NAME));
 			
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
-			//SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
-			SeleniumUtil.javaScriptSendKey(SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)), address1);
+			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
+			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
+			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
 			if("".equals(SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).getAttribute("value"))){
 				SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);	
 			}
@@ -69,8 +70,10 @@ public class ContactInformationPage {
 			SeleniumUtil.scrollToWebElement(By.name(POSTAL_CITY_NAME));
 			//SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).click();
 			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).clear();
-			//SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
-			SeleniumUtil.javaScriptSendKey(SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)), city);
+			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
+			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).clear();
+			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
+			//SeleniumUtil.javaScriptSendKey(POSTAL_CITY_NAME, city);
 			if("".equals(SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).getAttribute("value"))){
 				SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
 			}
