@@ -21,6 +21,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -97,10 +98,19 @@ public class SeleniumUtil {
 				driverStatus = true;
 				LOGGER.debug("IE Browser launched successfully");
 			}else if ("Chrome".equalsIgnoreCase(System.getProperty("Browser"))) {
-				WebDriverManager.chromedriver().setup();
-			
-				driver = new ChromeDriver();
-				driverStatus = true;
+				if("docker".equalsIgnoreCase(System.getProperty("Remote"))) {
+					System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
+					
+					ChromeOptions chromeOptions = new ChromeOptions();
+					chromeOptions.addArguments("headless");   
+					driver = new ChromeDriver(chromeOptions);
+					driverStatus = true;
+				}else {
+					WebDriverManager.chromedriver().setup();
+					driver = new ChromeDriver();
+					driverStatus = true;
+				}
+				
 			}else if ("Edge".equalsIgnoreCase(System.getProperty("Browser"))){
 				WebDriverManager.edgedriver().setup();
 				driver = new EdgeDriver();
