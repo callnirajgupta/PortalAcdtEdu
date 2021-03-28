@@ -51,6 +51,7 @@ public class ContactInformationPage {
          
 		if (!("".equals(address1))) {
 			Thread.sleep(5000);
+			SeleniumUtil.scrollToWebElement(By.name(POSTAL_ADDRESS1_NAME));
 			SeleniumUtil.validateWebElementDisplay(By.name(POSTAL_ADDRESS1_NAME));
 			
 			
@@ -81,16 +82,17 @@ public class ContactInformationPage {
 			SeleniumUtil.getWebElement(By.name(POSTAL_STATE_NAME)).sendKeys(state);
 		}
 		if (!("".equals(country))) {
+			
 			SeleniumUtil.scrollToWebElement(By.xpath(POSTAL_COUNTRY_XPATH));
 			Thread.sleep(2000);
 			
 			SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_XPATH)).click();
 			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
-			Thread.sleep(6000);
-			
-			//SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country))).click();
-			//WebElement element= SeleniumUtil.getWebElement(By.xpath(POSTAL_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)));
+			Thread.sleep(1000);
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).click();
+			Thread.sleep(1000);
+			 
 			SeleniumUtil.javascriptClickElement(By.xpath(POSTAL_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)));
 			Thread.sleep(2000);
 			
@@ -102,6 +104,7 @@ public class ContactInformationPage {
 
 		if (!("".equals(phone))) {
 			String countryCode=phone.substring(0, 3);
+			SeleniumUtil.scrollToWebElement(By.name(POSTAL_TELEPHONE_NAME));
 			SeleniumUtil.getWebElement(By.name(POSTAL_TELEPHONE_NAME)).clear();
 			SeleniumUtil.wait(2000);
 			SeleniumUtil.getWebElement(By.xpath(TELEPHONE_COUNTRY_DROPDOWN_XPATH.replace("index", "1"))).click();
@@ -126,12 +129,14 @@ public class ContactInformationPage {
 	}
 
 	public static void clickCheckBoxPostalSamePermanent() {
+		
 		SeleniumUtil.scrollToWebElement(By.xpath(POSTAL_SAME_PERMANENT_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(POSTAL_SAME_PERMANENT_XPATH)).click();
 
 	}
 
 	public static void clickNextButton() {
+		SeleniumUtil.scrollToWebElement(By.xpath(NEXT_BUTTON_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 	}
 
@@ -140,6 +145,7 @@ public class ContactInformationPage {
 
 		if (!("".equals(address1))) {
 			SeleniumUtil.wait(4000);
+			
 			SeleniumUtil.scrollToWebElement(By.name(PERMANENT_ADDRESS1_NAME));
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS1_NAME)).sendKeys(address1);
@@ -154,6 +160,7 @@ public class ContactInformationPage {
 			SeleniumUtil.getWebElement(By.name(PERMANENT_ADDRESS2_NAME)).clear();
 		}
 		if (!("".equals(city))) {
+			SeleniumUtil.scrollToWebElement(By.name(PERMANENT_CITY_NAME));
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).sendKeys(city);
 			if("".equals(SeleniumUtil.getWebElement(By.name(PERMANENT_CITY_NAME)).getAttribute("value"))){
@@ -169,10 +176,13 @@ public class ContactInformationPage {
 			SeleniumUtil.getWebElement(By.name(PERMANENT_STATE_NAME)).clear();
 		}
 		if (!("".equals(country))) {
+			SeleniumUtil.scrollToWebElement(By.xpath(PERMANENT_COUNTRY_XPATH));
 			SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_XPATH)).click();
 			Thread.sleep(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(country);
-			Thread.sleep(6000);
+			Thread.sleep(1000);
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).click();
+			Thread.sleep(1000);
 			//SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country))).click();
 			SeleniumUtil.javascriptClickElement(By.xpath(PERMANENT_COUNTRY_SELECT_LABEL_XPATH.replace("selectText", country)));
 			Thread.sleep(2000);
@@ -186,6 +196,7 @@ public class ContactInformationPage {
 		}
 
 		if (!("".equals(postCode))) {
+			SeleniumUtil.scrollToWebElement(By.name(PERMANENT_CODE_NAME));
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CODE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PERMANENT_CODE_NAME)).sendKeys(postCode);
 		}else{
@@ -194,6 +205,7 @@ public class ContactInformationPage {
 		}
 
 		if (!("".equals(phone))) {
+			SeleniumUtil.scrollToWebElement(By.name(PERMANENT_TELEPHONE_NAME));
 			String countryCode=phone.substring(0, 3);
 			System.out.println("print country code"+countryCode);
 			SeleniumUtil.getWebElement(By.name(PERMANENT_TELEPHONE_NAME)).clear();
@@ -230,11 +242,13 @@ public class ContactInformationPage {
 
 	public static String getErrorMessage() {
 		SeleniumUtil.wait(2000);
+		SeleniumUtil.scrollToWebElement(By.xpath(ERROR_MESSAGE_XPATH));
 		return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 		
 	}
 	
 	public static void clickPreviousButton(){
+		SeleniumUtil.scrollToWebElement(By.xpath(PREVIOUS_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
 		
 	}
@@ -255,7 +269,7 @@ public class ContactInformationPage {
 	}
 
    public static String getPostalStateFilledText(){
-		
+	    SeleniumUtil.scrollToWebElement(By.name(POSTAL_STATE_NAME));
 		return SeleniumUtil.getWebElement(By.name(POSTAL_STATE_NAME)).getAttribute("value");
 	}
    
@@ -268,7 +282,7 @@ public class ContactInformationPage {
 		return SeleniumUtil.getWebElement(By.name(POSTAL_CODE_NAME)).getAttribute("value");
 	}
    public static String getPostalPhoneFilledText(){
-		
+	   SeleniumUtil.scrollToWebElement(By.name(POSTAL_TELEPHONE_NAME));
 		return SeleniumUtil.getWebElement(By.name(POSTAL_TELEPHONE_NAME)).getAttribute("value");
 	}
    
@@ -293,7 +307,7 @@ public class ContactInformationPage {
 	}
   
   public static String getPermanentCountryFilledText(){
-		
+	    SeleniumUtil.scrollToWebElement(By.xpath(PERMANENT_COUNTRY_GETTEXT_XPATH));
 		return SeleniumUtil.getWebElement(By.xpath(PERMANENT_COUNTRY_GETTEXT_XPATH)).getText();
 	}
   public static String getPermanentCodeFilledText(){
@@ -301,7 +315,7 @@ public class ContactInformationPage {
 		return SeleniumUtil.getWebElement(By.name(PERMANENT_CODE_NAME)).getAttribute("value");
 	}
   public static String getPermanentPhoneFilledText(){
-		
+	    SeleniumUtil.scrollToWebElement(By.name(PERMANENT_TELEPHONE_NAME));
 		return SeleniumUtil.getWebElement(By.name(PERMANENT_TELEPHONE_NAME)).getAttribute("value");
 	}
   

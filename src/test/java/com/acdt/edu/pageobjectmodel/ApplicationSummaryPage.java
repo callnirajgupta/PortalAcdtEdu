@@ -123,6 +123,7 @@ public class ApplicationSummaryPage {
     
 	public static String getPersonalTitleFilledText(){
 		LOGGER.info("Inside getPersonalTitleFilledText Method");
+		  SeleniumUtil.scrollToWebElement(PERSONAL_TITLE);
 		SeleniumUtil.validateWebElementVisible(PERSONAL_TITLE, SeleniumUtil.waitWebElementSync);
 		SeleniumUtil.wait(5000);
 		return SeleniumUtil.getWebElement(PERSONAL_TITLE).getText();
@@ -140,6 +141,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getPersonalMiddleNameFilledText(){
 		LOGGER.info("Inside getPersonalMiddleNameFilledText Method");
+		SeleniumUtil.scrollToWebElement(PERSONAL_MIDDLE_NAME);
 		return SeleniumUtil.getWebElement(PERSONAL_MIDDLE_NAME).getText();
 	}
 	
@@ -155,6 +157,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getPersonalDateOfBirthFilledText(){
 		LOGGER.info("Inside getPersonalDateOfBirthFilledText Method");
+		SeleniumUtil.scrollToWebElement(PERSONAL_DATE_OF_BIRTH);
 		return SeleniumUtil.getWebElement(PERSONAL_DATE_OF_BIRTH).getText();
 	}
 	
@@ -175,6 +178,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getPersonalReligionFilledText(){
 		LOGGER.info("Inside getPersonalReligionFilledText Method");
+		SeleniumUtil.scrollToWebElement(PERSONAL_RELIGION);
 		return SeleniumUtil.getWebElement(PERSONAL_RELIGION).getText();
 	}
 	
@@ -190,6 +194,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getPersonalEmailFilledText(){
 		LOGGER.info("Inside getPersonalRegionFilledText Method");
+		SeleniumUtil.scrollToWebElement(PERSONAL_EMAIL);
 		return SeleniumUtil.getWebElement(PERSONAL_EMAIL).getText();
 	}
 	
@@ -212,6 +217,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getPersonalSpecialNeedNoRadioFilledText(){
 		LOGGER.info("Inside getPersonalSpecialNeedNoRadioFilledText Method");
+		SeleniumUtil.scrollToWebElement(PERSONAL_SPECIAL_NEED_NO_RADIO);
 		return SeleniumUtil.getWebElement(PERSONAL_SPECIAL_NEED_NO_RADIO).getAttribute("checked");
 	}
 	
@@ -233,11 +239,13 @@ public class ApplicationSummaryPage {
 	
 	public static String getContactInformationPostalStateFilledText(){
 		LOGGER.info("Inside getContactInformationPostalStateFilledText Method");
+		SeleniumUtil.scrollToWebElement(CONTACT_INFORMATION_POSTAL_STATE);
 		return SeleniumUtil.getWebElement(CONTACT_INFORMATION_POSTAL_STATE).getText();
 	}
 	
 	public static String getContactInformationPostalCountryFilledText(){
 		LOGGER.info("Inside getContactInformationPostalCountryFilledText Method");
+		SeleniumUtil.scrollToWebElement(CONTACT_INFORMATION_POSTAL_COUNTRY);
 		return SeleniumUtil.getWebElement(CONTACT_INFORMATION_POSTAL_COUNTRY ).getText();
 	}
 	
@@ -259,6 +267,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getContactInformationPermanentAddress2FilledText(){
 		LOGGER.info("Inside getContactInformationPermanentAddress2FilledText Method");
+		SeleniumUtil.scrollToWebElement(CONTACT_INFORMATION_PERMANENT_ADDRESS2);
 		return SeleniumUtil.getWebElement(CONTACT_INFORMATION_PERMANENT_ADDRESS2   ).getText();
 	}
 	
@@ -284,6 +293,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getContactInformationPermanentTelephoneFilledText(){
 		LOGGER.info("Inside getContactInformationPermanentTelephoneFilledText Method");
+		SeleniumUtil.scrollToWebElement(CONTACT_INFORMATION_PERMANENT_TELEPHONE);
 		return SeleniumUtil.getWebElement(CONTACT_INFORMATION_PERMANENT_TELEPHONE).getText();
 	}
 	
@@ -305,6 +315,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getParticularOfParentMiddleNameFilledText(){
 		LOGGER.info("Inside getParticularOfParentMiddleNameFilledText Method");
+		SeleniumUtil.scrollToWebElement(PARTICULAR_OF_PARENT_MIDDLE_NAME);
 		return SeleniumUtil.getWebElement(PARTICULAR_OF_PARENT_MIDDLE_NAME ).getText();
 	}
 	public static String getParticularOfParentRelatioshipParentFilledText(){
@@ -337,6 +348,7 @@ public class ApplicationSummaryPage {
 	}
 	public static String getParticularOfParentCompanyFilledText(){
 		LOGGER.info("Inside getParticularOfParentCompanyFilledText Method");
+		SeleniumUtil.scrollToWebElement(PARTICULAR_OF_PARENT_COMPANY);
 		return SeleniumUtil.getWebElement(PARTICULAR_OF_PARENT_COMPANY ).getText();
 	}
 	public static String getParticularOfParentOccupationFilledText(){
@@ -353,6 +365,7 @@ public class ApplicationSummaryPage {
 	}
 	public static String getParticularOfParentCountryFilledText(){
 		LOGGER.info("Inside getParticularOfParentCountryFilledText Method");
+		SeleniumUtil.scrollToWebElement(PARTICULAR_OF_PARENT_COUNTRY);
 		SeleniumUtil.scrollToWebElement(PARTICULAR_OF_PARENT_COUNTRY);
 		return SeleniumUtil.getWebElement(PARTICULAR_OF_PARENT_COUNTRY ).getText();
 	}
@@ -371,6 +384,7 @@ public class ApplicationSummaryPage {
 	}
 	public static String getParticularOfParentTelephoneFilledText(){
 		LOGGER.info("Inside getParticularOfParentTelephoneFilledText Method");
+		SeleniumUtil.scrollToWebElement(PARTICULAR_OF_PARENT_TELEPHONE);
 		return SeleniumUtil.getWebElement(PARTICULAR_OF_PARENT_TELEPHONE ).getText();
 	}
 	public static String getParticularOfParentEmailFilledText(){
@@ -384,6 +398,7 @@ public class ApplicationSummaryPage {
 	}
 	public static String getProgrammeTypeFilledText(){
 		LOGGER.info("Inside getProgrammeTypeFilledText Method");
+		SeleniumUtil.scrollToWebElement(PROGRAMME_SELECTION_PROGRAMME_TYPE);
 		return SeleniumUtil.getWebElement(PROGRAMME_SELECTION_PROGRAMME_TYPE ).getText();
 	}
 	public static String getProgrammeTitleFilledText(){
@@ -403,6 +418,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getEducationBackGroundCountryFilledText(){
 		LOGGER.info("Inside getEducationBackGroundCountryFilledText Method");
+		SeleniumUtil.scrollToWebElement(EDUCATIONAL_BACKGROUND_COUNTRY);
 		return SeleniumUtil.getWebElement(EDUCATIONAL_BACKGROUND_COUNTRY).getText();
 	}
 	
@@ -427,6 +443,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getExaminationTakenExamTypeFilledText(){
 		LOGGER.info("Inside getExaminationTakenExamTypeFilledText Method");
+		SeleniumUtil.scrollToWebElement(EXAMINATION_TAKEN_EXAM_TYPE);
 		return SeleniumUtil.getWebElement(EXAMINATION_TAKEN_EXAM_TYPE).getText();
 	}
 	
@@ -447,6 +464,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getExaminationSubject1FilledText(){
 		LOGGER.info("Inside getExaminationSubject1FilledText Method");
+		SeleniumUtil.scrollToWebElement(EXAMINATION_SUBJECT1);
 		return SeleniumUtil.getWebElement(EXAMINATION_SUBJECT1).getText();
 	}
 	
@@ -469,6 +487,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getExaminationSubject6FilledText(){
 		LOGGER.info("Inside getExaminationSubject6FilledText Method");
+		SeleniumUtil.scrollToWebElement(EXAMINATION_SUBJECT6);
 		return SeleniumUtil.getWebElement(EXAMINATION_SUBJECT6).getText();
 	}
 	
@@ -486,6 +505,7 @@ public class ApplicationSummaryPage {
 	}
 	public static String getExaminationGrade4FilledText(){
 		LOGGER.info("Inside getExaminationGrade4FilledText Method");
+		SeleniumUtil.scrollToWebElement(EXAMINATION_GRADE4);
 		return SeleniumUtil.getWebElement(EXAMINATION_GRADE4).getText();
 	}
 	public static String getExaminationGrade5FilledText(){
@@ -508,6 +528,7 @@ public class ApplicationSummaryPage {
 	}
 	public static String getRefereeTitleFilledText(){
 		LOGGER.info("Inside getRefereeTitleFilledText Method");
+		SeleniumUtil.scrollToWebElement(REFEREE_TITLE);
 		return SeleniumUtil.getWebElement(REFEREE_TITLE).getText();
 	}
 	public static String getRefereePositionFilledText(){
@@ -522,6 +543,7 @@ public class ApplicationSummaryPage {
 	
 	public static String getRefereeEmailAddressFilledText(){
 		LOGGER.info("Inside getRefereeEmailAddressFilledText Method");
+		SeleniumUtil.scrollToWebElement(REFEREE_EMAIl_ADDRESS);
 		return SeleniumUtil.getWebElement(REFEREE_EMAIl_ADDRESS).getText();
 	}
 	
@@ -541,14 +563,17 @@ public class ApplicationSummaryPage {
 	}
 	
 	public static void clickSubmitButton(){
+		SeleniumUtil.scrollToWebElement(SUBMIT_XPATH);
 		SeleniumUtil.getWebElement(SUBMIT_XPATH).click();
 	}
 	
 	public static void clickLoginMenu(){
+		SeleniumUtil.scrollToWebElement(APPLICATION_LOGIN_MENU);
 		SeleniumUtil.getWebElement(APPLICATION_LOGIN_MENU).click();
 	}
 	
 	public static void ClickPreviousButton(){
+		SeleniumUtil.scrollToWebElement(PREVIOUS_XPATH);
 		SeleniumUtil.getWebElement(PREVIOUS_XPATH).click();
 		
 	}

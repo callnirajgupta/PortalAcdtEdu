@@ -57,6 +57,7 @@ public class ExaminationPage {
 		}
 		
 		public static void uploadResultSlip(String resultSlip) throws Throwable{
+			SeleniumUtil.scrollToWebElement(By.xpath(UPLOAD_RESULT_SLIP_BUTTON_XPATH));
 			if(!("".equals(resultSlip))){
 			SeleniumUtil.getWebElement(By.xpath(UPLOAD_RESULT_SLIP_BUTTON_XPATH)).click();
 			File file = new File("src/test/resources/Upload/"+resultSlip);
@@ -103,6 +104,7 @@ public class ExaminationPage {
 			}
 			
 			if(!("".equals(dateOfExamination))){
+				SeleniumUtil.scrollToWebElement(By.xpath(DATE_OF_EXAMINATION_XPATH));
 				 String[] dobsplit=dateOfExamination.split("/");
 			    SeleniumUtil.getWebElement(By.xpath(DATE_OF_EXAMINATION_XPATH)).click();
 			    Thread.sleep(1000);
@@ -121,6 +123,7 @@ public class ExaminationPage {
 		
 		public static String getErrorMessage(){
 			SeleniumUtil.wait(2000);
+			SeleniumUtil.scrollToWebElement(By.xpath(ERROR_MESSAGE1_XPATH));
 			String errorMessage1=SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE1_XPATH)).getText().trim();
 			 String errorMessage2=SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE2_XPATH)).getText().trim();
 			System.out.println("print the message"+errorMessage1+errorMessage2);
@@ -128,10 +131,12 @@ public class ExaminationPage {
 		}
 		
 		public static void clickNextButtonInEducationalBackGround(){
+			SeleniumUtil.scrollToWebElement(By.xpath(NEXT_BUTTON_XPATH));
 			SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 		}
 		
 		public static void clickPreviousButton(){
+			SeleniumUtil.scrollToWebElement(By.xpath(PREVIOUS_XPATH));
 			SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
 			
 		}
@@ -145,6 +150,7 @@ public class ExaminationPage {
 		}
 		
 		public static String  getDateOfExaminationFilledText(){
+			SeleniumUtil.scrollToWebElement(By.xpath(DATE_OF_EXAMINATION_XPATH));
 			return SeleniumUtil.getWebElement(By.xpath(DATE_OF_EXAMINATION_XPATH)).getAttribute("value");	
 		}
 		public static String  getUploadResultSlipFilledText(){

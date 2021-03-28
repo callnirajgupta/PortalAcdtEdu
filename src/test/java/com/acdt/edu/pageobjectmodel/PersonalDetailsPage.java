@@ -84,7 +84,7 @@ public class PersonalDetailsPage {
 		}
     	if(!("".equals(title))){
     		Thread.sleep(3000);
-    		
+    		SeleniumUtil.scrollToWebElement(By.xpath(TITLE_XPATH));
     		if("Select title".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
 			Thread.sleep(1000);
@@ -95,16 +95,19 @@ public class PersonalDetailsPage {
 		  
     	}
 		if(!("".equals(firstName))){
+			SeleniumUtil.scrollToWebElement(By.name(FIRSTNAME_NAME));
 			SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).sendKeys(firstName);	
 		}else{
 			SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).clear();
 		}
 		if(!("".equals(middleName))){
+			SeleniumUtil.scrollToWebElement(By.name(MIDDLENAME_NAME));
 			SeleniumUtil.getWebElement(By.name(MIDDLENAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(MIDDLENAME_NAME)).sendKeys(middleName);	
 		}
 		if(!("".equals(lastName))){
+			SeleniumUtil.scrollToWebElement(By.name(SURNAME_NAME));
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).sendKeys(lastName);	
 		}else{
@@ -116,6 +119,7 @@ public class PersonalDetailsPage {
 			
 		}
 		if(!("".equals(otherName))){
+			SeleniumUtil.scrollToWebElement(By.name(OTHERNAMES_NAME));
 			SeleniumUtil.getWebElement(By.name(OTHERNAMES_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(OTHERNAMES_NAME)).sendKeys(otherName);
 			
@@ -123,6 +127,7 @@ public class PersonalDetailsPage {
 		}
 		
 		if(!("".equals(gender))){
+			SeleniumUtil.scrollToWebElement(By.xpath(GENDER_XPATH));
 			 if("Select gender".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", gender))).click();
@@ -137,6 +142,7 @@ public class PersonalDetailsPage {
 		}
 		
 		if(!("".equals(dob))){
+			SeleniumUtil.scrollToWebElement(By.name(DATE_OF_BIRTH_NAME));
 			 String[] dobsplit=dob.split("/");
 		    SeleniumUtil.getWebElement(By.name(DATE_OF_BIRTH_NAME)).click();
 		    Thread.sleep(1000);
@@ -151,33 +157,41 @@ public class PersonalDetailsPage {
 		}
 		
 		if(!("".equals(countryOfBirth))){
+			SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_OF_BIRTH_XPATH));
 			 if("SELECT COUNTRY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_BIRTH_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_BIRTH_XPATH)).click();
 			SeleniumUtil.wait(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "3"))).sendKeys(countryOfBirth);
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "3"))).click();
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", countryOfBirth))).click();
 			 }	
 		}
 		
 		if(!("".equals(cityOfBirth))){
+			SeleniumUtil.scrollToWebElement(By.name(PLACE_OF_BIRTH_NAME));
 			SeleniumUtil.getWebElement(By.name(PLACE_OF_BIRTH_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(PLACE_OF_BIRTH_NAME)).sendKeys(cityOfBirth);	
 		}
 		
 		if(!("".equals(nationality))){
+			SeleniumUtil.scrollToWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH));
 		    if(!("SELECT NATIONALITY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim())) && !(nationality.equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim()))){
 			
 		    SeleniumUtil.getWebElement(By.xpath(NATIONALITY_XPATH)).click();
 		    SeleniumUtil.wait(2000);
 		    SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).sendKeys(nationality);
-		    SeleniumUtil.wait(2000);
+		    SeleniumUtil.wait(1000);
+		    SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).click();
+		    SeleniumUtil.wait(1000);
 		    SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_NATIONALITY_XPATH.replace("selectText", nationality))).click();
-			SeleniumUtil.wait(5000);
+			
 		    }
 		}
 		
 		if(!("".equals(religion))){
+			SeleniumUtil.scrollToWebElement(By.xpath(RELIGION_XPATH));
 			if("Select religion".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(RELIGION_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(RELIGION_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "5"))).sendKeys(religion);
@@ -185,10 +199,12 @@ public class PersonalDetailsPage {
 			}
 		}
 		if(!("".equals(homeTown))){
+			SeleniumUtil.scrollToWebElement(By.name(HOME_TOWN_NAME));
 			SeleniumUtil.getWebElement(By.name(HOME_TOWN_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(HOME_TOWN_NAME)).sendKeys(homeTown);
 		}
 		if(!("".equals(region))){
+			SeleniumUtil.scrollToWebElement(By.xpath(REGION_XPATH));
 			if("Select region".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(REGION_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(REGION_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "6"))).sendKeys(region);
@@ -269,6 +285,7 @@ public class PersonalDetailsPage {
     }
     
     public static void clickNextButton(){
+    	SeleniumUtil.scrollToWebElement(By.xpath(NEXT_BUTTON_XPATH));
     	SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
     	SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "clickNextButton successfully");
     }
@@ -283,6 +300,7 @@ public class PersonalDetailsPage {
    }
    
     public static String getFilledFirstNameText(){
+    	SeleniumUtil.scrollToWebElement(By.xpath(FIRSTNAME_NAME));
       	 return SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).getAttribute("value");
       }
 
@@ -291,18 +309,22 @@ public class PersonalDetailsPage {
      }
 
     public static String getFilledOtherNameText(){
+    	SeleniumUtil.scrollToWebElement(By.xpath(OTHERNAMES_NAME));
     	 return SeleniumUtil.getWebElement(By.name(OTHERNAMES_NAME)).getAttribute("value");
     }
     
     public static String getFilledGenderText(){
+    	SeleniumUtil.scrollToWebElement(By.xpath(GENDER_GETTEXT_XPATH));
    	 return SeleniumUtil.getWebElement(By.xpath(GENDER_GETTEXT_XPATH)).getText();
    }
     
     public static String getFilledDOBText(){
+    	
       	 return SeleniumUtil.getWebElement(By.name(DATE_OF_BIRTH_NAME)).getAttribute("value");
       }
     
     public static String getFilledCountryOfBirthText(){
+    	SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_OF_BIRTH_GETTEXT_XPATH));
      	 return SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_BIRTH_GETTEXT_XPATH)).getText();
      }
     
@@ -311,6 +333,7 @@ public class PersonalDetailsPage {
     	 return SeleniumUtil.getWebElement(By.name(PLACE_OF_BIRTH_NAME)).getAttribute("value");
     }
     public static String getFilledNationalityText(){
+    	SeleniumUtil.scrollToWebElement(By.xpath(NATIONALITY_GETTEXT_XPATH));
    	 return SeleniumUtil.getWebElement(By.xpath(NATIONALITY_GETTEXT_XPATH)).getText();
    }
     public static String getFilledReligionText(){
@@ -332,6 +355,7 @@ public class PersonalDetailsPage {
    }
    
     public static String getFilledSpecialNeedCommentText(){
+    	SeleniumUtil.scrollToWebElement(By.name(SPECIAL_NEED_TEXT_NAME));
       	 return SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).getAttribute("value");
       }
       

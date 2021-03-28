@@ -12,7 +12,7 @@ import com.acdt.edu.util.SeleniumUtil;
 
 public class SignupPage {
 	private static final Logger LOGGER = LogManager.getLogger(SignupPage.class);
-	public static final String SIGNUP_TITLE_XPATH = "//h5[contains(text(),'Welcome to the ACDT Online Admission Portal!')]";
+	public static final String SIGNUP_TITLE_XPATH = "//h5[contains(text(),'Welcome to the AUCDT Online Admission Portal!')]";
 	public static final String FIRSTNAME_NAME="firstName";
 	public static final String MIDDLENAME_NAME="middleName";
 	public static final String LASTNAME_NAME="lastName";
@@ -58,14 +58,19 @@ public class SignupPage {
 		}
 		
 		if(!("".equals(gender))){
+			SeleniumUtil.scrollToWebElement(By.xpath(GENDER_XPATH));
 			SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", gender))).click();
 			
 		}
 		
 		if(!("".equals(country))){
+			SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_OF_RESIDENCE_XPATH));
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_RESIDENCE_XPATH)).click();
+			SeleniumUtil.wait(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_LABEL_XPATH.replace("index", "3"))).sendKeys(country);
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_LABEL_XPATH.replace("index", "3"))).click();
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
 			
 		}
@@ -116,6 +121,7 @@ public class SignupPage {
 	
 	public static void clickStartApplicationButton(){
 		LOGGER.info("Inside clickStartApplicationButton Method");
+		SeleniumUtil.scrollToWebElement(By.xpath(START_APPLICATION_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(START_APPLICATION_XPATH)).click();
 	}
 	

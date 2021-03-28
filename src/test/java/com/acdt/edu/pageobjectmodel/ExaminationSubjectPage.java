@@ -49,6 +49,7 @@ public class ExaminationSubjectPage {
 		
 		if(!("".equals(grade1))){
 			SeleniumUtil.wait(5000);
+			SeleniumUtil.scrollToWebElement(By.xpath(GRADE_XPATH));
 			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(0).clear();
 			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(0).sendKeys(grade1);	
 		}
@@ -59,6 +60,7 @@ public class ExaminationSubjectPage {
 		}
 		
 		if(!("".equals(subject3))){
+			SeleniumUtil.scrollToWebElement(By.xpath(SUBJECT3_XPATH));
 			SeleniumUtil.validateWebElementVisible(By.xpath(SUBJECT3_XPATH), SeleniumUtil.waitWebElementSync);
 			SeleniumUtil.getWebElement(By.xpath(SUBJECT3_XPATH)).clear();
 			SeleniumUtil.getWebElement(By.xpath(SUBJECT3_XPATH)).sendKeys(subject3);	
@@ -70,6 +72,7 @@ public class ExaminationSubjectPage {
 		}
 		
 		if(!("".equals(subject4))){
+			SeleniumUtil.scrollToWebElement(By.xpath(SUBJECT4_XPATH));
 			SeleniumUtil.validateWebElementVisible(By.xpath(SUBJECT4_XPATH), SeleniumUtil.waitWebElementSync);
 			SeleniumUtil.getWebElement(By.xpath(SUBJECT4_XPATH)).clear();
 			SeleniumUtil.getWebElement(By.xpath(SUBJECT4_XPATH)).sendKeys(subject4);	
@@ -114,6 +117,7 @@ public class ExaminationSubjectPage {
 		}
 		
 		if(!("".equals(subject3))){
+			SeleniumUtil.scrollToWebElement(By.xpath(SUBJECT1_XPATH));
 			SeleniumUtil.validateWebElementVisible(By.xpath(SUBJECT1_XPATH), SeleniumUtil.waitWebElementSync);
 			SeleniumUtil.getWebElements(By.xpath(SUBJECT1_XPATH)).get(2).clear();
 			SeleniumUtil.getWebElements(By.xpath(SUBJECT1_XPATH)).get(2).sendKeys(subject3);	
@@ -125,15 +129,18 @@ public class ExaminationSubjectPage {
 	}
 	public static String getErrorMessage(){
 		SeleniumUtil.wait(2000);
+		SeleniumUtil.scrollToWebElement(By.xpath(ERROR_MESSAGE_XPATH));
 		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 		
 	}
 	
 	public static void clickNextButton(){
+		SeleniumUtil.scrollToWebElement(By.xpath(NEXT_BUTTON_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 	}
 	
 	public static void clickPreviousButton(){
+		SeleniumUtil.scrollToWebElement(By.xpath(PREVIOUS_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
 	}
 	public static void clickInstructionLink(){
@@ -148,6 +155,7 @@ public class ExaminationSubjectPage {
 		return SeleniumUtil.getWebElement(By.xpath(SUBJECT2_XPATH)).getAttribute("value");	
 	}
 	public static String  getSubject3FilledText(){
+		SeleniumUtil.scrollToWebElement(By.xpath(SUBJECT3_XPATH));
 		return SeleniumUtil.getWebElement(By.xpath(SUBJECT3_XPATH)).getAttribute("value");	
 	}
 	public static String  getSubject4FilledText(){
@@ -157,6 +165,7 @@ public class ExaminationSubjectPage {
 		return SeleniumUtil.getWebElement(By.xpath(SUBJECT5_XPATH)).getAttribute("value");	
 	}
 	public static String  getSubject6FilledText(){
+		SeleniumUtil.scrollToWebElement(By.xpath(SUBJECT6_XPATH));
 		return SeleniumUtil.getWebElement(By.xpath(SUBJECT6_XPATH)).getAttribute("value");	
 	}
 	public static String  getGrade1FilledText(){
@@ -175,6 +184,7 @@ public class ExaminationSubjectPage {
 		return SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(4).getAttribute("value");	
 	}
 	public static String  getGrade6FilledText(){
+		SeleniumUtil.scrollToWebElement(By.xpath(GRADE_XPATH));
 		return SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(5).getAttribute("value");	
 	}
 	

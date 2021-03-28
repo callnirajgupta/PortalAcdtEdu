@@ -29,6 +29,7 @@ public class FinancingYourStudyPage {
 	public static void enterDataInFinancingYourStudyDetails(String intendToFinance,String other){
 		if (!("".equals(intendToFinance))) {
 			SeleniumUtil.wait(5000);
+			SeleniumUtil.scrollToWebElement(By.xpath(FINANCING_YOUR_STUDY_XPATH));
 			SeleniumUtil.validateWebElementVisible(By.xpath(FINANCING_YOUR_STUDY_XPATH), SeleniumUtil.waitWebElementSync);
 			SeleniumUtil.wait(1000);
 			if(!intendToFinance.equals(SeleniumUtil.getWebElement(By.xpath(FINANCING_YOUR_STUDY_XPATH)).getText().trim())){
@@ -42,6 +43,7 @@ public class FinancingYourStudyPage {
 		}
 
 		if (!("".equals(other))) {
+			SeleniumUtil.scrollToWebElement(By.xpath(FINANCING_YOUR_STUDY_OTHER_XPATH));
 			SeleniumUtil.getWebElement(By.xpath(FINANCING_YOUR_STUDY_OTHER_XPATH)).clear();
 			SeleniumUtil.getWebElement(By.xpath(FINANCING_YOUR_STUDY_OTHER_XPATH)).sendKeys(other);
 		}
@@ -49,20 +51,24 @@ public class FinancingYourStudyPage {
 	
 	public static String getErrorMessage1(){
 		SeleniumUtil.wait(2000);
+		SeleniumUtil.scrollToWebElement(By.xpath(ERROR_MESSAGE1_XPATH));
 		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE1_XPATH)).getText().trim();
 		
 	}
 	public static String getErrorMessage2(){
 		SeleniumUtil.wait(2000);
+		SeleniumUtil.scrollToWebElement(By.xpath(ERROR_MESSAGE2_XPATH));
 		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE2_XPATH)).getText().trim();
 		
 	}
 	
 	public static void clickNextButton(){
+		SeleniumUtil.scrollToWebElement(By.xpath(NEXT_BUTTON_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 	}
 	
 	public static void clickPreviousButton(){
+		SeleniumUtil.scrollToWebElement(By.xpath(PREVIOUS_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
 	}
 	

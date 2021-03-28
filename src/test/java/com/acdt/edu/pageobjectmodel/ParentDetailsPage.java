@@ -49,7 +49,7 @@ public class ParentDetailsPage {
 
 		if (!("".equals(title))) {
 			Thread.sleep(5000);
-			
+			SeleniumUtil.scrollToWebElement(By.xpath(TITLE_XPATH));
 		    if(SeleniumUtil.getWebElements(By.xpath(TITLE_XPATH)).size()>0){
 		    SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
 			Thread.sleep(1000);
@@ -80,6 +80,7 @@ public class ParentDetailsPage {
 			SeleniumUtil.getWebElement(By.name(MIDDLENAME_NAME)).clear();	
 		}
 		if (!("".equals(surname))) {
+			SeleniumUtil.scrollToWebElement(By.name(SURNAME_NAME));
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).sendKeys(surname);
 		}else{
@@ -87,6 +88,7 @@ public class ParentDetailsPage {
 		}
 
 		if (!("".equals(relationship))) {
+			SeleniumUtil.scrollToWebElement(By.xpath(PARENT_RADIO_BUTTON_XPATH));
 			if ("parent".equalsIgnoreCase(relationship)) {
 				SeleniumUtil.scrollToWebElement(By.xpath(PARENT_RADIO_BUTTON_XPATH));
 				SeleniumUtil.getWebElement(By.xpath(PARENT_RADIO_BUTTON_XPATH)).click();
@@ -116,6 +118,7 @@ public class ParentDetailsPage {
 		}
 		
 		if (!("".equals(address1))) {
+			SeleniumUtil.scrollToWebElement(By.name(ADDRESS1_NAME));
 			SeleniumUtil.getWebElement(By.name(ADDRESS1_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(ADDRESS1_NAME)).sendKeys(address1);
 		}else{
@@ -130,12 +133,15 @@ public class ParentDetailsPage {
 		}
 		
 		if(!("".equals(country))){
+			SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_XPATH));
 			if(!(country.equals(SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).getText().trim()))){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).click();
 			SeleniumUtil.wait(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(country);
-			SeleniumUtil.wait(6000);
-			//SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
+			SeleniumUtil.wait(1000);
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).click();
+			SeleniumUtil.wait(1000);
+			
 			SeleniumUtil.javascriptClickElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country)));
 			}	
 		}else{
@@ -164,6 +170,7 @@ public class ParentDetailsPage {
 			SeleniumUtil.getWebElement(By.name(MOBILE_NAME)).clear();
 		}
 		if (!("".equals(telephone))) {
+			SeleniumUtil.scrollToWebElement(By.name(TELEPHONE_NAME));
 			SeleniumUtil.getWebElement(By.name(TELEPHONE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(TELEPHONE_NAME)).sendKeys(telephone);
 		}else{
@@ -176,6 +183,7 @@ public class ParentDetailsPage {
 			SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).clear();
 		}
 		if (!("".equals(postalCode.trim()))) {
+			SeleniumUtil.scrollToWebElement(By.name(POSTALCODE_NAME));
 			SeleniumUtil.getWebElement(By.name(POSTALCODE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTALCODE_NAME)).sendKeys(postalCode);
 		}else{
@@ -185,21 +193,25 @@ public class ParentDetailsPage {
 	}
 
 	public static void clickNextButton() {
+		SeleniumUtil.scrollToWebElement(By.xpath(NEXT_BUTTON_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 	}
 
 	public static String getErrorMessage() {
 		SeleniumUtil.wait(2000);
+		SeleniumUtil.scrollToWebElement(By.xpath(ERROR_MESSAGE_XPATH));
 		return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 
 	}
 	
 	public static String getFieldValidationErrorMessage(){
 		SeleniumUtil.wait(1000);
+		SeleniumUtil.scrollToWebElement(By.xpath(EMAIL_MOBILE_PHONE_ERROR_XPATH));
 		return SeleniumUtil.getWebElement(By.xpath(EMAIL_MOBILE_PHONE_ERROR_XPATH)).getText().trim();
 	}
 
 	public static void clickPreviousButton(){
+		SeleniumUtil.scrollToWebElement(By.xpath(PREVIOUS_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
 		
 	}
@@ -224,6 +236,7 @@ public class ParentDetailsPage {
 	}
 	
 	public static String getRelationshipFilledText(String relationship){
+		SeleniumUtil.scrollToWebElement(By.xpath(PARENT_RADIO_BUTTON_XPATH));
 		if("Parent".equalsIgnoreCase(relationship)){
 			return SeleniumUtil.getWebElement(By.xpath(PARENT_RADIO_BUTTON_XPATH)).getText();
 		}else if("Guardian".equalsIgnoreCase(relationship)){
@@ -255,7 +268,7 @@ public static String getAddress2FilledText(){
 }
 
 public static String getCountryFilledText(){
-	
+	SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_GETTEXT_XPATH));
 	return SeleniumUtil.getWebElement(By.xpath(COUNTRY_GETTEXT_XPATH)).getText();
 
 }
@@ -266,7 +279,7 @@ public static String getCityFilledText(){
 }
 
 public static String getStateFilledText(){
-	
+	SeleniumUtil.scrollToWebElement(By.name(STATE_NAME));
 	return SeleniumUtil.getWebElement(By.name(STATE_NAME)).getAttribute("value");
 
 }
@@ -290,7 +303,7 @@ public static String getEmailFilledText(){
 }
 
 public static String getPostalCodeFilledText(){
-	
+	SeleniumUtil.scrollToWebElement(By.name(POSTALCODE_NAME));
 	return SeleniumUtil.getWebElement(By.name(POSTALCODE_NAME)).getAttribute("value");
 
 }

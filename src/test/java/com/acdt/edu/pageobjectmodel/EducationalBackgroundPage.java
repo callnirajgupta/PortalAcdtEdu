@@ -101,11 +101,14 @@ public class EducationalBackgroundPage {
 		
 		if(!("".equals(country))){
 			SeleniumUtil.wait(5000);
+			SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_XPATH));
 			if(!country.equals(SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).click();
 			SeleniumUtil.wait(2000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).click();
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).click();
 			}	
 		}else{
@@ -116,6 +119,7 @@ public class EducationalBackgroundPage {
 		
 		if(!("".equals(yearOfEntry))){
 			 String[] dobsplit=yearOfEntry.split("/");
+			SeleniumUtil.scrollToWebElement(By.name(DATE_OF_ENTRY_NAME));
 		    SeleniumUtil.getWebElement(By.name(DATE_OF_ENTRY_NAME)).click();
 		    Thread.sleep(1000);
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
@@ -129,6 +133,7 @@ public class EducationalBackgroundPage {
 		
 		if(!("".equals(yearOfCompletion))){
 			 String[] dobsplit=yearOfCompletion.split("/");
+			SeleniumUtil.scrollToWebElement(By.name(DATE_OF_COMPLETION_NAME));
 		    SeleniumUtil.getWebElement(By.name(DATE_OF_COMPLETION_NAME)).click();
 		    Thread.sleep(1000);
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
@@ -153,6 +158,7 @@ public class EducationalBackgroundPage {
 		}*/
 		
 		if(!("".equals(otherQualification))){
+			SeleniumUtil.scrollToWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME));
 			SeleniumUtil.getWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME)).sendKeys(otherQualification);	
 		}else{
@@ -175,6 +181,7 @@ public class EducationalBackgroundPage {
 		
 		if(!("".equals(country))){
 			Thread.sleep(1000);
+			SeleniumUtil.scrollToWebElement(By.xpath(OLD_INSTITUTION_COUNTRY_XPATH));
 			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_COUNTRY_XPATH )).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "3"))).sendKeys(country);
 			SeleniumUtil.getWebElements(By.xpath(SELECT_LABEL_XPATH.replace("selectText", country))).get(1).click();
@@ -208,6 +215,7 @@ public class EducationalBackgroundPage {
 		}
 		
 		if(!("".equals(qualification))){
+			SeleniumUtil.scrollToWebElement(By.xpath(OLD_INSTITUTION_QUALIFICATION_XPATH));
 			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_QUALIFICATION_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).sendKeys(qualification);
 			SeleniumUtil.getWebElements(By.xpath(SELECT_LABEL_XPATH.replace("selectText", qualification))).get(1).click();
@@ -238,6 +246,7 @@ public class EducationalBackgroundPage {
 		
 		if(!("".equals(dateOfAdmission))){
 			 String[] dobsplit=dateOfAdmission.split("/");
+			 SeleniumUtil.scrollToWebElement(By.name(PREVIOUS_DATE_OF_ADMISSION_NAME));
 		    SeleniumUtil.getWebElement(By.name(PREVIOUS_DATE_OF_ADMISSION_NAME)).click();
 		    Thread.sleep(1000);
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
@@ -263,6 +272,7 @@ public class EducationalBackgroundPage {
 		
 		
 		if(!("".equals(yearOfStudy))){
+			SeleniumUtil.scrollToWebElement(By.name(PREVIOUS_LAST_YEAR_OF_STUDY_NAME));
 			 String[] dobsplit=yearOfStudy.split("/");
 		    SeleniumUtil.getWebElement(By.name(PREVIOUS_LAST_YEAR_OF_STUDY_NAME)).click();
 		    Thread.sleep(1000);
@@ -276,6 +286,7 @@ public class EducationalBackgroundPage {
 		}
 		
 		if(!("".equals(reasonOfLeavingUniversity))){
+			SeleniumUtil.scrollToWebElement(By.name(PREVIOUS_REASON_FOR_LEAVING_NAME));
 			SeleniumUtil.getWebElement(By.name(PREVIOUS_REASON_FOR_LEAVING_NAME )).clear();
 			
 			SeleniumUtil.getWebElement(By.name(PREVIOUS_REASON_FOR_LEAVING_NAME)).sendKeys(reasonOfLeavingUniversity);
@@ -287,6 +298,7 @@ public class EducationalBackgroundPage {
 	
 	
 	public static void clickNextButtonInEducationalBackGround(){
+		SeleniumUtil.scrollToWebElement(By.xpath(NEXT_BUTTON_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 	}
 	public static void clickOtherEducationalBackGroundButton() throws InterruptedException{
@@ -338,10 +350,12 @@ public class EducationalBackgroundPage {
 	
 	public static String getErrorMessage(){
 		SeleniumUtil.wait(2000);
+		SeleniumUtil.scrollToWebElement(By.xpath(ERROR_MESSAGE_XPATH));
 		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 		
 	}
 	public static void clickPreviousButton(){
+		SeleniumUtil.scrollToWebElement(By.xpath(PREVIOUS_XPATH));
 		SeleniumUtil.getWebElement(By.xpath(PREVIOUS_XPATH)).click();
 		
 	}
@@ -354,6 +368,7 @@ public class EducationalBackgroundPage {
 	}
 	
 	public static String  getCountryFilledText(){
+		SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_GETTEXT_XPATH));
 		return SeleniumUtil.getWebElement(By.xpath(COUNTRY_GETTEXT_XPATH)).getText();	
 	}
 	
@@ -369,6 +384,7 @@ public class EducationalBackgroundPage {
 		return SeleniumUtil.getWebElement(By.xpath(QUALIFICATION_GETTEXT_XPATH)).getText();	
 	}
 	public static String  getOtherQualificationFilledText(){
+		SeleniumUtil.scrollToWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME));
 		return SeleniumUtil.getWebElement(By.name(RECENT_OTHER_QUALIFICATION_NAME)).getAttribute("value");	
 	}
 }
