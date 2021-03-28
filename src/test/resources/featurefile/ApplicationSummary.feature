@@ -168,7 +168,7 @@ Feature: Application Summary page field verification
     Then user should navigate to personal details page
 
   @ApplicationSummary4 @Degree
-  Scenario: Verify that user submit application and able to login successfully
+  Scenario: Verify that user submit application and able to login successfully for Degree
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page
@@ -226,16 +226,16 @@ Feature: Application Summary page field verification
     Then user should navigate to personal details page
 
   @ApplicationSummary5 @Certificate
-  Scenario: Verify that user submit application and able to login successfully
+  Scenario: Verify that user submit application and able to login successfully for Certificate
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page
       | FirstName     | LastName     | MiddleName     | ProgrammeType | Gender | CountryOfResidence | MobileNumber  | EmailAddress | Password | ConfirmPassword | Captcha |
-      | TestFirstName | TestLastName | TestMiddleName | Certificate   | M      | India              | +919241521992 | auto         | password | password        | yes     |
+      | TestFirstName | TestLastName | TestMiddleName | Certificate   | F      | India              | +919241521992 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
       | Image        | Title | FirstName     | MiddleName     | LastName    | OtherName     | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment             |
-      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | testSurName | TestOtherName | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment SpecialNeed |
+      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | testSurName | TestOtherName |F      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment SpecialNeed |
     When user enter data in contact information page for postal address
       | Address1     | Address2     | City | State | Country     | PostalCode | Phone         |
       | Testaddress1 | TestAddress2 | City | State | Afghanistan |    1313124 | +919241521992 |
@@ -284,7 +284,7 @@ Feature: Application Summary page field verification
     Then user should navigate to personal details page
 
   @ApplicationSummary6 @FemaleGhana
-  Scenario: Verify that user submit application and able to login successfully
+  Scenario: Verify that user submit application and able to login successfully for Female and Ghana
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page

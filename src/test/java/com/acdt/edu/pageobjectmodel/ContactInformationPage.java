@@ -53,11 +53,10 @@ public class ContactInformationPage {
 			Thread.sleep(5000);
 			SeleniumUtil.validateWebElementDisplay(By.name(POSTAL_ADDRESS1_NAME));
 			
-			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
-			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
-			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).clear();
+			
 			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
 			if("".equals(SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).getAttribute("value"))){
+				System.out.println("print I am in postal address not filled not filled ");
 				SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);	
 			}
 		}
@@ -68,13 +67,12 @@ public class ContactInformationPage {
 		if (!("".equals(city))) {
 			Thread.sleep(3000);
 			SeleniumUtil.scrollToWebElement(By.name(POSTAL_CITY_NAME));
-			//SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).click();
-			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).clear();
-			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
+			
 			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
 			//SeleniumUtil.javaScriptSendKey(POSTAL_CITY_NAME, city);
 			if("".equals(SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).getAttribute("value"))){
+				System.out.println("print I am in city not filled ");
 				SeleniumUtil.getWebElement(By.name(POSTAL_CITY_NAME)).sendKeys(city);
 			}
 		}

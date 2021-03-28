@@ -24,11 +24,11 @@ Feature: Contact Infomation page fields validation
     When user click on start application button in home page
     And user enter mandatory data field in signup page
       | FirstName     | LastName     | MiddleName     | ProgrammeType | Gender | CountryOfResidence | MobileNumber  | EmailAddress | Password | ConfirmPassword | Captcha |
-      | TestFirstName | TestLastName | TestMiddleName | Diploma       | M      | India              | +919241521992 | auto         | password | password        | yes     |
+      | TestFirstName | TestLastName | TestMiddleName | Diploma       | F      | Ghana              | +919241521992 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
       | Image        | Title | FirstName     | MiddleName     | LastName     | OtherName     | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment |
-      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment |
+      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | F     | 10/6/1999 | Ghana          | city        | Ghana | Buddhism | hometown | Ashanti | Yes         | comment |
     When user enter  mandatory fields data in contact information page for postal address and validate error message
       | Address1     | Address2     | City     | State     | Country     | PostalCode | Phone         | Message                                                          |
       |              | TestAddress2 | Testcity | TestState | Afghanistan |    1313124 | +919241521992 | Please fill in the required field(s): Postal Address Address 1   |
@@ -43,11 +43,11 @@ Feature: Contact Infomation page fields validation
     When user click on start application button in home page
     And user enter mandatory data field in signup page
       | FirstName     | LastName     | MiddleName     | ProgrammeType | Gender | CountryOfResidence | MobileNumber  | EmailAddress | Password | ConfirmPassword | Captcha |
-      | TestFirstName | TestLastName | TestMiddleName | Diploma       | M      | India              | +919241521992 | auto         | password | password        | yes     |
+      | TestFirstName | TestLastName | TestMiddleName | Diploma       | F      | Ghana              | +919241521992 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
       | Image        | Title | FirstName  | MiddleName | LastName | OtherName | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment |
-      | Passport.jpg | Miss  | Automation | Middle     |          | asd       | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment |
+      | Passport.jpg | Miss  | Automation | Middle     |          | asd       | F      | 10/6/1999 | Ghana          | city        | Ghana | Buddhism | hometown | Ashanti | Yes         | comment |
     When user enter  mandatory fields data in contact information page for permanent address and validate error message
       | Address1     | Address2 | City     | State | Country     | PostalCode | Phone         | Message                                                             |
       |              |          | Testcity |       | Afghanistan |    1313124 | +919241521992 | Please fill in the required field(s): Permanent Address Address 1   |
@@ -62,11 +62,11 @@ Feature: Contact Infomation page fields validation
     When user click on start application button in home page
     And user enter mandatory data field in signup page
       | FirstName     | LastName     | MiddleName     | ProgrammeType | Gender | CountryOfResidence | MobileNumber  | EmailAddress | Password | ConfirmPassword | Captcha |
-      | TestFirstName | TestLastName | TestMiddleName | Diploma       | M      | India              | +919241521992 | auto         | password | password        | yes     |
+      | TestFirstName | TestLastName | TestMiddleName | Diploma       | F      | Ghana              | +919241521992 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
       | Image        | Title | FirstName     | MiddleName     | LastName     | OtherName     | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment     |
-      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | Testcomment |
+      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | F      | 10/6/1999 | Ghana          | city        | Ghana | Buddhism | hometown | Ashanti | Yes         | Testcomment |
     When user enter data in contact information page for postal address
       | Address1     | Address2     | City     | State     | Country     | PostalCode | Phone         |
       | TestAddress1 | TestAddress2 | TestCity | TestState | Afghanistan |    1313124 | +919241521992 |

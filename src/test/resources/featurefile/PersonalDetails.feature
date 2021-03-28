@@ -43,11 +43,11 @@ Feature: personal details page fields validation
     When user click on start application button in home page
     And user enter mandatory data field in signup page
       | FirstName     | LastName     | MiddleName     | ProgrammeType | Gender | CountryOfResidence | MobileNumber  | EmailAddress | Password | ConfirmPassword | Captcha |
-      | TestFirstName | TestLastName | TestMiddleName | Diploma       | M      | India              | +919241521992 | auto         | password | password        | yes     |
+      | TestFirstName | TestLastName | TestMiddleName | Diploma       | F      | Ghana              | +919241521992 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
       | Image        | Title | FirstName     | MiddleName     | LastName | OtherName | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment |
-      | Passport.jpg | Miss  | TestFirstName | TestMiddleName |          | asd       | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment |
+      | Passport.jpg | Miss  | TestFirstName | TestMiddleName |          | asd       | F      | 10/6/1999 | Ghana          | city        | Ghana | Buddhism | hometown | Ashanti | Yes         | comment |
     Then User should navigate to contact information page
 
   @Personal5
@@ -56,10 +56,10 @@ Feature: personal details page fields validation
     When user click on start application button in home page
     And user enter mandatory data field in signup page
       | FirstName     | LastName     | MiddleName     | ProgrammeType | Gender | CountryOfResidence | MobileNumber  | EmailAddress | Password | ConfirmPassword | Captcha |
-      | TestFirstName | TestLastName | TestMiddleName | Diploma       | M      | India              | +919241521992 | auto         | password | password        | yes     |
+      | TestFirstName | TestLastName | TestMiddleName | Diploma       | F      | Ghana             | +919241521992 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter fields data in personal details page for following fields
       | Image        | Title | FirstName     | MiddleName     | LastName      | OtherName | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment |
-      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestOtherName | asd       | M      | 10/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment |
+      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestOtherName | asd       | F      | 10/6/1999 | Ghana          | city        | Ghana | Buddhism | hometown | Ashanti | Yes         | comment |
     And user click on logout buttton
     Then user navigates to home page
