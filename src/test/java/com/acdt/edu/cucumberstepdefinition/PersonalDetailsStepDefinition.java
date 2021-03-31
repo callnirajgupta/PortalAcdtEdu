@@ -135,6 +135,13 @@ public class PersonalDetailsStepDefinition {
 		}
 		
 		try {
+			Assert.assertTrue("The Photo is not matching", PersonalDetailsPage.validateuploadedPassportPhoto().contains(PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("Image")));
+		} catch (AssertionError e) {
+			e.printStackTrace();
+			flag=true;
+		}
+		
+		try {
 			Assert.assertEquals("The FirstName is not matching", PersonalDetailsPage.getFilledFirstNameText(),
 					PersonalDetailsStepDefinition.PersonalDataTable.get(0).get("FirstName"));
 		} catch (AssertionError e) {

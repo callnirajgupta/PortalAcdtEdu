@@ -87,7 +87,7 @@ public class ApplicationSummaryPage {
     public static final By EXAMINATION_GRADE5 = By.xpath("(//div[label[text()='Grade']]//div/p)[5]");
     public static final By EXAMINATION_SUBJECT6 = By.xpath("(//div[label[text()='Subject']]//div/p)[6]");
     public static final By EXAMINATION_GRADE6 = By.xpath("(//div[label[text()='Grade']]//div/p)[6]");
-    public static final By FINANCING_STUDY_HOW = By.xpath("//div[label[text()='How do you intend to finance your study in ACDT?']]//div/p");
+    public static final By FINANCING_STUDY_HOW = By.xpath("//div[label[text()='How do you intend to finance your study in AUCDT?']]//div/p");
     public static final By FINANCING_STUDY_OTHER = By.name("others");
     public static final By REFEREE_TITLE = By.xpath("(//div[label[text()='Title']]//div/p)[2]");
     public static final By REFEREE_POSITION = By.xpath("//div[label[text()='Position']]//div/p");

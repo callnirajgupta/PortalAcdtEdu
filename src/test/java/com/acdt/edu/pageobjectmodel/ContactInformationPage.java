@@ -6,14 +6,15 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.acdt.edu.util.JSWaiter;
 import com.acdt.edu.util.SeleniumUtil;
 
 
 public class ContactInformationPage {
 	private static final Logger LOGGER = LogManager.getLogger(ContactInformationPage.class);
 	public static final String CONTACT_INORMATION_TITLE_XPATH = "//h3[text()='Contact Information']";
-	public static final String POSTAL_ADDRESS1_NAME = "postalAddress1";
-	public static final String POSTAL_ADDRESS2_NAME = "postalAddress2";
+	public static final String POSTAL_ADDRESS1_XPATH = "//input[@name='postalAddress1']";
+	public static final String POSTAL_ADDRESS2_XPATH = "//input[@name='postalAddress2']";
 	public static final String POSTAL_CITY_NAME = "postalCityTown";
 	public static final String POSTAL_STATE_NAME = "postalState";
 	public static final String POSTAL_COUNTRY_XPATH = "(//div[label[text()='Country']]//div[@class='c-btn'])[1]";
@@ -41,30 +42,36 @@ public class ContactInformationPage {
 	
 	public static void validateContactInformationTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
+		SeleniumUtil.ImplicitWait();
 		SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(CONTACT_INORMATION_TITLE_XPATH),
 				SeleniumUtil.waitWebElementSync);
+		//JSWaiter.setDriver(SeleniumUtil.getDriver());
+		//JSWaiter.waitUntilAngularReady();
 	}
 
 	public static void postalAddressFilling(String address1, String address2, String city, String state, String country,
 			String postCode, String phone) throws Throwable {
          
-		if (!("".equals(address1))) {
-			Thread.sleep(5000);
-			SeleniumUtil.scrollToWebElement(By.name(POSTAL_ADDRESS1_NAME));
-			SeleniumUtil.validateWebElementDisplay(By.name(POSTAL_ADDRESS1_NAME));
-			
-			
-			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);
-			if("".equals(SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).getAttribute("value"))){
-				System.out.println("print I am in postal address not filled not filled ");
-				SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).sendKeys(address1);	
-			}
-		}
-		if (!("".equals(address2))) {
-			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS2_NAME)).clear();
-			SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS2_NAME)).sendKeys(address2);
-		}
+		
+		  if (!("".equals(address1))) { Thread.sleep(10000);
+		  
+		  SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS1_XPATH)).click();
+		  SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS1_XPATH)).sendKeys(address1
+		  );
+		  
+		  if("".equals(SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS1_XPATH)).
+		  getAttribute("value"))){
+		  System.out.println("print I am in postal address not filled not filled ");
+		  SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS1_XPATH)).sendKeys(address1
+		  ); } }
+		 
+		
+		  if (!("".equals(address2))) {
+		  SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS2_XPATH)).clear();
+		  SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS2_XPATH)).sendKeys(address2
+		  ); }
+		 
 		if (!("".equals(city))) {
 			Thread.sleep(3000);
 			SeleniumUtil.scrollToWebElement(By.name(POSTAL_CITY_NAME));
@@ -255,12 +262,12 @@ public class ContactInformationPage {
 	
 	public static String getPostalAddress1FilledText(){
 		
-		return SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS1_NAME)).getAttribute("value");
+		return SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS1_XPATH)).getAttribute("value");
 	}
 	
    public static String getPostalAddress2FilledText(){
 		
-		return SeleniumUtil.getWebElement(By.name(POSTAL_ADDRESS2_NAME)).getAttribute("value");
+		return SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS2_XPATH)).getAttribute("value");
 	}
 
    public static String getPostalCityFilledText(){

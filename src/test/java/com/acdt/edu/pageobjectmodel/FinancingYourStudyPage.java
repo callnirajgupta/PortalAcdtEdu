@@ -9,8 +9,8 @@ import com.acdt.edu.util.SeleniumUtil;
 public class FinancingYourStudyPage {
 	private static final Logger LOGGER = LogManager.getLogger(FinancingYourStudyPage.class);
 	public static final String FINANCING_YOUR_STUDY_HEADER_XPATH = "//h3[text()='Financing your Study']";
-	public static final String FINANCING_YOUR_STUDY_XPATH = "//div[label[text()='How do you intend to finance your study in ACDT?']]//div[@class='c-btn']/span";
-	public static final String FINANCING_YOUR_STUDY_GETTEXT_XPATH = "//div[label[text()='How do you intend to finance your study in ACDT?']]//div[@class='c-btn']/span/span";
+	public static final String FINANCING_YOUR_STUDY_XPATH = "//div[label[text()='How do you intend to finance your study in AUCDT?']]//div[@class='c-btn']/span";
+	public static final String FINANCING_YOUR_STUDY_GETTEXT_XPATH = "//div[label[text()='How do you intend to finance your study in AUCDT?']]//div[@class='c-btn']/span/span";
 	public static final String FINANCING_YOUR_STUDY_OTHER_XPATH = "//div[label[text()='If others, please specify']]//textarea";
 	public static final String SEARCH_XPATH = "(//input[@placeholder='Search'])[1]";
 	public static final String SELECT_OPTION_XPATH = "//label[text()='selectText']";

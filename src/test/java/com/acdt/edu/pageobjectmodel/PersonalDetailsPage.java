@@ -46,6 +46,7 @@ public class PersonalDetailsPage {
     public static final String CALENDAR_MONTH_XPATH="//select[@title='Select month']";
     public static final String CALENDAR_YEAR_XPATH="//select[@title='Select year']";
     public static final String CALENDAR_DATE_XPATH="(//div[text()='date'])[1]";
+    public static final String PASSPORT_PICTURE="//div[@class='thumbnail img-no-padding']/img";
     
     public static void validatePersonalDetailsTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
@@ -294,13 +295,18 @@ public class PersonalDetailsPage {
     	
     	return SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).getText();
     }
+   public static String validateuploadedPassportPhoto(){
+    	
+    	return SeleniumUtil.getWebElement(By.xpath(PASSPORT_PICTURE)).getAttribute("src");
+    }
+    
     
     public static String getFilledSurNameText(){
    	 return SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).getAttribute("value");
    }
    
     public static String getFilledFirstNameText(){
-    	SeleniumUtil.scrollToWebElement(By.xpath(FIRSTNAME_NAME));
+    	SeleniumUtil.scrollToWebElement(By.name(FIRSTNAME_NAME));
       	 return SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).getAttribute("value");
       }
 
@@ -309,7 +315,7 @@ public class PersonalDetailsPage {
      }
 
     public static String getFilledOtherNameText(){
-    	SeleniumUtil.scrollToWebElement(By.xpath(OTHERNAMES_NAME));
+    	SeleniumUtil.scrollToWebElement(By.name(OTHERNAMES_NAME));
     	 return SeleniumUtil.getWebElement(By.name(OTHERNAMES_NAME)).getAttribute("value");
     }
     
