@@ -4,9 +4,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import com.acdt.edu.util.JSWaiter;
 import com.acdt.edu.util.SeleniumUtil;
 
 

@@ -4,22 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.acdt.edu.pageobjectmodel.ExaminationSubjectPage;
 import com.acdt.edu.commonstep.GlobalStepDefinition;
-import com.acdt.edu.pageobjectmodel.ExaminationPage;
 import com.acdt.edu.pageobjectmodel.FinancingYourStudyPage;
 import com.acdt.edu.pageobjectmodel.InstructionPage;
 import com.acdt.edu.util.SeleniumUtil;
-
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -32,8 +27,7 @@ public class ExaminationSubjectStepDefinition {
     	ExaminationSubjectPage.validateDefaultSubjectDisplay(subject1,subject2);
     }
     
-    
-    
+  
     @When("^user enter mandatory fields data in Examination Subject Page and validate error message$")
     public void verifyMandatoryFieldForAddSubjectForExaminationTaken(List<Map<String, String>> dataTable){
     	

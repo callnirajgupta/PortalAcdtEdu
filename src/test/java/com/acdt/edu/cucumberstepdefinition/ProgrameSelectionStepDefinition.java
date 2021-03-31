@@ -3,16 +3,12 @@ package com.acdt.edu.cucumberstepdefinition;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-
 import com.acdt.edu.commonstep.GlobalStepDefinition;
-import com.acdt.edu.pageobjectmodel.ContactInformationPage;
 import com.acdt.edu.pageobjectmodel.EducationalBackgroundPage;
-import com.acdt.edu.pageobjectmodel.ParentDetailsPage;
 import com.acdt.edu.pageobjectmodel.ProgrammeSelectionPage;
 import com.acdt.edu.util.SeleniumUtil;
 

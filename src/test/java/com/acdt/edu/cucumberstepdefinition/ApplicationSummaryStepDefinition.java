@@ -2,15 +2,11 @@ package com.acdt.edu.cucumberstepdefinition;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-
 import com.acdt.edu.pageobjectmodel.ApplicationSummaryPage;
-import com.acdt.edu.pageobjectmodel.LoginPage;
 import com.acdt.edu.pageobjectmodel.SignupPage;
-
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 

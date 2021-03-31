@@ -7,11 +7,9 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-
 import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.pageobjectmodel.ContactInformationPage;
 import com.acdt.edu.pageobjectmodel.ParentDetailsPage;
-import com.acdt.edu.pageobjectmodel.PersonalDetailsPage;
 import com.acdt.edu.util.SeleniumUtil;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

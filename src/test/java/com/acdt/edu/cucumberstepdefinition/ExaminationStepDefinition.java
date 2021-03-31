@@ -3,20 +3,14 @@ package com.acdt.edu.cucumberstepdefinition;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.acdt.edu.pageobjectmodel.ExaminationSubjectPage;
 import com.acdt.edu.commonstep.GlobalStepDefinition;
-import com.acdt.edu.pageobjectmodel.EducationalBackgroundPage;
 import com.acdt.edu.pageobjectmodel.ExaminationPage;
 import com.acdt.edu.util.SeleniumUtil;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

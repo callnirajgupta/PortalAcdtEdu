@@ -5,7 +5,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-
 import com.acdt.edu.commonstep.GlobalStepDefinition;
 import com.acdt.edu.util.SeleniumUtil;
 
@@ -42,7 +41,6 @@ public class PersonalDetailsPage {
     public static final String NATIONALITY_SELECTED_TEXT_XPATH="//div[label[text()='Nationality']]//div[@class='c-btn']/span[1]";
     public static final String SELECT_LABEL_NATIONALITY_XPATH="//div[label[text()='Nationality']]//label[text()='selectText']";
     public static final String ERROR_MESSAGE_XPATH="//div[@class='error-msg']";
-    //public static final String ERROR_MESSAGE_XPATH = "//div[@class='section form-content']/div[3]";
     public static final String CALENDAR_MONTH_XPATH="//select[@title='Select month']";
     public static final String CALENDAR_YEAR_XPATH="//select[@title='Select year']";
     public static final String CALENDAR_DATE_XPATH="(//div[text()='date'])[1]";
@@ -75,6 +73,7 @@ public class PersonalDetailsPage {
     		SeleniumUtil.wait(5000);
     		System.out.println("Inside image selection");
 			SeleniumUtil.getWebElement(By.xpath(SELECT_IMAGE_XPATH)).click();
+			
 			File file = new File("src/test/resources/Upload/"+image);
 			String path = file.getAbsolutePath();
 			

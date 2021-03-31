@@ -5,7 +5,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
 import com.acdt.edu.action.TestRunner;
 import com.acdt.edu.util.SeleniumUtil;
 import com.relevantcodes.extentreports.ExtentTest;

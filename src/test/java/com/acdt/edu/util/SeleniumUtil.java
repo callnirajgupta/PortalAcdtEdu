@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +30,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.Logs;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -99,11 +101,21 @@ public class SeleniumUtil {
 				LOGGER.debug("IE Browser launched successfully");
 			}else if ("Chrome".equalsIgnoreCase(System.getProperty("Browser"))) {
 				if("docker".equalsIgnoreCase(System.getProperty("Remote"))) {
-					System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
-					
+					//System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
+					WebDriverManager.chromedriver().setup();
 					ChromeOptions chromeOptions = new ChromeOptions();
-					chromeOptions.addArguments("headless");   
-					driver = new ChromeDriver(chromeOptions);
+					//chromeOptions.addArguments("headless");  
+					//chromeOptions.addArguments("--proxy-server='direct://'");
+					//chromeOptions.addArguments("--proxy-bypass-list=*");
+					//driver = new ChromeDriver(chromeOptions);
+					
+					
+					  try { driver = new RemoteWebDriver(new
+					  java.net.URL("http://localhost:4444/wd/hub"),chromeOptions); } catch
+					  (MalformedURLException e) { // TODO Auto-generated catch block
+					  e.printStackTrace(); }
+					 
+					 
 					driverStatus = true;
 				}else {
 					WebDriverManager.chromedriver().setup();
@@ -155,6 +167,7 @@ public class SeleniumUtil {
 
 	public static WebElement getWebElement(By by) {
 		LOGGER.debug("inside getWebElement");
+		
 		WebElement webElement = driver.findElement(by);
 		return webElement;
 	}
