@@ -53,13 +53,17 @@ public class ParentDetailsPage {
 		    SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(title);
-			Thread.sleep(3000);
+			Thread.sleep(1000);
+			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).click();
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title))).click();
 			 if(SeleniumUtil.getWebElements(By.xpath(TITLE_XPATH)).size()>0){
 				 SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
 					Thread.sleep(1000);
 					SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(title);
-					Thread.sleep(3000);
+					Thread.sleep(1000);
+					SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).click();
+					Thread.sleep(1000);
 					SeleniumUtil.javascriptClickElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title)));
 					//SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title))).click(); 
 			 }
