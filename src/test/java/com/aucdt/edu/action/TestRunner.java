@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = "src/test/resources/featurefile/", tags = {
 		"@FemaleGhana" }, plugin = { "pretty", "html:target/cucumber-html-report",
 				"json:target/cucumber.json", "junit:target/cucumber.xml"
-				 }, glue = { "com.acdt.edu" })
+				 }, glue = { "com.aucdt.edu" })
 
 public class TestRunner {
 	public static ExtentReports report;
