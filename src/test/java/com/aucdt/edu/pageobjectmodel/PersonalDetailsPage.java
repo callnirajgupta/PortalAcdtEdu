@@ -1,12 +1,13 @@
-package com.acdt.edu.pageobjectmodel;
+package com.aucdt.edu.pageobjectmodel;
 
 import java.io.File;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import com.acdt.edu.commonstep.GlobalStepDefinition;
-import com.acdt.edu.util.SeleniumUtil;
+
+import com.aucdt.edu.commonstep.GlobalStepDefinition;
+import com.aucdt.edu.util.SeleniumUtil;
 
 public class PersonalDetailsPage {
 	private static final Logger LOGGER = LogManager.getLogger(SignupPage.class);

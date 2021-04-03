@@ -1,4 +1,4 @@
-package com.acdt.edu.cucumberstepdefinition;
+package com.aucdt.edu.cucumberstepdefinition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +10,13 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.acdt.edu.pageobjectmodel.ExaminationSubjectPage;
-import com.acdt.edu.commonstep.GlobalStepDefinition;
-import com.acdt.edu.pageobjectmodel.FinancingYourStudyPage;
-import com.acdt.edu.pageobjectmodel.InstructionPage;
-import com.acdt.edu.util.SeleniumUtil;
+
+import com.aucdt.edu.commonstep.GlobalStepDefinition;
+import com.aucdt.edu.pageobjectmodel.ExaminationSubjectPage;
+import com.aucdt.edu.pageobjectmodel.FinancingYourStudyPage;
+import com.aucdt.edu.pageobjectmodel.InstructionPage;
+import com.aucdt.edu.util.SeleniumUtil;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 

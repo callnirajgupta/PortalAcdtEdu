@@ -1,11 +1,13 @@
-package com.acdt.edu.cucumberstepdefinition;
+package com.aucdt.edu.cucumberstepdefinition;
 
 import java.io.IOException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import com.acdt.edu.pageobjectmodel.FaqsPage;
-import com.acdt.edu.pageobjectmodel.HomePage;
-import com.acdt.edu.pageobjectmodel.InstructionPage;
+
+import com.aucdt.edu.pageobjectmodel.FaqsPage;
+import com.aucdt.edu.pageobjectmodel.HomePage;
+import com.aucdt.edu.pageobjectmodel.InstructionPage;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 

@@ -1,12 +1,13 @@
-package com.acdt.edu.commonstep;
+package com.aucdt.edu.commonstep;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import com.acdt.edu.action.TestRunner;
-import com.acdt.edu.util.SeleniumUtil;
+
+import com.aucdt.edu.action.TestRunner;
+import com.aucdt.edu.util.SeleniumUtil;
 import com.relevantcodes.extentreports.ExtentTest;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;

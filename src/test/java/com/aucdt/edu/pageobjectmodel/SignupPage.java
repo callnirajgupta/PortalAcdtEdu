@@ -1,4 +1,4 @@
-package com.acdt.edu.pageobjectmodel;
+package com.aucdt.edu.pageobjectmodel;
 
 import java.util.Date;
 
@@ -7,8 +7,8 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import com.acdt.edu.commonstep.GlobalStepDefinition;
-import com.acdt.edu.util.SeleniumUtil;
+import com.aucdt.edu.commonstep.GlobalStepDefinition;
+import com.aucdt.edu.util.SeleniumUtil;
 
 public class SignupPage {
 	private static final Logger LOGGER = LogManager.getLogger(SignupPage.class);

@@ -1,5 +1,5 @@
 
-package com.acdt.edu.action;
+package com.aucdt.edu.action;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/featurefile/", tags = {
-		"@MaleGhana" }, plugin = { "pretty", "html:target/cucumber-html-report",
+		"@FemaleGhana" }, plugin = { "pretty", "html:target/cucumber-html-report",
 				"json:target/cucumber.json", "junit:target/cucumber.xml"
 				 }, glue = { "com.acdt.edu" })
 

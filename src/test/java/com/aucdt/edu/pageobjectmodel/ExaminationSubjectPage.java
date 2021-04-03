@@ -1,10 +1,11 @@
-package com.acdt.edu.pageobjectmodel;
+package com.aucdt.edu.pageobjectmodel;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import com.acdt.edu.util.SeleniumUtil;
+
+import com.aucdt.edu.util.SeleniumUtil;
 
 
 

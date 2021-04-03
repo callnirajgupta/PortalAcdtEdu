@@ -1,4 +1,4 @@
-package com.acdt.edu.cucumberstepdefinition;
+package com.aucdt.edu.cucumberstepdefinition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,11 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import com.acdt.edu.commonstep.GlobalStepDefinition;
-import com.acdt.edu.pageobjectmodel.ContactInformationPage;
-import com.acdt.edu.pageobjectmodel.PersonalDetailsPage;
-import com.acdt.edu.util.SeleniumUtil;
+import com.aucdt.edu.commonstep.GlobalStepDefinition;
+import com.aucdt.edu.pageobjectmodel.ContactInformationPage;
+import com.aucdt.edu.pageobjectmodel.PersonalDetailsPage;
+import com.aucdt.edu.util.SeleniumUtil;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 

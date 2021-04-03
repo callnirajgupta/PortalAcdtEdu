@@ -1,12 +1,14 @@
-package com.acdt.edu.cucumberstepdefinition;
+package com.aucdt.edu.cucumberstepdefinition;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-import com.acdt.edu.commonstep.GlobalStepDefinition;
-import com.acdt.edu.pageobjectmodel.LoginPage;
-import com.acdt.edu.pageobjectmodel.SignupPage;
-import com.acdt.edu.util.SeleniumUtil;
+
+import com.aucdt.edu.commonstep.GlobalStepDefinition;
+import com.aucdt.edu.pageobjectmodel.LoginPage;
+import com.aucdt.edu.pageobjectmodel.SignupPage;
+import com.aucdt.edu.util.SeleniumUtil;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
