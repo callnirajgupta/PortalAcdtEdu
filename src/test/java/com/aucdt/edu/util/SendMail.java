@@ -72,7 +72,7 @@ public class SendMail {
 
     	     msg.setSentDate(new Date());
 
-    	     msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("callnirajgupta@gmail.com"));
+    	     msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("admin_dev@aucdt.edu.gh"));
     	      
              // Create the message body part
              BodyPart messageBodyPart = new MimeBodyPart();
