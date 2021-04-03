@@ -51,7 +51,8 @@ public class RefereePage {
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).click();
 			SeleniumUtil.wait(1000);
-			SeleniumUtil.getWebElement(By.xpath(SELECT_OPTION_XPATH.replace("selectText", title))).click();
+			//SeleniumUtil.getWebElement(By.xpath(SELECT_OPTION_XPATH.replace("selectText", title))).click();
+			SeleniumUtil.javascriptClickElement(By.xpath(SELECT_OPTION_XPATH.replace("selectText", title)));
 			}
 			}
 

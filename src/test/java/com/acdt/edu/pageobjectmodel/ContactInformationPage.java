@@ -51,9 +51,10 @@ public class ContactInformationPage {
 			String postCode, String phone) throws Throwable {
          
 		
-		  if (!("".equals(address1))) { Thread.sleep(10000);
+		  if (!("".equals(address1))) { 
+			  Thread.sleep(10000);
 		  
-		  SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS1_XPATH)).click();
+			  SeleniumUtil.javascriptClickElement(By.xpath(POSTAL_ADDRESS1_XPATH));
 		  SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS1_XPATH)).sendKeys(address1
 		  );
 		  

@@ -57,16 +57,19 @@ public class ParentDetailsPage {
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).click();
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title))).click();
-			 if(SeleniumUtil.getWebElements(By.xpath(TITLE_XPATH)).size()>0){
-				 SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
-					Thread.sleep(1000);
-					SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(title);
-					Thread.sleep(1000);
-					SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).click();
-					Thread.sleep(1000);
-					SeleniumUtil.javascriptClickElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title)));
-					//SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", title))).click(); 
-			 }
+			/*
+			 * if(SeleniumUtil.getWebElements(By.xpath(TITLE_XPATH)).size()>0){
+			 * SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
+			 * Thread.sleep(1000);
+			 * SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index",
+			 * "1"))).sendKeys(title); Thread.sleep(1000);
+			 * SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index",
+			 * "1"))).click(); Thread.sleep(1000);
+			 * SeleniumUtil.javascriptClickElement(By.xpath(SELECT_LABEL_XPATH.replace(
+			 * "selectText", title)));
+			 * //SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace(
+			 * "selectText", title))).click(); }
+			 */
 			}
 
 		}
@@ -197,7 +200,8 @@ public class ParentDetailsPage {
 
 	public static void clickNextButton() {
 		SeleniumUtil.scrollToWebElement(By.xpath(NEXT_BUTTON_XPATH));
-		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
+		//SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
+		SeleniumUtil.javascriptClickElement(By.xpath(NEXT_BUTTON_XPATH));
 	}
 
 	public static String getErrorMessage() {

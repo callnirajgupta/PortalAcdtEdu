@@ -302,7 +302,7 @@ Feature: Application Summary page field verification
     Then verify that user navigate to particular of parent page
     When user enter mandatory fields data in parent details page
       | Title | SurName      | FirstName     | MiddleName     | Relationship | Company      | Occupation | Address1     | Address2 | Country | CityTown | State | Mobile       | Telephone  | Email                    | PostalCode |
-      | Mr.   | Testsurename | Testfirstname | TestMiddleName | Parent       | Test company | service    | Testaddress1 | address2 | Ghana   | cityTown | state | 235434587687 | 3535348788 | testAutomation@gmail.com |     464656 |
+      | Miss   | Testsurename | Testfirstname | TestMiddleName | Parent       | Test company | service    | Testaddress1 | address2 | Ghana   | cityTown | state | 235434587687 | 3535348788 | testAutomation@gmail.com |     464656 |
     And user click next button
     Then verify that user navigation to programme selection page
     When user enter mandatory fields data in programme selection page
@@ -460,7 +460,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature                  |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
+      | Mr.  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on submit button
