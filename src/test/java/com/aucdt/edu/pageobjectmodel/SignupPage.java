@@ -91,7 +91,7 @@ public class SignupPage {
 		if(!("".equals(email))){
 			if("auto".equalsIgnoreCase(email)){
 				Date date= new Date();
-				 emailAuto="automation"+date.getTime()+"@acdt.edu.gh";
+				 emailAuto="automation"+date.getTime()+"@aucdt.edu.gh";
 				 System.out.println("**********Print Email*****"+emailAuto);
 				SeleniumUtil.getWebElement(By.name(EMAIL_NAME)).sendKeys(emailAuto);	
 			
