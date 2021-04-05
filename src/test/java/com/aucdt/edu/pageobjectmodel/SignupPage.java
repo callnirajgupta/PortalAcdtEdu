@@ -79,7 +79,10 @@ public class SignupPage {
 			SeleniumUtil.scrollToWebElement(By.cssSelector(COUNTRY_FLAG_DDROPDOWN_CSS));
 			SeleniumUtil.getWebElement(By.cssSelector(COUNTRY_FLAG_DDROPDOWN_CSS)).click();
 			String countryCode=mobile.substring(0, 3);
-		
+			if(!("+91".equals(countryCode))) {
+				 countryCode=mobile.substring(0, 4);	
+			}
+			
 			String CountryCodeXpath=COUNTRY_CODE_XPATH.replace("countryCode", countryCode);
 			SeleniumUtil.scrollToWebElement(By.xpath(CountryCodeXpath));
 			

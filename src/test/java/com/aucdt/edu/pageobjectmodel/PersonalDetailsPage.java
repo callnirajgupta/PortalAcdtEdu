@@ -5,6 +5,8 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.aucdt.edu.commonstep.GlobalStepDefinition;
 import com.aucdt.edu.util.SeleniumUtil;
@@ -73,14 +75,16 @@ public class PersonalDetailsPage {
     	if(!("".equals(image))){
     		SeleniumUtil.wait(5000);
     		System.out.println("Inside image selection");
+    		 
 			SeleniumUtil.getWebElement(By.xpath(SELECT_IMAGE_XPATH)).click();
 			
 			File file = new File("src/test/resources/Upload/"+image);
 			String path = file.getAbsolutePath();
-			
+			//String path="https://aucdt.edu.gh/img/AUCDT-Logo-for-Website.png";
 			System.out.println("path of file "+path);
 			Thread.sleep(2000);
 			SeleniumUtil.robotUploadFile(path);
+			Thread.sleep(20000);
 		
 		}
     	if(!("".equals(title))){
@@ -289,7 +293,8 @@ public class PersonalDetailsPage {
     
     public static void clickNextButton(){
     	SeleniumUtil.scrollToWebElement(By.xpath(NEXT_BUTTON_XPATH));
-    	SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
+    	SeleniumUtil.javascriptClickElement(By.xpath(NEXT_BUTTON_XPATH));
+    	//SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
     	SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "clickNextButton successfully");
     }
     

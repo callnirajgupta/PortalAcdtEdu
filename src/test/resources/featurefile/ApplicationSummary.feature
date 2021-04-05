@@ -110,7 +110,7 @@ Feature: Application Summary page field verification
     And validate that Referee page filled data persist
 
   @ApplicationSummary3 @Diploma
-  Scenario: Verify that user submit application and able to login successfully
+  Scenario: Verify that user submit application as Diploma and able to login successfully
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page
@@ -168,7 +168,7 @@ Feature: Application Summary page field verification
     Then user should navigate to personal details page
 
   @ApplicationSummary4 @Degree
-  Scenario: Verify that user submit application and able to login successfully for Degree
+  Scenario: Verify that user submit application as degree and able to login successfully for Degree
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page
@@ -289,20 +289,20 @@ Feature: Application Summary page field verification
     When user click on start application button in home page
     And user enter mandatory data field in signup page
       | FirstName     | LastName     | MiddleName     | ProgrammeType | Gender | CountryOfResidence | MobileNumber  | EmailAddress | Password | ConfirmPassword | Captcha |
-      | TestFirstName | TestLastName | TestMiddleName | Certificate   | F      | Ghana              | +919241521992 | auto         | password | password        | yes     |
+      | TestFirstName | TestLastName | TestMiddleName | Certificate   | F      | Ghana              | +233540124400 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
       | Image        | Title | FirstName     | MiddleName     | LastName    | OtherName     | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment             |
       | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | F      | 10/6/1999 | Ghana          | city        | Ghana       | Buddhism | hometown | Ashanti | Yes         | comment SpecialNeed |
     When user enter data in contact information page for postal address
       | Address1     | Address2     | City | State | Country | PostalCode | Phone         |
-      | Testaddress1 | TestAddress2 | City | State | Ghana   |    1313124 | +919241521992 |
+      | Testaddress1 | TestAddress2 | City | State | Ghana   |    1313124 | +233540124400 |
     And user click check as postal address is same as permanent address
     And user click next button
     Then verify that user navigate to particular of parent page
     When user enter mandatory fields data in parent details page
       | Title | SurName      | FirstName     | MiddleName     | Relationship | Company      | Occupation | Address1     | Address2 | Country | CityTown | State | Mobile       | Telephone  | Email                    | PostalCode |
-      | Miss   | TestLastName | Testfirstname | TestMiddleName | Parent       | Test company | service    | Testaddress1 | address2 | Ghana   | cityTown | state | 235434587687 | 3535348788 | testAutomation@gmail.com |     464656 |
+      | Miss   | TestLastName | Testfirstname | TestMiddleName | Parent       | Test company | service    | Testaddress1 | address2 | Ghana   | cityTown | state | 235434587687 | 3535348788 | info@aucdt.edu.gh  |     464656 |
     And user click next button
     Then verify that user navigation to programme selection page
     When user enter mandatory fields data in programme selection page
@@ -331,7 +331,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature                  |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
+      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | info@aucdt.edu.gh  |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on submit button
@@ -413,19 +413,19 @@ Feature: Application Summary page field verification
     
     
     @ApplicationSummary8 @MaleGhana
-  Scenario: Verify that user submit application and able to login successfully for Female and Ghana
+  Scenario: Verify that user submit application and able to login successfully for Male and Ghana
     Given user navigates to home page
     When user click on start application button in home page
     And user enter mandatory data field in signup page
       | FirstName     | LastName     | MiddleName     | ProgrammeType | Gender | CountryOfResidence | MobileNumber  | EmailAddress | Password | ConfirmPassword | Captcha |
-      | TestFirstName | TestLastName | TestMiddleName | Certificate   |M       | Ghana              | +919241521992 | auto         | password | password        | yes     |
+      | TestFirstName | TestLastName | TestMiddleName | Certificate   |M       | Ghana              | +233540124400 | auto         | password | password        | yes     |
     Then user should navigate to personal details page
     When user enter mandatory data in personal details page for following fields
       | Image        | Title | FirstName     | MiddleName     | LastName    | OtherName     | Gender | DOB       | CountryOfBirth | CityOfBirth | Nationality | Religion | HomeTown | Region  | SpecialNeed | Comment             |
       | Passport.jpg | Mr.  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 10/6/1999 | Ghana          | city        | Ghana       | Buddhism | hometown | Ashanti | Yes         | comment SpecialNeed |
     When user enter data in contact information page for postal address
       | Address1     | Address2     | City | State | Country | PostalCode | Phone         |
-      | Testaddress1 | TestAddress2 | City | State | Ghana   |    1313124 | +919241521992 |
+      | Testaddress1 | TestAddress2 | City | State | Ghana   |    1313124 | +233540124400 |
     And user click check as postal address is same as permanent address
     And user click next button
     Then verify that user navigate to particular of parent page

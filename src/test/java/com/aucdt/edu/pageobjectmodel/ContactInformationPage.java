@@ -46,16 +46,17 @@ public class ContactInformationPage {
 				SeleniumUtil.waitWebElementSync);
 		//JSWaiter.setDriver(SeleniumUtil.getDriver());
 		//JSWaiter.waitUntilAngularReady();
+		System.out.println("print current page title"+SeleniumUtil.getDriver().getCurrentUrl());
 	}
 
 	public static void postalAddressFilling(String address1, String address2, String city, String state, String country,
 			String postCode, String phone) throws Throwable {
          
-		
+		 
 		  if (!("".equals(address1))) { 
-			  Thread.sleep(10000);
+			  Thread.sleep(20000);
 		  
-			  SeleniumUtil.javascriptClickElement(By.xpath(POSTAL_ADDRESS1_XPATH));
+		  SeleniumUtil.javascriptClickElement(By.xpath(POSTAL_ADDRESS1_XPATH));
 		  SeleniumUtil.getWebElement(By.xpath(POSTAL_ADDRESS1_XPATH)).sendKeys(address1
 		  );
 		  
@@ -110,6 +111,9 @@ public class ContactInformationPage {
 
 		if (!("".equals(phone))) {
 			String countryCode=phone.substring(0, 3);
+			if(!("+91".equals(countryCode))) {
+				 countryCode=phone.substring(0, 4);	
+			}
 			SeleniumUtil.scrollToWebElement(By.name(POSTAL_TELEPHONE_NAME));
 			SeleniumUtil.getWebElement(By.name(POSTAL_TELEPHONE_NAME)).clear();
 			SeleniumUtil.wait(2000);
