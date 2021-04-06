@@ -49,13 +49,13 @@ Feature: Add Subject for The Examination Page functionality checking
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page and validate error message
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature     | Message                                                   |
-      |       | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Title               |
-      | Miss  |              | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Position            |
+      |       | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Title               |
+      | Miss  |              | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Position            |
       | Miss  | TestPosition |              | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Name                |
-      | Miss  | TestPosition | TestFullName |                            | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Email Address       |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh |             | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Occupation          |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice |           | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Date is in future |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 |               | Please fill in the required field(s): Applicant Signature |
+      | Miss  | TestPosition | TestRefereeFullName |                            | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Email Address       |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh |             | 10/6/2015 | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Occupation          |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice |           | TestAutomation@acdt.edu.gh | Please fill in the required field(s): Date is in future |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 |               | Please fill in the required field(s): Applicant Signature |
 
   @Referee2
   Scenario: Verify that user navigate to Application Summary page after filling all mandatory fields.
@@ -105,7 +105,7 @@ Feature: Add Subject for The Examination Page functionality checking
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature     |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
     And user click Preview button
     Then verify that user navigation to Application Summary page
 
@@ -159,7 +159,7 @@ Feature: Add Subject for The Examination Page functionality checking
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature     |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestSignature |
     And user click on previous button in Referee page
     Then verify that user navigation to Financing Your Study page
     And validate that Financing Your Study page filled data persist 

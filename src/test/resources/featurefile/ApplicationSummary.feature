@@ -49,7 +49,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature                  |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     And verify the filled data in signup page is display correctly in application summary page
@@ -102,7 +102,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature                  |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on previous button in Application Summary page
@@ -157,7 +157,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature                  |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on submit button
@@ -215,7 +215,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature                  |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on submit button
@@ -273,7 +273,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature                  |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on submit button
@@ -331,7 +331,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature                  |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | info@aucdt.edu.gh  |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | info@aucdt.edu.gh  |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on submit button
@@ -389,7 +389,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature                  |
-      | Miss  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
+      | Miss  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on previous button in Application Summary page
@@ -460,7 +460,7 @@ Feature: Application Summary page field verification
     Then verify that user navigation to Referee page
     When user enter mandatory fields data in Referee page
       | Title | Position     | FullName     | Email                      | Occupation  | Date      | Signature                  |
-      | Mr.  | TestPosition | TestFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
+      | Mr.  | TestPosition | TestRefereeFullName | TestAutomation@acdt.edu.gh | Testservice | 10/6/2015 | TestAutomation@acdt.edu.gh |
     And user click Preview button
     Then verify that user navigation to Application Summary page
     When user click on submit button
