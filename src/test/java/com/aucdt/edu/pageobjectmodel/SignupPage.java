@@ -52,7 +52,10 @@ public class SignupPage {
 			SeleniumUtil.getWebElement(By.name(LASTNAME_NAME)).sendKeys(lastName);	
 		}
 		if(!("".equals(programme))){
-			SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_XPATH)).click();
+			//SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_XPATH)).click();
+			SeleniumUtil.scrollToWebElement(By.xpath(PROGRAMME_TYPE_XPATH));
+			SeleniumUtil.javascriptClickElement(By.xpath(PROGRAMME_TYPE_XPATH));
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", programme))).click();
 			
 		}
