@@ -119,7 +119,7 @@ try {
 			
 
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();
-			String filename2 = System.getProperty("user.dir") + "\\target\\CucumberReport.zip";
+			String filename2 = System.getProperty("user.dir") + "/target/CucumberReport.zip";
 
 			try {
 				messageBodyPart2.attachFile(filename2, "application/zip", "base64");
