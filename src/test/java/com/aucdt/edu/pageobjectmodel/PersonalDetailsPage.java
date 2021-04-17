@@ -12,7 +12,7 @@ import com.aucdt.edu.commonstep.GlobalStepDefinition;
 import com.aucdt.edu.util.SeleniumUtil;
 
 public class PersonalDetailsPage {
-	private static final Logger LOGGER = LogManager.getLogger(SignupPage.class);
+	private static final Logger LOGGER = LogManager.getLogger(PersonalDetailsPage.class);
 	public static final String PERSONAL_DETAILS_TITLE_XPATH = "//h3[text()='Personal Details']";
     public static final String TITLE_XPATH="//div[label[text()='Title']]//div/span";
     public static final String TITLE_GETTEXT_XPATH="//div[label[text()='Title']]//div/span/span";
@@ -48,7 +48,8 @@ public class PersonalDetailsPage {
     public static final String CALENDAR_YEAR_XPATH="//select[@title='Select year']";
     public static final String CALENDAR_DATE_XPATH="(//div[text()='date'])[1]";
     public static final String PASSPORT_PICTURE="//div[@class='thumbnail img-no-padding']/img";
-    
+    public static final String REMOVE_BUTTON = "//button[contains(text(),'Remove')]";
+    public static final String IMAGE="//div[h6[text()='Passport Picture']]//img";
     public static void validatePersonalDetailsTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
 		SeleniumUtil.wait(5000);
@@ -84,7 +85,15 @@ public class PersonalDetailsPage {
 			System.out.println("path of file "+path);
 			Thread.sleep(2000);
 			SeleniumUtil.robotUploadFile(path);
-			Thread.sleep(20000);
+			SeleniumUtil.waitWebElementClickable(By.xpath(REMOVE_BUTTON), 20000);
+			Thread.sleep(8000);
+			
+			System.out.println("************************************");
+			if (SeleniumUtil.getWebElement(By.xpath(IMAGE)).getAttribute("naturalWidth").equals("0"))
+		    {
+		        System.out.println(SeleniumUtil.getWebElement(By.xpath(IMAGE)).getAttribute("outerHTML") + " is broken.");
+		    }
+			
 		
 		}
     	if(!("".equals(title))){
@@ -371,5 +380,7 @@ public class PersonalDetailsPage {
     	SeleniumUtil.scrollToWebElement(By.name(SPECIAL_NEED_TEXT_NAME));
       	 return SeleniumUtil.getWebElement(By.name(SPECIAL_NEED_TEXT_NAME)).getAttribute("value");
       }
+    
+    
       
 }
