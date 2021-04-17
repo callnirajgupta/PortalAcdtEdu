@@ -133,7 +133,7 @@ try {
 
 			// third part for displaying image in the email body
 			messageBodyPart = new MimeBodyPart();
-			messageBodyPart.setContent("<h1>Attached is the zip</h1>" + "<img src= filename>", "text/html");
+			messageBodyPart.setContent("<h1>Attached is the zip</h1>", "text/html");
 			multipart.addBodyPart(messageBodyPart);
 
 			// Set the multipart message to the email message
