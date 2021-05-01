@@ -273,8 +273,10 @@ public class PersonalDetailsPage {
 		
 			SeleniumUtil.getWebElement(By.name(PLACE_OF_BIRTH_NAME)).clear();
 		
+			SeleniumUtil.scrollToWebElement(By.xpath(RELIGION_XPATH));
 			SeleniumUtil.getWebElement(By.xpath(RELIGION_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "5"))).sendKeys(religion);
+			//SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH)).click();
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", religion))).click();	
 	
 		

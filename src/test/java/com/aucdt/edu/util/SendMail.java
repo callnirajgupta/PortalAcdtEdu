@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Properties;
-
+import java.util.concurrent.TimeUnit;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -21,17 +21,18 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.google.common.io.Files;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class SendMail {
 
 	public static void main(String[] args) throws UnsupportedEncodingException {
-		// Properties props = new Properties();
-		/*
-		 * props.put("mail.smtp.host", "smtp.gmail.com");
-		 * props.put("mail.smtp.socketFactory.port", "465");
-		 * 
-		 * props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		 * props.put("mail.smtp.auth", "true"); props.put("mail.smtp.port", "465");
-		 */
 
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.aucdt.edu.gh");
@@ -72,51 +73,32 @@ public class SendMail {
 
 			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("admin_dev@aucdt.edu.gh"));
 
-			// Create the message body part
-			BodyPart messageBodyPart = new MimeBodyPart();
-
-			messageBodyPart.setText("Find mail as report");
+			// msg.setRecipients(Message.RecipientType.TO,
+			// InternetAddress.parse("callnirajgupta@gmail.com"));
 
 			// Create a multipart message for attachment
 			Multipart multipart = new MimeMultipart();
 
-			// Set text message part
-			multipart.addBodyPart(messageBodyPart);
-
-			// Second part is image attachment
-			messageBodyPart = new MimeBodyPart();
-			String filename = System.getProperty("user.dir")
-					+ "/target/cucumber-JVM-reports/cucumber-html-reports/overview-features.html";
-
-			DataSource source = new FileDataSource(filename);
-			messageBodyPart.setDataHandler(new DataHandler(source));
-			messageBodyPart.setFileName(filename);
-			// Trick is to add the content-id header here
-			messageBodyPart.setHeader("Content-ID", "image_id");
-			
 			// zip the cucumber html report--
-			
-			File f = new File(System.getProperty("user.dir")+"/target/cucumber-html-report");
 
-	        // Populates the array with names of files and directories
-	    	String[] myFiles = f.list();
-	    	String path=System.getProperty("user.dir")+"/target/cucumber-html-report/";
-	    	for(int i=0;i<myFiles.length;i++) {
-	    		myFiles[i]=path+myFiles[i];
-	    	}
-	    	
-	    	
-	    	
-	    	String zipFile = System.getProperty("user.dir")+"/target/CucumberReport.zip";
-	    	ZipTheFolder zipfolder= new ZipTheFolder();
-try {
-	zipfolder.zip(myFiles, zipFile);
-} catch (Exception ex) {
-    // some errors occurred
-    ex.printStackTrace();
-  }
+			File f = new File(System.getProperty("user.dir") + "/target/cucumber-html-report");
+
+			// Populates the array with names of files and directories
+			String[] myFiles = f.list();
+			String path = System.getProperty("user.dir") + "/target/cucumber-html-report/";
+			for (int i = 0; i < myFiles.length; i++) {
+				myFiles[i] = path + myFiles[i];
+			}
+
+			String zipFile = System.getProperty("user.dir") + "/target/CucumberReport.zip";
+			ZipTheFolder zipfolder = new ZipTheFolder();
+			try {
+				zipfolder.zip(myFiles, zipFile);
+			} catch (Exception ex) {
+				// some errors occurred
+				ex.printStackTrace();
+			}
 			// Second Attachement
-			
 
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();
 			String filename2 = System.getProperty("user.dir") + "/target/CucumberReport.zip";
@@ -128,15 +110,29 @@ try {
 				e.printStackTrace();
 			}
 
-			multipart.addBodyPart(messageBodyPart);
 			multipart.addBodyPart(messageBodyPart2);
 
 			// third part for displaying image in the email body
-			messageBodyPart = new MimeBodyPart();
-			messageBodyPart.setContent("<h1>Attached is the zip</h1>", "text/html");
+			BodyPart messageBodyPart = new MimeBodyPart();
+			String htmlText = "<H1>Please find attached Report</H1><img src=\"cid:image\">";
+			messageBodyPart.setContent(htmlText, "text/html");
+			// add it
 			multipart.addBodyPart(messageBodyPart);
+			try {
+				takeReportScreenShot();
+				String filename3 = System.getProperty("user.dir") + "/target/report.png";
+				messageBodyPart = new MimeBodyPart();
+				DataSource fds = new FileDataSource(filename3);
+
+				messageBodyPart.setDataHandler(new DataHandler(fds));
+				messageBodyPart.setHeader("Content-ID", "image");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 			// Set the multipart message to the email message
+			multipart.addBodyPart(messageBodyPart);
 			msg.setContent(multipart);
 
 			// Send message
@@ -148,4 +144,18 @@ try {
 
 	}
 
+	public static void takeReportScreenShot() throws IOException {
+		String filename1 = System.getProperty("user.dir")
+				+ "/target/cucumber-JVM-reports/cucumber-html-reports/overview-features.html";
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(filename1);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		// take screenshot
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(scrFile, new File(System.getProperty("user.dir") + "/target/report.png"));
+		driver.close();
+	}
 }

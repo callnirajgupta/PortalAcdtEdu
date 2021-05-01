@@ -102,7 +102,7 @@ public class SeleniumUtil {
 					//System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
 					WebDriverManager.chromedriver().setup();
 					ChromeOptions chromeOptions = new ChromeOptions();
-					chromeOptions.addArguments("headless");  
+					//chromeOptions.addArguments("headless");  
 					//chromeOptions.addArguments("--proxy-server='direct://'");
 					//chromeOptions.addArguments("--proxy-bypass-list=*");
 					//driver = new ChromeDriver(chromeOptions);
@@ -491,8 +491,8 @@ public class SeleniumUtil {
 	
 	public static void javaScriptSendKey(String name,String value) {
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("document.getElementByName(name).setAttribute('value', value)");
-		
-		
+		jse.executeScript("document.getElementByName(name).setAttribute('value', value)");	
 	}
+	
+	
 }

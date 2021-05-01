@@ -34,8 +34,8 @@ Feature: personal details page fields validation
       | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 11/6/1999 | India          |             | Afghanistan | Buddhism | hometown | Ashanti | Yes         | comment | Please fill in the required field(s): City of Birth              |
       #Defect| Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 13/6/1999 | India          | city        |   PLEASE SELECT        | Buddhism | hometown | Ashanti | Yes         | comment | Please fill in the required field(s): Nationality                |
       | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 12/6/1999 | India          | city        | Afghanistan | Buddhism |          | Ashanti | Yes         | comment | Please fill in the required field(s): Hometown                   |
-      #Defect| Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 13/6/1999 | India          | city        | Afghanistan | Buddhism | hometown |         | Yes         | comment | Please fill in the required field(s): Region                     |
-      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 11/6/1999 | India          | city        | Afghanistan | Buddhism | hometown |         | Yes         |  | Please fill in the required field(s): Special Need Status Reason |
+     | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 13/6/1999 | India          | city        | Afghanistan | Buddhism | hometown |         | Yes         | comment | Please fill in the required field(s): Region                     |
+      | Passport.jpg | Miss  | TestFirstName | TestMiddleName | TestLastName | TestOtherName | M      | 11/6/1999 | India          | city        | Afghanistan | Buddhism | hometown | Ashanti        | Yes         |  | Please fill in the required field(s): Special Need Status Reason |
 
   @Personal4
   Scenario: personal details page navigation to contact information navigation

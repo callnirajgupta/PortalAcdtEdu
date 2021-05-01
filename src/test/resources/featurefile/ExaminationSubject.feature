@@ -118,13 +118,13 @@ Feature: Add Subject for The Examination Page functionality checking
       | Grade1 | Grade2 | Subject3    | Grade3 | Subject4 | Grade4 | Subject5 | Grade5 | Subject6 | Grade6 | Message                                                                    |
       |        |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Grade for English Language in WASSCE |
       |      1 |        | lifeScience |      3 | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Grade for Mathematics in WASSCE      |
-      |      1 |      2 |             |      3 | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Subject in examination WASSCE        |
+      |      1 |      2 |             |      3 | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Subject 3 in examination WASSCE        |
       |      1 |      2 | lifeScience |        | French   |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Grade for lifeScience in WASSCE      |
-      |      1 |      2 | lifeScience |      3 |          |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Subject in examination WASSCE        |
+      |      1 |      2 | lifeScience |      3 |          |      4 | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Subject 4 in examination WASSCE        |
       |      1 |      2 | lifeScience |      3 | French   |        | Physic   |      5 | Social   |      6 | Please fill in the required field(s): Grade for French in WASSCE      |
-      |      1 |      2 | lifeScience |      3 | French   |      4 |          |      5 | Social   |      6 | Please fill in the required field(s): Subject in examination WASSCE        |
+      |      1 |      2 | lifeScience |      3 | French   |      4 |          |      5 | Social   |      6 | Please fill in the required field(s): Subject 5 in examination WASSCE        |
       |      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |        | Social   |      6 | Please fill in the required field(s): Grade for Physic in WASSCE      |
-      |      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 |    |      6 | Please fill in the required field(s): Subject in examination WASSCE        |
+      |      1 |      2 | lifeScience |      3 | French   |      4 | Physic   |      5 |    |      6 | Please fill in the required field(s): Subject 6 in examination WASSCE        |
       |      1 |      2 | lifeScience |      3  | French   |      4 | Physic   |      5 | Social   |       | Please fill in the required field(s): Grade for Social in WASSCE      |
 
   @ExaminationSubject4
