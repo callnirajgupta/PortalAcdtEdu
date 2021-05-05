@@ -38,7 +38,7 @@ public class ParentDetailsPage {
     
     public static void validateParentDetailsTitle() {
 		LOGGER.info("Inside validateParentDetailsTitle Method");
-		SeleniumUtil.wait(5000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(PARENT_DETAILS_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 	}
 
@@ -48,7 +48,7 @@ public class ParentDetailsPage {
 			throws Throwable {
 
 		if (!("".equals(title))) {
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 			SeleniumUtil.scrollToWebElement(By.xpath(TITLE_XPATH));
 		    if(SeleniumUtil.getWebElements(By.xpath(TITLE_XPATH)).size()>0){
 		    SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
@@ -143,7 +143,7 @@ public class ParentDetailsPage {
 			SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_XPATH));
 			if(!(country.equals(SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).getText().trim()))){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).click();
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys(country);
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).click();
@@ -153,9 +153,9 @@ public class ParentDetailsPage {
 			}	
 		}else{
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).click();
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "2"))).sendKeys("Please Select");
-			SeleniumUtil.wait(5000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", "Please Select"))).click();
 		}
 		if (!("".equals(city))) {
@@ -206,7 +206,7 @@ public class ParentDetailsPage {
 	}
 
 	public static String getErrorMessage() {
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.scrollToWebElement(By.xpath(ERROR_MESSAGE_XPATH));
 		return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 

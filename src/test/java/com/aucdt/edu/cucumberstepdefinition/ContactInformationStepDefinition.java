@@ -51,13 +51,13 @@ public class ContactInformationStepDefinition {
 	    boolean flag=true;
 	    for(int i=0;i<dataTable.size();i++){
 		ContactInformationPage.postalAddressFilling(dataTable.get(i).get("Address1"),dataTable.get(i).get("Address2"), dataTable.get(i).get("City"), dataTable.get(i).get("State"),dataTable.get(i).get("Country") , dataTable.get(i).get("PostalCode"),dataTable.get(i).get("Phone"));
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		ContactInformationPage.permanentAddressFilling("Address1","Address2", "City", "State","Afghanistan" , "1313124","+9133456789");
 		ContactInformationPage.clickNextButton();
 	
 		//////////////////////////
 		try {
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
 			
             Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), ContactInformationPage.getErrorMessage());
 			
@@ -185,7 +185,7 @@ public class ContactInformationStepDefinition {
 		}*/
 		
 		try {
-			SeleniumUtil.wait(5000);
+			SeleniumUtil.wait(1000);
 			Assert.assertEquals("The Permanent Address1 is not matching",ContactInformationPage.getPermanentAddress1FilledText(),
 					contactInformationPostalAddressDataTable.get(0).get("Address1"));
 		} catch (AssertionError e) {

@@ -30,7 +30,7 @@ public class EducationalBackGround {
 		for (int i = 0; i < dataTable.size(); i++) {
 			if(i!=0){
 				SeleniumUtil.refreshPage();
-				SeleniumUtil.wait(2000);
+				SeleniumUtil.wait(1000);
 			}
 			EducationalBackgroundPage.enterCurrentEducationalBackGroundDetails(
 					dataTable.get(i).get("RecentInstitution"), dataTable.get(i).get("City"),
@@ -41,7 +41,7 @@ public class EducationalBackGround {
 			
 			
 			try {
-				SeleniumUtil.wait(2000);
+				SeleniumUtil.wait(1000);
 				LOGGER.info("Validating error message as "+ dataTable.get(i).get("Message"));
 	            Assert.assertEquals("The Error message is Not matching ", dataTable.get(i).get("Message"), EducationalBackgroundPage.getErrorMessage());
 				 

@@ -36,7 +36,7 @@ public class ExaminationPage {
     
     public static void validateExaminationTitle() {
 		LOGGER.info("Inside validateExaminationTitle Method");
-		SeleniumUtil.wait(5000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(EXAMINATION_HEADER_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}
@@ -61,17 +61,17 @@ public class ExaminationPage {
 			SeleniumUtil.getWebElement(By.xpath(UPLOAD_RESULT_SLIP_BUTTON_XPATH)).click();
 			File file = new File("src/test/resources/Upload/"+resultSlip);
 			String path = file.getAbsolutePath();
-			
+			//String path="https://aucdt.edu.gh/img/AUCDT-Logo-for-Website.png";
 			System.out.println("path of file "+path);
 			Thread.sleep(4000);
 			SeleniumUtil.robotUploadFile(path);
-			Thread.sleep(8000);
+			Thread.sleep(5000);
 			}
 		}
 		
 		public static void clickClearUploadedSlip(){
 			SeleniumUtil.validateWebElementVisible(By.xpath(CLEAR_RESULT_SLIP_XPATH), SeleniumUtil.waitWebElementSync);
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(CLEAR_RESULT_SLIP_XPATH)).click();
 		}
 		
@@ -112,7 +112,7 @@ public class ExaminationPage {
 				SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
 				Thread.sleep(1000);
 				SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
-				Thread.sleep(2000);	
+				//Thread.sleep(2000);	
 				
 			}
 			

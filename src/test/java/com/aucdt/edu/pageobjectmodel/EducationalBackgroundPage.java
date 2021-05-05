@@ -51,7 +51,7 @@ public class EducationalBackgroundPage {
     public static final String PREVIOUS_XPATH = "//a[text()='Previous']";
     public static void validateEducationalBackgroundTitle() {
 		LOGGER.info("Inside validateEducationalBackgroundTitle Method");
-		SeleniumUtil.wait(5000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(EDUCATIONAl_BACKGROUND_HEADER_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}
@@ -83,7 +83,7 @@ public class EducationalBackgroundPage {
 		LOGGER.info("Inside enterCurrentEducationalBackGroundDetails Method");
 		
 		if(!("".equals(recentInstitution))){
-			SeleniumUtil.wait(5000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.name(CURRENT_RECENT_SHS_INSTITUTE_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(CURRENT_RECENT_SHS_INSTITUTE_NAME)).sendKeys(recentInstitution);	
 		}else{
@@ -98,11 +98,11 @@ public class EducationalBackgroundPage {
 		}
 		
 		if(!("".equals(country))){
-			SeleniumUtil.wait(5000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_XPATH));
 			if(!country.equals(SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_XPATH)).click();
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(country);
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).click();
@@ -125,7 +125,7 @@ public class EducationalBackgroundPage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
-			Thread.sleep(2000);	
+			//Thread.sleep(2000);	
 			
 		}
 		
@@ -139,7 +139,7 @@ public class EducationalBackgroundPage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
-			Thread.sleep(2000);	
+			//Thread.sleep(2000);	
 			
 		}
 		
@@ -195,7 +195,7 @@ public class EducationalBackgroundPage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
-			Thread.sleep(2000);	
+			//Thread.sleep(2000);	
 			
 		}
 		
@@ -208,7 +208,7 @@ public class EducationalBackgroundPage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
-			Thread.sleep(2000);	
+			//Thread.sleep(2000);	
 			
 		}
 		
@@ -252,7 +252,7 @@ public class EducationalBackgroundPage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
-			Thread.sleep(2000);	
+			//Thread.sleep(2000);	
 			
 		}
 		if(!("".equals(hostel))){
@@ -279,7 +279,7 @@ public class EducationalBackgroundPage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
 			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
-			Thread.sleep(2000);	
+			//Thread.sleep(2000);	
 			
 		}
 		
@@ -300,21 +300,21 @@ public class EducationalBackgroundPage {
 		SeleniumUtil.getWebElement(By.xpath(NEXT_BUTTON_XPATH)).click();
 	}
 	public static void clickOtherEducationalBackGroundButton() throws InterruptedException{
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		SeleniumUtil.scrollToWebElement(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH));
 		SeleniumUtil.waitWebElementClickable(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH), 20);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		//SeleniumUtil.doubleClick(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH));
 		SeleniumUtil.javascriptClickElement(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH));
 		
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		SeleniumUtil.javascriptClickElement(By.xpath(ADD_OTHER_QUALIFICATION_BUTTON_XPATH));
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 	}
 	public static void clickDeleteSectionOtherEducationalBackGroundButton() throws InterruptedException{
 		SeleniumUtil.waitWebElementClickable(By.xpath(OLD_INSTITUTION_DELETE_BUTTON_XPATH), 20);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		SeleniumUtil.javascriptClickElement(By.xpath(OLD_INSTITUTION_DELETE_BUTTON_XPATH));
 		//SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_DELETE_BUTTON_XPATH)).click();
 	}
@@ -335,11 +335,11 @@ public class EducationalBackgroundPage {
 	public static void clickYesNoDeleteOtherEducationalConfirmation(String yesNo) throws InterruptedException{
 		
 		if("yes".equalsIgnoreCase(yesNo)){
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			SeleniumUtil.waitWebElementClickable(By.xpath(OLD_INSTITUTION_DELETE_YES_XPATH), 30);
 			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_DELETE_YES_XPATH)).click();	
 		}else {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			SeleniumUtil.waitWebElementClickable(By.xpath(OLD_INSTITUTION_DELETE_NO_XPATH), 30);
 			SeleniumUtil.getWebElement(By.xpath(OLD_INSTITUTION_DELETE_NO_XPATH)).click();
 		}
@@ -347,7 +347,7 @@ public class EducationalBackgroundPage {
 	}
 	
 	public static String getErrorMessage(){
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.scrollToWebElement(By.xpath(ERROR_MESSAGE_XPATH));
 		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 		

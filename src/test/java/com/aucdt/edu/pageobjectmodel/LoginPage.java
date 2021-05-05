@@ -19,7 +19,7 @@ public class LoginPage {
 	
 	public static void validateLoginTitle() {
 		LOGGER.info("Inside validateLoginTitle Method");
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.validateWebElementVisible(LOGIN_TITLE,
 				SeleniumUtil.waitWebElementSync);
 		
@@ -44,12 +44,12 @@ public class LoginPage {
 	
 	public static void clickCaptchaCheckBox(){
 		LOGGER.info("Inside clickCaptchaCheckBox method");
-		SeleniumUtil.wait(3000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.getDriver().switchTo().frame(0);
 		SeleniumUtil.javascriptClickElement(LOGIN_CAPTCHA);
 		//SeleniumUtil.getWebElement(LOGIN_CAPTCHA).click();
 		SeleniumUtil.switchToDefaultContent();
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Login page Enter data successfully");
 	}
 	
@@ -68,7 +68,7 @@ public class LoginPage {
 	
 	public static String getErrorMessage() {
 		LOGGER.info("Inside getErrorMessage method");
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		
 		return SeleniumUtil.getWebElement(ERROR_MESSAGE_XPATH).getText().trim();
 

@@ -16,7 +16,7 @@ public class HomePage {
 	public static final String FAQS_TAB_XPATH="//a[text()=' FAQs']";
 	public static void validateHomePageTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
-		SeleniumUtil.wait(3000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(HOME_TITLE_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}

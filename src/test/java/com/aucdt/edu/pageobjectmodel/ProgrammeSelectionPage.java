@@ -21,13 +21,13 @@ public class ProgrammeSelectionPage {
 	
 	public static void validateProgrammeSelectionTitle() {
 		LOGGER.info("Inside validateProgrammeSelectionTitle Method");
-		SeleniumUtil.wait(5000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(PROGRAMME_SELECTION_HEADER_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}
 	public static String getErrorMessage(){
 		LOGGER.info("Inside getErrorMessage method");
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		String message = SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 		  
 		System.out.println("print message"+message);
@@ -38,12 +38,12 @@ public class ProgrammeSelectionPage {
 		LOGGER.info("Inside programmeSelectionDetailsFilling method");
 		
 		if(!("".equals(programmeType))){
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 			if(!programmeType.equals(SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(PROGRAMME_TYPE_XPATH)).click();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "1"))).sendKeys(programmeType);
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(SELECT_LABEL_XPATH.replace("selectText", programmeType))).click();
 			}	
 		}

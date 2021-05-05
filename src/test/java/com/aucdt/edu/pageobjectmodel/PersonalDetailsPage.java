@@ -52,7 +52,7 @@ public class PersonalDetailsPage {
     public static final String IMAGE="//div[h6[text()='Passport Picture']]//img";
     public static void validatePersonalDetailsTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
-		SeleniumUtil.wait(5000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(PERSONAL_DETAILS_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Personal details page loaded successfully");
     }
@@ -62,7 +62,7 @@ public class PersonalDetailsPage {
     	LOGGER.info("Inside validatePrefilledFieldsFromSignUpPage method");
     	
     	SeleniumUtil.validateWebElementVisible(By.name(FIRSTNAME_NAME), SeleniumUtil.waitWebElementSync);
-    	SeleniumUtil.wait(2000);
+    	SeleniumUtil.wait(1000);
     	Assert.assertEquals("The first name prefilled data is not matching", firstName, SeleniumUtil.getWebElement(By.name(FIRSTNAME_NAME)).getAttribute("value"));
     	Assert.assertEquals("The surname prefilled data is not matching", surname, SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).getAttribute("value"));
     	Assert.assertEquals("The gender prefilled data is not matching", gender, SeleniumUtil.getWebElement(By.xpath(GENDER_XPATH)).getText().trim());
@@ -74,7 +74,7 @@ public class PersonalDetailsPage {
 			String otherName,String gender,String dob,String countryOfBirth ,String cityOfBirth,String nationality ,String religion,String homeTown ,String region ,String specialNeed,String comment) throws Throwable{
     	
     	if(!("".equals(image))){
-    		SeleniumUtil.wait(5000);
+    		SeleniumUtil.wait(1000);
     		System.out.println("Inside image selection");
     		 
 			SeleniumUtil.getWebElement(By.xpath(SELECT_IMAGE_XPATH)).click();
@@ -98,7 +98,7 @@ public class PersonalDetailsPage {
 		
 		}
     	if(!("".equals(title))){
-    		Thread.sleep(3000);
+    		Thread.sleep(1000);
     		SeleniumUtil.scrollToWebElement(By.xpath(TITLE_XPATH));
     		if("Select title".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).click();
@@ -128,7 +128,7 @@ public class PersonalDetailsPage {
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).sendKeys(lastName);	
 		}else{
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).sendKeys("");
 			SeleniumUtil.getWebElement(By.name(SURNAME_NAME)).clear();
@@ -166,9 +166,9 @@ public class PersonalDetailsPage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
 			Thread.sleep(1000);
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1], "SelectByvalue");
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			SeleniumUtil.getWebElement(By.xpath(CALENDAR_DATE_XPATH.replace("date", dobsplit[0]))).click();
-			Thread.sleep(2000);
+			//Thread.sleep(2000);
 			
 			
 		}
@@ -177,7 +177,7 @@ public class PersonalDetailsPage {
 			SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_OF_BIRTH_XPATH));
 			 if("SELECT COUNTRY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_BIRTH_XPATH)).getText().trim())){
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_BIRTH_XPATH)).click();
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "3"))).sendKeys(countryOfBirth);
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "3"))).click();
@@ -197,7 +197,7 @@ public class PersonalDetailsPage {
 		    if(!("SELECT NATIONALITY".equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim())) && !(nationality.equalsIgnoreCase(SeleniumUtil.getWebElement(By.xpath(NATIONALITY_SELECTED_TEXT_XPATH)).getText().trim()))){
 			
 		    SeleniumUtil.getWebElement(By.xpath(NATIONALITY_XPATH)).click();
-		    SeleniumUtil.wait(2000);
+		    SeleniumUtil.wait(1000);
 		    SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).sendKeys(nationality);
 		    SeleniumUtil.wait(1000);
 		    SeleniumUtil.getWebElement(By.xpath(SEARCH_XPATH.replace("index", "4"))).click();
@@ -292,7 +292,7 @@ public class PersonalDetailsPage {
    
     
     public static String getErrorMessage(){
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Personal details error loaded successfully");
 		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 		

@@ -31,7 +31,7 @@ public class ExaminationSubjectPage {
 	
 	public static void validateExaminationSubjectTitle() {
 		LOGGER.info("Inside validateAddSubjectForExaminationTitle Method");
-		SeleniumUtil.wait(5000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(EXAMINATION_SUBJECT_HEADER_XPATH),
 				SeleniumUtil.waitWebElementSync);
 	}
@@ -48,7 +48,7 @@ public class ExaminationSubjectPage {
 	public static void enterMandatoryFieldForExaminationSubjectTaken(String grade1,String grade2,String subject3,String grade3,String subject4,String grade4,String subject5,String grade5 ,String subject6,String grade6){
 		
 		if(!("".equals(grade1))){
-			SeleniumUtil.wait(5000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.scrollToWebElement(By.xpath(GRADE_XPATH));
 			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(0).clear();
 			SeleniumUtil.getWebElements(By.xpath(GRADE_XPATH)).get(0).sendKeys(grade1);	
@@ -128,7 +128,7 @@ public class ExaminationSubjectPage {
 	
 	}
 	public static String getErrorMessage(){
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.scrollToWebElement(By.xpath(ERROR_MESSAGE_XPATH));
 		 return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 		

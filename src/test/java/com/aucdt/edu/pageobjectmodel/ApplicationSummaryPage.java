@@ -104,13 +104,13 @@ public class ApplicationSummaryPage {
     
     public static void validateApplicationSummaryTitle() {
 		LOGGER.info("Inside validateFinancingYourStudyTitle Method");
-		SeleniumUtil.wait(5000);
+		//SeleniumUtil.wait(5000);
 		SeleniumUtil.validateWebElementVisible(APPLICATION_SUMMARY_HEADER_XPATH,
 				SeleniumUtil.waitWebElementSync);
 	}
     
     public static void validateApplicationCongratulationTitle() {
-    	SeleniumUtil.wait(5000);
+    	//SeleniumUtil.wait(5000);
 		LOGGER.info("Inside validateApplicationCongratulationTitle Method");
 		SeleniumUtil.validateWebElementVisible(APPLICATION_CONGRATULATION,
 				SeleniumUtil.waitWebElementSync);
@@ -125,7 +125,7 @@ public class ApplicationSummaryPage {
 		LOGGER.info("Inside getPersonalTitleFilledText Method");
 		  SeleniumUtil.scrollToWebElement(PERSONAL_TITLE);
 		SeleniumUtil.validateWebElementVisible(PERSONAL_TITLE, SeleniumUtil.waitWebElementSync);
-		SeleniumUtil.wait(5000);
+		//SeleniumUtil.wait(5000);
 		return SeleniumUtil.getWebElement(PERSONAL_TITLE).getText();
 	}
 	

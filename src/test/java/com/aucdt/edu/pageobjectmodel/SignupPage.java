@@ -33,7 +33,7 @@ public class SignupPage {
 	public static String emailAuto;
 	public static void validateSignupTitle() {
 		LOGGER.info("Inside validateHomePageTitle Method");
-		SeleniumUtil.wait(5000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(SIGNUP_TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Signup Loaded successfully");
 	}
@@ -70,7 +70,7 @@ public class SignupPage {
 		if(!("".equals(country))){
 			SeleniumUtil.scrollToWebElement(By.xpath(COUNTRY_OF_RESIDENCE_XPATH));
 			SeleniumUtil.getWebElement(By.xpath(COUNTRY_OF_RESIDENCE_XPATH)).click();
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_LABEL_XPATH.replace("index", "3"))).sendKeys(country);
 			SeleniumUtil.getWebElement(By.xpath(SEARCH_LABEL_XPATH.replace("index", "3"))).click();
 			SeleniumUtil.wait(1000);
@@ -118,7 +118,7 @@ public class SignupPage {
 			//SeleniumUtil.getWebElement(By.xpath(CAPTCHA_XPATH)).click();
 			SeleniumUtil.javascriptClickElement(By.xpath(CAPTCHA_XPATH));
 			SeleniumUtil.switchToDefaultContent();
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
 		}
 		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Signup enter data successfully");
 			
@@ -132,7 +132,7 @@ public class SignupPage {
 	}
 	
 	public static void ValidateErrorMessage(String message){
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		Assert.assertEquals("The signup page error message not matching", message, SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim());
 		SeleniumUtil.PassTestStep(SeleniumUtil.getDriver(), GlobalStepDefinition.getExtentTest(), "Signup message validation successfully");
 	}

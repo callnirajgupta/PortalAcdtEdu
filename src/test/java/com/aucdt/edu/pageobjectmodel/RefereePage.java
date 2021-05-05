@@ -33,7 +33,7 @@ public class RefereePage {
 	
 	public static void validateRefereeTitle() {
 		LOGGER.info("Inside validateRefereeTitle Method");
-		SeleniumUtil.wait(5000);
+		SeleniumUtil.wait(1000);
 		SeleniumUtil.validateWebElementVisible(By.xpath(REFEREE_HEADER_XPATH), SeleniumUtil.waitWebElementSync);
 	}
 
@@ -41,7 +41,7 @@ public class RefereePage {
 			String occupation, String date,String signature) {
 		LOGGER.info("Inside fillingDataInReferencePage Method");
 		if (!("".equals(title))) {
-			SeleniumUtil.wait(5000);
+			SeleniumUtil.wait(1000);
 			if(!title.equals(SeleniumUtil.getWebElement(By.xpath(TITLE_XPATH)).getText().trim())){
 			SeleniumUtil.validateWebElementVisible(By.xpath(TITLE_XPATH), SeleniumUtil.waitWebElementSync);
 			SeleniumUtil.wait(1000);
@@ -67,10 +67,10 @@ public class RefereePage {
 		}
 
 		if (!("".equals(email))) {
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(EMAIL_ADDRESS_XPATH)).clear();
 			SeleniumUtil.getWebElement(By.xpath(EMAIL_ADDRESS_XPATH)).sendKeys(email);
-			SeleniumUtil.wait(3000);
+			SeleniumUtil.wait(1000);
 			SeleniumUtil.getWebElement(By.xpath(EMAIL_ADDRESS_XPATH)).click();
 			
 		}
@@ -98,7 +98,7 @@ public class RefereePage {
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_YEAR_XPATH), dobsplit[2], "selectByVisibleText");
 			SeleniumUtil.wait(1000);
 			SeleniumUtil.selectWebList(By.xpath(CALENDAR_MONTH_XPATH), dobsplit[1].substring(1), "SelectByvalue");
-			SeleniumUtil.wait(2000);
+			SeleniumUtil.wait(1000);
 			System.out.println("today date"+dobsplit[0]);
 			String futureDate=String.valueOf(Integer.parseInt(dobsplit[0])+1);
 			System.out.println("print Future date"+futureDate);
@@ -112,7 +112,7 @@ public class RefereePage {
 	}
 
 	public static String getErrorMessage() {
-		SeleniumUtil.wait(2000);
+		SeleniumUtil.wait(1000);
 		return SeleniumUtil.getWebElement(By.xpath(ERROR_MESSAGE_XPATH)).getText().trim();
 
 	}
