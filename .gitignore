@@ -3,5 +3,5 @@
 .settings
 .classpath
 .project
-
+/src/test/resources/ExtendReportSnap/*
 debug.log

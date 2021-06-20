@@ -30,7 +30,7 @@ import com.google.common.io.Files;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class SendMail {
+public class SendMail{
 
 	public static void main(String[] args) throws UnsupportedEncodingException {
 

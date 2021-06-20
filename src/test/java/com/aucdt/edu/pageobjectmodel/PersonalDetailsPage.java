@@ -91,8 +91,11 @@ public class PersonalDetailsPage {
 			System.out.println("************************************");
 			if (SeleniumUtil.getWebElement(By.xpath(IMAGE)).getAttribute("naturalWidth").equals("0"))
 		    {
-				Assert.assertTrue("Image is broken", false);
+				
 		        System.out.println(SeleniumUtil.getWebElement(By.xpath(IMAGE)).getAttribute("outerHTML") + " is broken.");
+		        Assert.assertTrue("Image is broken", false);
+		    }else {
+		    	System.out.println(SeleniumUtil.getWebElement(By.xpath(IMAGE)).getAttribute("outerHTML") + " is Not broken.");
 		    }
 			
 		

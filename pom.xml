@@ -61,8 +61,9 @@
 							<jsonFiles>
 								<jsonFile>**/cucumber.json</jsonFile>
 							</jsonFiles>
-							<testFailureIgnore>true</testFailureIgnore>
-							<buildSuccessOnTestFailure>true</buildSuccessOnTestFailure>
+						<!-- 	<testFailureIgnore>true</testFailureIgnore>
+							<buildSuccessOnTestFailure>true</buildSuccessOnTestFailure> -->
+							<checkBuildResult>false</checkBuildResult>
 						</configuration>
 					</execution>
 				</executions>
@@ -70,7 +71,8 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
+				<!-- <version>1.6.0</version> -->
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<id>first-execution</id>
@@ -80,7 +82,7 @@
 						</goals>
 						<configuration>
 							<classpathScope>test</classpathScope>
-							<mainClass>com.aucdt.edu.util.SendMail</mainClass>
+							<mainClass>com.aucdt.edu.util.SendEmail</mainClass>
 						</configuration>
 					</execution>
 				</executions>

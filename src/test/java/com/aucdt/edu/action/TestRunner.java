@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/featurefile/", tags = {
-		"@FemaleGhana" }, plugin = { "pretty", "html:target/cucumber-html-report",
+		"@Diploma" }, plugin = { "pretty", "html:target/cucumber-html-report",
 				"json:target/cucumber.json", "junit:target/cucumber.xml"
 				 }, glue = { "com.aucdt.edu" })
 
